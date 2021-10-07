@@ -8,9 +8,10 @@ import { Home } from '@/home';
 import { Profile } from '@/profile';
 import { Admin } from '@/admin';
 import { Account } from '@/account';
+import { Header } from '../_shared/header';
 
 function App() {
-    const { pathname } = useLocation();  
+    const { pathname } = useLocation();
     const [user, setUser] = useState({});
 
     useEffect(() => {
@@ -19,19 +20,20 @@ function App() {
     }, []);
 
     return (
-        <div className={'app-container' + (user && ' bg-light')}>
+        <div className={'app-container bg-grey ' + (user && ' bg-light')}>
             <Nav />
             <Alert />
             <Switch>
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
-                <PrivateRoute exact path="/" component={Home} />
+                {/* <PrivateRoute exact path="/" component={Home} /> */}
                 <PrivateRoute path="/profile" component={Profile} />
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
-                <Route path="/account" component={Account} />
+                <Route path="/home" component={Home} />
+                {/* <Route path="/account" component={Account} /> */}
                 <Redirect from="*" to="/" />
             </Switch>
         </div>
     );
 }
 
-export { App }; 
+export { App };

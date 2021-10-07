@@ -16,6 +16,30 @@ module.exports = {
                     { loader: 'css-loader' },
                     { loader: 'less-loader' }
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                /* Exclude fonts while working with images, e.g. .svg can be both image or font. */
+                exclude: path.resolve(__dirname, '../src/_assets/fonts'),
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
+                }]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
+                /* Exclude images while working with fonts, e.g. .svg can be both image or font. */
+                exclude: path.resolve(__dirname, '../src/assets/images'),
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    },
+                }]
             }
         ]
     },
