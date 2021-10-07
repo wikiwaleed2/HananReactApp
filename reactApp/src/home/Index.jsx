@@ -821,27 +821,25 @@ function Home() {
 
                 </section>
 
-                <section class="other sliderStyle1">
+                <section className="other sliderStyle1">
 
-                    <div class="container-fluid">
+                    <div className="container-fluid">
 
-                        <h1 class="headingStyle1">Other Compaigns</h1>
+                        <h1 className="headingStyle1">Other Compaigns</h1>
 
+                        <div className="card-head static-card-header">
 
+                            <h1 className="headingStyle5">win</h1>
 
-                        <div class="card-head static-card-header">
+                            <div className="box">
 
-                            <h1 class="headingStyle5">win</h1>
-
-                            <div class="box">
-
-                                <h5 class="sold-items">1</h5>
+                                <h5 className="sold-items">1</h5>
 
                                 <p>SOLD</p>
 
                                 <p>OUT OF</p>
 
-                                <h5 class="total-items">60</h5>
+                                <h5 className="total-items">60</h5>
 
                             </div>
 
@@ -849,314 +847,429 @@ function Home() {
 
 
 
-                        <div class="other-compaigns container">
+                        <div className="other-compaigns container">
 
-                            <div class="card">
+                            {(() => {
 
-                                <div class="card-head">
+                                let settings = {
+                                    infinite: true,
+                                    slidesToShow: 4,
+                                    slidesToScroll: 1,
+                                    autoplay: true,
+                                    arrows: false,
+                                    dots: true,
+                                    responsive: [
+                                        {
+                                            breakpoint: 767,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1,
+                                                arrows: true,
+                                                prevArrow: '.h-prev',
+                                                nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        }
 
-                                    <h1 class="headingStyle5">win</h1>
 
-                                    <div class="box">
+                                    ]
+                                }
 
-                                        <h5>1</h5>
-
-                                        <p>SOLD</p>
-
-                                        <p>OUT OF</p>
-
-                                        <h5>60</h5>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-img">
-
-                                    <div class="campaigns-card-overlay"></div>
-
-                                    <div class="card-cnt">
-
-                                        <h1>Maldives Trip</h1>
-
-                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                        <div class="btnStyle3">
-
-                                            <a href="#">Prize Details</a>
-
-                                            <a href="#">Product Details</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="btl-img">
-
-                                        <img src={bottle} alt="" />
-
-                                    </div>
-
-                                    <div class="card-icon">
-                                        <img src={shareIcon} alt="" />
-                                    </div>
-
-                                </div>
-
-                                <div class="card-footer">
-
-                                    <div>
+                                return (
+                                    <Slider {...settings}>
 
                                         <div>
+                                            <div className="card">
 
-                                            <p>Buy a water Bottle</p>
+                                                <div className="card-head">
 
-                                            <h3>AED 720.00</h3>
+                                                    <h1 className="headingStyle5">win</h1>
 
+                                                    <div className="box">
+
+                                                        <h5>1</h5>
+
+                                                        <p>SOLD</p>
+
+                                                        <p>OUT OF</p>
+
+                                                        <h5>60</h5>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-img">
+
+                                                    <div className="campaigns-card-overlay"></div>
+
+                                                    <div className="card-cnt">
+
+                                                        <h1>Maldives Trip</h1>
+
+                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+
+                                                        <div className="btnStyle3">
+
+                                                            <a href="#">Prize Details</a>
+
+                                                            <a href="#">Product Details</a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div className="btl-img">
+
+                                                        <img src={bottle} alt="" />
+
+                                                    </div>
+
+                                                    <div className="card-icon">
+                                                        <img src={shareIcon} alt="" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-footer">
+
+                                                    <div>
+
+                                                        <div>
+
+                                                            <p>Buy a water Bottle</p>
+
+                                                            <h3>AED 720.00</h3>
+
+                                                        </div>
+
+                                                        <a href="#" className="buy-now">Buy Now</a>
+
+                                                    </div>
+
+                                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
+
+                                                </div>
+
+                                            </div>
                                         </div>
-
-                                        <a href="#" class="buy-now">Buy Now</a>
-
-                                    </div>
-
-                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="card">
-
-                                <div class="card-head">
-
-                                    <h1 class="headingStyle5">win</h1>
-
-                                    <div class="box">
-
-                                        <h5>1</h5>
-
-                                        <p>SOLD</p>
-
-                                        <p>OUT OF</p>
-
-                                        <h5>60</h5>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-img">
-
-                                    <div class="campaigns-card-overlay"></div>
-
-                                    <div class="card-cnt">
-
-                                        <h1>Maldives Trip</h1>
-
-                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                        <div class="btnStyle3">
-
-                                            <a href="#">Prize Details</a>
-
-                                            <a href="#">Product Details</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="btl-img">
-
-                                        <img src={bottle} alt="" />
-
-                                    </div>
-
-                                    <div class="card-icon">
-
-                                        <img src={shareIcon} alt="" />
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-footer">
-
-                                    <div>
 
                                         <div>
+                                            <div className="card">
 
-                                            <p>Buy a water Bottle</p>
+                                                <div className="card-head">
 
-                                            <h3>AED 720.00</h3>
+                                                    <h1 className="headingStyle5">win</h1>
 
+                                                    <div className="box">
+
+                                                        <h5>1</h5>
+
+                                                        <p>SOLD</p>
+
+                                                        <p>OUT OF</p>
+
+                                                        <h5>60</h5>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-img">
+
+                                                    <div className="campaigns-card-overlay"></div>
+
+                                                    <div className="card-cnt">
+
+                                                        <h1>Maldives Trip</h1>
+
+                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+
+                                                        <div className="btnStyle3">
+
+                                                            <a href="#">Prize Details</a>
+
+                                                            <a href="#">Product Details</a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div className="btl-img">
+
+                                                        <img src={bottle} alt="" />
+
+                                                    </div>
+
+                                                    <div className="card-icon">
+                                                        <img src={shareIcon} alt="" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-footer">
+
+                                                    <div>
+
+                                                        <div>
+
+                                                            <p>Buy a water Bottle</p>
+
+                                                            <h3>AED 720.00</h3>
+
+                                                        </div>
+
+                                                        <a href="#" className="buy-now">Buy Now</a>
+
+                                                    </div>
+
+                                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
+
+                                                </div>
+
+                                            </div>
                                         </div>
-
-                                        <a href="#" class="buy-now">Buy Now</a>
-
-                                    </div>
-
-                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="card">
-
-                                <div class="card-head">
-
-                                    <h1 class="headingStyle5">win</h1>
-
-                                    <div class="box">
-
-                                        <h5>1</h5>
-
-                                        <p>SOLD</p>
-
-                                        <p>OUT OF</p>
-
-                                        <h5>60</h5>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-img">
-
-                                    <div class="campaigns-card-overlay"></div>
-
-                                    <div class="card-cnt">
-
-                                        <h1>Maldives Trip</h1>
-
-                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                        <div class="btnStyle3">
-
-                                            <a href="#">Prize Details</a>
-
-                                            <a href="#">Product Details</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="btl-img">
-
-                                        <img src={bottle} alt="" />
-                                    </div>
-
-                                    <div class="card-icon">
-
-                                    <img src={shareIcon} alt="" />
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-footer">
-
-                                    <div>
 
                                         <div>
+                                            <div className="card">
 
-                                            <p>Buy a water Bottle</p>
+                                                <div className="card-head">
 
-                                            <h3>AED 720.00</h3>
+                                                    <h1 className="headingStyle5">win</h1>
 
+                                                    <div className="box">
+
+                                                        <h5>1</h5>
+
+                                                        <p>SOLD</p>
+
+                                                        <p>OUT OF</p>
+
+                                                        <h5>60</h5>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-img">
+
+                                                    <div className="campaigns-card-overlay"></div>
+
+                                                    <div className="card-cnt">
+
+                                                        <h1>Maldives Trip</h1>
+
+                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+
+                                                        <div className="btnStyle3">
+
+                                                            <a href="#">Prize Details</a>
+
+                                                            <a href="#">Product Details</a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div className="btl-img">
+
+                                                        <img src={bottle} alt="" />
+
+                                                    </div>
+
+                                                    <div className="card-icon">
+                                                        <img src={shareIcon} alt="" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-footer">
+
+                                                    <div>
+
+                                                        <div>
+
+                                                            <p>Buy a water Bottle</p>
+
+                                                            <h3>AED 720.00</h3>
+
+                                                        </div>
+
+                                                        <a href="#" className="buy-now">Buy Now</a>
+
+                                                    </div>
+
+                                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
+
+                                                </div>
+
+                                            </div>
                                         </div>
-
-                                        <a href="#" class="buy-now">Buy Now</a>
-
-                                    </div>
-
-                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="card">
-
-                                <div class="card-head">
-
-                                    <h1 class="headingStyle5">win</h1>
-
-                                    <div class="box">
-
-                                        <h5>1</h5>
-
-                                        <p>SOLD</p>
-
-                                        <p>OUT OF</p>
-
-                                        <h5>60</h5>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-img">
-
-                                    <div class="campaigns-card-overlay"></div>
-
-                                    <div class="card-cnt">
-
-                                        <h1>Maldives Trip</h1>
-
-                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                        <div class="btnStyle3">
-
-                                            <a href="#">Prize Details</a>
-
-                                            <a href="#">Product Details</a>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="btl-img">
-
-                                    <img src={bottle} alt="" />
-
-                                    </div>
-
-                                    <div class="card-icon">
-
-                                    <img src={shareIcon} alt="" />
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-footer">
-
-                                    <div>
 
                                         <div>
+                                            <div className="card">
 
-                                            <p>Buy a water Bottle</p>
+                                                <div className="card-head">
 
-                                            <h3>AED 720.00</h3>
+                                                    <h1 className="headingStyle5">win</h1>
 
+                                                    <div className="box">
+
+                                                        <h5>1</h5>
+
+                                                        <p>SOLD</p>
+
+                                                        <p>OUT OF</p>
+
+                                                        <h5>60</h5>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-img">
+
+                                                    <div className="campaigns-card-overlay"></div>
+
+                                                    <div className="card-cnt">
+
+                                                        <h1>Maldives Trip</h1>
+
+                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+
+                                                        <div className="btnStyle3">
+
+                                                            <a href="#">Prize Details</a>
+
+                                                            <a href="#">Product Details</a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div className="btl-img">
+
+                                                        <img src={bottle} alt="" />
+
+                                                    </div>
+
+                                                    <div className="card-icon">
+                                                        <img src={shareIcon} alt="" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-footer">
+
+                                                    <div>
+
+                                                        <div>
+
+                                                            <p>Buy a water Bottle</p>
+
+                                                            <h3>AED 720.00</h3>
+
+                                                        </div>
+
+                                                        <a href="#" className="buy-now">Buy Now</a>
+
+                                                    </div>
+
+                                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
+
+                                                </div>
+
+                                            </div>
                                         </div>
 
-                                        <a href="#" class="buy-now">Buy Now</a>
+                                        <div>
+                                            <div className="card">
 
-                                    </div>
+                                                <div className="card-head">
 
-                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
+                                                    <h1 className="headingStyle5">win</h1>
 
-                                </div>
+                                                    <div className="box">
 
-                            </div>
+                                                        <h5>1</h5>
+
+                                                        <p>SOLD</p>
+
+                                                        <p>OUT OF</p>
+
+                                                        <h5>60</h5>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-img">
+
+                                                    <div className="campaigns-card-overlay"></div>
+
+                                                    <div className="card-cnt">
+
+                                                        <h1>Maldives Trip</h1>
+
+                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+
+                                                        <div className="btnStyle3">
+
+                                                            <a href="#">Prize Details</a>
+
+                                                            <a href="#">Product Details</a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div className="btl-img">
+
+                                                        <img src={bottle} alt="" />
+
+                                                    </div>
+
+                                                    <div className="card-icon">
+                                                        <img src={shareIcon} alt="" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="card-footer">
+
+                                                    <div>
+
+                                                        <div>
+
+                                                            <p>Buy a water Bottle</p>
+
+                                                            <h3>AED 720.00</h3>
+
+                                                        </div>
+
+                                                        <a href="#" className="buy-now">Buy Now</a>
+
+                                                    </div>
+
+                                                    <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        
+                                    </Slider>
+
+                                );
+
+                            })()}
 
                         </div>
 
 
 
-                        <div class="card-footer static-card-footer">
+                        <div className="card-footer static-card-footer">
 
                             <div>
 
@@ -1168,7 +1281,7 @@ function Home() {
 
                                 </div>
 
-                                <a href="#" class="buy-now">Buy Now</a>
+                                <a href="#" className="buy-now">Buy Now</a>
 
                             </div>
 
@@ -1178,19 +1291,19 @@ function Home() {
 
 
 
-                        <div class="arrow-prev other-compaigns-arrow-prev">
+                        <div className="arrow-prev other-compaigns-arrow-prev">
 
-                            <i class="fas fa-arrow-left"></i>
-
-                        </div>
-
-                        <div class="arrow-next other-compaigns-arrow-next">
-
-                            <i class="fas fa-arrow-right"></i>
+                            <i className="fas fa-arrow-left"></i>
 
                         </div>
 
-                        <div class="load-btn">
+                        <div className="arrow-next other-compaigns-arrow-next">
+
+                            <i className="fas fa-arrow-right"></i>
+
+                        </div>
+
+                        <div className="load-btn">
 
                             <a href="#"><strong>+</strong> Load more</a>
 
