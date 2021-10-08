@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
 import logo from '@/_assets/images/dream-maker-logo.svg';
+import profilePic from '@/_assets/images/blocked-profile.jpg';
+import bellIcon from '@/_assets/images/Bell.svg';
+import { Link } from "react-router-dom";
+import { getCookie } from '../../_services/cookies.service';
 
 function Header() {
     // const user = accountService.userValue;
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        // let token =  getCookie("token");
+        // setToken(token);
+        //  const subscription = accountService.user.subscribe(x => setUser(x));
+        //  console.log("user", user);
+        //  return subscription.unsubscribe;
+        if (!!localStorage.userDetails) {
+            setUser(JSON.parse(localStorage.userDetails));
+        }
+    }, []);
 
     return (
         // Navbar
@@ -23,7 +39,18 @@ function Header() {
                     </div>
                 </div>
                 <div className="login-btn navbar-nav">
-                    <a className="nav-link active" aria-current="page" href="#">Login/Sign-up</a>
+                    {!!user ?
+                        <>
+                            <p>Hi {user.firstName}</p>
+                            <img src={profilePic} className="profile-pic" />
+                            <img src={bellIcon} />
+                        </>
+                        : <Link to={{ pathname: `/account/login` }}>
+                            <a className="nav-link active" aria-current="page" href="#">Login/Sign-up</a>
+                        </Link>}
+
+
+
                 </div>
             </div>
         </nav>

@@ -2,6 +2,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import config from 'config';
 import { fetchWrapper, history } from '@/_helpers';
+import { setCookie } from './cookies.service';
 
 const userSubject = new BehaviorSubject(null);
 const baseUrl = `${config.apiUrl}/accounts`;
@@ -29,6 +30,8 @@ function login(email, password) {
         .then(user => {
             // publish user to subscribers and start timer to refresh token
             userSubject.next(user);
+            setCookie("token", user.jwtToken, 7);
+            localStorage.userDetails = JSON.stringify(user);
             startRefreshTokenTimer();
             return user;
         });

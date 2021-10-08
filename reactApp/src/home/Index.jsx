@@ -48,7 +48,7 @@ function Home() {
                         slidesToScroll: 1,
                         autoplay: true,
                         arrows: false,
-                        dots: true,
+                        dots: false,
                         responsive: [
                             {
                                 breakpoint: 767,
@@ -855,9 +855,9 @@ function Home() {
                                     infinite: true,
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
-                                    autoplay: true,
+                                    autoplay: false,
                                     arrows: false,
-                                    dots: true,
+                                    dots: false,
                                     responsive: [
                                         {
                                             breakpoint: 767,
