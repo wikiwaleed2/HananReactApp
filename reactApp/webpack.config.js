@@ -18,7 +18,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|gif|svg|mp4)$/i,
                 /* Exclude fonts while working with images, e.g. .svg can be both image or font. */
                 exclude: path.resolve(__dirname, '../src/_assets/fonts'),
                 use: [{
