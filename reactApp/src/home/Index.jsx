@@ -1,6 +1,5 @@
 import './index.less';
 import React, { useEffect, useState } from 'react';
-import ReactPlayer from "react-player";
 // import { accountService } from '@/_services';
 import { Header } from '../_shared/header/index.jsx';
 import sliderImg from '@/_assets/images/top-banner.svg';
@@ -22,14 +21,33 @@ import cashAlt from '@/_assets/images/cash-alt.svg';
 import calendar from '@/_assets/images/calendar.svg';
 import arrowIcon from '@/_assets/images/arrow-icon.svg';
 import playIcon from '@/_assets/images/play-solid.svg';
+import pauseIcon from '@/_assets/images/pause-solid.svg';
 import qouteIcon from '@/_assets/images/quote-left-solid.svg';
+// import pic4 from '@/_assets/images/sample-pic-4.jpg';
+import charity from '@/_assets/images/charity.jpg';
+import chevronPrev from '@/_assets/images/chevron-left.svg';
+import chevronNext from '@/_assets/images/chevron-right.svg';
+import heart from '@/_assets/images/heart.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
+
+import fb from '@/_assets/images/facebook-blue.png';
+import insta from '@/_assets/images/insta-blue.png';
+import linked from '@/_assets/images/linkedin-blue.png';
+import twitter from '@/_assets/images/twitter-blue.png';
+import dubaiEco from '@/_assets/images/dubai_eco.png';
+import footerLogo from '@/_assets/images/footer-logo.svg';
+import paymentOpt from '@/_assets/images/payment-opt.svg';
+
+import appstore from '@/_assets/images/appstore-icons.png';
+import playstore from '@/_assets/images/playstore-icons.png';
+
 import Slider from 'react-slick';
 
 function Home() {
     // const user = accountService.userValue;
 
     const [slideCounter, setSlideCounter] = useState('01');
+    const [isPlaying, setIsPlaying] = useState(false);
 
 
     let calculateSlideCounter = (currentSlide) => {
@@ -39,6 +57,12 @@ function Home() {
     }
 
     let playVideo = (id) => {
+        let video = document.getElementById(id);
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
 
     }
 
@@ -871,6 +895,26 @@ function Home() {
                                     dots: false,
                                     responsive: [
                                         {
+                                            breakpoint: 1501,
+                                            settings: {
+                                                slidesToShow: 3,
+                                                slidesToScroll: 1,
+                                                arrows: true,
+                                                // prevArrow: '.h-prev',
+                                                // nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1,
+                                                arrows: false,
+                                                dots: false
+                                            }
+                                        },
+                                        {
                                             breakpoint: 767,
                                             settings: {
                                                 slidesToShow: 2,
@@ -1366,6 +1410,26 @@ function Home() {
                                     dots: false,
                                     responsive: [
                                         {
+                                            breakpoint: 1501,
+                                            settings: {
+                                                slidesToShow: 3,
+                                                slidesToScroll: 1,
+                                                arrows: true,
+                                                // prevArrow: '.h-prev',
+                                                // nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1,
+                                                arrows: false,
+                                                dots: false
+                                            }
+                                        },
+                                        {
                                             breakpoint: 767,
                                             settings: {
                                                 slidesToShow: 2,
@@ -1847,6 +1911,26 @@ function Home() {
                                     dots: false,
                                     responsive: [
                                         {
+                                            breakpoint: 1501,
+                                            settings: {
+                                                slidesToShow: 3,
+                                                slidesToScroll: 1,
+                                                arrows: true,
+                                                // prevArrow: '.h-prev',
+                                                // nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1,
+                                                arrows: false,
+                                                dots: false
+                                            }
+                                        },
+                                        {
                                             breakpoint: 767,
                                             settings: {
                                                 slidesToShow: 2,
@@ -2308,6 +2392,26 @@ function Home() {
                                     dots: false,
                                     responsive: [
                                         {
+                                            breakpoint: 1501,
+                                            settings: {
+                                                slidesToShow: 3,
+                                                slidesToScroll: 1,
+                                                arrows: true,
+                                                // prevArrow: '.h-prev',
+                                                // nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1,
+                                                arrows: false,
+                                                dots: false
+                                            }
+                                        },
+                                        {
                                             breakpoint: 767,
                                             settings: {
                                                 slidesToShow: 2,
@@ -2683,6 +2787,26 @@ function Home() {
                                     dots: false,
                                     responsive: [
                                         {
+                                            breakpoint: 1501,
+                                            settings: {
+                                                slidesToShow: 3,
+                                                slidesToScroll: 1,
+                                                arrows: true,
+                                                // prevArrow: '.h-prev',
+                                                // nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1024,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1,
+                                                arrows: false,
+                                                dots: false
+                                            }
+                                        },
+                                        {
                                             breakpoint: 767,
                                             settings: {
                                                 slidesToShow: 2,
@@ -2711,33 +2835,17 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    {/* <button className="testimonialVideoPlayBtn custom-video-play-btn">
+                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-1")} data-play-video="#testimonial-video-1">
+                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
+                                                        <img src={playIcon} alt="video play button icon" className="play" />
+                                                    </button>
 
-                                                        <img src={playIcon} alt="video play button icon" />
 
-                                                    </button> */}
-
-                                                    <ReactPlayer
-                                                        url={dummyVideo}
-                                                        // width="100%"
-                                                        // height="500px"
-                                                        play
-                                                        playIcon={
-                                                            <button style={{zIndex:'10000', postion: 'absolute'}}>Play</button>
-                                                            // <button className="testimonialVideoPlayBtn custom-video-play-btn">
-
-                                                            //     <img src={playIcon} alt="video play button icon" />
-
-                                                            // </button>
-                                                            }
-                                                        // light="https://i.stack.imgur.com/zw9Iz.png"
-                                                    />
-
-                                                    {/* <video loop id="testimonial-video-1">
+                                                    <video loop id="testimonial-video-1">
 
                                                         <source src={dummyVideo} type="video/mp4" />
 
-                                                    </video> */}
+                                                    </video>
 
                                                 </div>
 
@@ -2769,11 +2877,11 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" data-play-video="#testimonial-video-2">
-
-                                                        <img src={playIcon} alt="video play button icon" />
-
+                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-2")} data-play-video="#testimonial-video-2">
+                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
+                                                        <img src={playIcon} alt="video play button icon" className="play" />
                                                     </button>
+
 
                                                     <video loop id="testimonial-video-2">
 
@@ -2811,10 +2919,9 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" data-play-video="#testimonial-video-3">
-
-                                                        <img src={playIcon} alt="video play button icon" />
-
+                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-3")} data-play-video="#testimonial-video-3">
+                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
+                                                        <img src={playIcon} alt="video play button icon" className="play" />
                                                     </button>
 
                                                     <video loop id="testimonial-video-3">
@@ -2853,10 +2960,9 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" data-play-video="#testimonial-video-4">
-
-                                                        <img src={playIcon} alt="video play button icon" />
-
+                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-4")} data-play-video="#testimonial-video-4">
+                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
+                                                        <img src={playIcon} alt="video play button icon" className="play" />
                                                     </button>
 
                                                     <video loop id="testimonial-video-4">
@@ -2895,10 +3001,10 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" data-play-video="#testimonial-video-5">
+                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-5")} data-play-video="#testimonial-video-5">
 
-                                                        <img src={playIcon} alt="video play button icon" />
-
+                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
+                                                        <img src={playIcon} alt="video play button icon" className="play" />
                                                     </button>
 
                                                     <video loop id="testimonial-video-5">
@@ -2948,14 +3054,317 @@ function Home() {
 
                 </section>
 
+                {/* Charity Partners */}
 
+                <section className="our-partner">
 
-                {/* <div className="p-4">
-                    <div className="container">
-                        <h1>Hi {user.firstName}!</h1>
-                        <p>You're logged in with React & JWT!!</p>
+                    <div className="container-fluid">
+
+                        <h1 className="headingStyle1 m-heading">Our Partner Charities</h1>
+
+                        <div className="charities ">
+
+                            {(() => {
+
+                                let settings = {
+                                    infinite: true,
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1,
+                                    autoplay: false,
+                                    // arrows: false,
+                                    nextArrow: <span className="arrow-next charity-next"><img src={chevronNext} alt="" /></span>,
+                                    prevArrow: <span className="arrow-prev charity-prev"><img src={chevronPrev} alt="" /></span>,
+                                    dots: false,
+                                    responsive: [
+                                        {
+                                            breakpoint: 767,
+                                            settings: {
+                                                slidesToShow: 1,
+                                                slidesToScroll: 1,
+                                                arrows: false,
+                                                // prevArrow: '.h-prev',
+                                                // nextArrow: '.h-next',
+                                                dots: false,
+                                            }
+                                        }
+
+                                    ]
+                                }
+
+                                return (
+
+                                    <Slider {...settings}>
+
+                                        <div>
+
+                                            <div className="image1">
+
+                                                <img src={charity} alt="" />
+
+                                                <div className="learn-more">
+
+                                                    <a href="#">Learn more</a>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div>
+
+                                            <div className="image1">
+
+                                                <img src={charity} alt="" />
+
+                                                <div className="learn-more">
+
+                                                    <a href="#">Learn more</a>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div>
+
+                                            <div className="image1">
+
+                                                <img src={charity} alt="" />
+
+                                                <div className="learn-more">
+
+                                                    <a href="#">Learn more</a>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </Slider>
+
+                                );
+
+                            })()}
+
+                        </div>
+
+                        {/* <div className="prev-arrow">
+
+                            <i className="fas fa-chevron-left"></i>
+
+                        </div>
+
+                        <div className="next-arrow">
+
+                            <i className="fas fa-chevron-right"></i>
+
+                        </div> */}
+
                     </div>
-                </div> */}
+
+                </section>
+
+                {/* NewsLetter */}
+
+                <section className="forms">
+
+                    <div className="container">
+
+                        {/* <div className="m-block m-img">
+
+                            <img className="" src="img/ad1.png" alt="" />
+
+                        </div> */}
+
+                        <div className="left text-center">
+
+                            <h5>Get Benefits Communication Tips, <br />eBooks & More!</h5>
+
+                            <div className="subscription-form">
+
+                                <input type="email" />
+
+                                <span>Email Address</span>
+
+                                <a href="#">Sign Up</a>
+
+                            </div>
+
+                        </div>
+
+                        <div className="right">
+
+                            <div className="heart">
+
+                                <img src={heart} alt="" />
+
+                            </div>
+
+                            <div className="heart-text m-none">
+                                <p>Thank you for playing Dream <br />Game and raising money for our <br />wonderful partner charities</p></div>
+
+                            <div className="heart-text m-block"><p>Thank you for playing Dream Game and raising money for our wonderful partner charities</p></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                {/* Footer */}
+                <section className="footer">
+
+                    <div className="container-fluid">
+
+                        <div className="flex">
+
+                            <div className="quick-links">
+
+                                <div className="image2">
+
+                                    <img src={footerLogo} alt="" />
+
+                                </div>
+
+                                <div className="mobile-icons">
+
+                                    <a href="https://www.linkedin.com/" target="_blank">
+                                        <img src={linked} alt="Linkedin" />
+
+                                    </a>
+
+                                    <a href="https://www.twitter.com/" target="_blank">
+                                        <img src={twitter} alt="Twitter" />
+
+                                    </a>
+
+                                    <a href="https://www.facebook.com/" target="_blank">
+                                        <img src={fb} alt="Facebook" />
+
+                                    </a>
+
+                                    <a href="https://www.instagram.com/" target="_blank">
+                                        <img src={insta} alt="Instagram" />
+
+                                    </a>
+
+                                </div>
+
+                                <h5 className="footerStyle">Quick links</h5>
+
+                                <ul className="links">
+
+                                    <li><a href="">About Dream Makers</a></li>
+
+                                    <li><a href="">My Account</a></li>
+
+                                    <li><a href="">Active Tickets</a></li>
+
+                                </ul>
+
+                            </div>
+
+                            <div className="customer-service">
+
+                                <h5 className="footerStyle">Customer Service</h5>
+
+                                <ul className="links">
+
+                                    <li><a href="">Contact Us</a></li>
+
+                                    <li><a href="">FAQ</a></li>
+
+                                    <li><a href="">How it Works</a></li>
+
+                                    <li><a href="">Charities</a></li>
+
+                                    <li><a href="">Campaign Draw Terms & Conditions</a></li>
+
+                                </ul>
+
+                                <div className="mb"></div>
+
+                                <h5 className="footerStyle m-none"><a href="">User Agreement</a></h5>
+
+                                <h5 className="footerStyle m-none"><a href="">Privacy Policy</a></h5>
+
+                            </div>
+
+                            <div className="footer-logo">
+
+                                {/* <h5>Regulated By</h5> */}
+                                <img src={dubaiEco} alt="" />
+
+                            </div>
+
+                            <div className="footer-icons">
+
+                                <div className="m-none footer-socials">
+
+                                    <a href="https://www.linkedin.com/" target="_blank">
+                                        <img src={linked} alt="Linkedin" />
+
+                                    </a>
+
+                                    <a href="https://www.twitter.com/" target="_blank">
+                                        <img src={twitter} alt="Twitter" />
+
+                                    </a>
+
+                                    <a href="https://www.facebook.com/" target="_blank">
+                                        <img src={fb} alt="Facebook" />
+
+                                    </a>
+
+                                    <a href="https://www.instagram.com/" target="_blank">
+                                        <img src={insta} alt="Instagram" />
+
+                                    </a>
+
+                                </div>
+
+                                <div className="mb"></div>
+
+                                <p>Download Dream Makers app for the ultimate <br />  shopping experience & seamless connectivity!</p>
+
+                                <div className="image3">
+
+                                    <img src={appstore} alt="" />
+                                    <img src={playstore} alt="" />
+
+                                </div>
+
+                                <div className=" m-block mt" style={{ textAlign: 'left' }}>
+
+                                    <h5 className="footerStyle m-block"><a href="">User Agreement</a></h5>
+
+                                    <h5 className="footerStyle m-block"><a href="">Privacy Policy</a></h5>
+
+                                </div>
+
+                                <div className="cards-text">
+
+                                    <span>We accept</span>
+
+                                    <img src={paymentOpt} alt="" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <p className="text-center">Dream Makers Dubai © 2021. All rights reserved.</p>
+
+                    </div>
+
+                </section>
+
+
+
             </section >
 
         </>
