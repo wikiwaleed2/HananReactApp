@@ -24,9 +24,21 @@
         position: absolute;
         bottom: 12%;
         left: 4%;
-        font-weight: 600;
+        font-weight: 400;
         display: flex;
         color: rgba(255, 255, 255, .5);
+
+        p:nth-child(1) {
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        p:nth-child(2) {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+        }
     }
 
     // .slide-counter {
@@ -36,6 +48,40 @@
     //         color: #fff;
     //     }
     // }
+
+    .carousel-cnt {
+        h1 {
+            font-weight: 800;
+            font-size: 5rem;
+            line-height: 1;
+            margin: 0;
+            text-transform: uppercase;
+
+        }
+
+        p {
+            text-transform: uppercase;
+            font-size: 30px;
+            line-height: 1;
+            font-weight: 400;
+        }
+    }
+
+    .btnStyle3 {
+        a {
+            display: inline-block;
+            background-color: #ffcf00;
+            padding: 7px 15px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 18px;
+            margin-right: 7px;
+            text-decoration: none;
+            color: #fff;
+            box-shadow: 0px 3px 7px 0px #0000009e;
+        }
+    }
 
     .line {
         position: absolute;
@@ -64,9 +110,13 @@
         .images {
             position: relative;
 
+            .c-overlay {
+                background: linear-gradient(90deg, #104a8ed6, #ffffff00 50%);
+            }
+
             .slider-img {
                 background-size: cover;
-                background-position: 100%;
+                background-position: 100% 75%;
                 background-repeat: no-repeat;
                 height: 600px;
                 width: 100%;
@@ -625,7 +675,7 @@
         text-transform: uppercase;
         color: #104a8e;
         margin-top: 30px;
-        font-weight: 700;
+        font-weight: 800;
         font-size: 68px;
     }
 
@@ -639,7 +689,7 @@
 
     .paraStyle1 {
         color: #104a8e;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 600;
     }
 
@@ -3678,7 +3728,7 @@
 
 @media screen and (max-width: 991px) {
 
-    .m-block{
+    .m-block {
         display: block !important;
     }
 
@@ -3686,8 +3736,8 @@
         display: none !important;
     }
 
-    .m-display {
-        display: flex !important;
+    .desktop-none {
+        display: none !important;
     }
 
     #how-it-works {
@@ -3746,6 +3796,29 @@
 
             .c-overlay {
                 background-image: linear-gradient(to top, rgba(16, 74, 142, 0.75), rgba(16, 74, 142, 0)) !important;
+            }
+        }
+    }
+
+    .home-slider {
+
+
+        .carousel-cnt {
+            bottom: 16%;
+            h1 {
+                font-size: 2rem;
+
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .btnStyle3 {
+            a {
+                
+                font-size: 15px;
             }
         }
     }
@@ -3948,46 +4021,46 @@
         }
     }
 
-    .our-partner{
-        .container-fluid{
+    .our-partner {
+        .container-fluid {
             padding: 0 !important;
         }
     }
 
-    .forms{
-        .left{
+    .forms {
+        .left {
             border: none;
         }
 
         .subscription-form {
             width: 76vw;
 
-            a{
+            a {
                 top: 26px;
             }
         }
 
-        .heart-text { 
-            p{
+        .heart-text {
+            p {
                 font-size: 17px;
             }
         }
     }
 
-    .footer{
+    .footer {
         background: #a8bdd6;
 
-        .mobile-icons{
-            a{
-                img{
+        .mobile-icons {
+            a {
+                img {
                     width: 40px;
                     height: 40px;
                 }
             }
         }
 
-        .footer-icons{
-            img{
+        .footer-icons {
+            img {
                 width: 150px;
             }
         }

@@ -133,7 +133,7 @@ function Home() {
                         slidesToScroll: 1,
                         autoplay: true,
                         arrows: false,
-                        dots: false,
+                        dots: true,
                         responsive: [
                             {
                                 breakpoint: 767,
@@ -698,7 +698,7 @@ function Home() {
 
                         {/* <!-- For Mobile --> */}
 
-                        <div className="row m-display">
+                        <div className="row m-block">
                             <div className="col-sm-12">
                                 <div className="card">
 
