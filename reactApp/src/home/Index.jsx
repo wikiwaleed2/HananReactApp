@@ -3505,7 +3505,7 @@ function Home() {
 
             {/* Mobile How it works */}
             {showModal && (
-                <div className="modal show d-block" id="worksModal">
+                <div className="modal show m-block" id="worksModal">
                     <div className="modal-dialog modal-dialog-centered modal-md" role="document">
                         <div className="modal-content">
                             <div className="modal-body">
