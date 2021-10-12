@@ -29,7 +29,6 @@ import chevronPrev from '@/_assets/images/chevron-left.svg';
 import chevronNext from '@/_assets/images/chevron-right.svg';
 import heart from '@/_assets/images/heart.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
-
 import fb from '@/_assets/images/facebook-blue.png';
 import insta from '@/_assets/images/insta-blue.png';
 import linked from '@/_assets/images/linkedin-blue.png';
@@ -37,18 +36,34 @@ import twitter from '@/_assets/images/twitter-blue.png';
 import dubaiEco from '@/_assets/images/dubai_eco.png';
 import footerLogo from '@/_assets/images/footer-logo.svg';
 import paymentOpt from '@/_assets/images/payment-opt.svg';
-
 import appstore from '@/_assets/images/appstore-icons.png';
 import playstore from '@/_assets/images/playstore-icons.png';
-
 import Slider from 'react-slick';
+import Wave from 'react-wavify';
+import styled, { keyframes } from 'styled-components';
+import { fadeOutUp } from 'react-animations';
+import { getCookie, setCookie } from '../_services/cookies.service';
+
+const fadeOutUpAnimation = keyframes`${fadeOutUp}`;
+const FadeOutUpDiv = styled.div`animation: 0.5s ${fadeOutUpAnimation};`;
 
 function Home() {
     // const user = accountService.userValue;
 
     const [slideCounter, setSlideCounter] = useState('01');
     const [isPlaying, setIsPlaying] = useState(false);
+    const [animateCounter, setAnimateCounter] = useState(true);
+    const [soldCount, setSoldCount] = useState(20);
+    const [showModal, setShowModal] = useState(false);
 
+    useEffect(() => {
+        let modal = getCookie("modal");
+        if (!modal) {
+            setCookie("modal", true, 7);
+            setShowModal(true)
+        }
+
+    }, [])
 
     let calculateSlideCounter = (currentSlide) => {
         // console.log(e, slick, currentSlide);
@@ -64,6 +79,43 @@ function Home() {
             video.pause();
         }
 
+    }
+
+    let startCount = (value) => {
+        console.log(value);
+        setAnimateCounter(value);
+        if (!value) {
+
+            let current = 1;
+            var startTime = new Date().getTime();
+            let counter = setInterval(() => {
+                current++;
+                // Update the contents of the element
+                setSoldCount(current)
+                if (current === 20) {
+                    setAnimateCounter(true);
+                    clearInterval(counter);
+                    return;
+                }
+
+                // if(new Date().getTime() - startTime > 2000){
+                //     // setSoldCount(20)
+                //     setAnimateCounter(true);
+                //     clearInterval(counter);
+                //     return;
+                // }
+
+
+                console.log(current);
+                // return current;
+            }, 300);
+
+            // return current;
+        }
+
+        // return () => {
+        //     clearInterval(counter);
+        // };
     }
 
     return (
@@ -104,11 +156,12 @@ function Home() {
 
 
                                 <Slider afterChange={(currentSlide) => calculateSlideCounter(currentSlide)} settings={settings}>
-                                    <div className="images">
+                                    <div className="images ">
 
                                         <div className="c-overlay"></div>
 
-                                        <img src={sliderImg} alt="" />
+                                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
+                                        {/* <img src={sliderImg} alt="" /> */}
 
                                         <div className="carousel-cnt">
 
@@ -131,7 +184,8 @@ function Home() {
 
                                         <div className="c-overlay"></div>
 
-                                        <img src={sliderImg} alt="" />
+                                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
+                                        {/* <img src={sliderImg} alt="" /> */}
 
                                         <div className="carousel-cnt">
 
@@ -154,7 +208,8 @@ function Home() {
 
                                         <div className="c-overlay"></div>
 
-                                        <img src={sliderImg} alt="" />
+                                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
+                                        {/* <img src={sliderImg} alt="" /> */}
 
                                         <div className="carousel-cnt">
 
@@ -206,7 +261,7 @@ function Home() {
                             </div>
 
 
-                            <div className="slide-counter">
+                            <div className="slide-counter m-none">
                                 <p id="currentslide">{slideCounter}</p>&nbsp;/&nbsp;
                                 <p id="totalslides">03</p>
 
@@ -222,7 +277,9 @@ function Home() {
                                 <img src={angleRight} />
                             </div>
 
-                            <span className="m-block">Swipe for more</span>
+                            <span className="m-block">
+                                Swipe for more
+                            </span>
 
                         </section>
                     );
@@ -230,7 +287,7 @@ function Home() {
                 })()}
 
                 {/* How it works */}
-                <section id="how-it-works" className="d-lg-flex d-md-flex d-sm-none">
+                <section id="how-it-works" className="">
                     <div className="works-item">
                         <div className="item-wrapper">
                             <img src={prizeIcon} />
@@ -287,7 +344,7 @@ function Home() {
 
                         <div className="row">
 
-                            <div className="col-md-6 col-sm-6">
+                            <div className="col-md-6 col-sm-12">
 
                                 <div className="left-ad-1">
 
@@ -297,7 +354,7 @@ function Home() {
 
                             </div>
 
-                            <div className="col-md-6 col-sm-6">
+                            <div className="col-md-6 m-none">
 
                                 <div className="right-ad-1 m-none">
 
@@ -321,7 +378,7 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <div className="win-card">
+                        <div className="win-card m-none">
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -401,7 +458,38 @@ function Home() {
 
                                 </div>
 
-                                <div className="progress-box">
+                                <div className="sold-counter" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                    <Wave fill='#eabe00'
+                                        id=""
+                                        paused={animateCounter}
+                                        options={{
+                                            height: 20,
+                                            amplitude: 20,
+                                            speed: 0.5,
+                                            points: 1
+                                        }}
+                                    />
+                                    <Wave fill='#ffcf00'
+                                        paused={animateCounter}
+                                        options={{
+                                            height: 40,
+                                            amplitude: 22,
+                                            speed: 0.7,
+                                            points: 1
+                                        }}
+                                    />
+
+                                    <FadeOutUpDiv>
+                                        <span className="sold-cnt">{soldCount}</span>
+                                    </FadeOutUpDiv>
+
+
+                                    <span className="text">Sold <br /> out of</span>
+
+                                    <span className="total-cnt">60</span>
+                                </div>
+
+                                {/* <div className="progress-box">
 
                                     <span>1</span>
 
@@ -409,13 +497,13 @@ function Home() {
 
                                     <span>60</span>
 
-                                </div>
+                                </div> */}
 
                             </div>
 
                         </div>
 
-                        <div className="win-card">
+                        <div className="win-card m-none">
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -512,7 +600,7 @@ function Home() {
 
                         </div>
 
-                        <div className="win-card">
+                        <div className="win-card m-none">
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -610,15 +698,54 @@ function Home() {
 
                         {/* <!-- For Mobile --> */}
 
-                        <div className="row d-none">
+                        <div className="row m-display">
                             <div className="col-sm-12">
                                 <div className="card">
 
                                     <div className="card-head">
 
-                                        <h1 className="headingStyle5">win</h1>
+                                        <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                        <div className="box">
+                                        <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                            <Wave fill='#eabe00'
+                                                id=""
+                                                paused={animateCounter}
+                                                options={{
+                                                    height: 20,
+                                                    amplitude: 20,
+                                                    speed: 0.5,
+                                                    points: 1
+                                                }}
+                                            />
+                                            <Wave fill='#ffcf00'
+                                                paused={animateCounter}
+                                                options={{
+                                                    height: 40,
+                                                    amplitude: 22,
+                                                    speed: 0.7,
+                                                    points: 1
+                                                }}
+                                            />
+
+                                            {/* <FadeOutUpDiv> */}
+                                            {/* <span className="sold-cnt">{soldCount}</span>
+                                            </FadeOutUpDiv>
+
+
+                                            <span className="text">Sold <br /> out of</span>
+
+                                            <span className="total-cnt">60</span> */}
+
+                                            <h5 className="sold-cnt">{soldCount}</h5>
+
+                                            <p>SOLD <br />
+                                                OUT OF
+                                            </p>
+
+                                            <h5 className="total-cnt">60</h5>
+                                        </div>
+
+                                        {/* <div className="box">
 
                                             <h5>1</h5>
 
@@ -628,7 +755,7 @@ function Home() {
 
                                             <h5>60</h5>
 
-                                        </div>
+                                        </div> */}
 
                                     </div>
 
@@ -680,7 +807,7 @@ function Home() {
 
                                         </div>
 
-                                        <p>Max draw date: December 02, 2021 or when the campaign <br />
+                                        <p>Max draw date: December 02, 2021 or when the campaign 
                                             is sold out. Which ever is earlier.</p>
 
                                     </div>
@@ -693,7 +820,7 @@ function Home() {
 
                                     <div className="card-head">
 
-                                        <h1 className="headingStyle5">win</h1>
+                                        <h1 className="headingStyle5 font-fancy">win</h1>
 
                                         <div className="box">
 
@@ -757,7 +884,7 @@ function Home() {
 
                                         </div>
 
-                                        <p>Max draw date: December 02, 2021 or when the campaign <br />
+                                        <p>Max draw date: December 02, 2021 or when the campaign 
                                             is sold out. Which ever is earlier.</p>
 
                                     </div>
@@ -770,7 +897,7 @@ function Home() {
 
                                     <div className="card-head">
 
-                                        <h1 className="headingStyle5">win</h1>
+                                        <h1 className="headingStyle5 font-fancy">win</h1>
 
                                         <div className="box">
 
@@ -834,7 +961,7 @@ function Home() {
 
                                         </div>
 
-                                        <p>Max draw date: December 02, 2021 or when the campaign <br />
+                                        <p>Max draw date: December 02, 2021 or when the campaign
                                             is sold out. Which ever is earlier.</p>
 
                                     </div>
@@ -862,7 +989,7 @@ function Home() {
 
                         <div className="card-head static-card-header">
 
-                            <h1 className="headingStyle5">win</h1>
+                            <h1 className="headingStyle5 font-fancy">win</h1>
 
                             <div className="box">
 
@@ -917,7 +1044,9 @@ function Home() {
                                         {
                                             breakpoint: 767,
                                             settings: {
-                                                slidesToShow: 2,
+                                                slidesToShow: 1,
+                                                centerMode: true,
+                                                centerPadding: '15%',
                                                 slidesToScroll: 1,
                                                 arrows: false,
                                                 // prevArrow: '.h-prev',
@@ -1377,7 +1506,7 @@ function Home() {
 
                         <div className="card-head static-card-header">
 
-                            <h1 className="headingStyle5">win</h1>
+                            <h1 className="headingStyle5 font-fancy">win</h1>
 
                             <div className="box">
 
@@ -1432,9 +1561,11 @@ function Home() {
                                         {
                                             breakpoint: 767,
                                             settings: {
-                                                slidesToShow: 2,
+                                                slidesToShow: 1,
                                                 slidesToScroll: 1,
                                                 arrows: false,
+                                                centerMode: true,
+                                                centerPadding: '15%',
                                                 // prevArrow: '.h-prev',
                                                 // nextArrow: '.h-next',
                                                 dots: false,
@@ -1878,7 +2009,7 @@ function Home() {
 
                         <div className="card-head static-card-header">
 
-                            <h1 className="headingStyle5">win</h1>
+                            <h1 className="headingStyle5 font-fancy">win</h1>
 
                             <div className="box">
 
@@ -1933,9 +2064,11 @@ function Home() {
                                         {
                                             breakpoint: 767,
                                             settings: {
-                                                slidesToShow: 2,
+                                                slidesToShow: 1,
                                                 slidesToScroll: 1,
                                                 arrows: false,
+                                                centerMode: true,
+                                                centerPadding: '15%',
                                                 // prevArrow: '.h-prev',
                                                 // nextArrow: '.h-next',
                                                 dots: false,
@@ -2414,9 +2547,11 @@ function Home() {
                                         {
                                             breakpoint: 767,
                                             settings: {
-                                                slidesToShow: 2,
+                                                slidesToShow: 1,
                                                 slidesToScroll: 1,
                                                 arrows: false,
+                                                centerMode: true,
+                                                centerPadding: '15%',
                                                 // prevArrow: '.h-prev',
                                                 // nextArrow: '.h-next',
                                                 dots: false,
@@ -2809,7 +2944,7 @@ function Home() {
                                         {
                                             breakpoint: 767,
                                             settings: {
-                                                slidesToShow: 2,
+                                                slidesToShow: 1,
                                                 slidesToScroll: 1,
                                                 arrows: false,
                                                 // prevArrow: '.h-prev',
@@ -3173,11 +3308,11 @@ function Home() {
 
                     <div className="container">
 
-                        {/* <div className="m-block m-img">
+                        <div className="m-block m-img">
 
-                            <img className="" src="img/ad1.png" alt="" />
+                            <img className="" src={appBanner} alt="" />
 
-                        </div> */}
+                        </div>
 
                         <div className="left text-center">
 
@@ -3231,23 +3366,23 @@ function Home() {
 
                                 <div className="mobile-icons">
 
-                                    <a href="https://www.linkedin.com/" target="_blank">
+                                    {/* <a href="https://www.linkedin.com/" target="_blank">
                                         <img src={linked} alt="Linkedin" />
 
-                                    </a>
+                                    </a> */}
 
                                     <a href="https://www.twitter.com/" target="_blank">
-                                        <img src={twitter} alt="Twitter" />
+                                        <img src={twitterIcon} alt="Twitter" />
 
                                     </a>
 
                                     <a href="https://www.facebook.com/" target="_blank">
-                                        <img src={fb} alt="Facebook" />
+                                        <img src={facebookIcon} alt="Facebook" />
 
                                     </a>
 
                                     <a href="https://www.instagram.com/" target="_blank">
-                                        <img src={insta} alt="Instagram" />
+                                        <img src={instaIcon} alt="Instagram" />
 
                                     </a>
 
@@ -3366,6 +3501,74 @@ function Home() {
 
 
             </section >
+
+
+            {/* Mobile How it works */}
+            {showModal && (
+                <div className="modal show d-block" id="worksModal">
+                    <div className="modal-dialog modal-dialog-centered modal-md" role="document">
+                        <div className="modal-content">
+                            <div className="modal-body">
+
+                                <div className="header-box">
+                                    <h4 className="title">HOW IT WORKS</h4>
+                                    <h4 className="cross" onClick={() => setShowModal(false)}>&times;</h4>
+                                </div>
+
+
+                                <div className="works-item">
+                                    <div className="item-wrapper">
+                                        <img src={prizeIcon} />
+                                        <span className="text-box">
+                                            <h3 className="number-text">1.</h3>
+                                            <h3 className="para-text">
+                                                SELECT THE PRIZE YOU<br />
+                                                WANT TO WIN <br />
+                                                <span>from our website</span>
+                                            </h3>
+                                        </span>
+                                    </div>
+                                    <div className="separator-icon">
+                                        <img src={separatorIcon} />
+                                    </div>
+
+                                </div>
+                                <div className="works-item">
+                                    <div className="item-wrapper">
+                                        <img src={couponIcon} />
+                                        <span className="text-box">
+                                            <h3 className="number-text">2.</h3>
+                                            <h3 className="para-text">
+                                                BUY THE PRODUCT TO GET<br />
+                                                COMPLIMENTARY ENTRY <br />
+                                                <span>for a chance to win amazing prizes</span>
+                                            </h3>
+                                        </span>
+                                    </div>
+                                    <div className="separator-icon">
+                                        <img src={separatorIcon} />
+                                    </div>
+                                </div>
+                                <div className="works-item">
+                                    <div className="item-wrapper">
+                                        <img src={camIcon} />
+                                        <span className="text-box">
+                                            <h3 className="number-text">3.</h3>
+                                            <h3 className="para-text">
+                                                WAIT FOR LIVE DRAW<br />
+                                                <span>winner will be announced <br />
+                                                    during live draw
+                                                </span>
+                                            </h3>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </>
     );
