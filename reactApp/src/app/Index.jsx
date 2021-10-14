@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect, BrowserRouter, useLocation } from 'react-router-dom';
+import { Route, Switch, Redirect, BrowserRouter, useLocation,Router } from 'react-router-dom';
 
 import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
 import { Nav, PrivateRoute, Alert } from '@/_components';
 import { Home } from '@/home';
+import { Price } from '../pages/price/price';
 import { Profile } from '@/profile';
 import { Admin } from '@/admin';
 import { Account } from '@/account';
 import { Header } from '../_shared/header';
 import { getCookie } from '../_services/cookies.service';
+import {Footer} from '../_components/Footer/Footer';
 
 function App() {
     const { pathname } = useLocation();
@@ -25,7 +27,7 @@ function App() {
 
     return (
         <BrowserRouter>
-
+            <Header />
             <Switch>
                 
                 <Route exact path="/account/login">
@@ -36,12 +38,17 @@ function App() {
                     <Home></Home>
                 </Route>
 
+                <Route exact path="/price">
+                    <Price></Price>
+                </Route>
+
                 <Route exact path="/home">
                     <Home></Home>
                 </Route>
 
 
             </Switch>
+            <Footer />
         </BrowserRouter>
         // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
         //     <Nav />

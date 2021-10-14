@@ -29,15 +29,6 @@ import chevronPrev from '@/_assets/images/chevron-left.svg';
 import chevronNext from '@/_assets/images/chevron-right.svg';
 import heart from '@/_assets/images/heart.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
-import fb from '@/_assets/images/facebook-blue.png';
-import insta from '@/_assets/images/insta-blue.png';
-import linked from '@/_assets/images/linkedin-blue.png';
-import twitter from '@/_assets/images/twitter-blue.png';
-import dubaiEco from '@/_assets/images/dubai_eco.png';
-import footerLogo from '@/_assets/images/footer-logo.svg';
-import paymentOpt from '@/_assets/images/payment-opt.svg';
-import appstore from '@/_assets/images/appstore-icons.png';
-import playstore from '@/_assets/images/playstore-icons.png';
 import Slider from 'react-slick';
 import Wave from 'react-wavify';
 import styled, { keyframes } from 'styled-components';
@@ -53,7 +44,7 @@ function Home() {
     const [slideCounter, setSlideCounter] = useState('01');
     const [isPlaying, setIsPlaying] = useState(false);
     const [animateCounter, setAnimateCounter] = useState(true);
-    const [soldCount, setSoldCount] = useState(20);
+    const [soldCount, setSoldCount] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -108,7 +99,7 @@ function Home() {
 
                 console.log(current);
                 // return current;
-            }, 300);
+            }, 300  );
 
             // return current;
         }
@@ -121,7 +112,6 @@ function Home() {
     return (
         <>
 
-            <Header></Header>
 
             <section className="home-page">
 
@@ -133,7 +123,7 @@ function Home() {
                         slidesToScroll: 1,
                         autoplay: true,
                         arrows: false,
-                        dots: true,
+                        dots: false,
                         responsive: [
                             {
                                 breakpoint: 767,
@@ -148,7 +138,7 @@ function Home() {
                             }
                         ]
                     }
-
+                    console.log(soldCount,"======")
                     return (
                         <section className="carousel-section home-slider">
 
@@ -378,7 +368,7 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <div className="win-card m-none">
+                        <div className="win-card m-none" onClick={() => startCount(false)}>
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -458,26 +448,34 @@ function Home() {
 
                                 </div>
 
-                                <div className="sold-counter" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                <div className="sold-counter" id="counter-1">
                                     <Wave fill='#eabe00'
                                         id=""
-                                        paused={animateCounter}
+                                        // paused={animateCounter}
                                         options={{
-                                            height: 20,
-                                            amplitude: 20,
+                                            height:  soldCount === 0 ? 140 : 140-(140*(soldCount/60)),
                                             speed: 0.5,
                                             points: 1
                                         }}
                                     />
-                                    <Wave fill='#ffcf00'
+                                     <Wave fill='#ffcf00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height: soldCount === 0 ? 140 : 140-(140*(soldCount/60)),
+                                            speed: 0.5,
+                                            points: 2
+                                        }}
+                                    />
+                                    {/* <Wave fill='#ffcf00'
                                         paused={animateCounter}
                                         options={{
-                                            height: 40,
-                                            amplitude: 22,
+                                            height: soldCount+20,
+                                            // amplitude: 22,
                                             speed: 0.7,
                                             points: 1
                                         }}
-                                    />
+                                    /> */}
 
                                     <FadeOutUpDiv>
                                         <span className="sold-cnt">{soldCount}</span>
@@ -707,34 +705,33 @@ function Home() {
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
                                         <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
-                                            <Wave fill='#eabe00'
-                                                id=""
-                                                paused={animateCounter}
-                                                options={{
-                                                    height: 20,
-                                                    amplitude: 20,
-                                                    speed: 0.5,
-                                                    points: 1
-                                                }}
-                                            />
-                                            <Wave fill='#ffcf00'
-                                                paused={animateCounter}
-                                                options={{
-                                                    height: 40,
-                                                    amplitude: 22,
-                                                    speed: 0.7,
-                                                    points: 1
-                                                }}
-                                            />
+                                        <Wave fill='#eabe00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height:  soldCount === 0 ? 70 : 70-(70*(soldCount/60)),
+                                            speed: 0.5,
+                                            points: 1
+                                        }}
+                                    />
+                                     <Wave fill='#ffcf00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height: soldCount === 0 ? 70 : 70-(70*(soldCount/60)),
+                                            speed: 0.5,
+                                            points: 2
+                                        }}
+                                    />
 
-                                            {/* <FadeOutUpDiv> */}
-                                            {/* <span className="sold-cnt">{soldCount}</span>
+                                            <FadeOutUpDiv>
+                                            <span className="sold-cnt">{soldCount}</span>
                                             </FadeOutUpDiv>
 
 
                                             <span className="text">Sold <br /> out of</span>
 
-                                            <span className="total-cnt">60</span> */}
+                                            <span className="total-cnt">60</span>
 
                                             <h5 className="sold-cnt">{soldCount}</h5>
 
@@ -3348,157 +3345,6 @@ function Home() {
                     </div>
 
                 </section>
-
-                {/* Footer */}
-                <section className="footer">
-
-                    <div className="container-fluid">
-
-                        <div className="flex">
-
-                            <div className="quick-links">
-
-                                <div className="image2">
-
-                                    <img src={footerLogo} alt="" />
-
-                                </div>
-
-                                <div className="mobile-icons">
-
-                                    {/* <a href="https://www.linkedin.com/" target="_blank">
-                                        <img src={linked} alt="Linkedin" />
-
-                                    </a> */}
-
-                                    <a href="https://www.twitter.com/" target="_blank">
-                                        <img src={twitterIcon} alt="Twitter" />
-
-                                    </a>
-
-                                    <a href="https://www.facebook.com/" target="_blank">
-                                        <img src={facebookIcon} alt="Facebook" />
-
-                                    </a>
-
-                                    <a href="https://www.instagram.com/" target="_blank">
-                                        <img src={instaIcon} alt="Instagram" />
-
-                                    </a>
-
-                                </div>
-
-                                <h5 className="footerStyle">Quick links</h5>
-
-                                <ul className="links">
-
-                                    <li><a href="">About Dream Makers</a></li>
-
-                                    <li><a href="">My Account</a></li>
-
-                                    <li><a href="">Active Tickets</a></li>
-
-                                </ul>
-
-                            </div>
-
-                            <div className="customer-service">
-
-                                <h5 className="footerStyle">Customer Service</h5>
-
-                                <ul className="links">
-
-                                    <li><a href="">Contact Us</a></li>
-
-                                    <li><a href="">FAQ</a></li>
-
-                                    <li><a href="">How it Works</a></li>
-
-                                    <li><a href="">Charities</a></li>
-
-                                    <li><a href="">Campaign Draw Terms & Conditions</a></li>
-
-                                </ul>
-
-                                <div className="mb"></div>
-
-                                <h5 className="footerStyle m-none"><a href="">User Agreement</a></h5>
-
-                                <h5 className="footerStyle m-none"><a href="">Privacy Policy</a></h5>
-
-                            </div>
-
-                            <div className="footer-logo">
-
-                                {/* <h5>Regulated By</h5> */}
-                                <img src={dubaiEco} alt="" />
-
-                            </div>
-
-                            <div className="footer-icons">
-
-                                <div className="m-none footer-socials">
-
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <img src={linked} alt="Linkedin" />
-
-                                    </a>
-
-                                    <a href="https://www.twitter.com/" target="_blank">
-                                        <img src={twitter} alt="Twitter" />
-
-                                    </a>
-
-                                    <a href="https://www.facebook.com/" target="_blank">
-                                        <img src={fb} alt="Facebook" />
-
-                                    </a>
-
-                                    <a href="https://www.instagram.com/" target="_blank">
-                                        <img src={insta} alt="Instagram" />
-
-                                    </a>
-
-                                </div>
-
-                                <div className="mb"></div>
-
-                                <p>Download Dream Makers app for the ultimate <br />  shopping experience & seamless connectivity!</p>
-
-                                <div className="image3">
-
-                                    <img src={appstore} alt="" />
-                                    <img src={playstore} alt="" />
-
-                                </div>
-
-                                <div className=" m-block mt" style={{ textAlign: 'left' }}>
-
-                                    <h5 className="footerStyle m-block"><a href="">User Agreement</a></h5>
-
-                                    <h5 className="footerStyle m-block"><a href="">Privacy Policy</a></h5>
-
-                                </div>
-
-                                <div className="cards-text">
-
-                                    <span>We accept</span>
-
-                                    <img src={paymentOpt} alt="" />
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <p className="text-center">Dream Makers Dubai © 2021. All rights reserved.</p>
-
-                    </div>
-
-                </section>
-
-
 
             </section >
 
