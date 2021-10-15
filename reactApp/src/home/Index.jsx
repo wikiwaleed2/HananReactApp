@@ -99,7 +99,7 @@ function Home() {
 
                 console.log(current);
                 // return current;
-            }, 300  );
+            }, 300);
 
             // return current;
         }
@@ -138,7 +138,6 @@ function Home() {
                             }
                         ]
                     }
-                    console.log(soldCount,"======")
                     return (
                         <section className="carousel-section home-slider">
 
@@ -453,16 +452,16 @@ function Home() {
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height:  soldCount === 0 ? 140 : 140-(140*(soldCount/60)),
+                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
                                             speed: 0.5,
                                             points: 1
                                         }}
                                     />
-                                     <Wave fill='#ffcf00'
+                                    <Wave fill='#ffcf00'
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140-(140*(soldCount/60)),
+                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
                                             speed: 0.5,
                                             points: 2
                                         }}
@@ -584,7 +583,46 @@ function Home() {
 
                                 </div>
 
-                                <div className="progress-box">
+                                <div className="sold-counter" id="counter-1">
+                                    <Wave fill='#eabe00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            speed: 0.5,
+                                            points: 1
+                                        }}
+                                    />
+                                    <Wave fill='#ffcf00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            speed: 0.5,
+                                            points: 2
+                                        }}
+                                    />
+                                    {/* <Wave fill='#ffcf00'
+                                        paused={animateCounter}
+                                        options={{
+                                            height: soldCount+20,
+                                            // amplitude: 22,
+                                            speed: 0.7,
+                                            points: 1
+                                        }}
+                                    /> */}
+
+                                    <FadeOutUpDiv>
+                                        <span className="sold-cnt">{soldCount}</span>
+                                    </FadeOutUpDiv>
+
+
+                                    <span className="text">Sold <br /> out of</span>
+
+                                    <span className="total-cnt">60</span>
+                                </div>
+
+                                {/* <div className="progress-box">
 
                                     <span>1</span>
 
@@ -592,7 +630,7 @@ function Home() {
 
                                     <span>60</span>
 
-                                </div>
+                                </div> */}
 
                             </div>
 
@@ -678,7 +716,46 @@ function Home() {
 
                                 </div>
 
-                                <div className="progress-box">
+                                <div className="sold-counter" id="counter-1">
+                                    <Wave fill='#eabe00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            speed: 0.5,
+                                            points: 1
+                                        }}
+                                    />
+                                    <Wave fill='#ffcf00'
+                                        id=""
+                                        // paused={animateCounter}
+                                        options={{
+                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            speed: 0.5,
+                                            points: 2
+                                        }}
+                                    />
+                                    {/* <Wave fill='#ffcf00'
+                                        paused={animateCounter}
+                                        options={{
+                                            height: soldCount+20,
+                                            // amplitude: 22,
+                                            speed: 0.7,
+                                            points: 1
+                                        }}
+                                    /> */}
+
+                                    <FadeOutUpDiv>
+                                        <span className="sold-cnt">{soldCount}</span>
+                                    </FadeOutUpDiv>
+
+
+                                    <span className="text">Sold <br /> out of</span>
+
+                                    <span className="total-cnt">60</span>
+                                </div>
+
+                                {/* <div className="progress-box">
 
                                     <span>1</span>
 
@@ -686,7 +763,7 @@ function Home() {
 
                                     <span>60</span>
 
-                                </div>
+                                </div> */}
 
                             </div>
 
@@ -705,27 +782,27 @@ function Home() {
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
                                         <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
-                                        <Wave fill='#eabe00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height:  soldCount === 0 ? 70 : 70-(70*(soldCount/60)),
-                                            speed: 0.5,
-                                            points: 1
-                                        }}
-                                    />
-                                     <Wave fill='#ffcf00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount === 0 ? 70 : 70-(70*(soldCount/60)),
-                                            speed: 0.5,
-                                            points: 2
-                                        }}
-                                    />
+                                            <Wave fill='#eabe00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 1
+                                                }}
+                                            />
+                                            <Wave fill='#ffcf00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 2
+                                                }}
+                                            />
 
                                             <FadeOutUpDiv>
-                                            <span className="sold-cnt">{soldCount}</span>
+                                                <span className="sold-cnt">{soldCount}</span>
                                             </FadeOutUpDiv>
 
 
@@ -804,7 +881,7 @@ function Home() {
 
                                         </div>
 
-                                        <p>Max draw date: December 02, 2021 or when the campaign 
+                                        <p>Max draw date: December 02, 2021 or when the campaign
                                             is sold out. Which ever is earlier.</p>
 
                                     </div>
@@ -819,7 +896,45 @@ function Home() {
 
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                        <div className="box">
+                                        <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                            <Wave fill='#eabe00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 1
+                                                }}
+                                            />
+                                            <Wave fill='#ffcf00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 2
+                                                }}
+                                            />
+
+                                            <FadeOutUpDiv>
+                                                <span className="sold-cnt">{soldCount}</span>
+                                            </FadeOutUpDiv>
+
+
+                                            <span className="text">Sold <br /> out of</span>
+
+                                            <span className="total-cnt">60</span>
+
+                                            <h5 className="sold-cnt">{soldCount}</h5>
+
+                                            <p>SOLD <br />
+                                                OUT OF
+                                            </p>
+
+                                            <h5 className="total-cnt">60</h5>
+                                        </div>
+
+                                        {/* <div className="box">
 
                                             <h5>1</h5>
 
@@ -829,7 +944,7 @@ function Home() {
 
                                             <h5>60</h5>
 
-                                        </div>
+                                        </div> */}
 
                                     </div>
 
@@ -881,7 +996,7 @@ function Home() {
 
                                         </div>
 
-                                        <p>Max draw date: December 02, 2021 or when the campaign 
+                                        <p>Max draw date: December 02, 2021 or when the campaign
                                             is sold out. Which ever is earlier.</p>
 
                                     </div>
@@ -896,7 +1011,45 @@ function Home() {
 
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                        <div className="box">
+                                        <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                            <Wave fill='#eabe00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 1
+                                                }}
+                                            />
+                                            <Wave fill='#ffcf00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 2
+                                                }}
+                                            />
+
+                                            <FadeOutUpDiv>
+                                                <span className="sold-cnt">{soldCount}</span>
+                                            </FadeOutUpDiv>
+
+
+                                            <span className="text">Sold <br /> out of</span>
+
+                                            <span className="total-cnt">60</span>
+
+                                            <h5 className="sold-cnt">{soldCount}</h5>
+
+                                            <p>SOLD <br />
+                                                OUT OF
+                                            </p>
+
+                                            <h5 className="total-cnt">60</h5>
+                                        </div>
+
+                                        {/* <div className="box">
 
                                             <h5>1</h5>
 
@@ -906,7 +1059,7 @@ function Home() {
 
                                             <h5>60</h5>
 
-                                        </div>
+                                        </div> */}
 
                                     </div>
 
@@ -988,7 +1141,44 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="box">
+                            <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                            <Wave fill='#eabe00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 1
+                                                }}
+                                            />
+                                            <Wave fill='#ffcf00'
+                                                id=""
+                                                // paused={animateCounter}
+                                                options={{
+                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    speed: 0.5,
+                                                    points: 2
+                                                }}
+                                            />
+
+                                            <FadeOutUpDiv>
+                                                <span className="sold-cnt">{soldCount}</span>
+                                            </FadeOutUpDiv>
+
+
+                                            <span className="text">Sold <br /> out of</span>
+
+                                            <span className="total-cnt">60</span>
+
+                                            <h5 className="sold-cnt">{soldCount}</h5>
+
+                                            <p>SOLD <br />
+                                                OUT OF
+                                            </p>
+
+                                            <h5 className="total-cnt">60</h5>
+                                        </div>
+                            {/* <div className="box">
 
                                 <h5 className="sold-items">1</h5>
 
@@ -998,7 +1188,7 @@ function Home() {
 
                                 <h5 className="total-items">60</h5>
 
-                            </div>
+                            </div> */}
 
                         </div>
 

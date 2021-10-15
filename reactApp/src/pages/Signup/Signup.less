@@ -1,0 +1,66 @@
+.SignupForm {
+    margin-top: 30px;
+
+    .nav-pills {
+        justify-content: space-between;
+        .nav-item {
+            width: 49%;
+            text-align: center;
+
+            &:first-child {
+                .nav-link {
+                    border-top-right-radius: 0px;
+                    border-top-left-radius: 8px;
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                }
+            }
+
+            &:nth-child(2) {
+                .nav-link {
+                    border-top-right-radius: 8px;
+                    border-top-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                }
+            }
+
+            .nav-link {
+                opacity: 0.3;
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            .nav-link.active {
+                opacity: 1;
+            }
+
+            a {
+                font-weight: 500;
+                font-size: 18px;
+            }
+        }
+    }
+    .formCont {
+        .subscription-form {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+            width: 100%;
+            input {
+               height: 40px;
+            }
+            span {
+                background-color: white;
+                position: absolute;
+                left: 20px;
+                top: -6px;
+                font-size: 10px;
+                padding: 0px 6px;
+                color: rgb(57 57 57 / 67%);
+            
+            }
+        }
+    }
+    
+}

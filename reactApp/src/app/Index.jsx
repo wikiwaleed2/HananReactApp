@@ -6,6 +6,7 @@ import { accountService } from '@/_services';
 import { Nav, PrivateRoute, Alert } from '@/_components';
 import { Home } from '@/home';
 import { Price } from '../pages/price/price';
+import { Signup } from '../pages/Signup/Signup';
 import { Profile } from '@/profile';
 import { Admin } from '@/admin';
 import { Account } from '@/account';
@@ -40,6 +41,9 @@ function App() {
 
                 <Route exact path="/price">
                     <Price></Price>
+                </Route>
+                <Route exact path="/signup">
+                    <Signup />
                 </Route>
 
                 <Route exact path="/home">
