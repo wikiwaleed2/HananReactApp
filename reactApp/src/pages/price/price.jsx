@@ -15,6 +15,7 @@ import TabsImg from "../../_assets/images/tabsImg.png";
 import TabsImg2 from "../../_assets/images/tabsImg2.png";
 import Slider from 'react-slick';
 import { SilderComponent } from '../../_components/silder/silder';
+import {PriceSlider} from '../../_components/PriceSlider/PriceSlider';
 
 
 function Price() {
@@ -261,40 +262,7 @@ function Price() {
                                     </div>
                                 </div>
                                 {/* Slider */}
-                                <div>
-                                    <Slider className="priceSlider" {...settings}>
-                                        <div>
-                                            <img className="img-fluid" src={sliderImg} />
-                                        </div>
-                                        <div>
-                                            <img className="img-fluid" src={sliderImg} />
-                                        </div>
-                                        <div>
-                                            <img className="img-fluid" src={sliderImg} />
-                                        </div>
-                                        <div>
-                                            <img className="img-fluid" src={sliderImg} />
-                                        </div>
-                                        <div>
-                                            <img className="img-fluid" src={sliderImg} />
-                                        </div>
-                                        <div>
-                                            <img className="img-fluid" src={sliderImg} />
-                                        </div>
-                                    </Slider>
-                                    <div className="swipe">
-                                        <div className="s-prev">
-                                            <img src={angleLeft} />
-                                        </div>
-                                        <span className="m-block">
-                                            Swipe for more
-                                        </span>
-                                        <div className="s-next">
-                                            <img src={angleRight} />
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <PriceSlider />
                                 {/* Slider */}
                             </div>
                         </div>

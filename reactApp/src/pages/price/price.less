@@ -208,13 +208,16 @@
 
 .priceMainMobile {
     display: none;
+    .ads-section-1 {
+        display: none;
+    }
     .price-slider {
         position: relative;
 
         .swipe {
             position: absolute;
             z-index: 1;
-            bottom: 20px;
+            margin-top: 360px;
             right: 30px;
             display: flex;
             align-items: center;
@@ -282,8 +285,7 @@
             }
 
             .slick-next,
-            .slick-prev,
-            .slick-dots {
+            .slick-prev {
                 display: none !important;
             }
         }
