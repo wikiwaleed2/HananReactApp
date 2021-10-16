@@ -4252,8 +4252,8 @@ function Home() {
                     </div>
                 </div>
             )}
-<Message />,
-      <MessageContainer />,
+			{/* <Message />,
+			 <MessageContainer />, */}
         </>
     );
 }
