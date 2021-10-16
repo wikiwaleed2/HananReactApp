@@ -49,6 +49,28 @@ function Home() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [animateCounter, setAnimateCounter] = useState(true);
     const [soldCount, setSoldCount] = useState(0);
+    const [soldCount1, setSoldCount1] = useState(0);
+    const [soldCount2, setSoldCount2] = useState(0);
+    const [soldCount3, setSoldCount3] = useState(0);
+    const [soldCount4, setSoldCount4] = useState(0);
+    const [soldCount5, setSoldCount5] = useState(0);
+    const [soldCount6, setSoldCount6] = useState(0);
+    const [soldCount7, setSoldCount7] = useState(0);
+    const [soldCount8, setSoldCount8] = useState(0);
+    const [soldCount9, setSoldCount9] = useState(0);
+    const [soldCount10, setSoldCount10] = useState(0);
+    const [soldCount11, setSoldCount11] = useState(0);
+    const [soldCount12, setSoldCount12] = useState(0);
+    const [soldCount13, setSoldCount13] = useState(0);
+    const [soldCount14, setSoldCount14] = useState(0);
+    const [soldCount15, setSoldCount15] = useState(0);
+    const [soldCount16, setSoldCount16] = useState(0);
+    const [soldCount17, setSoldCount17] = useState(0);
+    const [soldCount18, setSoldCount18] = useState(0);
+    const [soldCount19, setSoldCount19] = useState(0);
+    const [soldCount20, setSoldCount20] = useState(0);
+    const [soldCount21, setSoldCount21] = useState(0);
+    const [soldCount22, setSoldCount22] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -76,37 +98,425 @@ function Home() {
 
     }
 
-    let startCount = (value) => {
-        console.log(value);
-        setAnimateCounter(value);
-        if (!value) {
+    let startCount = (id, value) => {
+        let idNumber = id.split('-')[1];
+        let el = document.getElementById(id);
+        let childEl = el.children[1].children[1];
+        let counterNumber = id.split('-')[1];
 
-            let current = 1;
-            var startTime = new Date().getTime();
-            let counter = setInterval(() => {
-                current++;
-                // Update the contents of the element
-                setSoldCount(current)
-                if (current === 20) {
-                    setAnimateCounter(true);
-                    clearInterval(counter);
-                    return;
-                }
+        if (counterNumber == 1) {
+            setAnimateCounter(value);
+            if (!value) {
 
-                // if(new Date().getTime() - startTime > 2000){
-                //     // setSoldCount(20)
-                //     setAnimateCounter(true);
-                //     clearInterval(counter);
-                //     return;
-                // }
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
 
-
-                console.log(current);
-                // return current;
-            }, 300);
-
-            // return current;
+                    setSoldCount1(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
         }
+        else if (counterNumber == 2) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount2(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 3) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount3(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 4) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount4(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 5) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount5(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 6) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount6(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+
+        }
+        else if (counterNumber == 7) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount7(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 8) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount8(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 9) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount9(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 10) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount10(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 11) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount11(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 12) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount12(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 13) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount13(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 14) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount14(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 15) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount15(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 16) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount16(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 17) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount17(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 18) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount18(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 19) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount19(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 20) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount20(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 21) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount21(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+        else if (counterNumber == 22) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount22(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
+        }
+
+
+        // if(new Date().getTime() - startTime > 2000){
+        //     // setSoldCount(20)
+        //     setAnimateCounter(true);
+        //     clearInterval(counter);
+        //     return;
+        // }
+
+
+        // console.log(current);
+        // return current;
+
+
+        // return current;
+        // }
 
         // return () => {
         //     clearInterval(counter);
@@ -142,6 +552,7 @@ function Home() {
                             }
                         ]
                     }
+
                     return (
 					
                         <section className="carousel-section home-slider">
@@ -372,7 +783,7 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <div className="win-card m-none" onClick={() => startCount(false)}>
+                        <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)}>
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -457,7 +868,7 @@ function Home() {
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
                                             speed: 0.5,
                                             points: 1
                                         }}
@@ -466,23 +877,14 @@ function Home() {
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
                                             speed: 0.5,
                                             points: 2
                                         }}
                                     />
-                                    {/* <Wave fill='#ffcf00'
-                                        paused={animateCounter}
-                                        options={{
-                                            height: soldCount+20,
-                                            // amplitude: 22,
-                                            speed: 0.7,
-                                            points: 1
-                                        }}
-                                    /> */}
 
                                     <FadeOutUpDiv>
-                                        <span className="sold-cnt">{soldCount}</span>
+                                        <span className="sold-cnt">{soldCount1}</span>
                                     </FadeOutUpDiv>
 
 
@@ -505,7 +907,7 @@ function Home() {
 
                         </div>
 
-                        <div className="win-card m-none">
+                        <div className="win-card m-none" id="card-2" onClick={() => startCount("card-2", false)}>
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -588,12 +990,12 @@ function Home() {
 
                                 </div>
 
-                                <div className="sold-counter" id="counter-1">
+                                <div className="sold-counter" id="counter-2">
                                     <Wave fill='#eabe00'
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            height: soldCount2 === 0 ? 140 : 140 - (140 * (soldCount2 / 60)),
                                             speed: 0.5,
                                             points: 1
                                         }}
@@ -602,23 +1004,14 @@ function Home() {
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            height: soldCount2 === 0 ? 140 : 140 - (140 * (soldCount2 / 60)),
                                             speed: 0.5,
                                             points: 2
                                         }}
                                     />
-                                    {/* <Wave fill='#ffcf00'
-                                        paused={animateCounter}
-                                        options={{
-                                            height: soldCount+20,
-                                            // amplitude: 22,
-                                            speed: 0.7,
-                                            points: 1
-                                        }}
-                                    /> */}
 
                                     <FadeOutUpDiv>
-                                        <span className="sold-cnt">{soldCount}</span>
+                                        <span className="sold-cnt">{soldCount2}</span>
                                     </FadeOutUpDiv>
 
 
@@ -641,7 +1034,7 @@ function Home() {
 
                         </div>
 
-                        <div className="win-card m-none">
+                        <div className="win-card m-none" id="card-3" onClick={() => startCount("card-3", false)}>
 
                             <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -721,12 +1114,12 @@ function Home() {
 
                                 </div>
 
-                                <div className="sold-counter" id="counter-1">
+                                <div className="sold-counter" id="counter-3">
                                     <Wave fill='#eabe00'
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            height: soldCount3 === 0 ? 140 : 140 - (140 * (soldCount3 / 60)),
                                             speed: 0.5,
                                             points: 1
                                         }}
@@ -735,23 +1128,14 @@ function Home() {
                                         id=""
                                         // paused={animateCounter}
                                         options={{
-                                            height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
+                                            height: soldCount3 === 0 ? 140 : 140 - (140 * (soldCount3 / 60)),
                                             speed: 0.5,
                                             points: 2
                                         }}
                                     />
-                                    {/* <Wave fill='#ffcf00'
-                                        paused={animateCounter}
-                                        options={{
-                                            height: soldCount+20,
-                                            // amplitude: 22,
-                                            speed: 0.7,
-                                            points: 1
-                                        }}
-                                    /> */}
 
                                     <FadeOutUpDiv>
-                                        <span className="sold-cnt">{soldCount}</span>
+                                        <span className="sold-cnt">{soldCount3}</span>
                                     </FadeOutUpDiv>
 
 
@@ -780,18 +1164,18 @@ function Home() {
 
                         <div className="row m-block">
                             <div className="col-sm-12">
-                                <div className="card">
+                                <div className="card" id="card-4" onClick={() => startCount("card-4", false)}>
 
                                     <div className="card-head">
 
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                        <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                        <div className="sold-counter-mobile" id="counter-4">
                                             <Wave fill='#eabe00'
                                                 id=""
                                                 // paused={animateCounter}
                                                 options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    height: soldCount4 === 0 ? 70 : 70 - (70 * (soldCount4 / 60)),
                                                     speed: 0.5,
                                                     points: 1
                                                 }}
@@ -800,22 +1184,22 @@ function Home() {
                                                 id=""
                                                 // paused={animateCounter}
                                                 options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    height: soldCount4 === 0 ? 70 : 70 - (70 * (soldCount4 / 60)),
                                                     speed: 0.5,
                                                     points: 2
                                                 }}
                                             />
 
                                             <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount}</span>
+                                                <span className="sold-cnt">{soldCount4}</span>
                                             </FadeOutUpDiv>
 
 
-                                            <span className="text">Sold <br /> out of</span>
+                                            {/* <span className="text">Sold <br /> out of</span>
 
-                                            <span className="total-cnt">60</span>
+                                            <span className="total-cnt">60</span> */}
 
-                                            <h5 className="sold-cnt">{soldCount}</h5>
+                                            <h5 className="sold-cnt">{soldCount4}</h5>
 
                                             <p>SOLD <br />
                                                 OUT OF
@@ -895,18 +1279,18 @@ function Home() {
                             </div>
 
                             <div className="col-sm-12">
-                                <div className="card">
+                                <div className="card" id="card-5" onClick={() => startCount("card-5", false)}>
 
                                     <div className="card-head">
 
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                        <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                        <div className="sold-counter-mobile" id="counter-5">
                                             <Wave fill='#eabe00'
                                                 id=""
                                                 // paused={animateCounter}
                                                 options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    height: soldCount5 === 0 ? 70 : 70 - (70 * (soldCount5 / 60)),
                                                     speed: 0.5,
                                                     points: 1
                                                 }}
@@ -915,22 +1299,22 @@ function Home() {
                                                 id=""
                                                 // paused={animateCounter}
                                                 options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    height: soldCount5 === 0 ? 70 : 70 - (70 * (soldCount5 / 60)),
                                                     speed: 0.5,
                                                     points: 2
                                                 }}
                                             />
 
                                             <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount}</span>
+                                                <span className="sold-cnt">{soldCount5}</span>
                                             </FadeOutUpDiv>
 
 
-                                            <span className="text">Sold <br /> out of</span>
+                                            {/* <span className="text">Sold <br /> out of</span>
 
-                                            <span className="total-cnt">60</span>
+                                            <span className="total-cnt">60</span> */}
 
-                                            <h5 className="sold-cnt">{soldCount}</h5>
+                                            <h5 className="sold-cnt">{soldCount5}</h5>
 
                                             <p>SOLD <br />
                                                 OUT OF
@@ -1010,18 +1394,18 @@ function Home() {
                             </div>
 
                             <div className="col-sm-12">
-                                <div className="card">
+                                <div className="card" id="card-6" onClick={() => startCount("card-6", false)}>
 
                                     <div className="card-head">
 
                                         <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                        <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
+                                        <div className="sold-counter-mobile" id="counter-6">
                                             <Wave fill='#eabe00'
                                                 id=""
                                                 // paused={animateCounter}
                                                 options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    height: soldCount6 === 0 ? 70 : 70 - (70 * (soldCount6 / 60)),
                                                     speed: 0.5,
                                                     points: 1
                                                 }}
@@ -1030,22 +1414,22 @@ function Home() {
                                                 id=""
                                                 // paused={animateCounter}
                                                 options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
+                                                    height: soldCount6 === 0 ? 70 : 70 - (70 * (soldCount6 / 60)),
                                                     speed: 0.5,
                                                     points: 2
                                                 }}
                                             />
 
                                             <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount}</span>
+                                                <span className="sold-cnt">{soldCount6}</span>
                                             </FadeOutUpDiv>
 
 
-                                            <span className="text">Sold <br /> out of</span>
+                                            {/* <span className="text">Sold <br /> out of</span>
 
-                                            <span className="total-cnt">60</span>
+                                            <span className="total-cnt">60</span> */}
 
-                                            <h5 className="sold-cnt">{soldCount}</h5>
+                                            <h5 className="sold-cnt">{soldCount6}</h5>
 
                                             <p>SOLD <br />
                                                 OUT OF
@@ -1142,47 +1526,48 @@ function Home() {
 
                         <h1 className="headingStyle1">Other Campaigns</h1>
 
-                        <div className="card-head static-card-header">
+                        <div className="card-head static-card-header" id="card-7" onClick={() => startCount("card-7", false)}>
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="sold-counter-mobile" id="counter-1" onMouseEnter={() => startCount(false)}>
-                                            <Wave fill='#eabe00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
-                                                    speed: 0.5,
-                                                    points: 1
-                                                }}
-                                            />
-                                            <Wave fill='#ffcf00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount === 0 ? 70 : 70 - (70 * (soldCount / 60)),
-                                                    speed: 0.5,
-                                                    points: 2
-                                                }}
-                                            />
+                            <div className="sold-counter-mobile" id="counter-7">
+                                <Wave fill='#eabe00'
+                                    id=""
+                                    // paused={animateCounter}
+                                    options={{
+                                        height: soldCount7 === 0 ? 70 : 70 - (70 * (soldCount7 / 60)),
+                                        speed: 0.5,
+                                        points: 1
+                                    }}
+                                />
+                                <Wave fill='#ffcf00'
+                                    id=""
+                                    // paused={animateCounter}
+                                    options={{
+                                        height: soldCount7 === 0 ? 70 : 70 - (70 * (soldCount7 / 60)),
+                                        speed: 0.5,
+                                        points: 2
+                                    }}
+                                />
 
-                                            <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount}</span>
-                                            </FadeOutUpDiv>
+                                <FadeOutUpDiv>
+                                    <span className="sold-cnt">{soldCount7}</span>
+                                </FadeOutUpDiv>
 
 
-                                            <span className="text">Sold <br /> out of</span>
+                                {/* <span className="text">Sold <br /> out of</span>
 
-                                            <span className="total-cnt">60</span>
+                                            <span className="total-cnt">60</span> */}
 
-                                            <h5 className="sold-cnt">{soldCount}</h5>
+                                <h5 className="sold-cnt">{soldCount7}</h5>
 
-                                            <p>SOLD <br />
-                                                OUT OF
-                                            </p>
+                                <p>SOLD <br />
+                                    OUT OF
+                                </p>
 
-                                            <h5 className="total-cnt">60</h5>
-                                        </div>
+                                <h5 className="total-cnt">60</h5>
+                            </div>
+
                             {/* <div className="box">
 
                                 <h5 className="sold-items">1</h5>
@@ -1255,13 +1640,47 @@ function Home() {
                                     <Slider {...settings}>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-9" onClick={() => startCount("card-9", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy" >win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-8">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount9 === 0 ? 70 : 70 - (70 * (soldCount9 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount9 === 0 ? 70 : 70 - (70 * (soldCount9 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount9}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount9}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1271,7 +1690,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -1331,13 +1750,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-10" onClick={() => startCount("card-10", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-10">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount10 === 0 ? 70 : 70 - (70 * (soldCount10 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount10 === 0 ? 70 : 70 - (70 * (soldCount10 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount10}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount10}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1347,7 +1800,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -1407,13 +1860,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-11" onClick={() => startCount("card-11", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-11">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount11 === 0 ? 70 : 70 - (70 * (soldCount11 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount11 === 0 ? 70 : 70 - (70 * (soldCount11 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount11}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount11}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1423,7 +1910,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -1483,13 +1970,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-12" onClick={() => startCount("card-12", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-12">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount12 === 0 ? 70 : 70 - (70 * (soldCount12 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount12 === 0 ? 70 : 70 - (70 * (soldCount12 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount12}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount12}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1499,83 +2020,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div className="card">
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -1696,11 +2141,49 @@ function Home() {
 
                         <h1 className="headingStyle1">Lifestyle Compaigns</h1>
 
-                        <div className="card-head static-card-header">
+                        <div className="card-head static-card-header" id="card-13" onClick={() => startCount("card-13", false)}>
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="box">
+                            <div className="sold-counter-mobile" id="counter-13">
+                                <Wave fill='#eabe00'
+                                    id=""
+                                    // paused={animateCounter}
+                                    options={{
+                                        height: soldCount13 === 0 ? 70 : 70 - (70 * (soldCount13 / 60)),
+                                        speed: 0.5,
+                                        points: 1
+                                    }}
+                                />
+                                <Wave fill='#ffcf00'
+                                    id=""
+                                    // paused={animateCounter}
+                                    options={{
+                                        height: soldCount13 === 0 ? 70 : 70 - (70 * (soldCount13 / 60)),
+                                        speed: 0.5,
+                                        points: 2
+                                    }}
+                                />
+
+                                <FadeOutUpDiv>
+                                    <span className="sold-cnt">{soldCount13}</span>
+                                </FadeOutUpDiv>
+
+
+                                {/* <span className="text">Sold <br /> out of</span>
+
+                                            <span className="total-cnt">60</span> */}
+
+                                <h5 className="sold-cnt">{soldCount13}</h5>
+
+                                <p>SOLD <br />
+                                    OUT OF
+                                </p>
+
+                                <h5 className="total-cnt">60</h5>
+                            </div>
+
+                            {/* <div className="box">
 
                                 <h5 className="sold-items">1</h5>
 
@@ -1710,7 +2193,7 @@ function Home() {
 
                                 <h5 className="total-items">60</h5>
 
-                            </div>
+                            </div> */}
 
                         </div>
 
@@ -1772,13 +2255,47 @@ function Home() {
                                     <Slider {...settings}>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-14" onClick={() => startCount("card-14", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy" >win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-14">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount14 === 0 ? 70 : 70 - (70 * (soldCount14 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount14 === 0 ? 70 : 70 - (70 * (soldCount14 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount14}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount14}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1788,7 +2305,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -1848,13 +2365,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-15" onClick={() => startCount("card-15", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-15">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount15 === 0 ? 70 : 70 - (70 * (soldCount15 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount15 === 0 ? 70 : 70 - (70 * (soldCount15 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount15}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount15}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1864,7 +2415,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -1924,13 +2475,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-16" onClick={() => startCount("card-16", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-16">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount16 === 0 ? 70 : 70 - (70 * (soldCount16 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount16 === 0 ? 70 : 70 - (70 * (soldCount16 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount16}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount16}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -1940,7 +2525,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -2000,13 +2585,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-17" onClick={() => startCount("card-17", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-17">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount17 === 0 ? 70 : 70 - (70 * (soldCount17 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount17 === 0 ? 70 : 70 - (70 * (soldCount17 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount17}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount17}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -2016,83 +2635,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div className="card">
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -2199,11 +2742,49 @@ function Home() {
 
                         <h1 className="headingStyle1">Trip Campaigns</h1>
 
-                        <div className="card-head static-card-header">
+                        <div className="card-head static-card-header" id="card-18" onClick={() => startCount("card-18", false)}>
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="box">
+                            <div className="sold-counter-mobile" id="counter-18">
+                                <Wave fill='#eabe00'
+                                    id=""
+                                    // paused={animateCounter}
+                                    options={{
+                                        height: soldCount18 === 0 ? 70 : 70 - (70 * (soldCount18 / 60)),
+                                        speed: 0.5,
+                                        points: 1
+                                    }}
+                                />
+                                <Wave fill='#ffcf00'
+                                    id=""
+                                    // paused={animateCounter}
+                                    options={{
+                                        height: soldCount18 === 0 ? 70 : 70 - (70 * (soldCount18 / 60)),
+                                        speed: 0.5,
+                                        points: 2
+                                    }}
+                                />
+
+                                <FadeOutUpDiv>
+                                    <span className="sold-cnt">{soldCount18}</span>
+                                </FadeOutUpDiv>
+
+
+                                {/* <span className="text">Sold <br /> out of</span>
+
+                                            <span className="total-cnt">60</span> */}
+
+                                <h5 className="sold-cnt">{soldCount18}</h5>
+
+                                <p>SOLD <br />
+                                    OUT OF
+                                </p>
+
+                                <h5 className="total-cnt">60</h5>
+                            </div>
+
+                            {/* <div className="box">
 
                                 <h5 className="sold-items">1</h5>
 
@@ -2213,7 +2794,7 @@ function Home() {
 
                                 <h5 className="total-items">60</h5>
 
-                            </div>
+                            </div> */}
 
                         </div>
 
@@ -2275,23 +2856,57 @@ function Home() {
                                     <Slider {...settings}>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-19" onClick={() => startCount("card-19", false)}>
 
                                                 <div className="card-head">
 
-                                                    <h1 className="headingStyle5 font-fancy" >win</h1>
+                                                    <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-19">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount19 === 0 ? 70 : 70 - (70 * (soldCount19 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount19 === 0 ? 70 : 70 - (70 * (soldCount19 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
 
-                                                        <h5>1</h5>
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount19}</span>
+                                                        </FadeOutUpDiv>
 
-                                                        <p>SOLD</p>
 
-                                                        <p>OUT OF</p>
+                                                        <h5 className="sold-cnt">{soldCount19}</h5>
 
-                                                        <h5>60</h5>
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
 
+                                                        <h5 className="total-cnt">60</h5>
                                                     </div>
+
+                                                    {/* <div className="box">
+
+                                                    <h5>1</h5>
+
+                                                    <p>SOLD</p>
+
+                                                    <p>OUT OF</p>
+
+                                                    <h5>60</h5>
+
+                                                </div> */}
 
                                                 </div>
 
@@ -2351,13 +2966,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-20" onClick={() => startCount("card-20", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-20">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount20 === 0 ? 70 : 70 - (70 * (soldCount20 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount20 === 0 ? 70 : 70 - (70 * (soldCount20 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount20}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount20}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -2367,7 +3016,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -2427,13 +3076,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-21" onClick={() => startCount("card-21", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-21">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount21 === 0 ? 70 : 70 - (70 * (soldCount21 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount21 === 0 ? 70 : 70 - (70 * (soldCount21 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount21}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount21}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -2443,7 +3126,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -2503,13 +3186,47 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <div className="card">
+                                            <div className="card" id="card-22" onClick={() => startCount("card-22", false)}>
 
                                                 <div className="card-head">
 
                                                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                                                    <div className="box">
+                                                    <div className="sold-counter-mobile" id="counter-22">
+                                                        <Wave fill='#eabe00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount22 === 0 ? 70 : 70 - (70 * (soldCount22 / 60)),
+                                                                speed: 0.5,
+                                                                points: 1
+                                                            }}
+                                                        />
+                                                        <Wave fill='#ffcf00'
+                                                            id=""
+                                                            // paused={animateCounter}
+                                                            options={{
+                                                                height: soldCount22 === 0 ? 70 : 70 - (70 * (soldCount22 / 60)),
+                                                                speed: 0.5,
+                                                                points: 2
+                                                            }}
+                                                        />
+
+                                                        <FadeOutUpDiv>
+                                                            <span className="sold-cnt">{soldCount22}</span>
+                                                        </FadeOutUpDiv>
+
+
+                                                        <h5 className="sold-cnt">{soldCount22}</h5>
+
+                                                        <p>SOLD <br />
+                                                            OUT OF
+                                                        </p>
+
+                                                        <h5 className="total-cnt">60</h5>
+                                                    </div>
+
+                                                    {/* <div className="box">
 
                                                         <h5>1</h5>
 
@@ -2519,7 +3236,7 @@ function Home() {
 
                                                         <h5>60</h5>
 
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
 
@@ -2578,81 +3295,6 @@ function Home() {
                                             </div>
                                         </div>
 
-                                        <div>
-                                            <div className="card">
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
 
 
                                     </Slider>

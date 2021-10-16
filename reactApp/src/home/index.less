@@ -1,3 +1,8 @@
+@font-face {
+    font-family: '28DaysLater';
+    src: url(../_assets//fonts/28\ Days\ Later.ttf);
+  }
+
 .home-page {
     background-color: #d3ddea;
     // height: 100vh;
@@ -3350,7 +3355,7 @@
 }
 
 .font-fancy {
-    font-family: '28 Days Later' !important;
+    font-family: '28DaysLater' !important;
 }
 
 .sold-out-compaigns {
@@ -3717,7 +3722,60 @@
     }
 }
 
+.sold-counter-mobile {
+    position: relative;
+    background: #fff;
+    border: 2px solid #104a8e;
+    box-sizing: border-box;
+    height: 5rem;
+    width: 5rem;
+    outline: 0;
+    overflow: hidden;
+    display: flex;
+    z-index: 111;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 6px;
 
+
+    h5.sold-cnt {
+        z-index: 1;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+        position: absolute;
+        left: 36%;
+        top: 1%;
+    }
+
+    h5.total-cnt {
+        z-index: 1;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+        position: absolute;
+        left: 36%;
+        top: 79%;
+    }
+
+    p {
+        font-size: 10px;
+        z-index: 1;
+        color: #000;
+        margin: 0;
+        position: absolute;
+        left: 27%;
+        top: 30%;
+        font-weight: 400;
+    }
+
+    div:nth-child(2) {
+        position: absolute;
+    }
+
+}
 
 
 @media screen and (max-width: 991px) {
@@ -3948,7 +4006,7 @@
             justify-content: space-between;
             height: 150px;
             border: none;
-            box-shadow: 0px 7px 7px 0px #00000047;
+            box-shadow: 0px 7px 5px -3px #00000047;
 
             p:first-child {
                 color: #696a6c !important;
