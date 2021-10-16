@@ -18,7 +18,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg|mp4|ico)$/i,
+                test: /\.(jpe?g|png|gif|svg|mp4|ico|svg)$/i,
                 /* Exclude fonts while working with images, e.g. .svg can be both image or font. */
                 exclude: path.resolve(__dirname, '../src/_assets/fonts'),
                 use: [{
@@ -45,7 +45,7 @@ module.exports = {
     },
     resolve: {
         mainFiles: ['index', 'Index'],
-        extensions: ['.js', '.jsx'],
+        extensions: ['.mjs','.js', '.jsx'],
         alias: {
             '@': path.resolve(__dirname, 'src/'),
         }
