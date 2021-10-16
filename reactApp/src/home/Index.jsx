@@ -34,6 +34,7 @@ import Wave from 'react-wavify';
 import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
 import { getCookie, setCookie } from '../_services/cookies.service';
+
 import Message from '../components/message';
 import MessageContainer from '../components/messagesContainer';
 
@@ -3609,7 +3610,8 @@ function Home() {
                     </div>
                 </div>
             )}
-
+<Message />,
+      <MessageContainer />,
         </>
     );
 }
