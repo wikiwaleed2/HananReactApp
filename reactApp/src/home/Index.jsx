@@ -27,6 +27,8 @@ import qouteIcon from '@/_assets/images/quote-left-solid.svg';
 import charity from '@/_assets/images/charity.jpg';
 import chevronPrev from '@/_assets/images/chevron-left.svg';
 import chevronNext from '@/_assets/images/chevron-right.svg';
+import chevronNextGold from '@/_assets/images/chevron-right-gold.svg';
+import chevronPrevGold from '@/_assets/images/chevron-left-gold.svg';
 import heart from '@/_assets/images/heart.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import Slider from 'react-slick';
@@ -42,7 +44,11 @@ function Home() {
     // const user = accountService.userValue;
 
     const [slideCounter, setSlideCounter] = useState('01');
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying1, setIsPlaying1] = useState(false);
+    const [isPlaying2, setIsPlaying2] = useState(false);
+    const [isPlaying3, setIsPlaying3] = useState(false);
+    const [isPlaying4, setIsPlaying4] = useState(false);
+    const [isPlaying5, setIsPlaying5] = useState(false);
     const [animateCounter, setAnimateCounter] = useState(true);
     const [soldCount, setSoldCount] = useState(0);
     const [soldCount1, setSoldCount1] = useState(0);
@@ -67,6 +73,7 @@ function Home() {
     const [soldCount20, setSoldCount20] = useState(0);
     const [soldCount21, setSoldCount21] = useState(0);
     const [soldCount22, setSoldCount22] = useState(0);
+    const [randomPrice, setRandomPrice] = useState('720.00');
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -78,19 +85,116 @@ function Home() {
 
     }, [])
 
+    useEffect(() => {
+
+        
+
+    },[randomPrice]);
+
     let calculateSlideCounter = (currentSlide) => {
         // console.log(e, slick, currentSlide);
         let counter = currentSlide + 1;
         setSlideCounter('0' + counter)
     }
 
+    let stopVideo = () => {
+        setIsPlaying1(false);
+        setIsPlaying2(false);
+        setIsPlaying3(false);
+        setIsPlaying4(false);
+        setIsPlaying5(false);
+    }
+
     let playVideo = (id) => {
+        let number = id.split('-')[2];
         let video = document.getElementById(id);
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
+
+        if (number == 1) {
+            if (video.paused) {
+                setIsPlaying1(true);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.pause();
+            }
         }
+        else if (number == 2) {
+            if (video.paused) {
+                setIsPlaying1(false);
+                setIsPlaying2(true);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.pause();
+            }
+        }
+        else if (number == 3) {
+            if (video.paused) {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(true);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.pause();
+            }
+        }
+        else if (number == 4) {
+            if (video.paused) {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(true);
+                setIsPlaying5(false);
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.pause();
+            }
+        }
+        else if (number == 5) {
+            if (video.paused) {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(true);
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                setIsPlaying2(false);
+                setIsPlaying3(false);
+                setIsPlaying4(false);
+                setIsPlaying5(false);
+                video.pause();
+            }
+        }
+
 
     }
 
@@ -519,6 +623,12 @@ function Home() {
         // };
     }
 
+
+    let showPrice = (currentSlide) => {
+        let price = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+        setRandomPrice(price + ".00")
+    }
+
     return (
         <>
 
@@ -528,21 +638,28 @@ function Home() {
                 {(() => {
 
                     let settings = {
-                        infinite: true,
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         autoplay: true,
+                        speed: 500,
                         arrows: false,
-                        dots: false,
+                        // customPaging: function (i) {
+                        //     return (
+                        //         <span></span>
+                        //     );
+                        // },
+                        // dots: true,
+                        // dotsClass: "slick-dots slick-thumb",
+                        infinite: true,
                         responsive: [
                             {
                                 breakpoint: 767,
                                 settings: {
                                     slidesToShow: 1,
                                     slidesToScroll: 1,
-                                    arrows: true,
-                                    prevArrow: '.h-prev',
-                                    nextArrow: '.h-next',
+                                    arrows: false,
+                                    // prevArrow: '.h-prev',
+                                    // nextArrow: '.h-next',
                                     dots: false,
                                 }
                             }
@@ -555,7 +672,7 @@ function Home() {
                             <div className="header-carousel" id="main-carousel">
 
 
-                                <Slider afterChange={(currentSlide) => calculateSlideCounter(currentSlide)} settings={settings}>
+                                <Slider afterChange={(currentSlide) => calculateSlideCounter(currentSlide)} {...settings}>
                                     <div className="images ">
 
                                         <div className="c-overlay"></div>
@@ -1618,7 +1735,7 @@ function Home() {
                                             settings: {
                                                 slidesToShow: 1,
                                                 centerMode: true,
-                                                centerPadding: '15%',
+                                                centerPadding: '10%',
                                                 slidesToScroll: 1,
                                                 arrows: false,
                                                 // prevArrow: '.h-prev',
@@ -1632,7 +1749,7 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings}>
+                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide)}>
 
                                         <div>
                                             <div className="card" id="card-9" onClick={() => startCount("card-9", false)}>
@@ -2093,7 +2210,9 @@ function Home() {
 
                                     <p>Buy a water Bottle</p>
 
-                                    <h3>AED 720.00</h3>
+                                    <FadeOutUpDiv>
+                                        <h3>AED {randomPrice}</h3>
+                                    </FadeOutUpDiv>
 
                                 </div>
 
@@ -2235,7 +2354,7 @@ function Home() {
                                                 slidesToScroll: 1,
                                                 arrows: false,
                                                 centerMode: true,
-                                                centerPadding: '15%',
+                                                centerPadding: '10%',
                                                 // prevArrow: '.h-prev',
                                                 // nextArrow: '.h-next',
                                                 dots: false,
@@ -2836,7 +2955,7 @@ function Home() {
                                                 slidesToScroll: 1,
                                                 arrows: false,
                                                 centerMode: true,
-                                                centerPadding: '15%',
+                                                centerPadding: '10%',
                                                 // prevArrow: '.h-prev',
                                                 // nextArrow: '.h-next',
                                                 dots: false,
@@ -3380,7 +3499,7 @@ function Home() {
                                                 slidesToScroll: 1,
                                                 arrows: false,
                                                 centerMode: true,
-                                                centerPadding: '15%',
+                                                centerPadding: '10%',
                                                 // prevArrow: '.h-prev',
                                                 // nextArrow: '.h-next',
                                                 dots: false,
@@ -3745,7 +3864,7 @@ function Home() {
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
                                     autoplay: false,
-                                    // arrows: false,
+                                    // arrows: true,
                                     nextArrow: <span className="arrow-next testimonials-carousel-next"><img src={arrowIcon} alt="" /></span>,
                                     prevArrow: <span className="arrow-prev testimonials-carousel-prev"><img src={arrowIcon} alt="" /></span>,
                                     dots: false,
@@ -3775,9 +3894,9 @@ function Home() {
                                             settings: {
                                                 slidesToShow: 1,
                                                 slidesToScroll: 1,
-                                                arrows: false,
-                                                // prevArrow: '.h-prev',
-                                                // nextArrow: '.h-next',
+                                                // arrows: true,
+                                                nextArrow: <span className="arrow-next testimonials-carousel-next"><img src={chevronNextGold} alt="" /></span>,
+                                                prevArrow: <span className="arrow-prev testimonials-carousel-prev"><img src={chevronPrevGold} alt="" /></span>,
                                                 dots: false,
                                             }
                                         }
@@ -3788,7 +3907,7 @@ function Home() {
 
                                 return (
 
-                                    <Slider {...settings}>
+                                    <Slider {...settings} afterChange={(currentSlide) => stopVideo()} >
 
 
                                         <div>
@@ -3800,14 +3919,17 @@ function Home() {
                                                 <div className="testimonial-img testimonial-video">
 
                                                     <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-1")} data-play-video="#testimonial-video-1">
-                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
-                                                        <img src={playIcon} alt="video play button icon" className="play" />
+                                                        {isPlaying1 ?
+                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
+                                                            :
+                                                            <img src={playIcon} alt="video play button icon" className="play" />
+                                                        }
                                                     </button>
 
 
                                                     <video loop id="testimonial-video-1">
 
-                                                        <source src={dummyVideo} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={!isPlaying1.toString()} type="video/mp4" />
 
                                                     </video>
 
@@ -3842,14 +3964,17 @@ function Home() {
                                                 <div className="testimonial-img testimonial-video">
 
                                                     <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-2")} data-play-video="#testimonial-video-2">
-                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
-                                                        <img src={playIcon} alt="video play button icon" className="play" />
+                                                        {isPlaying2 ?
+                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
+                                                            :
+                                                            <img src={playIcon} alt="video play button icon" className="play" />
+                                                        }
                                                     </button>
 
 
                                                     <video loop id="testimonial-video-2">
 
-                                                        <source src={dummyVideo} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={!isPlaying2.toString()} type="video/mp4" />
 
                                                     </video>
 
@@ -3884,13 +4009,16 @@ function Home() {
                                                 <div className="testimonial-img testimonial-video">
 
                                                     <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-3")} data-play-video="#testimonial-video-3">
-                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
-                                                        <img src={playIcon} alt="video play button icon" className="play" />
+                                                        {isPlaying3 ?
+                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
+                                                            :
+                                                            <img src={playIcon} alt="video play button icon" className="play" />
+                                                        }
                                                     </button>
 
                                                     <video loop id="testimonial-video-3">
 
-                                                        <source src={dummyVideo} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={!isPlaying3.toString()} type="video/mp4" />
 
                                                     </video>
 
@@ -3925,13 +4053,16 @@ function Home() {
                                                 <div className="testimonial-img testimonial-video">
 
                                                     <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-4")} data-play-video="#testimonial-video-4">
-                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
-                                                        <img src={playIcon} alt="video play button icon" className="play" />
+                                                        {isPlaying4 ?
+                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
+                                                            :
+                                                            <img src={playIcon} alt="video play button icon" className="play" />
+                                                        }
                                                     </button>
 
                                                     <video loop id="testimonial-video-4">
 
-                                                        <source src={dummyVideo} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={!isPlaying4.toString()} type="video/mp4" />
 
                                                     </video>
 
@@ -3967,13 +4098,16 @@ function Home() {
 
                                                     <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-5")} data-play-video="#testimonial-video-5">
 
-                                                        <img src={pauseIcon} alt="video play button icon" className="pause d-none" />
-                                                        <img src={playIcon} alt="video play button icon" className="play" />
+                                                        {isPlaying5 ?
+                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
+                                                            :
+                                                            <img src={playIcon} alt="video play button icon" className="play" />
+                                                        }
                                                     </button>
 
                                                     <video loop id="testimonial-video-5">
 
-                                                        <source src={dummyVideo} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={!isPlaying5.toString()} type="video/mp4" />
 
                                                     </video>
 
