@@ -647,13 +647,13 @@ function Home() {
                         autoplay: true,
                         speed: 500,
                         arrows: false,
-                        // customPaging: function (i) {
-                        //     return (
-                        //         <span></span>
-                        //     );
-                        // },
-                        // dots: true,
-                        // dotsClass: "slick-dots slick-thumb",
+                        customPaging: function (i) {
+                            return (
+                                <span></span>
+                            );
+                        },
+                        dots: true,
+                        dotsClass: "slick-dots slick-thumb",
                         infinite: true,
                         responsive: [
                             {
