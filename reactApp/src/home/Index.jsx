@@ -37,8 +37,12 @@ import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
 import { getCookie, setCookie } from '../_services/cookies.service';
 
+import Message from '../components/message';
+import MessageContainer from '../components/messagesContainer';
+
 const fadeOutUpAnimation = keyframes`${fadeOutUp}`;
 const FadeOutUpDiv = styled.div`animation: 0.5s ${fadeOutUpAnimation};`;
+
 
 function Home() {
     // const user = accountService.userValue;
@@ -667,6 +671,7 @@ function Home() {
                     }
 
                     return (
+					
                         <section className="carousel-section home-slider">
 
                             <div className="header-carousel" id="main-carousel">
@@ -4381,7 +4386,8 @@ function Home() {
                     </div>
                 </div>
             )}
-
+			{/* <Message />,
+			 <MessageContainer />, */}
         </>
     );
 }
