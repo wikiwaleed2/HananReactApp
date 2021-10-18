@@ -13,6 +13,7 @@ import { ApolloLink, split } from 'apollo-link';
 import { HttpLink } from 'apollo-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import config from 'config';
 
 import './styles.less';
 
@@ -25,11 +26,11 @@ accountService.refreshToken().finally(startApp);
 
 // GraphQL Initialization
   const httpLink = new HttpLink({
-    uri: 'http://localhost:5000/graphql',
+	uri: `${config.graphqlUrlHttp}`,
 });
  
 const wsLink = new WebSocketLink({
-    uri: `ws://localhost:5000/graphql`,
+	uri: `${config.graphqlUrlWs}`,
     options: {
       reconnect: true,
     },
