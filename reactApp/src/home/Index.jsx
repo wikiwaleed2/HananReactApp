@@ -956,7 +956,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <CounterMobile soldCount={soldCount7} key={randomPrice} />
+                            <CounterMobile soldCount={soldCount7} />
 
                         </div>
 
@@ -1088,7 +1088,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <CounterMobile soldCount={soldCount13} key={randomPrice} />
+                            <CounterMobile soldCount={soldCount13} />
 
                         </div>
 
@@ -1219,7 +1219,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <CounterMobile soldCount={soldCount18} key={randomPrice} />
+                            <CounterMobile soldCount={soldCount18} />
 
                         </div>
 
