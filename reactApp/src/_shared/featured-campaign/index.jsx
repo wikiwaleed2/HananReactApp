@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './index.less';
-// import shareIcon from '@/_assets/images/social-share.png';
+import shareIcon from '@/_assets/images/social-share.png';
+import maldives from '@/_assets/images/four-seasons-landaa-giraavaru.png';
+import bottle from '@/_assets/images/bottle.png';
+import cashAlt from '@/_assets/images/cash-alt.svg';
+import calendar from '@/_assets/images/calendar.svg'
+import couponIcon from '@/_assets/images/coupon-icon.svg';
+import Counter from '../../_shared/counter/index.jsx';
 
 const FeaturedCampaign = () => {
 
@@ -50,7 +56,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 2) {
@@ -68,7 +74,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 3) {
@@ -86,7 +92,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 4) {
@@ -104,7 +110,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 5) {
@@ -122,7 +128,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 6) {
@@ -140,7 +146,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
 
         }
@@ -159,7 +165,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 8) {
@@ -177,7 +183,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 9) {
@@ -195,7 +201,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 10) {
@@ -213,7 +219,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 11) {
@@ -231,7 +237,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 12) {
@@ -249,7 +255,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 13) {
@@ -267,7 +273,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 14) {
@@ -285,7 +291,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 15) {
@@ -303,7 +309,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 16) {
@@ -321,7 +327,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 17) {
@@ -339,7 +345,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 18) {
@@ -357,7 +363,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 19) {
@@ -375,7 +381,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 20) {
@@ -393,7 +399,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 21) {
@@ -411,7 +417,7 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
         else if (counterNumber == 22) {
@@ -429,157 +435,141 @@ const FeaturedCampaign = () => {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 200);
             }
         }
 
-
-        // if(new Date().getTime() - startTime > 2000){
-        //     // setSoldCount(20)
-        //     setAnimateCounter(true);
-        //     clearInterval(counter);
-        //     return;
-        // }
-
-
-        // console.log(current);
-        // return current;
-
-
-        // return current;
-        // }
-
-        // return () => {
-        //     clearInterval(counter);
-        // };
     }
 
     return (
-        <> </>
-        // <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)}>
+        <>
+            <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)}>
 
-        //     <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
+                <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
-        //     <div className="bckg">
+                <div className="bckg">
 
-        //         <div className="row">
+                    <div className="row">
 
-        //             <div className="col-sm-6">
+                        <div className="col-sm-6">
 
-        //                 <div className="image">
+                            <div className="image">
 
-        //                     <img src={maldives} alt="" />
-
-
-        //                     <div className="bottel-img">
-
-        //                         <img src={bottle} alt="" />
-
-        //                     </div>
-
-        //                 </div>
-
-        //             </div>
-
-        //             <div className="col-sm-6">
-
-        //                 <div className="img-cnt">
-
-        //                     <div className="title-box">
-        //                         <h1 className="headingStyle3">Maldives Trip</h1>
-        //                         <p className="paraStyle1">
-        //                             Mesmerizing Maldives With Sun Island
-        //                         </p>
-        //                     </div>
-
-        //                     <div className="price-box">
-        //                         <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
-        //                         <h1 className="headingStyle4">AED 720.00</h1>
-        //                         <div className="btnStyle2">
-        //                             <a href="#">Buy Now</a>
-        //                             <a href="#">Prize Details</a>
-        //                         </div>
-        //                     </div>
-
-        //                     <div className="bottom-box">
-        //                         <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
-
-        //                         <div className="icon">
-        //                             <img src={shareIcon} />
-        //                         </div>
-
-        //                         <div className="details-banner">
-
-        //                             <div className="misc-box">
-        //                                 <span>
-        //                                     <img src={couponIcon} alt="" />
-        //                                     <small>2 tickets<br />per entry</small>
-        //                                 </span>
-        //                                 <span>
-        //                                     <img src={cashAlt} alt="" />
-        //                                     <small>cash alternative<br />available</small>
-        //                                 </span>
-        //                                 <span>
-        //                                     <img src={calendar} alt="" />
-        //                                     <small>Aug 13, 7:05 PM</small>
-        //                                 </span>
-        //                             </div>
-
-        //                             <p className="paraStyle3">In partnership with DFRE</p>
-
-        //                         </div>
-        //                     </div>
-
-        //                 </div>
-
-        //             </div>
-
-        //         </div>
-
-        //         <div className="sold-counter" id="counter-1">
-        //             <Wave fill='#eabe00'
-        //                 id=""
-        //                 // paused={animateCounter}
-        //                 options={{
-        //                     height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
-        //                     speed: 0.5,
-        //                     points: 1
-        //                 }}
-        //             />
-        //             <Wave fill='#ffcf00'
-        //                 id=""
-        //                 // paused={animateCounter}
-        //                 options={{
-        //                     height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
-        //                     speed: 0.5,
-        //                     points: 2
-        //                 }}
-        //             />
-
-        //             <FadeOutUpDiv>
-        //                 <span className="sold-cnt">{soldCount1}</span>
-        //             </FadeOutUpDiv>
+                                <img src={maldives} alt="" />
 
 
-        //             <span className="text">Sold <br /> out of</span>
+                                <div className="bottel-img">
 
-        //             <span className="total-cnt">60</span>
-        //         </div>
+                                    <img src={bottle} alt="" />
 
-        //         {/* <div className="progress-box">
+                                </div>
 
-        //         <span>1</span>
+                            </div>
 
-        //         <span className="text">Sold <br /> out of</span>
+                        </div>
 
-        //         <span>60</span>
+                        <div className="col-sm-6">
 
-        //     </div> */}
+                            <div className="img-cnt">
 
-        //     </div>
+                                <div className="title-box">
+                                    <h1 className="headingStyle3">Maldives Trip</h1>
+                                    <p className="paraStyle1">
+                                        Mesmerizing Maldives With Sun Island
+                                    </p>
+                                </div>
 
-        // </div>
+                                <div className="price-box">
+                                    <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
+                                    <h1 className="headingStyle4">AED 720.00</h1>
+                                    <div className="btnStyle2">
+                                        <a href="#">Buy Now</a>
+                                        <a href="#">Prize Details</a>
+                                    </div>
+                                </div>
 
+                                <div className="bottom-box">
+                                    <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
+
+                                    <div className="icon">
+                                        <img src={shareIcon} />
+                                    </div>
+
+                                    <div className="details-banner">
+
+                                        <div className="misc-box">
+                                            <span>
+                                                <img src={couponIcon} alt="" />
+                                                <small>2 tickets<br />per entry</small>
+                                            </span>
+                                            <span>
+                                                <img src={cashAlt} alt="" />
+                                                <small>cash alternative<br />available</small>
+                                            </span>
+                                            <span>
+                                                <img src={calendar} alt="" />
+                                                <small>Aug 13, 7:05 PM</small>
+                                            </span>
+                                        </div>
+
+                                        <p className="paraStyle3">In partnership with DFRE</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <Counter soldCount={soldCount1} />
+
+                    {/* <div className="sold-counter" id="counter-1">
+                        <Wave fill='#eabe00'
+                            id=""
+                            // paused={animateCounter}
+                            options={{
+                                height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
+                                speed: 0.5,
+                                points: 1
+                            }}
+                        />
+                        <Wave fill='#ffcf00'
+                            id=""
+                            // paused={animateCounter}
+                            options={{
+                                height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
+                                speed: 0.5,
+                                points: 2
+                            }}
+                        />
+
+                        <FadeOutUpDiv>
+                            <span className="sold-cnt">{soldCount1}</span>
+                        </FadeOutUpDiv>
+
+
+                        <span className="text">Sold <br /> out of</span>
+
+                        <span className="total-cnt">60</span>
+                    </div> */}
+
+                    {/* <div className="progress-box">
+
+                        <span>1</span>
+
+                        <span className="text">Sold <br /> out of</span>
+
+                        <span>60</span>
+
+                    </div> */}
+
+                </div>
+
+            </div>
+
+        </>
     );
 
 }

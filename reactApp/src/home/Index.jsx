@@ -36,6 +36,10 @@ import Wave from 'react-wavify';
 import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
 import { getCookie, setCookie } from '../_services/cookies.service';
+import FeaturedCampaign from '../_shared/featured-campaign/index.jsx';
+import CampaignCard from '../_shared/campaign-card/index.jsx';
+import CounterMobile from '../_shared/counter-mobile';
+import SoldCampaign from '../_shared/sold-campaign';
 
 import Message from '../components/message';
 import MessageContainer from '../components/messagesContainer';
@@ -91,9 +95,9 @@ function Home() {
 
     useEffect(() => {
 
-        
 
-    },[randomPrice]);
+
+    }, [randomPrice]);
 
     let calculateSlideCounter = (currentSlide) => {
         // console.log(e, slick, currentSlide);
@@ -628,9 +632,18 @@ function Home() {
     }
 
 
-    let showPrice = (currentSlide) => {
+    let showPrice = (currentSlide, id) => {
         let price = Math.floor(Math.random() * (999 - 100 + 1) + 100);
         setRandomPrice(price + ".00")
+        if (id == 7) {
+            setSoldCount7(0);
+        }
+        else if (id == 13) {
+            setSoldCount13(0);
+        }
+        else if (id == 18) {
+            setSoldCount18(0);
+        }
     }
 
     return (
@@ -671,7 +684,7 @@ function Home() {
                     }
 
                     return (
-					
+
                         <section className="carousel-section home-slider">
 
                             <div className="header-carousel" id="main-carousel">
@@ -900,729 +913,25 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)}>
+                        <FeaturedCampaign />
 
-                            <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
+                        <FeaturedCampaign />
 
-                            <div className="bckg">
-
-                                <div className="row">
-
-                                    <div className="col-sm-6">
-
-                                        <div className="image">
-
-                                            <img src={maldives} alt="" />
-
-
-                                            <div className="bottel-img">
-
-                                                <img src={bottle} alt="" />
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-sm-6">
-
-                                        <div className="img-cnt">
-
-                                            <div className="title-box">
-                                                <h1 className="headingStyle3">Maldives Trip</h1>
-                                                <p className="paraStyle1">
-                                                    Mesmerizing Maldives With Sun Island
-                                                </p>
-                                            </div>
-
-                                            <div className="price-box">
-                                                <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
-                                                <h1 className="headingStyle4">AED 720.00</h1>
-                                                <div className="btnStyle2">
-                                                    <a href="#">Buy Now</a>
-                                                    <a href="#">Prize Details</a>
-                                                </div>
-                                            </div>
-
-                                            <div className="bottom-box">
-                                                <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
-
-                                                <div className="icon">
-                                                    <img src={shareIcon} />
-                                                </div>
-
-                                                <div className="details-banner">
-
-                                                    <div className="misc-box">
-                                                        <span>
-                                                            <img src={couponIcon} alt="" />
-                                                            <small>2 tickets<br />per entry</small>
-                                                        </span>
-                                                        <span>
-                                                            <img src={cashAlt} alt="" />
-                                                            <small>cash alternative<br />available</small>
-                                                        </span>
-                                                        <span>
-                                                            <img src={calendar} alt="" />
-                                                            <small>Aug 13, 7:05 PM</small>
-                                                        </span>
-                                                    </div>
-
-                                                    <p className="paraStyle3">In partnership with DFRE</p>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div className="sold-counter" id="counter-1">
-                                    <Wave fill='#eabe00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
-                                            speed: 0.5,
-                                            points: 1
-                                        }}
-                                    />
-                                    <Wave fill='#ffcf00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount1 === 0 ? 140 : 140 - (140 * (soldCount1 / 60)),
-                                            speed: 0.5,
-                                            points: 2
-                                        }}
-                                    />
-
-                                    <FadeOutUpDiv>
-                                        <span className="sold-cnt">{soldCount1}</span>
-                                    </FadeOutUpDiv>
-
-
-                                    <span className="text">Sold <br /> out of</span>
-
-                                    <span className="total-cnt">60</span>
-                                </div>
-
-                                {/* <div className="progress-box">
-
-                                    <span>1</span>
-
-                                    <span className="text">Sold <br /> out of</span>
-
-                                    <span>60</span>
-
-                                </div> */}
-
-                            </div>
-
-                        </div>
-
-                        <div className="win-card m-none" id="card-2" onClick={() => startCount("card-2", false)}>
-
-                            <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
-
-                            <div className="bckg">
-
-                                <div className="row">
-
-                                    <div className="col-sm-6">
-
-                                        <div className="image">
-
-                                            <picture>
-
-                                                <img src={maldives} alt="" />
-
-                                            </picture>
-
-                                            <div className="bottel-img">
-
-                                                <img src={bottle} alt="" />
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-sm-6">
-
-                                        <div className="img-cnt">
-
-                                            <div className="title-box">
-                                                <h1 className="headingStyle3">Maldives Trip</h1>
-                                                <p className="paraStyle1">
-                                                    Mesmerizing Maldives With Sun Island
-                                                </p>
-                                            </div>
-
-                                            <div className="price-box">
-                                                <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
-                                                <h1 className="headingStyle4">AED 720.00</h1>
-                                                <div className="btnStyle2">
-                                                    <a href="#">Buy Now</a>
-                                                    <a href="#">Prize Details</a>
-                                                </div>
-                                            </div>
-
-                                            <div className="bottom-box">
-                                                <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
-
-                                                <div className="icon">
-                                                    <img src={shareIcon} />
-                                                </div>
-
-                                                <div className="details-banner">
-
-                                                    <div className="misc-box">
-                                                        <span>
-                                                            <img src={couponIcon} alt="" />
-                                                            <small>2 tickets<br />per entry</small>
-                                                        </span>
-                                                        <span>
-                                                            <img src={cashAlt} alt="" />
-                                                            <small>cash alternative<br />available</small>
-                                                        </span>
-                                                        <span>
-                                                            <img src={calendar} alt="" />
-                                                            <small>Aug 13, 7:05 PM</small>
-                                                        </span>
-                                                    </div>
-
-                                                    <p className="paraStyle3">In partnership with DFRE</p>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div className="sold-counter" id="counter-2">
-                                    <Wave fill='#eabe00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount2 === 0 ? 140 : 140 - (140 * (soldCount2 / 60)),
-                                            speed: 0.5,
-                                            points: 1
-                                        }}
-                                    />
-                                    <Wave fill='#ffcf00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount2 === 0 ? 140 : 140 - (140 * (soldCount2 / 60)),
-                                            speed: 0.5,
-                                            points: 2
-                                        }}
-                                    />
-
-                                    <FadeOutUpDiv>
-                                        <span className="sold-cnt">{soldCount2}</span>
-                                    </FadeOutUpDiv>
-
-
-                                    <span className="text">Sold <br /> out of</span>
-
-                                    <span className="total-cnt">60</span>
-                                </div>
-
-                                {/* <div className="progress-box">
-
-                                    <span>1</span>
-
-                                    <span className="text">Sold <br /> out of</span>
-
-                                    <span>60</span>
-
-                                </div> */}
-
-                            </div>
-
-                        </div>
-
-                        <div className="win-card m-none" id="card-3" onClick={() => startCount("card-3", false)}>
-
-                            <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
-
-                            <div className="bckg">
-
-                                <div className="row">
-
-                                    <div className="col-sm-6">
-
-                                        <div className="image">
-
-                                            <img src={maldives} alt="" />
-
-
-                                            <div className="bottel-img">
-
-                                                <img src={bottle} alt="" />
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-sm-6">
-
-                                        <div className="img-cnt">
-
-                                            <div className="title-box">
-                                                <h1 className="headingStyle3">Maldives Trip</h1>
-                                                <p className="paraStyle1">
-                                                    Mesmerizing Maldives With Sun Island
-                                                </p>
-                                            </div>
-
-                                            <div className="price-box">
-                                                <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
-                                                <h1 className="headingStyle4">AED 720.00</h1>
-                                                <div className="btnStyle2">
-                                                    <a href="#">Buy Now</a>
-                                                    <a href="#">Prize Details</a>
-                                                </div>
-                                            </div>
-
-                                            <div className="bottom-box">
-                                                <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
-
-                                                <div className="icon">
-                                                    <img src={shareIcon} />
-                                                </div>
-
-                                                <div className="details-banner">
-
-                                                    <div className="misc-box">
-                                                        <span>
-                                                            <img src={couponIcon} alt="" />
-                                                            <small>2 tickets<br />per entry</small>
-                                                        </span>
-                                                        <span>
-                                                            <img src={cashAlt} alt="" />
-                                                            <small>cash alternative<br />available</small>
-                                                        </span>
-                                                        <span>
-                                                            <img src={calendar} alt="" />
-                                                            <small>Aug 13, 7:05 PM</small>
-                                                        </span>
-                                                    </div>
-
-                                                    <p className="paraStyle3">In partnership with DFRE</p>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div className="sold-counter" id="counter-3">
-                                    <Wave fill='#eabe00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount3 === 0 ? 140 : 140 - (140 * (soldCount3 / 60)),
-                                            speed: 0.5,
-                                            points: 1
-                                        }}
-                                    />
-                                    <Wave fill='#ffcf00'
-                                        id=""
-                                        // paused={animateCounter}
-                                        options={{
-                                            height: soldCount3 === 0 ? 140 : 140 - (140 * (soldCount3 / 60)),
-                                            speed: 0.5,
-                                            points: 2
-                                        }}
-                                    />
-
-                                    <FadeOutUpDiv>
-                                        <span className="sold-cnt">{soldCount3}</span>
-                                    </FadeOutUpDiv>
-
-
-                                    <span className="text">Sold <br /> out of</span>
-
-                                    <span className="total-cnt">60</span>
-                                </div>
-
-                                {/* <div className="progress-box">
-
-                                    <span>1</span>
-
-                                    <span className="text">Sold <br /> out of</span>
-
-                                    <span>60</span>
-
-                                </div> */}
-
-                            </div>
-
-                        </div>
-
-
+                        <FeaturedCampaign />
 
                         {/* <!-- For Mobile --> */}
 
                         <div className="row m-block">
                             <div className="col-sm-12">
-                                <div className="card" id="card-4" onClick={() => startCount("card-4", false)}>
-
-                                    <div className="card-head">
-
-                                        <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                        <div className="sold-counter-mobile" id="counter-4">
-                                            <Wave fill='#eabe00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount4 === 0 ? 70 : 70 - (70 * (soldCount4 / 60)),
-                                                    speed: 0.5,
-                                                    points: 1
-                                                }}
-                                            />
-                                            <Wave fill='#ffcf00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount4 === 0 ? 70 : 70 - (70 * (soldCount4 / 60)),
-                                                    speed: 0.5,
-                                                    points: 2
-                                                }}
-                                            />
-
-                                            <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount4}</span>
-                                            </FadeOutUpDiv>
-
-
-                                            {/* <span className="text">Sold <br /> out of</span>
-
-                                            <span className="total-cnt">60</span> */}
-
-                                            <h5 className="sold-cnt">{soldCount4}</h5>
-
-                                            <p>SOLD <br />
-                                                OUT OF
-                                            </p>
-
-                                            <h5 className="total-cnt">60</h5>
-                                        </div>
-
-                                        {/* <div className="box">
-
-                                            <h5>1</h5>
-
-                                            <p>SOLD</p>
-
-                                            <p>OUT OF</p>
-
-                                            <h5>60</h5>
-
-                                        </div> */}
-
-                                    </div>
-
-                                    <div className="card-img">
-
-                                        <div className="campaigns-card-overlay"></div>
-
-                                        <div className="card-cnt">
-
-                                            <h1>Maldives Trip</h1>
-
-                                            <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                            <div className="btnStyle3">
-
-                                                <a href="#">Prize Details</a>
-
-                                                <a href="#">Product Details</a>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="btl-img">
-
-                                            <img src={bottle} alt="" />
-
-                                        </div>
-
-                                        <div className="card-icon">
-                                            <img src={shareIcon} />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="card-footer">
-
-                                        <div>
-
-                                            <div>
-
-                                                <p>Buy a water Bottle</p>
-
-                                                <h3>AED 720.00</h3>
-
-                                            </div>
-
-                                            <a href="#" className="buy-now">Buy Now</a>
-
-                                        </div>
-
-                                        <p>Max draw date: December 02, 2021 or when the campaign
-                                            is sold out. Which ever is earlier.</p>
-
-                                    </div>
-
-                                </div>
+                                <CampaignCard />
                             </div>
 
                             <div className="col-sm-12">
-                                <div className="card" id="card-5" onClick={() => startCount("card-5", false)}>
-
-                                    <div className="card-head">
-
-                                        <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                        <div className="sold-counter-mobile" id="counter-5">
-                                            <Wave fill='#eabe00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount5 === 0 ? 70 : 70 - (70 * (soldCount5 / 60)),
-                                                    speed: 0.5,
-                                                    points: 1
-                                                }}
-                                            />
-                                            <Wave fill='#ffcf00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount5 === 0 ? 70 : 70 - (70 * (soldCount5 / 60)),
-                                                    speed: 0.5,
-                                                    points: 2
-                                                }}
-                                            />
-
-                                            <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount5}</span>
-                                            </FadeOutUpDiv>
-
-
-                                            {/* <span className="text">Sold <br /> out of</span>
-
-                                            <span className="total-cnt">60</span> */}
-
-                                            <h5 className="sold-cnt">{soldCount5}</h5>
-
-                                            <p>SOLD <br />
-                                                OUT OF
-                                            </p>
-
-                                            <h5 className="total-cnt">60</h5>
-                                        </div>
-
-                                        {/* <div className="box">
-
-                                            <h5>1</h5>
-
-                                            <p>SOLD</p>
-
-                                            <p>OUT OF</p>
-
-                                            <h5>60</h5>
-
-                                        </div> */}
-
-                                    </div>
-
-                                    <div className="card-img">
-
-                                        <div className="campaigns-card-overlay"></div>
-
-                                        <div className="card-cnt">
-
-                                            <h1>Maldives Trip</h1>
-
-                                            <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                            <div className="btnStyle3">
-
-                                                <a href="#">Prize Details</a>
-
-                                                <a href="#">Product Details</a>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="btl-img">
-
-                                            <img src={bottle} alt="" />
-
-                                        </div>
-
-                                        <div className="card-icon">
-                                            <img src={shareIcon} />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="card-footer">
-
-                                        <div>
-
-                                            <div>
-
-                                                <p>Buy a water Bottle</p>
-
-                                                <h3>AED 720.00</h3>
-
-                                            </div>
-
-                                            <a href="#" className="buy-now">Buy Now</a>
-
-                                        </div>
-
-                                        <p>Max draw date: December 02, 2021 or when the campaign
-                                            is sold out. Which ever is earlier.</p>
-
-                                    </div>
-
-                                </div>
+                                <CampaignCard />
                             </div>
 
                             <div className="col-sm-12">
-                                <div className="card" id="card-6" onClick={() => startCount("card-6", false)}>
-
-                                    <div className="card-head">
-
-                                        <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                        <div className="sold-counter-mobile" id="counter-6">
-                                            <Wave fill='#eabe00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount6 === 0 ? 70 : 70 - (70 * (soldCount6 / 60)),
-                                                    speed: 0.5,
-                                                    points: 1
-                                                }}
-                                            />
-                                            <Wave fill='#ffcf00'
-                                                id=""
-                                                // paused={animateCounter}
-                                                options={{
-                                                    height: soldCount6 === 0 ? 70 : 70 - (70 * (soldCount6 / 60)),
-                                                    speed: 0.5,
-                                                    points: 2
-                                                }}
-                                            />
-
-                                            <FadeOutUpDiv>
-                                                <span className="sold-cnt">{soldCount6}</span>
-                                            </FadeOutUpDiv>
-
-
-                                            {/* <span className="text">Sold <br /> out of</span>
-
-                                            <span className="total-cnt">60</span> */}
-
-                                            <h5 className="sold-cnt">{soldCount6}</h5>
-
-                                            <p>SOLD <br />
-                                                OUT OF
-                                            </p>
-
-                                            <h5 className="total-cnt">60</h5>
-                                        </div>
-
-                                        {/* <div className="box">
-
-                                            <h5>1</h5>
-
-                                            <p>SOLD</p>
-
-                                            <p>OUT OF</p>
-
-                                            <h5>60</h5>
-
-                                        </div> */}
-
-                                    </div>
-
-                                    <div className="card-img">
-
-                                        <div className="campaigns-card-overlay"></div>
-
-                                        <div className="card-cnt">
-
-                                            <h1>Maldives Trip</h1>
-
-                                            <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                            <div className="btnStyle3">
-
-                                                <a href="#">Prize Details</a>
-
-                                                <a href="#">Product Details</a>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="btl-img">
-
-                                            <img src={bottle} alt="" />
-
-                                        </div>
-
-                                        <div className="card-icon">
-                                            <img src={shareIcon} />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="card-footer">
-
-                                        <div>
-
-                                            <div>
-
-                                                <p>Buy a water Bottle</p>
-
-                                                <h3>AED 720.00</h3>
-
-                                            </div>
-
-                                            <a href="#" className="buy-now">Buy Now</a>
-
-                                        </div>
-
-                                        <p>Max draw date: December 02, 2021 or when the campaign
-                                            is sold out. Which ever is earlier.</p>
-
-                                    </div>
-
-                                </div>
+                                <CampaignCard />
                             </div>
 
                         </div>
@@ -1647,55 +956,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="sold-counter-mobile" id="counter-7">
-                                <Wave fill='#eabe00'
-                                    id=""
-                                    // paused={animateCounter}
-                                    options={{
-                                        height: soldCount7 === 0 ? 70 : 70 - (70 * (soldCount7 / 60)),
-                                        speed: 0.5,
-                                        points: 1
-                                    }}
-                                />
-                                <Wave fill='#ffcf00'
-                                    id=""
-                                    // paused={animateCounter}
-                                    options={{
-                                        height: soldCount7 === 0 ? 70 : 70 - (70 * (soldCount7 / 60)),
-                                        speed: 0.5,
-                                        points: 2
-                                    }}
-                                />
-
-                                <FadeOutUpDiv>
-                                    <span className="sold-cnt">{soldCount7}</span>
-                                </FadeOutUpDiv>
-
-
-                                {/* <span className="text">Sold <br /> out of</span>
-
-                                            <span className="total-cnt">60</span> */}
-
-                                <h5 className="sold-cnt">{soldCount7}</h5>
-
-                                <p>SOLD <br />
-                                    OUT OF
-                                </p>
-
-                                <h5 className="total-cnt">60</h5>
-                            </div>
-
-                            {/* <div className="box">
-
-                                <h5 className="sold-items">1</h5>
-
-                                <p>SOLD</p>
-
-                                <p>OUT OF</p>
-
-                                <h5 className="total-items">60</h5>
-
-                            </div> */}
+                            <CounterMobile soldCount={soldCount7} key={randomPrice} />
 
                         </div>
 
@@ -1754,446 +1015,23 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide)}>
+                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "7")}>
 
                                         <div>
-                                            <div className="card" id="card-9" onClick={() => startCount("card-9", false)}>
+                                            <CampaignCard />
 
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy" >win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-8">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount9 === 0 ? 70 : 70 - (70 * (soldCount9 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount9 === 0 ? 70 : 70 - (70 * (soldCount9 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount9}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount9}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
                                         </div>
 
                                         <div>
-                                            <div className="card" id="card-10" onClick={() => startCount("card-10", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-10">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount10 === 0 ? 70 : 70 - (70 * (soldCount10 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount10 === 0 ? 70 : 70 - (70 * (soldCount10 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount10}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount10}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
                                         <div>
-                                            <div className="card" id="card-11" onClick={() => startCount("card-11", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-11">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount11 === 0 ? 70 : 70 - (70 * (soldCount11 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount11 === 0 ? 70 : 70 - (70 * (soldCount11 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount11}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount11}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
                                         <div>
-                                            <div className="card" id="card-12" onClick={() => startCount("card-12", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-12">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount12 === 0 ? 70 : 70 - (70 * (soldCount12 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount12 === 0 ? 70 : 70 - (70 * (soldCount12 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount12}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount12}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
 
@@ -2207,7 +1045,7 @@ function Home() {
 
 
 
-                        <div className="card-footer static-card-footer">
+                        <div className="card-footer static-card-footer" key={randomPrice}>
 
                             <div>
 
@@ -2228,20 +1066,6 @@ function Home() {
                             <p>Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
 
                         </div>
-
-
-
-                        {/* <div className="arrow-prev other-compaigns-arrow-prev">
-
-                            <img src={arrowIcon} alt="" />
-
-                        </div>
-
-                        <div className="arrow-next other-compaigns-arrow-next">
-
-                            <img src={arrowIcon} alt="" />
-
-                        </div> */}
 
                         <div className="load-btn">
 
@@ -2264,55 +1088,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="sold-counter-mobile" id="counter-13">
-                                <Wave fill='#eabe00'
-                                    id=""
-                                    // paused={animateCounter}
-                                    options={{
-                                        height: soldCount13 === 0 ? 70 : 70 - (70 * (soldCount13 / 60)),
-                                        speed: 0.5,
-                                        points: 1
-                                    }}
-                                />
-                                <Wave fill='#ffcf00'
-                                    id=""
-                                    // paused={animateCounter}
-                                    options={{
-                                        height: soldCount13 === 0 ? 70 : 70 - (70 * (soldCount13 / 60)),
-                                        speed: 0.5,
-                                        points: 2
-                                    }}
-                                />
-
-                                <FadeOutUpDiv>
-                                    <span className="sold-cnt">{soldCount13}</span>
-                                </FadeOutUpDiv>
-
-
-                                {/* <span className="text">Sold <br /> out of</span>
-
-                                            <span className="total-cnt">60</span> */}
-
-                                <h5 className="sold-cnt">{soldCount13}</h5>
-
-                                <p>SOLD <br />
-                                    OUT OF
-                                </p>
-
-                                <h5 className="total-cnt">60</h5>
-                            </div>
-
-                            {/* <div className="box">
-
-                                <h5 className="sold-items">1</h5>
-
-                                <p>SOLD</p>
-
-                                <p>OUT OF</p>
-
-                                <h5 className="total-items">60</h5>
-
-                            </div> */}
+                            <CounterMobile soldCount={soldCount13} key={randomPrice} />
 
                         </div>
 
@@ -2371,446 +1147,22 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings}>
+                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "13")}>
 
                                         <div>
-                                            <div className="card" id="card-14" onClick={() => startCount("card-14", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy" >win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-14">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount14 === 0 ? 70 : 70 - (70 * (soldCount14 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount14 === 0 ? 70 : 70 - (70 * (soldCount14 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount14}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount14}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
                                         <div>
-                                            <div className="card" id="card-15" onClick={() => startCount("card-15", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-15">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount15 === 0 ? 70 : 70 - (70 * (soldCount15 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount15 === 0 ? 70 : 70 - (70 * (soldCount15 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount15}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount15}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
                                         <div>
-                                            <div className="card" id="card-16" onClick={() => startCount("card-16", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-16">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount16 === 0 ? 70 : 70 - (70 * (soldCount16 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount16 === 0 ? 70 : 70 - (70 * (soldCount16 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount16}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount16}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
                                         <div>
-                                            <div className="card" id="card-17" onClick={() => startCount("card-17", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-17">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount17 === 0 ? 70 : 70 - (70 * (soldCount17 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount17 === 0 ? 70 : 70 - (70 * (soldCount17 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount17}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount17}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
+                                            <CampaignCard />
                                         </div>
 
 
@@ -2824,7 +1176,7 @@ function Home() {
 
 
 
-                        <div className="card-footer static-card-footer">
+                        <div className="card-footer static-card-footer" key={randomPrice}>
 
                             <div>
 
@@ -2832,7 +1184,9 @@ function Home() {
 
                                     <p>Buy a water Bottle</p>
 
-                                    <h3>AED 720.00</h3>
+                                    <FadeOutUpDiv>
+                                        <h3>AED {randomPrice}</h3>
+                                    </FadeOutUpDiv>
 
                                 </div>
 
@@ -2865,55 +1219,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <div className="sold-counter-mobile" id="counter-18">
-                                <Wave fill='#eabe00'
-                                    id=""
-                                    // paused={animateCounter}
-                                    options={{
-                                        height: soldCount18 === 0 ? 70 : 70 - (70 * (soldCount18 / 60)),
-                                        speed: 0.5,
-                                        points: 1
-                                    }}
-                                />
-                                <Wave fill='#ffcf00'
-                                    id=""
-                                    // paused={animateCounter}
-                                    options={{
-                                        height: soldCount18 === 0 ? 70 : 70 - (70 * (soldCount18 / 60)),
-                                        speed: 0.5,
-                                        points: 2
-                                    }}
-                                />
-
-                                <FadeOutUpDiv>
-                                    <span className="sold-cnt">{soldCount18}</span>
-                                </FadeOutUpDiv>
-
-
-                                {/* <span className="text">Sold <br /> out of</span>
-
-                                            <span className="total-cnt">60</span> */}
-
-                                <h5 className="sold-cnt">{soldCount18}</h5>
-
-                                <p>SOLD <br />
-                                    OUT OF
-                                </p>
-
-                                <h5 className="total-cnt">60</h5>
-                            </div>
-
-                            {/* <div className="box">
-
-                                <h5 className="sold-items">1</h5>
-
-                                <p>SOLD</p>
-
-                                <p>OUT OF</p>
-
-                                <h5 className="total-items">60</h5>
-
-                            </div> */}
+                            <CounterMobile soldCount={soldCount18} key={randomPrice} />
 
                         </div>
 
@@ -2972,451 +1278,26 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings}>
+                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "18")}>
 
-                                        <div>
-                                            <div className="card" id="card-19" onClick={() => startCount("card-19", false)}>
+                                    <div>
+                                        <CampaignCard />
+                                    </div>
 
-                                                <div className="card-head">
+                                    <div>
+                                        <CampaignCard />
+                                    </div>
 
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
+                                    <div>
+                                        <CampaignCard />
+                                    </div>
 
-                                                    <div className="sold-counter-mobile" id="counter-19">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount19 === 0 ? 70 : 70 - (70 * (soldCount19 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount19 === 0 ? 70 : 70 - (70 * (soldCount19 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
+                                    <div>
+                                        <CampaignCard />
+                                    </div>
 
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount19}</span>
-                                                        </FadeOutUpDiv>
 
-
-                                                        <h5 className="sold-cnt">{soldCount19}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                    <h5>1</h5>
-
-                                                    <p>SOLD</p>
-
-                                                    <p>OUT OF</p>
-
-                                                    <h5>60</h5>
-
-                                                </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div className="card" id="card-20" onClick={() => startCount("card-20", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-20">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount20 === 0 ? 70 : 70 - (70 * (soldCount20 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount20 === 0 ? 70 : 70 - (70 * (soldCount20 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount20}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount20}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div className="card" id="card-21" onClick={() => startCount("card-21", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-21">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount21 === 0 ? 70 : 70 - (70 * (soldCount21 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount21 === 0 ? 70 : 70 - (70 * (soldCount21 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount21}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount21}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div className="card" id="card-22" onClick={() => startCount("card-22", false)}>
-
-                                                <div className="card-head">
-
-                                                    <h1 className="headingStyle5 font-fancy">win</h1>
-
-                                                    <div className="sold-counter-mobile" id="counter-22">
-                                                        <Wave fill='#eabe00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount22 === 0 ? 70 : 70 - (70 * (soldCount22 / 60)),
-                                                                speed: 0.5,
-                                                                points: 1
-                                                            }}
-                                                        />
-                                                        <Wave fill='#ffcf00'
-                                                            id=""
-                                                            // paused={animateCounter}
-                                                            options={{
-                                                                height: soldCount22 === 0 ? 70 : 70 - (70 * (soldCount22 / 60)),
-                                                                speed: 0.5,
-                                                                points: 2
-                                                            }}
-                                                        />
-
-                                                        <FadeOutUpDiv>
-                                                            <span className="sold-cnt">{soldCount22}</span>
-                                                        </FadeOutUpDiv>
-
-
-                                                        <h5 className="sold-cnt">{soldCount22}</h5>
-
-                                                        <p>SOLD <br />
-                                                            OUT OF
-                                                        </p>
-
-                                                        <h5 className="total-cnt">60</h5>
-                                                    </div>
-
-                                                    {/* <div className="box">
-
-                                                        <h5>1</h5>
-
-                                                        <p>SOLD</p>
-
-                                                        <p>OUT OF</p>
-
-                                                        <h5>60</h5>
-
-                                                    </div> */}
-
-                                                </div>
-
-                                                <div className="card-img">
-
-                                                    <div className="campaigns-card-overlay"></div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <p className="buy-bottle">Buy a water Bottle</p>
-
-                                                            <h3>AED 720.00</h3>
-
-                                                        </div>
-
-                                                        <a href="#" className="buy-now">Buy Now</a>
-
-                                                    </div>
-
-                                                    <p className="small-text">Max draw date: December 02, 2021 or when the campaign <br />is sold out.Which ever is earlier.</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-
-                                    </Slider>
+                                </Slider>
 
                                 );
 
@@ -3426,7 +1307,7 @@ function Home() {
 
 
 
-                        <div className="card-footer static-card-footer">
+                        <div className="card-footer static-card-footer" key={randomPrice}>
 
                             <div>
 
@@ -3434,7 +1315,9 @@ function Home() {
 
                                     <p>Buy a water Bottle</p>
 
-                                    <h3>AED 720.00</h3>
+                                    <FadeOutUpDiv>
+                                        <h3>AED {randomPrice}</h3>
+                                    </FadeOutUpDiv>
 
                                 </div>
 
@@ -3520,312 +1403,24 @@ function Home() {
 
 
                                         <div>
-                                            <div className="card">
-
-                                                <div className="card-img">
-
-                                                    <div className="overlay"></div>
-
-                                                    <div className="overlay-text">
-                                                        <h3 >Sold Out</h3>
-                                                    </div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        {/* <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div> */}
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <h6>Draw date</h6>
-
-                                                            <h5>13 August 2021</h5>
-
-                                                        </div>
-
-                                                        {/* <a href="#" className="">View More</a> */}
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            <SoldCampaign />
                                         </div>
 
                                         <div>
-                                            <div className="card">
-
-                                                <div className="card-img">
-
-                                                    <div className="overlay"></div>
-                                                    <div className="overlay-text">
-                                                        <h3 >Sold Out</h3>
-                                                    </div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        {/* <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div> */}
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <h6>Draw date</h6>
-
-                                                            <h5>13 August 2021</h5>
-
-                                                        </div>
-
-                                                        {/* <a href="#" className="">View More</a> */}
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            <SoldCampaign />
                                         </div>
 
                                         <div>
-
-                                            <div className="card">
-
-                                                <div className="card-img">
-
-                                                    <div className="overlay"></div>
-                                                    <div className="overlay-text">
-                                                        <h3 >Sold Out</h3>
-                                                    </div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        {/* <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div> */}
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <h6>Draw date</h6>
-
-                                                            <h5>13 August 2021</h5>
-
-                                                        </div>
-
-                                                        {/* <a href="#" className="">View More</a> */}
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            <SoldCampaign />
                                         </div>
 
                                         <div>
-
-                                            <div className="card">
-
-                                                <div className="card-img">
-
-                                                    <div className="overlay"></div>
-                                                    <div className="overlay-text">
-                                                        <h3 >Sold Out</h3>
-                                                    </div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        {/* <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div> */}
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <h6>Draw date</h6>
-
-                                                            <h5>13 August 2021</h5>
-
-                                                        </div>
-
-                                                        {/* <a href="#">View More</a> */}
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            <SoldCampaign />
                                         </div>
 
                                         <div>
-
-                                            <div className="card">
-
-                                                <div className="card-img">
-
-                                                    <div className="overlay"></div>
-
-                                                    <div className="overlay-text">
-                                                        <h3 >Sold Out</h3>
-                                                    </div>
-
-                                                    <div className="card-cnt">
-
-                                                        <h1>Maldives Trip</h1>
-
-                                                        <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                                        {/* <div className="btnStyle3">
-
-                                                            <a href="#">Prize Details</a>
-
-                                                            <a href="#">Product Details</a>
-
-                                                        </div> */}
-
-                                                    </div>
-
-                                                    <div className="btl-img">
-
-                                                        <img src={bottle} alt="" />
-
-                                                    </div>
-
-                                                    <div className="card-icon">
-                                                        <img src={shareIcon} alt="" />
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="card-footer">
-
-                                                    <div>
-
-                                                        <div>
-
-                                                            <h6>Draw date</h6>
-
-                                                            <h5>13 August 2021</h5>
-
-                                                        </div>
-
-                                                        {/* <a href="#">View More</a> */}
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
+                                            <SoldCampaign />
                                         </div>
-
-
-
 
                                     </Slider>
 
@@ -3916,7 +1511,6 @@ function Home() {
 
 
                                         <div>
-
                                             <div className="testimonial">
 
                                                 <h5 className="text-center">Won Free Trips to Maldives</h5>
@@ -3934,7 +1528,7 @@ function Home() {
 
                                                     <video loop id="testimonial-video-1">
 
-                                                        <source src={dummyVideo} stop={!isPlaying1.toString()} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={isPlaying1 ? "false" : "true"} type="video/mp4" />
 
                                                     </video>
 
@@ -3979,7 +1573,7 @@ function Home() {
 
                                                     <video loop id="testimonial-video-2">
 
-                                                        <source src={dummyVideo} stop={!isPlaying2.toString()} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={isPlaying2 ? "false" : "true"} type="video/mp4" />
 
                                                     </video>
 
@@ -4023,7 +1617,7 @@ function Home() {
 
                                                     <video loop id="testimonial-video-3">
 
-                                                        <source src={dummyVideo} stop={!isPlaying3.toString()} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={isPlaying3 ? "false" : "true"} type="video/mp4" />
 
                                                     </video>
 
@@ -4067,7 +1661,7 @@ function Home() {
 
                                                     <video loop id="testimonial-video-4">
 
-                                                        <source src={dummyVideo} stop={!isPlaying4.toString()} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={isPlaying4 ? "false" : "true"} type="video/mp4" />
 
                                                     </video>
 
@@ -4112,7 +1706,7 @@ function Home() {
 
                                                     <video loop id="testimonial-video-5">
 
-                                                        <source src={dummyVideo} stop={!isPlaying5.toString()} type="video/mp4" />
+                                                        <source src={dummyVideo} stop={isPlaying5 ? "false" : "true"} type="video/mp4" />
 
                                                     </video>
 
@@ -4386,7 +1980,7 @@ function Home() {
                     </div>
                 </div>
             )}
-			{/* <Message />,
+            {/* <Message />,
 			 <MessageContainer />, */}
         </>
     );

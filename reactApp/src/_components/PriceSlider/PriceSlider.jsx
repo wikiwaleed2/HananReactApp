@@ -63,6 +63,9 @@ export default function PriceSlider() {
           <div>
             <img src={sliderImg} />
           </div>
+          <div>
+            <img src={sliderImg} />
+          </div>
         </Slider>
       </div>
       
