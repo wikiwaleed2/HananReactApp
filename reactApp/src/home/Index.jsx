@@ -632,7 +632,7 @@ function Home() {
     }
 
 
-    let showPrice = (currentSlide, id) => {
+    let showPrice = (id) => {
         let price = Math.floor(Math.random() * (999 - 100 + 1) + 100);
         setRandomPrice(price + ".00")
         if (id == 7) {
@@ -690,7 +690,7 @@ function Home() {
                             <div className="header-carousel" id="main-carousel">
 
 
-                                <Slider afterChange={(currentSlide) => calculateSlideCounter(currentSlide)} {...settings}>
+                                <Slider afterChange={(current) => calculateSlideCounter(current)} {...settings}>
                                     <div className="images ">
 
                                         <div className="c-overlay"></div>
@@ -797,7 +797,7 @@ function Home() {
 
 
                             <div className="slide-counter m-none">
-                                <p id="currentslide">{slideCounter}</p>&nbsp;/&nbsp;
+                                <p id="currentslider">{slideCounter}</p>&nbsp;/&nbsp;
                                 <p id="totalslides">03</p>
 
                             </div>
@@ -1015,7 +1015,7 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "7")}>
+                                    <Slider {...settings} afterChange={() => showPrice( "7")}>
 
                                         <div>
                                             <CampaignCard />
@@ -1147,7 +1147,7 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "13")}>
+                                    <Slider {...settings} afterChange={() => showPrice("13")}>
 
                                         <div>
                                             <CampaignCard />
@@ -1278,7 +1278,7 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "18")}>
+                                    <Slider {...settings} afterChange={() => showPrice("18")}>
 
                                     <div>
                                         <CampaignCard />
@@ -1507,7 +1507,7 @@ function Home() {
 
                                 return (
 
-                                    <Slider {...settings} afterChange={(currentSlide) => stopVideo()} >
+                                    <Slider {...settings} afterChange={() => stopVideo()} >
 
 
                                         <div>

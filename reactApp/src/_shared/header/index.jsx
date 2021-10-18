@@ -73,7 +73,7 @@ function Header() {
                         <img src={bellIcon} />
                     </>
                     : <Link to={{ pathname: `/account/login` }}>
-                        <a className="nav-link active" aria-current="page" href="#">Login/Sign-up</a>
+                        <span className="nav-link active" aria-current="page" href="#">Login/Sign-up</span>
                     </Link>}
 
 

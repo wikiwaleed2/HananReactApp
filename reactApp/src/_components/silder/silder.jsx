@@ -20,21 +20,6 @@ function SilderComponent() {
     const [showModal, setShowModal] = useState(false);
     const [randomPrice, setRandomPrice] = useState('720.00');
 
-    let calculateSlideCounter = (currentSlide) => {
-        // console.log(e, slick, currentSlide);
-        let counter = currentSlide + 1;
-        setSlideCounter('0' + counter)
-    }
-
-    let playVideo = (id) => {
-        let video = document.getElementById(id);
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
-
-    }
 
     let startCount = (value) => {
         console.log(value);
@@ -73,7 +58,7 @@ function SilderComponent() {
         // };
     }
 
-    let showPrice = (currentSlide, id) => {
+    let showPrice = (id) => {
         let price = Math.floor(Math.random() * (999 - 100 + 1) + 100);
         setRandomPrice(price + ".00")
         if (id == 7) {
@@ -151,7 +136,7 @@ function SilderComponent() {
                         }
 
                         return (
-                            <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "7")}>
+                            <Slider {...settings} afterChange={() => showPrice("7")}>
 
                                 <div>
                                     <CampaignCard />

@@ -30,11 +30,6 @@ function Price() {
         slidesToScroll: 1,
     };
 
-    let calculateSlideCounter = (currentSlide) => {
-        // console.log(e, slick, currentSlide);
-        let counter = currentSlide + 1;
-        setSlideCounter('0' + counter)
-    }
     return (
         <>
         <div className="priceMobileSec">
