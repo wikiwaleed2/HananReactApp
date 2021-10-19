@@ -4,8 +4,8 @@ import Slider from 'react-slick';
 import bottle from '../../_assets/images/bottle.png';
 import shareIcon from '../../_assets/images/social-share.png';
 import arrowIcon from '../../_assets/images/arrow-icon.svg';
-import CampaignCard from '@/_shared/campaign-card/index.jsx';
-import CounterMobile from '@/_shared/counter-mobile';
+import { CampaignCard } from '@/_shared/campaign-card/index.jsx';
+import {CounterMobile} from '@/_shared/counter-mobile';
 import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
 
@@ -21,41 +21,30 @@ function SilderComponent() {
     const [randomPrice, setRandomPrice] = useState('720.00');
 
 
-    let startCount = (value) => {
-        console.log(value);
-        setAnimateCounter(value);
-        if (!value) {
+    let startCount = (id, value) => {
+        let idNumber = id.split('-')[1];
+        let el = document.getElementById(id);
+        let childEl = el.children[1].children[1];
+        let counterNumber = id.split('-')[1];
 
-            let current = 1;
-            var startTime = new Date().getTime();
-            let counter = setInterval(() => {
-                current++;
-                // Update the contents of the element
-                setSoldCount(current)
-                if (current === 20) {
-                    setAnimateCounter(true);
-                    clearInterval(counter);
-                    return;
-                }
+        if (counterNumber == 7) {
+            setAnimateCounter(value);
+            if (!value) {
 
-                // if(new Date().getTime() - startTime > 2000){
-                //     // setSoldCount(20)
-                //     setAnimateCounter(true);
-                //     clearInterval(counter);
-                //     return;
-                // }
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
 
-
-                console.log(current);
-                // return current;
-            }, 300);
-
-            // return current;
+                    setSoldCount(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
         }
-
-        // return () => {
-        //     clearInterval(counter);
-        // };
     }
 
     let showPrice = (id) => {
@@ -77,7 +66,7 @@ function SilderComponent() {
 
                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                    <CounterMobile soldCount={soldCount} key={randomPrice} />
+                    <CounterMobile soldCount={soldCount} keyvalue={randomPrice} />
 
                 </div>
 

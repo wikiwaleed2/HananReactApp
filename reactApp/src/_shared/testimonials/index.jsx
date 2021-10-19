@@ -5,7 +5,7 @@ import playIcon from '@/_assets/images/play-solid.svg';
 import pauseIcon from '@/_assets/images/pause-solid.svg';
 import qouteIcon from '@/_assets/images/quote-left-solid.svg';
 
-const Testimonials = ({key}) => {
+function Testimonials({ key }) {
 
     const [isPlaying1, setIsPlaying1] = useState(false);
     const [isPlaying2, setIsPlaying1] = useState(false);
@@ -155,4 +155,4 @@ const Testimonials = ({key}) => {
     );
 }
 
-export default Testimonials;
+export { Testimonials };

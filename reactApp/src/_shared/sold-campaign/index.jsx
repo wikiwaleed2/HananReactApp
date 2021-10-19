@@ -3,7 +3,7 @@ import './index.less';
 import shareIcon from '@/_assets/images/social-share.png';
 import bottle from '@/_assets/images/bottle.png';
 
-const SoldCampaign = () => {
+function SoldCampaign() {
 
     return (
         <div className="card">
@@ -52,4 +52,4 @@ const SoldCampaign = () => {
     );
 }
 
-export default SoldCampaign;
+export { SoldCampaign };

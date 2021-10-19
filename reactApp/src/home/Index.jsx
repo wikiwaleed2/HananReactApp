@@ -36,13 +36,13 @@ import Wave from 'react-wavify';
 import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
 import { getCookie, setCookie } from '../_services/cookies.service';
-import FeaturedCampaign from '../_shared/featured-campaign/index.jsx';
-import CampaignCard from '../_shared/campaign-card/index.jsx';
-import CounterMobile from '../_shared/counter-mobile';
-import SoldCampaign from '../_shared/sold-campaign';
+import { FeaturedCampaign } from '../_shared/featured-campaign/index.jsx';
+import { CampaignCard } from '../_shared/campaign-card/index.jsx';
+import { CounterMobile } from '../_shared/counter-mobile';
+import { SoldCampaign } from '../_shared/sold-campaign/index.jsx';
 
-import Message from '../components/message';
-import MessageContainer from '../components/messagesContainer';
+// import Message from '../components/message';
+// import MessageContainer from '../components/messagesContainer';
 
 const fadeOutUpAnimation = keyframes`${fadeOutUp}`;
 const FadeOutUpDiv = styled.div`animation: 0.5s ${fadeOutUpAnimation};`;
@@ -111,94 +111,75 @@ function Home() {
         setIsPlaying3(false);
         setIsPlaying4(false);
         setIsPlaying5(false);
+        let videosEl = document.getElementsByClassName("testimony-vid-tag");
+        console.log("video el", videosEl);
+
+        for (let i = 0; i <= videosEl.length - 1; i++) {
+            if(!videosEl[i].paused){
+                videosEl[i].removeAttribute('controls');
+                videosEl[i].pause();
+            }
+        }
+
     }
 
     let playVideo = (id) => {
         let number = id.split('-')[2];
         let video = document.getElementById(id);
+        stopVideo();
 
         if (number == 1) {
             if (video.paused) {
                 setIsPlaying1(true);
-                setIsPlaying2(false);
-                setIsPlaying3(false);
-                setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.setAttribute('controls', '');
                 video.play();
             } else {
                 setIsPlaying1(false);
-                setIsPlaying2(false);
-                setIsPlaying3(false);
-                setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.removeAttribute('controls');
                 video.pause();
             }
         }
         else if (number == 2) {
             if (video.paused) {
-                setIsPlaying1(false);
                 setIsPlaying2(true);
-                setIsPlaying3(false);
-                setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.setAttribute('controls', '');
                 video.play();
             } else {
-                setIsPlaying1(false);
                 setIsPlaying2(false);
-                setIsPlaying3(false);
-                setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.removeAttribute('controls');
                 video.pause();
             }
         }
         else if (number == 3) {
             if (video.paused) {
-                setIsPlaying1(false);
-                setIsPlaying2(false);
                 setIsPlaying3(true);
-                setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.setAttribute('controls', '');
                 video.play();
             } else {
-                setIsPlaying1(false);
-                setIsPlaying2(false);
                 setIsPlaying3(false);
-                setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.removeAttribute('controls');
                 video.pause();
             }
         }
         else if (number == 4) {
             if (video.paused) {
-                setIsPlaying1(false);
-                setIsPlaying2(false);
-                setIsPlaying3(false);
                 setIsPlaying4(true);
-                setIsPlaying5(false);
+                video.setAttribute('controls', '');
                 video.play();
             } else {
-                setIsPlaying1(false);
-                setIsPlaying2(false);
-                setIsPlaying3(false);
                 setIsPlaying4(false);
-                setIsPlaying5(false);
+                video.removeAttribute('controls');
                 video.pause();
             }
         }
         else if (number == 5) {
             if (video.paused) {
-                setIsPlaying1(false);
-                setIsPlaying2(false);
-                setIsPlaying3(false);
-                setIsPlaying4(false);
                 setIsPlaying5(true);
+                video.setAttribute('controls', '');
                 video.play();
             } else {
-                setIsPlaying1(false);
-                setIsPlaying2(false);
-                setIsPlaying3(false);
-                setIsPlaying4(false);
                 setIsPlaying5(false);
+                video.removeAttribute('controls');
                 video.pause();
             }
         }
@@ -913,25 +894,25 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <FeaturedCampaign />
+                        <FeaturedCampaign videoSrc={false}/>
 
-                        <FeaturedCampaign />
+                        <FeaturedCampaign videoSrc={false} />
 
-                        <FeaturedCampaign />
+                        <FeaturedCampaign videoSrc={true} />
 
                         {/* <!-- For Mobile --> */}
 
                         <div className="row m-block">
                             <div className="col-sm-12">
-                                <CampaignCard />
+                                <CampaignCard videoSrc={false} />
                             </div>
 
                             <div className="col-sm-12">
-                                <CampaignCard />
+                                <CampaignCard videoSrc={false} />
                             </div>
 
                             <div className="col-sm-12">
-                                <CampaignCard />
+                                <CampaignCard videoSrc={true} />
                             </div>
 
                         </div>
@@ -956,7 +937,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <CounterMobile soldCount={soldCount7} />
+                            <CounterMobile soldCount={soldCount7} keyvalue={randomPrice} />
 
                         </div>
 
@@ -1015,23 +996,23 @@ function Home() {
                                 }
 
                                 return (
-                                    <Slider {...settings} afterChange={() => showPrice( "7")}>
+                                    <Slider {...settings} afterChange={() => showPrice("7")}>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
 
                                         </div>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
 
@@ -1088,7 +1069,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <CounterMobile soldCount={soldCount13} />
+                            <CounterMobile soldCount={soldCount13} keyvalue={randomPrice} />
 
                         </div>
 
@@ -1150,19 +1131,19 @@ function Home() {
                                     <Slider {...settings} afterChange={() => showPrice("13")}>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard />
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
 
@@ -1219,7 +1200,7 @@ function Home() {
 
                             <h1 className="headingStyle5 font-fancy">win</h1>
 
-                            <CounterMobile soldCount={soldCount18} />
+                            <CounterMobile soldCount={soldCount18} keyvalue={randomPrice} />
 
                         </div>
 
@@ -1280,24 +1261,24 @@ function Home() {
                                 return (
                                     <Slider {...settings} afterChange={() => showPrice("18")}>
 
-                                    <div>
-                                        <CampaignCard />
-                                    </div>
+                                        <div>
+                                            <CampaignCard videoSrc={false} />
+                                        </div>
 
-                                    <div>
-                                        <CampaignCard />
-                                    </div>
+                                        <div>
+                                            <CampaignCard videoSrc={false} />
+                                        </div>
 
-                                    <div>
-                                        <CampaignCard />
-                                    </div>
+                                        <div>
+                                            <CampaignCard videoSrc={false}/>
+                                        </div>
 
-                                    <div>
-                                        <CampaignCard />
-                                    </div>
+                                        <div>
+                                            <CampaignCard videoSrc={false}/>
+                                        </div>
 
 
-                                </Slider>
+                                    </Slider>
 
                                 );
 
@@ -1460,7 +1441,7 @@ function Home() {
                             {(() => {
 
                                 let settings = {
-                                    infinite: true,
+                                    infinite: false,
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
                                     autoplay: false,
@@ -1507,7 +1488,7 @@ function Home() {
 
                                 return (
 
-                                    <Slider {...settings} afterChange={() => stopVideo()} >
+                                    <Slider {...settings} beforeChange={() => stopVideo()} >
 
 
                                         <div>
@@ -1517,19 +1498,15 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-1")} data-play-video="#testimonial-video-1">
-                                                        {isPlaying1 ?
-                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
-                                                            :
+                                                    {!isPlaying1 ?
+                                                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-1")} data-play-video="#testimonial-video-1">
                                                             <img src={playIcon} alt="video play button icon" className="play" />
-                                                        }
-                                                    </button>
+                                                        </button>
+                                                        :
+                                                        null}
 
-
-                                                    <video loop id="testimonial-video-1">
-
-                                                        <source src={dummyVideo} stop={isPlaying1 ? "false" : "true"} type="video/mp4" />
-
+                                                    <video id="testimonial-video-1" className="testimony-vid-tag">
+                                                        <source src={dummyVideo} type="video/mp4" />
                                                     </video>
 
                                                 </div>
@@ -1562,19 +1539,15 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-2")} data-play-video="#testimonial-video-2">
-                                                        {isPlaying2 ?
-                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
-                                                            :
+                                                    {!isPlaying2 ?
+                                                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-2")} data-play-video="#testimonial-video-2">
                                                             <img src={playIcon} alt="video play button icon" className="play" />
-                                                        }
-                                                    </button>
+                                                        </button>
+                                                        :
+                                                        null}
 
-
-                                                    <video loop id="testimonial-video-2">
-
-                                                        <source src={dummyVideo} stop={isPlaying2 ? "false" : "true"} type="video/mp4" />
-
+                                                    <video id="testimonial-video-2" className="testimony-vid-tag">
+                                                        <source src={dummyVideo} type="video/mp4" />
                                                     </video>
 
                                                 </div>
@@ -1607,18 +1580,15 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-3")} data-play-video="#testimonial-video-3">
-                                                        {isPlaying3 ?
-                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
-                                                            :
+                                                    {!isPlaying3 ?
+                                                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-3")} data-play-video="#testimonial-video-3">
                                                             <img src={playIcon} alt="video play button icon" className="play" />
-                                                        }
-                                                    </button>
+                                                        </button>
+                                                        :
+                                                        null}
 
-                                                    <video loop id="testimonial-video-3">
-
-                                                        <source src={dummyVideo} stop={isPlaying3 ? "false" : "true"} type="video/mp4" />
-
+                                                    <video id="testimonial-video-3" className="testimony-vid-tag">
+                                                        <source src={dummyVideo} type="video/mp4" />
                                                     </video>
 
                                                 </div>
@@ -1651,18 +1621,15 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-4")} data-play-video="#testimonial-video-4">
-                                                        {isPlaying4 ?
-                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
-                                                            :
+                                                    {!isPlaying4 ?
+                                                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-4")} data-play-video="#testimonial-video-4">
                                                             <img src={playIcon} alt="video play button icon" className="play" />
-                                                        }
-                                                    </button>
+                                                        </button>
+                                                        :
+                                                        null}
 
-                                                    <video loop id="testimonial-video-4">
-
-                                                        <source src={dummyVideo} stop={isPlaying4 ? "false" : "true"} type="video/mp4" />
-
+                                                    <video id="testimonial-video-4" className="testimony-vid-tag">
+                                                        <source src={dummyVideo} type="video/mp4" />
                                                     </video>
 
                                                 </div>
@@ -1695,19 +1662,15 @@ function Home() {
 
                                                 <div className="testimonial-img testimonial-video">
 
-                                                    <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-5")} data-play-video="#testimonial-video-5">
-
-                                                        {isPlaying5 ?
-                                                            <img src={pauseIcon} alt="video play button icon" className="pause" />
-                                                            :
+                                                    {!isPlaying5 ?
+                                                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("testimonial-video-5")} data-play-video="#testimonial-video-5">
                                                             <img src={playIcon} alt="video play button icon" className="play" />
-                                                        }
-                                                    </button>
+                                                        </button>
+                                                        :
+                                                        null}
 
-                                                    <video loop id="testimonial-video-5">
-
-                                                        <source src={dummyVideo} stop={isPlaying5 ? "false" : "true"} type="video/mp4" />
-
+                                                    <video id="testimonial-video-5" className="testimony-vid-tag">
+                                                        <source src={dummyVideo} type="video/mp4" />
                                                     </video>
 
                                                 </div>
@@ -1980,8 +1943,8 @@ function Home() {
                     </div>
                 </div>
             )}
-             <Message />,
-			 <MessageContainer />, 
+            {/* <Message />,
+            <MessageContainer />, */}
         </>
     );
 }
