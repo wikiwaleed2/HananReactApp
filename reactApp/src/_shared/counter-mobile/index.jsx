@@ -3,11 +3,11 @@ import React from 'react';
 import './index.less';
 import Wave from 'react-wavify';
 
-const CounterMobile = ({ soldCount, key }) => {
+function CounterMobile({ soldCount, keyvalue }) {
 
     return (
 
-        <div className="sold-counter-mobile" id="counter-4" key={key}>
+        <div className="sold-counter-mobile" id="counter-4" key={keyvalue}>
             <Wave fill='#eabe00'
                 id=""
                 // paused={animateCounter}
@@ -39,4 +39,4 @@ const CounterMobile = ({ soldCount, key }) => {
     );
 }
 
-export default CounterMobile;
+export { CounterMobile };

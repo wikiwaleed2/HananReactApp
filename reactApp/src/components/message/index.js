@@ -6,7 +6,7 @@ import send from '../../images/send.svg';
 import './message.css';
 require('./message.css');
 
-class Message extends Component{
+export class Message extends React.Component{
 
     constructor(props){
         super(props);

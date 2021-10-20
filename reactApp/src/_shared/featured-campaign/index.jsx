@@ -6,11 +6,14 @@ import bottle from '@/_assets/images/bottle.png';
 import cashAlt from '@/_assets/images/cash-alt.svg';
 import calendar from '@/_assets/images/calendar.svg'
 import couponIcon from '@/_assets/images/coupon-icon.svg';
-import Counter from '../../_shared/counter/index.jsx';
+import playIcon from '@/_assets/images/play-solid.svg';
+import dummyVideo from '@/_assets/images/dummy-video.mp4';
+import { Counter } from '../../_shared/counter/index.jsx';
 
-const FeaturedCampaign = () => {
+function FeaturedCampaign({ videoSrc }) {
 
     const [animateCounter, setAnimateCounter] = useState(true);
+    const [isPlaying1, setIsPlaying1] = useState(false);
     const [soldCount, setSoldCount] = useState(0);
     const [soldCount1, setSoldCount1] = useState(0);
     const [soldCount2, setSoldCount2] = useState(0);
@@ -441,6 +444,40 @@ const FeaturedCampaign = () => {
 
     }
 
+    // let stopVideo = () => {
+    //     setIsPlaying1(false);
+    //     let videosEl = document.getElementsByClassName("feature-vid-tag");
+    //     console.log("video el", videosEl);
+
+    //     for (let i = 0; i <= videosEl.length - 1; i++) {
+    //         if(!videosEl[i].paused){
+    //             videosEl[i].removeAttribute('controls');
+    //             videosEl[i].pause();
+    //         }
+    //     }
+
+    // }
+
+    let playVideo = (id) => {
+        let number = id.split('-')[2];
+        let video = document.getElementById(id);
+        // stopVideo();
+
+        if (number == 1) {
+            if (video.paused) {
+                setIsPlaying1(true);
+                video.setAttribute('controls', '');
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                video.removeAttribute('controls');
+                video.pause();
+            }
+        }
+
+
+    }
+
     return (
         <>
             <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)}>
@@ -455,7 +492,24 @@ const FeaturedCampaign = () => {
 
                             <div className="image">
 
-                                <img src={maldives} alt="" />
+                                {videoSrc ?
+                                    <div className="feature-video">
+
+                                        {!isPlaying1 ?
+                                            <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("feature-video-1")} data-play-video="#feature-video-1">
+                                                <img src={playIcon} alt="video play button icon" className="play" />
+                                            </button>
+                                            :
+                                            null}
+
+                                        <video id="feature-video-1" className="feature-vid-tag">
+                                            <source src={dummyVideo} type="video/mp4" />
+                                        </video>
+
+                                    </div>
+                                    :
+                                    <img src={maldives} alt="" />
+                                }
 
 
                                 <div className="bottel-img">
@@ -574,4 +628,4 @@ const FeaturedCampaign = () => {
 
 }
 
-export default FeaturedCampaign;
+export { FeaturedCampaign };

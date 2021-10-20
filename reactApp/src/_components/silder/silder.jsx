@@ -4,8 +4,8 @@ import Slider from 'react-slick';
 import bottle from '../../_assets/images/bottle.png';
 import shareIcon from '../../_assets/images/social-share.png';
 import arrowIcon from '../../_assets/images/arrow-icon.svg';
-import CampaignCard from '@/_shared/campaign-card/index.jsx';
-import CounterMobile from '@/_shared/counter-mobile';
+import { CampaignCard } from '@/_shared/campaign-card/index.jsx';
+import {CounterMobile} from '@/_shared/counter-mobile';
 import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
 
@@ -20,60 +20,34 @@ function SilderComponent() {
     const [showModal, setShowModal] = useState(false);
     const [randomPrice, setRandomPrice] = useState('720.00');
 
-    let calculateSlideCounter = (currentSlide) => {
-        // console.log(e, slick, currentSlide);
-        let counter = currentSlide + 1;
-        setSlideCounter('0' + counter)
-    }
 
-    let playVideo = (id) => {
-        let video = document.getElementById(id);
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
+    let startCount = (id, value) => {
+        let idNumber = id.split('-')[1];
+        let el = document.getElementById(id);
+        let childEl = el.children[1].children[1];
+        let counterNumber = id.split('-')[1];
+
+        if (counterNumber == 7) {
+            setAnimateCounter(value);
+            if (!value) {
+
+                let current = 1;
+                var startTime = new Date().getTime();
+                let counter = setInterval(() => {
+                    current++;
+
+                    setSoldCount(current);
+                    if (current === 20) {
+                        setAnimateCounter(true);
+                        clearInterval(counter);
+                        return;
+                    }
+                }, 300);
+            }
         }
-
     }
 
-    let startCount = (value) => {
-        console.log(value);
-        setAnimateCounter(value);
-        if (!value) {
-
-            let current = 1;
-            var startTime = new Date().getTime();
-            let counter = setInterval(() => {
-                current++;
-                // Update the contents of the element
-                setSoldCount(current)
-                if (current === 20) {
-                    setAnimateCounter(true);
-                    clearInterval(counter);
-                    return;
-                }
-
-                // if(new Date().getTime() - startTime > 2000){
-                //     // setSoldCount(20)
-                //     setAnimateCounter(true);
-                //     clearInterval(counter);
-                //     return;
-                // }
-
-
-                console.log(current);
-                // return current;
-            }, 300);
-
-            // return current;
-        }
-
-        // return () => {
-        //     clearInterval(counter);
-        // };
-    }
-
-    let showPrice = (currentSlide, id) => {
+    let showPrice = (id) => {
         let price = Math.floor(Math.random() * (999 - 100 + 1) + 100);
         setRandomPrice(price + ".00")
         if (id == 7) {
@@ -92,7 +66,7 @@ function SilderComponent() {
 
                     <h1 className="headingStyle5 font-fancy">win</h1>
 
-                    <CounterMobile soldCount={soldCount} key={randomPrice} />
+                    <CounterMobile soldCount={soldCount} keyvalue={randomPrice} />
 
                 </div>
 
@@ -151,7 +125,7 @@ function SilderComponent() {
                         }
 
                         return (
-                            <Slider {...settings} afterChange={(currentSlide) => showPrice(currentSlide, "7")}>
+                            <Slider {...settings} afterChange={() => showPrice("7")}>
 
                                 <div>
                                     <CampaignCard />

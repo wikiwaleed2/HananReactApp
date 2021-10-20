@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.less';
 import shareIcon from '@/_assets/images/social-share.png';
-import maldives from '@/_assets/images/four-seasons-landaa-giraavaru.png';
 import bottle from '@/_assets/images/bottle.png';
-import cashAlt from '@/_assets/images/cash-alt.svg';
-import calendar from '@/_assets/images/calendar.svg'
-import couponIcon from '@/_assets/images/coupon-icon.svg';
-import CounterMobile from '../../_shared/counter-mobile/index.jsx';
-import { useEffect } from 'react/cjs/react.development';
+import playIcon from '@/_assets/images/play-solid.svg';
+import dummyVideo from '@/_assets/images/dummy-video.mp4';
+import { CounterMobile } from '@/_shared/counter-mobile/index.jsx';
 
-const CampaignCard = () => {
+function CampaignCard({ videoSrc }) {
 
-    const [animateCounter, setAnimateCounter] = useState(true);
+    // const [animateCounter, setAnimateCounter] = useState(true);
+    const [isPlaying1, setIsPlaying1] = useState(false);
     const [soldCount1, setSoldCount1] = useState(0);
     const [randomPrice, setRandomPrice] = useState('720.00');
 
@@ -22,7 +20,7 @@ const CampaignCard = () => {
         let counterNumber = id.split('-')[1];
 
         if (counterNumber == 4) {
-            setAnimateCounter(value);
+            // setAnimateCounter(value);
             if (!value) {
 
                 let current = 1;
@@ -32,7 +30,7 @@ const CampaignCard = () => {
 
                     setSoldCount1(current);
                     if (current === 20) {
-                        setAnimateCounter(true);
+                        // setAnimateCounter(true);
                         clearInterval(counter);
                         return;
                     }
@@ -45,21 +43,56 @@ const CampaignCard = () => {
     useEffect(() => {
         let price = Math.floor(Math.random() * (999 - 100 + 1) + 100);
         setRandomPrice(price + ".00")
-    },[])
+    }, [])
 
+    let playVideo = (id) => {
+        let number = id.split('-')[2];
+        let video = document.getElementById(id);
+        // stopVideo();
+        console.log(video);
+        console.log(number);
+        if (number == 1) {
+            if (!!video.paused) {
+                setIsPlaying1(true);
+                video.setAttribute('controls', '');
+                video.play();
+            } else {
+                setIsPlaying1(false);
+                video.removeAttribute('controls');
+                video.pause();
+            }
+        }
+
+
+    }
 
     return (
-        <div className="card" id="card-4" onClick={() => startCount("card-4", false)} key={soldCount1}>
+        <div className="card" id="card-4" key={soldCount1}>
 
-            <div className="card-head">
+            <div className="card-head" onClick={() => startCount("card-4", false)}>
 
                 <h1 className="headingStyle5 font-fancy">win</h1>
 
-                <CounterMobile soldCount={soldCount1} />
+                <CounterMobile soldCount={soldCount1} keyvalue={randomPrice} />
 
             </div>
 
-            <div className="card-img">
+            <div className="card-img" style={videoSrc ? { backgroundImage: 'none' } : {}}>
+
+                {videoSrc ?
+                    <div className="feature-video">
+
+                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("feature-video-1")} data-play-video="#feature-video-1">
+                            <img src={playIcon} alt="video play button icon" className="play" />
+                        </button>
+
+                        <video id="feature-video-1" className="testimony-vid-tag mbl-video">
+                            <source src={dummyVideo} type="video/mp4" />
+                        </video>
+
+                    </div>
+                    :
+                    null}
 
                 <div className="campaigns-card-overlay"></div>
 
@@ -116,4 +149,4 @@ const CampaignCard = () => {
     );
 }
 
-export default CampaignCard;
+export { CampaignCard };

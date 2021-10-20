@@ -6,7 +6,7 @@ import sliderImg from '../../_assets/images/top-banner.svg';
 import angleRight from '../../_assets/images/angle-double-right-solid.svg';
 import angleLeft from '../../_assets/images/angle-double-left-solid.svg';
 
-export default function PriceSlider() {
+ function PriceSlider() {
     const settings = {
         customPaging: function(i) {
           return (

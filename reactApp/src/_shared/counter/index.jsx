@@ -2,7 +2,7 @@ import React from 'react';
 import './index.less';
 import Wave from 'react-wavify';
 
-const Counter = ({ soldCount }) => {
+function Counter({ soldCount }) {
 
     return (
 
@@ -37,4 +37,4 @@ const Counter = ({ soldCount }) => {
     );
 }
 
-export default Counter;
+export { Counter };

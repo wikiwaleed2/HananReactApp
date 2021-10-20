@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 import MessageList from '../messageList/';
 
 const MessagesContainer = () => (
+  
     <Query query={GET_MESSAGES}>
       {({ data, loading, error, subscribeToMore }) => {
         if (!data) {
