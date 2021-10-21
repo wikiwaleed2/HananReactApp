@@ -11,6 +11,8 @@ import profilePic from '@/_assets/images/blocked-profile.jpg';
 import bellIcon from '@/_assets/images/Bell.svg';
 import appstoreIcon from '@/_assets/images/appstore-icons.png';
 import playStoreIcon from '@/_assets/images/playstore-icons.png';
+import dubaiEco from '@/_assets/images/dubai_eco.png';
+import paymentOpt from '@/_assets/images/payment-opt.svg';
 import { Link } from "react-router-dom";
 import { getCookie } from '../../_services/cookies.service';
 
@@ -54,10 +56,15 @@ function Header() {
                         </>
                         :
                         <>
-                            <button className="navbar-toggler" type="button" onClick={() => setShowNavModal(true)} data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <div id="nav-icon4" className={showNavModal ? "navbar-toggler open" : "navbar-toggler"} onClick={() => setShowNavModal(!showNavModal)}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {/* <button className="navbar-toggler" type="button" onClick={() => setShowNavModal(true)} data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <Link to={{ pathname: `/signup` }}>
+                            </button> */}
+                            <Link className="login-link" to={{ pathname: `/signup` }}>
                                 <span className="nav-link active" aria-current="page" href="#">Login/Sign-up</span>
                             </Link>
                         </>
@@ -68,10 +75,10 @@ function Header() {
                 </div>
             </nav>
 
-            {showNavModal && (
-                <div className="modal show m-block" id="navModal">
+            {/* {showNavModal && ( */}
+                <div className={showNavModal ? "modal show m-block" : "modal"} id="navModal" style={showNavModal ? {background: '#0000006b'} : { display: 'none !important'}}>
                     <div className="modal-dialog modal-md adjust-width" role="document">
-                        <div className="modal-content">
+                        <div className={showNavModal ? "modal-content transition" : "modal-content"}>
                             <div className="modal-body">
 
                                 <div className="header-box">
@@ -122,12 +129,45 @@ function Header() {
                                     </a>
                                 </div>
 
+                                <div className="links-box">
+                                    <div className="links">
+
+                                        <Link className="link-item" to={{ pathname: `/` }}>
+                                            <small>User Agreement</small>
+                                        </Link>
+
+                                        <Link className="link-item" to={{ pathname: `/` }}>
+                                            <small>Draw Terms & Conditions</small>
+                                        </Link>
+
+                                        <Link className="link-item" to={{ pathname: `/` }}>
+                                            <small>Privacy Policy</small>
+                                        </Link>
+
+                                        <Link className="link-item" to={{ pathname: `/` }}>
+                                            <small>Frequently Asked Questions</small>
+                                        </Link>
+
+                                    </div>
+
+                                    <div className="logo-box">
+                                        <img src={dubaiEco} />
+                                    </div>
+
+                                </div>
+
+                                <div className="cards-text">
+                                    <small>We accept</small>
+                                    <img src={paymentOpt} alt="" />
+                                </div>
+
+                                <p className="copyrights-text">Dream Makers Dubai © 2021. All rights reserved.</p>
 
                             </div>
                         </div>
                     </div>
                 </div>
-            )}
+            {/* )} */}
 
         </>
     );

@@ -22,52 +22,142 @@
         flex-direction: row;
         align-items: center;
 
-        button {
-            border: none;
+        .login-link {}
+
+        #nav-icon4 {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            margin: 50px auto;
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-transition: .75s ease-in-out;
+            -moz-transition: .75s ease-in-out;
+            -o-transition: .75s ease-in-out;
+            transition: .75s ease-in-out;
+            cursor: pointer;
+            margin: 7px 10px 0 0;
 
             span {
-                width: 24px;
-                height: 24px;
-                filter: invert(1);
+                display: block;
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: #fff;
+                border-radius: 9px;
+                opacity: 1;
+                left: 0;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+                -webkit-transition: .25s ease-in-out;
+                -moz-transition: .25s ease-in-out;
+                -o-transition: .25s ease-in-out;
+                transition: .25s ease-in-out;
+            }
+
+            span:nth-child(1) {
+                top: 0px;
+                -webkit-transform-origin: left center;
+                -moz-transform-origin: left center;
+                -o-transform-origin: left center;
+                transform-origin: left center;
+            }
+
+            span:nth-child(2) {
+                top: 7px;
+                -webkit-transform-origin: left center;
+                -moz-transform-origin: left center;
+                -o-transform-origin: left center;
+                transform-origin: left center;
+            }
+
+            span:nth-child(3) {
+                top: 14px;
+                -webkit-transform-origin: left center;
+                -moz-transform-origin: left center;
+                -o-transform-origin: left center;
+                transform-origin: left center;
             }
         }
 
+        #nav-icon4.open {
+
+            span:nth-child(1) {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+                top: -2px;
+                left: 8px;
+            }
+
+            span:nth-child(2) {
+                width: 0%;
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                top: 16px;
+                left: 8px;
+            }
+
+        }
+
         span.nav-link.active {
-            font-size: 12px;
+            font-size: 20px;
         }
 
         p {
             margin: 0;
             color: #fff;
-            font-size: 12px;
+            font-size: 20px;
             font-weight: 400;
             line-height: 1;
         }
 
         .profile-pic {
-            width: 44px;
-            height: 44px;
+            width: 63px;
+            height: 63px;
             border-radius: 50%;
             border: 2px solid #FFCF00;
             margin: 0 10px;
         }
 
         .notif-icon {
-            width: 16px;
-            height: 16px;
+            width: 23px;
+            height: 23px;
         }
     }
 }
 
 #navModal {
+    margin-top: 69px;
+    transition: background-color 1000ms ease-in;
+
     .adjust-width {
-        margin: 0.5rem 0;
+        margin: 0;
         width: 100%;
 
+        .modal-content.transition{
+            right: 0%;
+            transition: right 1000ms ease-in;
+        }
+
         .modal-content {
-            top: 60px;
+            right: 100%;
+            transition: right 1000ms ease-in;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
 
             .modal-body {
 
@@ -139,6 +229,64 @@
                         margin-top: 2px;
                     }
                 }
+
+                .links-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    width: 100%;
+                    margin: 20px 0;
+
+                    .links {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0;
+
+                        .link-item {
+                            text-decoration: none;
+
+                            small {
+                                font-size: 12px;
+                                font-weight: 500;
+                                line-height: 1;
+                                color: #104A8E;
+                            }
+                        }
+                    }
+
+                    .logo-box {
+                        width: 50%;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        img {
+                            width: 76%;
+                        }
+                    }
+
+                }
+
+                .cards-text {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+
+                    small {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 1;
+                        color: #104A8E;
+                    }
+                }
+
+                .copyrights-text {
+                    font-size: 10px;
+                    font-weight: 500;
+                    line-height: 1;
+                    color: #104A8E;
+                    text-align: center;
+                }
             }
         }
     }
@@ -147,14 +295,37 @@
 @media screen and (max-width: 991px) {
 
 
+    span.nav-link.active {
+        font-size: 12px !important;
+    }
+
+
     .customNavbar {
 
         .navbar-nav {
             margin-left: 0;
         }
 
+        .profile-pic {
+            width: 44px !important;
+            height: 44px !important;
+        }
+
+        .notif-icon {
+            width: 16px !important;
+            height: 16px !important;
+        }
+
         .login-btn {
             margin: 0 !important;
+
+            p {
+                margin: 0;
+                color: #fff;
+                font-size: 12px !important;
+                font-weight: 400;
+                line-height: 1;
+            }
         }
 
         .navbar-brand {

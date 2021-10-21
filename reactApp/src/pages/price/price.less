@@ -40,6 +40,7 @@
                         img {
                             height: 100%;
                             object-fit: cover;
+
                         }
                     }
                 }
@@ -208,9 +209,11 @@
 
 .priceMainMobile {
     display: none;
+
     .ads-section-1 {
         display: none;
     }
+
     .price-slider {
         position: relative;
 
@@ -277,6 +280,8 @@
                         height: 400px;
 
                         img {
+                            // width: 375px;
+                            // height: 305px;
                             height: 100%;
                             object-fit: cover;
                         }
@@ -295,17 +300,21 @@
         width: 100%;
 
         h1 {
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 500;
-            letter-spacing: 1px;
             color: #104a8e;
             text-align: center;
             margin-top: 30px;
+            text-transform: uppercase;
+            line-height: 1.2;
         }
 
         p {
             color: #104a8e;
             text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
         }
 
         .listText {
@@ -357,8 +366,8 @@
                 }
 
                 small {
-                    font-size: 11px;
-                    font-weight: 300;
+                    font-size: 10px;
+                    font-weight: 400;
                     line-height: 1;
                 }
 
@@ -404,14 +413,19 @@
         margin-top: 25px;
 
         .mobileHeading {
-            font-size: 26px;
-            text-align: left;
-            margin: 0px 0px;
+            font-size: 21px;
+            font-weight: 500;
+            line-height: 1;
+            margin: 0;
+            color: #104a8e;
             position: relative;
+            margin-left: 20px;
+
             &:after {
                 display: none;
             }
         }
+
         .InterestedBox {
             border: 2px solid #000;
             border-radius: 10px;
@@ -419,14 +433,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 30px 0px 30px;
+            margin: 30px 20px;
+
             .InterestedBoxCont {
                 p {
                     color: #104a8e;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 1.2;
+                    margin: 0;
                 }
+
                 h4 {
                     font-size: 30px;
+                    font-weight: 800;
                     color: #edb200;
+                    line-height: 1;
                     margin-bottom: 0px;
                 }
             }
@@ -474,19 +496,25 @@
             padding: 10px 15px;
             position: relative;
             text-align: justify;
+
             img {
                 margin-bottom: 10px;
             }
 
             p {
                 color: #393939;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.2;
             }
 
         }
     }
 }
+
 .priceMobileSec {
     display: none;
+
     .priceSec {
         display: flex;
         background-color: #fff;
@@ -502,19 +530,20 @@
         position: fixed;
         bottom: 0px;
         height: 90px;
+
         .priceCont {
             p {
                 font-size: 14px;
                 text-align: left;
                 color: 393939;
             }
-    
+
             h3 {
                 color: #ffcf00;
                 margin-bottom: 0px;
             }
         }
-    
+
         .priceSecbtn {
             button {
                 height: 60px;
@@ -531,34 +560,53 @@
 
 
 @media(max-width: 540px) {
+
+    .container-fluid {
+        padding: 0;
+        margin: 0;
+        // overflow-x: hidden;
+    }
+
+    .priceMainMobile .priceCont {
+        width: 93%;
+        margin: 0 auto;
+    }
+
     .priceMain {
         padding: 0px 0px;
         display: none;
     }
+
     .priceMobileSec {
         display: block;
     }
+
     .priceMainMobile {
         display: block;
     }
+
     .priceMobileSec .priceSec .priceCont p {
         margin-bottom: 0.5rem;
     }
 }
+
 @media(max-width: 320px) {
     .priceMainMobile .price-slider .sliderProgress .progressMain {
         padding: 25px 35px;
+
         h2 {
             font-size: 24px;
         }
     }
+
     .priceMobileSec .priceSec .priceSecbtn button {
         height: 50px;
         width: 130px;
         font-size: 18px;
     }
+
     .priceMobileSec .priceSec .priceCont h3 {
         font-size: 20px;
     }
-    
+
 }

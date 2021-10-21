@@ -1720,7 +1720,7 @@ function Home() {
 
                     <div className="container-fluid">
 
-                        <h1 className="headingStyle1 m-heading">Our Partner Charities</h1>
+                        <h1 className="headingStyle1 m-heading">Our Charity Partner</h1>
 
                         <div className="charities ">
 
