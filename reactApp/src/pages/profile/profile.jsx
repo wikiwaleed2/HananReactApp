@@ -3,15 +3,13 @@ import './profile.less';
 
 import AppBanner from '@/_assets/images/app-banner-1.svg';
 import TopBanner from '@/_assets/images/top-banner-2.png';
+import Heart from '@/_assets/images/heart.svg';
 
 import { Card } from '@/_shared/card/card';
 import { ProfileCard } from '@/_shared/profile-card/profile-card';
 import { Doughnut } from '../../_shared/doughnut/doughnut';
-import {
-   H1Heading,
-   H5Heading,
-   H6Heading,
-} from '../../_shared/Headings/Headings';
+import { H1Heading, H5Heading } from '../../_shared/Headings/Headings';
+import { NewsLetter } from '../../_shared/newsletter/newsletter';
 
 export const Profile = () => {
    return (
@@ -81,6 +79,8 @@ export const Profile = () => {
                   </div>
                </div>
             </div>
+
+            <NewsLetter />
          </div>
       </div>
    );
