@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect, BrowserRouter, useLocation,Router } from 'react-router-dom';
+import { Route, Switch, Redirect, BrowserRouter, useLocation, Router } from 'react-router-dom';
 
 import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
@@ -12,7 +12,7 @@ import { Admin } from '@/admin';
 import { Account } from '@/account';
 import { Header } from '../_shared/header';
 import { getCookie } from '../_services/cookies.service';
-import {Footer} from '../_components/Footer/Footer';
+import { Footer } from '../_components/Footer/Footer';
 
 function App() {
     const { pathname } = useLocation();
@@ -20,39 +20,45 @@ function App() {
     const [token, setToken] = useState("");
 
     useEffect(() => {
-       let token =  getCookie("token");
-       setToken(token);
+        let token = getCookie("token");
+        setToken(token);
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
     }, []);
 
     return (
         <BrowserRouter>
-            <Header />
+
             <Switch>
-                
+
                 <Route exact path="/account/login">
                     <Account match="/account" />
                 </Route>
 
                 <Route exact path="/">
-                    <Home></Home>
+                    <Header />
+                    <Home />
+                    <Footer />
                 </Route>
 
                 <Route exact path="/price">
-                    <Price></Price>
+                    <Header />
+                    <Price />
+                    <Footer />
                 </Route>
                 <Route exact path="/signup">
                     <Signup />
                 </Route>
 
                 <Route exact path="/home">
-                    <Home></Home>
+                    <Header />
+                    <Home />
+                    <Footer />
                 </Route>
 
 
             </Switch>
-            <Footer />
+
         </BrowserRouter>
         // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
         //     <Nav />
