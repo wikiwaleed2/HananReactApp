@@ -1,11 +1,23 @@
 import React from 'react';
 import './newsletter.less';
 
+import AppBanner from '@/_assets/images/app-banner-1.svg';
+import TopBanner from '@/_assets/images/top-banner-2.png';
 import Heart from '@/_assets/images/heart.svg';
 
 export const NewsLetter = () => {
    return (
       <div className="news-letter">
+         <div className="my-4">
+            <div className="row">
+               <div className="col-md-6">
+                  <img src={AppBanner} alt="banner-1" className="img-fluid" />
+               </div>
+               <div className="col-md-6">
+                  <img src={TopBanner} alt="banner-2" className="img-fluid" />
+               </div>
+            </div>
+         </div>
          <div className="row">
             <div className="col-md-6">
                <div className="news-letter__left">

@@ -21,6 +21,9 @@ import { Account } from '@/account';
 import { Header } from '../_shared/header';
 import { getCookie } from '../_services/cookies.service';
 import { Footer } from '../_components/Footer/Footer';
+import { Earncoins } from '../pages/EarnCoins/EarnCoins';
+import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
+import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 
 function App() {
    const { pathname } = useLocation();
@@ -59,6 +62,18 @@ function App() {
 
             <Route exact path="/profile">
                <Profile />
+            </Route>
+
+            <Route exact path="/earncoins">
+               <Earncoins />
+            </Route>
+
+            <Route exact path="/change-password">
+               <ChangePassword />
+            </Route>
+
+            <Route exact path="/active-coupons">
+               <ActiveCoupons />
             </Route>
          </Switch>
          <Footer />

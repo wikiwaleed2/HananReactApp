@@ -1,15 +1,15 @@
 import React from 'react';
 import './profile.less';
 
-import AppBanner from '@/_assets/images/app-banner-1.svg';
-import TopBanner from '@/_assets/images/top-banner-2.png';
-import Heart from '@/_assets/images/heart.svg';
-
 import { Card } from '@/_shared/card/card';
 import { ProfileCard } from '@/_shared/profile-card/profile-card';
 import { Doughnut } from '../../_shared/doughnut/doughnut';
-import { H1Heading, H5Heading } from '../../_shared/Headings/Headings';
+import {
+   H1Heading,
+   H5Heading,
+} from '../../_shared/HeadingsOrParagraphs/HeadingsOrParagraphs';
 import { NewsLetter } from '../../_shared/newsletter/newsletter';
+import { DonationCard } from '../../_shared/DonationCard/DonationCard';
 
 export const Profile = () => {
    return (
@@ -37,6 +37,14 @@ export const Profile = () => {
                      <div className="row">
                         <div className="col-md-8">
                            <H1Heading>Your Donations</H1Heading>
+                           <DonationCard
+                              title="Helped built School in Africa"
+                              subTitle="Raised 1 million AED"
+                           />
+                           <DonationCard
+                              title="Helped built School in Africa"
+                              subTitle="Raised 1 million AED"
+                           />
                         </div>
                         <div className="col-md-4">
                            <Card>
@@ -61,25 +69,6 @@ export const Profile = () => {
                   </section>
                </div>
             </div>
-            <div className="my-4">
-               <div className="row">
-                  <div className="col-md-6">
-                     <img
-                        src={AppBanner}
-                        alt="banner-1"
-                        className="img-fluid"
-                     />
-                  </div>
-                  <div className="col-md-6">
-                     <img
-                        src={TopBanner}
-                        alt="banner-2"
-                        className="img-fluid"
-                     />
-                  </div>
-               </div>
-            </div>
-
             <NewsLetter />
          </div>
       </div>
