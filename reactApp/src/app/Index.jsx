@@ -32,44 +32,58 @@ function App() {
 
    return (
       <BrowserRouter>
-         <Header />
+
          <Switch>
             <Route exact path="/account/login">
                <Account match="/account" />
             </Route>
 
             <Route exact path="/">
-               <Home></Home>
+               <Header />
+               <Home />
+               <Footer />
             </Route>
 
             <Route exact path="/price">
-               <Price></Price>
+               <Header />
+               <Price />
+               <Footer />
             </Route>
+
             <Route exact path="/signup">
                <Signup />
             </Route>
 
             <Route exact path="/home">
-               <Home></Home>
+               <Header />
+               <Home />
+               <Footer />
             </Route>
 
             <Route exact path="/profile">
+               <Header />
                <Profile />
+               <Footer />
             </Route>
 
             <Route exact path="/earncoins">
+               <Header />
                <Earncoins />
+               <Footer />
             </Route>
 
             <Route exact path="/change-password">
+               <Header />
                <ChangePassword />
+               <Footer />
             </Route>
 
             <Route exact path="/active-coupons">
+               <Header />
                <ActiveCoupons />
+               <Footer />
             </Route>
          </Switch>
-         <Footer />
       </BrowserRouter>
       // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
       //     <Nav />
