@@ -6,7 +6,7 @@
 }
 .did-floating-label {
    color: #707070;
-   font-size: 13px;
+   font-size: 15px;
    font-weight: normal;
    position: absolute;
    pointer-events: none;
@@ -35,22 +35,13 @@
 .did-floating-select:focus {
    outline: none;
 }
-.did-floating-input:focus ~ .did-floating-label,
-.did-floating-select:focus ~ .did-floating-label {
+.did-floating-input:focus ~ .did-floating-label {
    top: -8px;
    font-size: 13px;
 }
 
 .did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
    top: -8px;
-   font-size: 13px;
-}
-.did-floating-select:not([value='']):valid ~ .did-floating-label {
-   top: -8px;
-   font-size: 13px;
-}
-.did-floating-select[value='']:focus ~ .did-floating-label {
-   top: 11px;
    font-size: 13px;
 }
 

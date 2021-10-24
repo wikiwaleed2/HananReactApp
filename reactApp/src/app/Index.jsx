@@ -24,6 +24,7 @@ import { Footer } from '../_components/Footer/Footer';
 import { Earncoins } from '../pages/EarnCoins/EarnCoins';
 import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
+import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
 
 function App() {
    const { pathname } = useLocation();
@@ -74,6 +75,10 @@ function App() {
 
             <Route exact path="/active-coupons">
                <ActiveCoupons />
+            </Route>
+
+            <Route exact path="/create-profile">
+               <CreateProfile />
             </Route>
          </Switch>
          <Footer />
