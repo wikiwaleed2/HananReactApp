@@ -17,6 +17,7 @@ import { Footer } from '../_components/Footer/Footer';
 import { Earncoins } from '../pages/EarnCoins/EarnCoins';
 import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
+import Checkout from '../pages/checkout/checkout';
 
 function App() {
    const { pathname } = useLocation();
@@ -83,6 +84,13 @@ function App() {
                <ActiveCoupons />
                <Footer />
             </Route>
+
+            <Route exact path="/checkout">
+               <Header />
+               <Checkout />
+               <Footer />
+            </Route>
+
          </Switch>
       </BrowserRouter>
       // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
