@@ -44,7 +44,10 @@ function Header() {
                     <div className="navbar-nav">
                         <a className="nav-link active" aria-current="page" href="#">How it Works</a>
                         <a className="nav-link" href="#">About Dream Makers</a>
-                        <a className="nav-link" href="#">Winners</a>
+                        <Link className="nav-link" to={{ pathname: `/winners` }} >
+                            Winners
+                        </Link>
+                        {/* <a className="nav-link" href="#">Winners</a> */}
                     </div>
                 </div>
                 <div className="login-btn navbar-nav">
@@ -76,97 +79,97 @@ function Header() {
             </nav>
 
             {/* {showNavModal && ( */}
-                <div className={showNavModal ? "modal show m-block" : "modal"} id="navModal" style={showNavModal ? {background: '#0000006b'} : { display: 'none !important'}}>
-                    <div className="modal-dialog modal-md adjust-width" role="document">
-                        <div className={showNavModal ? "modal-content transition" : "modal-content"}>
-                            <div className="modal-body">
+            <div className={showNavModal ? "modal show m-block" : "modal"} id="navModal" style={showNavModal ? { background: '#0000006b' } : { display: 'none !important' }}>
+                <div className="modal-dialog modal-md adjust-width" role="document">
+                    <div className={showNavModal ? "modal-content transition" : "modal-content"}>
+                        <div className="modal-body">
 
-                                <div className="header-box">
-                                    <p>*New user or existing user<br />Get Started</p>
-                                    <button className="btn btn-primary btn-login">Login/Sign-up</button>
-                                </div>
+                            <div className="header-box">
+                                <p>*New user or existing user<br />Get Started</p>
+                                <button className="btn btn-primary btn-login">Login/Sign-up</button>
+                            </div>
 
-                                <div className="nav-btns">
-                                    <button className="btn btn-primary btn-page">
-                                        <span>
-                                            <img src={aboutIcon} />
-                                            <p>About Dream Makers</p>
-                                        </span>
-                                        <img src={chevronBlue} />
-                                    </button>
+                            <div className="nav-btns">
+                                <button className="btn btn-primary btn-page">
+                                    <span>
+                                        <img src={aboutIcon} />
+                                        <p>About Dream Makers</p>
+                                    </span>
+                                    <img src={chevronBlue} />
+                                </button>
 
-                                    <button className="btn btn-primary btn-page">
-                                        <span>
-                                            <img src={testimonialIcon} />
-                                            <p>Testimonials</p>
-                                        </span>
-                                        <img src={chevronBlue} />
-                                    </button>
+                                <button className="btn btn-primary btn-page">
+                                    <span>
+                                        <img src={testimonialIcon} />
+                                        <p>Testimonials</p>
+                                    </span>
+                                    <img src={chevronBlue} />
+                                </button>
 
-                                    <button className="btn btn-primary btn-page">
-                                        <span>
-                                            <img src={winnerIcon} />
-                                            <p>Winners</p>
-                                        </span>
-                                        <img src={chevronBlue} />
-                                    </button>
+                                <button className="btn btn-primary btn-page">
+                                    <span>
+                                        <img src={winnerIcon} />
+                                        <p>Winners</p>
+                                    </span>
+                                    <img src={chevronBlue} />
+                                </button>
 
-                                    <button className="btn btn-primary btn-page">
-                                        <span>
-                                            <img src={settingsIcon} />
-                                            <p>How it works</p>
-                                        </span>
-                                        <img src={chevronBlue} />
-                                    </button>
-                                </div>
+                                <button className="btn btn-primary btn-page">
+                                    <span>
+                                        <img src={settingsIcon} />
+                                        <p>How it works</p>
+                                    </span>
+                                    <img src={chevronBlue} />
+                                </button>
+                            </div>
 
-                                <div className="store-icons">
-                                    <a href="#" >
-                                        <img src={appstoreIcon} />
-                                    </a>
-                                    <a href="#" >
-                                        <img src={playStoreIcon} />
-                                    </a>
-                                </div>
+                            <div className="store-icons">
+                                <a href="#" >
+                                    <img src={appstoreIcon} />
+                                </a>
+                                <a href="#" >
+                                    <img src={playStoreIcon} />
+                                </a>
+                            </div>
 
-                                <div className="links-box">
-                                    <div className="links">
+                            <div className="links-box">
+                                <div className="links">
 
-                                        <Link className="link-item" to={{ pathname: `/` }}>
-                                            <small>User Agreement</small>
-                                        </Link>
+                                    <Link className="link-item" to={{ pathname: `/` }}>
+                                        <small>User Agreement</small>
+                                    </Link>
 
-                                        <Link className="link-item" to={{ pathname: `/` }}>
-                                            <small>Draw Terms & Conditions</small>
-                                        </Link>
+                                    <Link className="link-item" to={{ pathname: `/` }}>
+                                        <small>Draw Terms & Conditions</small>
+                                    </Link>
 
-                                        <Link className="link-item" to={{ pathname: `/` }}>
-                                            <small>Privacy Policy</small>
-                                        </Link>
+                                    <Link className="link-item" to={{ pathname: `/` }}>
+                                        <small>Privacy Policy</small>
+                                    </Link>
 
-                                        <Link className="link-item" to={{ pathname: `/` }}>
-                                            <small>Frequently Asked Questions</small>
-                                        </Link>
-
-                                    </div>
-
-                                    <div className="logo-box">
-                                        <img src={dubaiEco} />
-                                    </div>
+                                    <Link className="link-item" to={{ pathname: `/` }}>
+                                        <small>Frequently Asked Questions</small>
+                                    </Link>
 
                                 </div>
 
-                                <div className="cards-text">
-                                    <small>We accept</small>
-                                    <img src={paymentOpt} alt="" />
+                                <div className="logo-box">
+                                    <img src={dubaiEco} />
                                 </div>
-
-                                <p className="copyrights-text">Dream Makers Dubai © 2021. All rights reserved.</p>
 
                             </div>
+
+                            <div className="cards-text">
+                                <small>We accept</small>
+                                <img src={paymentOpt} alt="" />
+                            </div>
+
+                            <p className="copyrights-text">Dream Makers Dubai © 2021. All rights reserved.</p>
+
                         </div>
                     </div>
                 </div>
+            </div>
             {/* )} */}
 
         </>

@@ -18,6 +18,7 @@ import { Earncoins } from '../pages/EarnCoins/EarnCoins';
 import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 import Checkout from '../pages/checkout/checkout';
+import Winners from '../pages/winners/winners';
 
 function App() {
    const { pathname } = useLocation();
@@ -89,6 +90,11 @@ function App() {
                <Header />
                <Checkout />
                <Footer />
+            </Route>
+
+            <Route exact path="/winners">
+               <Header />
+               <Winners />
             </Route>
 
          </Switch>
