@@ -47,7 +47,7 @@ export const Profile = () => {
                            />
                         </div>
                         <div className="col-md-4">
-                           <Card>
+                           <Card className="mt-3">
                               <div className="helped-raise">
                                  <H5Heading fontWeight="400">
                                     You have helped raise

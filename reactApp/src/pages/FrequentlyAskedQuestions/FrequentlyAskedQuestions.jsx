@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import './Winners.less';
+import './FrequentlyAskedQuestions.less';
 
-import SearchIcon from '@/_assets/icons/search.svg';
-import CalanderIcon from '@/_assets/icons/calander.svg';
 import { SubHeader } from '@/_components/SubHeader/SubHeader';
 import Accordion from '../../_components/Accordion';
 
-export const Winners = () => {
+export const FrequentlyAskedQuestions = () => {
    const [questions, setQuestions] = useState([
       {
          id: 0,
@@ -84,22 +82,10 @@ export const Winners = () => {
          ],
       },
    ]);
+
    return (
       <div>
-         <SubHeader title="Winners" />
-         <div className="d-flex align-items-center justify-content-center py-4">
-            <div className="winner-input-container">
-               <input
-                  type="text"
-                  placeholder="Search winners"
-                  className="winner-input"
-               />
-               <img src={SearchIcon} alt="search-icon" className="img-fluid" />
-            </div>
-            <span className="d-inline-block ml-3">
-               <img src={CalanderIcon} alt="winner-icon" />
-            </span>
-         </div>
+         <SubHeader title="Frequently Asked Questions" />
          <div className="question-container">
             <Accordion items={questions} />
          </div>

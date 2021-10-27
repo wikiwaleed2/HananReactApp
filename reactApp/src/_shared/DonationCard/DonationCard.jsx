@@ -11,7 +11,7 @@ const CardContainer = styled.div`
    display: flex;
    align-items: flex-start;
    height: 105px;
-   margon-top: 10px;
+   margin-top: 20px;
 `;
 
 const ImageContainer = styled.div`

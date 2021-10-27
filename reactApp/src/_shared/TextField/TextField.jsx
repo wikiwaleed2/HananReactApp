@@ -3,7 +3,12 @@ import './TextField.less';
 
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 
-export const TextField = ({ label, type, showPasswordIcon, ...rest }) => {
+export const TextField = ({
+   label,
+   type = 'text',
+   showPasswordIcon,
+   ...rest
+}) => {
    const [showPassword, setShowPassword] = useState(false);
    return (
       <div className="did-floating-label-content">

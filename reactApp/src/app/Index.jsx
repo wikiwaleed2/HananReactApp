@@ -18,7 +18,10 @@ import { Earncoins } from '../pages/EarnCoins/EarnCoins';
 import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 import Checkout from '../pages/checkout/checkout';
-import Winners from '../pages/winners/winners';
+import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
+import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
+import { Winners } from '../pages/Winners/Winners';
+import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
 
 function App() {
    const { pathname } = useLocation();
@@ -92,11 +95,21 @@ function App() {
                <Footer />
             </Route>
 
+            <Route exact path="/create-profile">
+               <CreateProfile />
+            </Route>
+
+            <Route exact path="/frequently-questions">
+               <FrequentlyAskedQuestions />
+            </Route>
+
             <Route exact path="/winners">
-               <Header />
                <Winners />
             </Route>
 
+            <Route exact path="/get-in-touch">
+               <GetInTouch />
+            </Route>
          </Switch>
       </BrowserRouter>
       // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
