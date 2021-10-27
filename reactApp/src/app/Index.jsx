@@ -25,6 +25,9 @@ import { Earncoins } from '../pages/EarnCoins/EarnCoins';
 import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
+import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
+import { Winners } from '../pages/Winners/Winners';
+import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
 
 function App() {
    const { pathname } = useLocation();
@@ -79,6 +82,18 @@ function App() {
 
             <Route exact path="/create-profile">
                <CreateProfile />
+            </Route>
+
+            <Route exact path="/frequently-questions">
+               <FrequentlyAskedQuestions />
+            </Route>
+
+            <Route exact path="/winners">
+               <Winners />
+            </Route>
+
+            <Route exact path="/get-in-touch">
+               <GetInTouch />
             </Route>
          </Switch>
          <Footer />

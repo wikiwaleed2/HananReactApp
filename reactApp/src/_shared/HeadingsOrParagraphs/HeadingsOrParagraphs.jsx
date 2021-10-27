@@ -32,6 +32,8 @@ export const H6Heading = styled.h6`
 export const Paragraph = styled.p`
    font-size: ${({ fontSize }) => `${fontSize}rem` || '1.2rem'};
    font-weight: ${({ fontWeight }) => fontWeight || '400'};
-   color: #104a8e;
+   color: ${({ color }) => color || '#104a8e'};
    margin: 0;
+   text-align: ${({ textAlign }) => textAlign || 'left'};
+   margin-bottom: ${({ marginBottom }) => `${marginBottom}px` || '0'};
 `;
