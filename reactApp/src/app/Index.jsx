@@ -25,7 +25,7 @@ import Confirmation from '../pages/Confirmation/Confirmation';
 import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
 import { WinnersList } from '../pages/winners/winners-list/winners-list';
 import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
-import Winners from '../pages/winners/winners-sami';
+import Winners from '../pages/winners/winners';
 import Testimonials from '../pages/testimonials/testimonials';
 import AboutUs from '../pages/about-us/about-us';
 
