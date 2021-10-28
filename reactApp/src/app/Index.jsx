@@ -21,12 +21,11 @@ import Checkout from '../pages/checkout/checkout';
 import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
 import DreamCart from '../pages/DreamCart/DreamCart';
 import DreamCartInformation from '../pages/DreamCartInformation/DreamCartInformation';
-import AllWinners from '../pages/AllWinners/AllWinners';
 import Confirmation from '../pages/Confirmation/Confirmation';
 import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
 import { WinnersList } from '../pages/winners/winners-list/winners-list';
 import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
-import Winners from '../pages/winners/winners';
+import Winners from '../pages/winners/winners-sami';
 import Testimonials from '../pages/testimonials/testimonials';
 import AboutUs from '../pages/about-us/about-us';
 
@@ -107,15 +106,15 @@ function App() {
                <CreateProfile />
                <Footer />
             </Route>
+
             <Route exact path="/dream-cart">
                <DreamCart />
             </Route>
-            <Route exact path="/all-winners">
-               <AllWinners />
-            </Route>
+
             <Route exact path="/dream-cart-information">
                <DreamCartInformation />
             </Route>
+
             <Route exact path="/confirmation">
                <Confirmation />
             </Route>

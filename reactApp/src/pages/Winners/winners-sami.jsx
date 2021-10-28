@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import './winners.less';
+import './winners-sami.less';
 import Slider from "react-slick";
 import sliderImg from '@/_assets/images/sliderImg.png';
 import sliderImg2 from '@/_assets/images/sliderImg2.png';
