@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const Heading = styled.h1`
    color: #104a8e;
-   font-weight: 400;
+   font-weight: 800;
 `;
 
 export const SubHeader = ({ title }) => {

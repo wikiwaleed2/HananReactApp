@@ -43,11 +43,12 @@ function Header() {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <a className="nav-link active" aria-current="page" href="#">How it Works</a>
-                        <a className="nav-link" href="#">About Dream Makers</a>
+                        <Link className="nav-link" to={{ pathname: `/about-us` }} >
+                            About Dream Makers
+                        </Link>
                         <Link className="nav-link" to={{ pathname: `/winners` }} >
                             Winners
                         </Link>
-                        {/* <a className="nav-link" href="#">Winners</a> */}
                     </div>
                 </div>
                 <div className="login-btn navbar-nav">

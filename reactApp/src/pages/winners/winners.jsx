@@ -1,108 +1,150 @@
-import React, { useState } from 'react';
-import './Winners.less';
 
-import SearchIcon from '@/_assets/icons/search.svg';
-import CalanderIcon from '@/_assets/icons/calander.svg';
-import { SubHeader } from '@/_components/SubHeader/SubHeader';
-import Accordion from '../../_components/Accordion';
+import React, { useState, useEffect } from 'react';
+import './winners.less';
+import Slider from "react-slick";
+import sliderImg from '@/_assets/images/sliderImg.png';
+import sliderImg2 from '@/_assets/images/sliderImg2.png';
+import sliderImg3 from '@/_assets/images/sliderImg3.png';
+import sliderImg4 from '@/_assets/images/sliderImg4.png';
+import sliderImg5 from '@/_assets/images/sliderImg5.png';
+import winnerImg from '@/_assets/images/sky-dive.jpg';
+import WinnerCard from '../../_shared/winner-card/winner-card';
 
-export const Winners = () => {
-   const [questions, setQuestions] = useState([
-      {
-         id: 0,
-         title: 'Donation Related Questions',
-         description: '',
-         childs: [
+function Winners() {
+
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        speed: 500,
+        autoplay: true,
+        responsive: [
             {
-               id: 0,
-               title: 'Questions 1',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing eli . In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. ',
+                breakpoint: 1501,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    // prevArrow: '.h-prev',
+                    // nextArrow: '.h-next',
+                    dots: false,
+                }
             },
             {
-               id: 1,
-               title: 'Questions 2',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing eli . In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. ',
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false
+                }
             },
             {
-               id: 2,
-               title: 'Questions 3',
-               description:
-                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit molestias eveniet libero voluptates quos, impedit blanditiis consequatur magni necessitatibus dolore soluta aut, harum tenetur voluptatibus possimus nam excepturi obcaecati quis!',
-            },
-         ],
-      },
-      {
-         id: 1,
-         title: 'Draw Related Questions',
-         description: '',
-         childs: [
-            {
-               id: 0,
-               title: 'Questions 4',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in.',
-            },
-            {
-               id: 1,
-               title: 'Questions 5',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis.',
-            },
-            {
-               id: 2,
-               title: 'Questions 6',
-               description:
-                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit molestias eveniet libero voluptates quos, impedit blanditiis consequatur magni necessitatibus dolore soluta aut, harum tenetur voluptatibus possimus nam excepturi obcaecati quis!',
-            },
-         ],
-      },
-      {
-         id: 2,
-         title: 'Dream Coin Related Questions',
-         description: '',
-         childs: [
-            {
-               id: 0,
-               title: 'Questions 7',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis.',
-            },
-            {
-               id: 1,
-               title: 'Questions 8',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            },
-            {
-               id: 2,
-               title: 'Questions 9',
-               description:
-                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit molestias eveniet libero voluptates quos, impedit blanditiis consequatur magni necessitatibus dolore soluta aut, harum tenetur voluptatibus possimus nam excepturi obcaecati quis!',
-            },
-         ],
-      },
-   ]);
-   return (
-      <div>
-         <SubHeader title="Winners" />
-         <div className="d-flex align-items-center justify-content-center py-4">
-            <div className="winner-input-container">
-               <input
-                  type="text"
-                  placeholder="Search winners"
-                  className="winner-input"
-               />
-               <img src={SearchIcon} alt="search-icon" className="img-fluid" />
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '10%',
+                    slidesToScroll: 1,
+                    arrows: false,
+                    // prevArrow: '.h-prev',
+                    // nextArrow: '.h-next',
+                    dots: false,
+                }
+            }
+        ]
+    };
+
+    return (
+        <section className="winners-section">
+            <div className="signUpSlider">
+                <h1>Our Previous Winners</h1>
+                <Slider {...settings}>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
+                        {/* <img src={sliderImg} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg2})` }}></div>
+                        {/* <img src={sliderImg2} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg3})` }}></div>
+                        {/* <img src={sliderImg3} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg4})` }}></div>
+                        {/* <img src={sliderImg4} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg5})` }}></div>
+                        {/* <img src={sliderImg5} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
+                        {/* <img src={sliderImg5} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg2})` }}></div>
+                        {/* <img src={sliderImg5} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg3})` }}></div>
+                        {/* <img src={sliderImg5} /> */}
+                        <div className="slide__caption">
+                            <h3>Kate J.</h3>
+                            <p>Won Sky diving at Abu Dhabi</p>
+                        </div>
+                    </div>
+                </Slider>
             </div>
-            <span className="d-inline-block ml-3">
-               <img src={CalanderIcon} alt="winner-icon" />
-            </span>
-         </div>
-         <div className="question-container">
-            <Accordion items={questions} />
-         </div>
-      </div>
-   );
-};
+
+            <div className="all-winners">
+                <h1>All Winners</h1>
+                <div className="row">
+
+                    <WinnerCard />
+                    <WinnerCard />
+                    <WinnerCard />
+                    <WinnerCard />
+                    <WinnerCard />
+                    <WinnerCard />
+                </div>
+
+            </div>
+        </section>
+    );
+}
+
+export default Winners;

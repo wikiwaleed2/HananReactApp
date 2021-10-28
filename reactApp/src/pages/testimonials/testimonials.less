@@ -1,6 +1,18 @@
-.winners-section {
-    .signUpSlider {
-        width: 50%;
+.testimonials-section {
+    img {
+        width: 40px;
+        margin: 0 auto;
+        display: flex;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .rotate {
+        transform: rotate(270deg);
+    }
+
+    .testimonials-slider {
+        width: 65%;
         padding: 65px 0px;
         margin: 0 auto;
 
@@ -85,42 +97,42 @@
         }
     }
 
-    .all-winners {
-        width: 80%;
-        padding: 65px 0px;
-        margin: 0 auto;
+    // .all-winners {
+    //     width: 80%;
+    //     padding: 65px 0px;
+    //     margin: 0 auto;
 
-        h1 {
-            color: #104A8E;
-            text-align: center;
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 50px;
-        }
-    }
+    //     h1 {
+    //         color: #104A8E;
+    //         text-align: center;
+    //         font-size: 48px;
+    //         font-weight: 900;
+    //         margin-bottom: 50px;
+    //     }
+    // }
 }
 
 @media screen and (max-width: 1700px) {
-    .signUpSlider {
+    .testimonials-slider {
         width: 60% !important;
     }
 }
 
 
 @media screen and (max-width: 1500px) {
-    .signUpSlider {
+    .testimonials-slider {
         width: 70% !important;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .signUpSlider {
+    .testimonials-slider {
         width: 80% !important;
     }
 }
 
 @media screen and (max-width: 991px) {
-    .signUpSlider {
+    .testimonials-slider {
         width: 90% !important;
     }
 }

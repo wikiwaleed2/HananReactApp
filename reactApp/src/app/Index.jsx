@@ -20,8 +20,11 @@ import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 import Checkout from '../pages/checkout/checkout';
 import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
 import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
-import { Winners } from '../pages/Winners/Winners';
+import { WinnersList } from '../pages/winners/winners-list/winners-list';
 import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
+import Winners from '../pages/winners/winners';
+import Testimonials from '../pages/testimonials/testimonials';
+import AboutUs from '../pages/about-us/about-us';
 
 function App() {
    const { pathname } = useLocation();
@@ -96,20 +99,41 @@ function App() {
             </Route>
 
             <Route exact path="/create-profile">
+               <Header />
                <CreateProfile />
+               <Footer />
             </Route>
 
-            <Route exact path="/frequently-questions">
+            <Route exact path="/faqs">
+               <Header />
                <FrequentlyAskedQuestions />
             </Route>
 
             <Route exact path="/winners">
+               <Header />
                <Winners />
             </Route>
 
+            <Route exact path="/winners-list">
+               <Header />
+               <WinnersList />
+            </Route>
+
             <Route exact path="/get-in-touch">
+               <Header />
                <GetInTouch />
             </Route>
+
+            <Route exact path="/testimonials">
+               <Header />
+               <Testimonials />
+            </Route>
+
+            <Route exact path="/about-us">
+               <Header />
+               <AboutUs />
+            </Route>
+
          </Switch>
       </BrowserRouter>
       // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
