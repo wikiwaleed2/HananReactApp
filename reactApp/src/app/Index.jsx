@@ -28,6 +28,7 @@ import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
 import Winners from '../pages/winners/winners';
 import Testimonials from '../pages/testimonials/testimonials';
 import AboutUs from '../pages/about-us/about-us';
+import HowItWorks from '../pages/how-it-works/how-it-works';
 
 function App() {
    const { pathname } = useLocation();
@@ -147,6 +148,11 @@ function App() {
             <Route exact path="/about-us">
                <Header />
                <AboutUs />
+            </Route>
+
+            <Route exact path="/how-it-works">
+               <Header />
+               <HowItWorks />
             </Route>
 
          </Switch>
