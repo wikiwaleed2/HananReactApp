@@ -29,6 +29,9 @@ import DreamCart from '../pages/DreamCart/DreamCart';
 import DreamCartInformation from '../pages/DreamCartInformation/DreamCartInformation';
 import AllWinners from '../pages/AllWinners/AllWinners';
 import Confirmation from '../pages/Confirmation/Confirmation';
+import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
+import { Winners } from '../pages/Winners/Winners';
+import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
 
 function App() {
    const { pathname } = useLocation();
@@ -95,6 +98,18 @@ function App() {
             </Route>
             <Route exact path="/confirmation">
                <Confirmation />
+            </Route>
+
+            <Route exact path="/frequently-questions">
+               <FrequentlyAskedQuestions />
+            </Route>
+
+            <Route exact path="/winners">
+               <Winners />
+            </Route>
+
+            <Route exact path="/get-in-touch">
+               <GetInTouch />
             </Route>
          </Switch>
          <Footer />
