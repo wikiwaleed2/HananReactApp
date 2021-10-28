@@ -1,0 +1,154 @@
+.dreamCartTitle {
+  color: #104a8e;
+  font-size: 45px;
+  font-weight: 700;
+  padding: 1rem 0;
+}
+.dreamCart-tags {
+  color: #104a8e;
+}
+.dreamCartProcess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.dreamCartProcess__circle {
+  height: 20px;
+  width: 20px;
+  border: 2px solid #104a8e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dreamCartProcess__circle__dot {
+  height: 12px;
+  width: 12px;
+  background-color: #104a8e;
+  border-radius: 50%;
+}
+
+.dreamCartHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #cbd5e1;
+}
+.DreamCart-Y-line {
+  margin-top: 0.5rem;
+  background-color: #edb200;
+  width: 70px;
+  height: 2px;
+}
+/* =========================== Card DreamCart =========================== */
+.boxShadow {
+  box-shadow: 0px 8px 10px rgba(112, 112, 112, 0.3);
+  border-radius: 20px;
+}
+.cardBox {
+  padding: 0.8rem 0;
+}
+
+.count-DreamCart {
+  font-size: 35px;
+  color: #104a8e;
+  font-weight: 700;
+}
+.Product-deatils-DreamCart {
+  color: #104a8e;
+}
+.maldivs-trip {
+  color: #104a8e;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.productCount-dreamCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decrementBtn {
+  background-color: #dfdfdf;
+  border: none;
+  border-radius: 27px 0 0 27px;
+  padding: 0.6rem 1.5rem;
+}
+.incrementBtn {
+  background-color: #dfdfdf;
+  border: none;
+  border-radius: 0 27px 27px 0;
+  padding: 0.6rem 1.5rem;
+}
+.dreamXCart-counter {
+  padding: 0.6rem 1.5rem;
+  color: #707070;
+  font-weight: 600;
+}
+.horizonatl-line {
+  border-top: 1px solid #094486a1;
+}
+.font400 {
+  font-weight: 400;
+}
+
+/* ====================== Input Container =================== */
+.inputContainer {
+  position: relative;
+}
+.inputContainer > button {
+  position: absolute;
+  top: 0;
+  right: 4%;
+}
+.inputContainer > input {
+  padding-left: 1rem;
+  padding-right: 4rem;
+  border: 1px solid #707070;
+}
+.inputContainer > input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #707070;
+}
+
+/* ========================= Buttons For Chechout =========================*/
+.absoluteClass {
+  position: absolute;
+  left: 3rem;
+}
+
+/* ============================ Banners =========================== */
+.dreamBanner {
+  border: 1px solid #707070;
+  border-radius: 0.5rem;
+  /* padding: 1rem 1.5rem; */
+}
+.bannerCart-text {
+  text-transform: uppercase;
+  color: #104a8e;
+  font-size: 1.3rem;
+}
+
+/* ============================= ResponsiveNess ============================= */
+@media (max-width: 767px) {
+  .boxShadow {
+    max-width: 100% !important;
+  }
+  .maldivs-trip {
+    font-size: 25px;
+  }
+  .decrementBtn,
+  .incrementBtn {
+    padding: 0.4rem 1rem;
+  }
+}
+@media (max-width: 575px) {
+  .cardBox {
+    display: flex !important;
+  }
+} ;

@@ -19,6 +19,10 @@ import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 import Checkout from '../pages/checkout/checkout';
 import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
+import DreamCart from '../pages/DreamCart/DreamCart';
+import DreamCartInformation from '../pages/DreamCartInformation/DreamCartInformation';
+import AllWinners from '../pages/AllWinners/AllWinners';
+import Confirmation from '../pages/Confirmation/Confirmation';
 import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
 import { WinnersList } from '../pages/winners/winners-list/winners-list';
 import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
@@ -102,6 +106,18 @@ function App() {
                <Header />
                <CreateProfile />
                <Footer />
+            </Route>
+            <Route exact path="/dream-cart">
+               <DreamCart />
+            </Route>
+            <Route exact path="/all-winners">
+               <AllWinners />
+            </Route>
+            <Route exact path="/dream-cart-information">
+               <DreamCartInformation />
+            </Route>
+            <Route exact path="/confirmation">
+               <Confirmation />
             </Route>
 
             <Route exact path="/faqs">
