@@ -25,6 +25,10 @@ import { Earncoins } from '../pages/EarnCoins/EarnCoins';
 import { ChangePassword } from '../pages/ChangePassword/ChangePassword';
 import { ActiveCoupons } from '../pages/ActiveCoupons/ActiveCoupons';
 import { CreateProfile } from '../pages/CreateProfile/CreateProfile';
+import DreamCart from '../pages/DreamCart/DreamCart';
+import DreamCartInformation from '../pages/DreamCartInformation/DreamCartInformation';
+import AllWinners from '../pages/AllWinners/AllWinners';
+import Confirmation from '../pages/Confirmation/Confirmation';
 
 function App() {
    const { pathname } = useLocation();
@@ -79,6 +83,18 @@ function App() {
 
             <Route exact path="/create-profile">
                <CreateProfile />
+            </Route>
+            <Route exact path="/dream-cart">
+               <DreamCart />
+            </Route>
+            <Route exact path="/all-winners">
+               <AllWinners />
+            </Route>
+            <Route exact path="/dream-cart-information">
+               <DreamCartInformation />
+            </Route>
+            <Route exact path="/confirmation">
+               <Confirmation />
             </Route>
          </Switch>
          <Footer />

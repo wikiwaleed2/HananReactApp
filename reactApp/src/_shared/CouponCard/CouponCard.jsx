@@ -1,41 +1,31 @@
 import React from 'react';
-import './CouponCard.less';
+import './CouponCard.css';
 
-import CardHeader from '@/_assets/images/card-header-img.png';
-import BarcodeImage from '@/_assets/images/barcode.png';
-import { H5Heading } from '../HeadingsOrParagraphs/HeadingsOrParagraphs';
+import CouponsCardBg from '../../_assets/images/CouponsCardBg.png';
+import qrCode from '../../_assets/images/qrCode.png';
+import Logo from '../../_assets/images/Logo.png';
 
 export const CouponCard = () => {
    return (
-      <div className="coupon-card">
-         <div className="d-flex align-items-center justify-content-between section-1">
-            <img src={CardHeader} alt="logo" className="img-fluid" />
-            <div>
-               <div className="header-number">
-                  <H5Heading fontSize="18" fontWeight="900">
-                     EL-00495-00164
-                  </H5Heading>
-               </div>
-               <div className="subtitle">Coupon No.</div>
+      <>
+         <div className="coupons-card">
+            <img src={CouponsCardBg} alt="" width="100%" />
+            <div className="header">
+               <img src={Logo} alt="" />
             </div>
+            <div className="EL-number">EL-74837-43211</div>
+            <div className="EL-coupon">coupons No.</div>
+            <div className="price">Price</div>
+            <div className="Trip-country">Maldives Trip</div>
+            <div className="Qr">
+               <img src={qrCode} alt="QR" style={{ width: '100%' }} />
+            </div>
+            <div className="dottedLine"></div>
+            <div className="purchase-date">Purchase On:</div>
+            <div className="date">12:00 PM, 12 June 2021</div>
+            <div className="coupon-name">Name:</div>
+            <div className="name">Muhammad Zeeshan</div>
          </div>
-         <div className="section-2">
-            <div className="mt-2">
-               <div className="title">Prize</div>
-               <div className="prize-name">Maldives Trip</div>
-            </div>
-            <img src={BarcodeImage} alt="barcode" className="img-fluid" />
-         </div>
-         <div className="section-3">
-            <div>
-               <div className="title">Purchased on:</div>
-               <div className="description">12:48 PM 25 March,2021</div>
-            </div>
-            <div>
-               <div className="title">Name:</div>
-               <div className="description">Maria Andrejczyk</div>
-            </div>
-         </div>
-      </div>
+      </>
    );
 };

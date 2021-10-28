@@ -1,0 +1,28 @@
+import React from "react";
+
+import logo from "@/_assets/dreamCart/logo.png";
+import Picture10 from "@/_assets/dreamCart/picture10.png";
+import "./dreamCart.css";
+const DreamCartBanners = () => {
+  return (
+    <>
+      <div className="d-flex justify-content-between align-items-center dreamBanner px-4 py-2">
+        <div className="bannerCart-text">Regulated by dubai company</div>
+        <div className="bannerLogo">
+          <img src={logo} alt="Dubai logo" width="100%" />
+        </div>
+      </div>
+      <div className="d-flex justify-content-between align-items-center dreamBanner p-0 pl-4 my-2">
+        <div className="bannerCart-text" style={{ lineHeight: "1.3" }}>
+          safe and secure <br />
+          payment methods
+        </div>
+        <div className="bannerLogo">
+          <img src={Picture10} alt="cards" width="100%" />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DreamCartBanners;
