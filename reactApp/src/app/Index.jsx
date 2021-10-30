@@ -109,15 +109,21 @@ function App() {
             </Route>
 
             <Route exact path="/dream-cart">
+               <Header />
                <DreamCart />
+               <Footer />
             </Route>
 
             <Route exact path="/dream-cart-information">
+               <Header />
                <DreamCartInformation />
+               <Footer />
             </Route>
 
             <Route exact path="/confirmation">
+               <Header />
                <Confirmation />
+               <Footer />
             </Route>
 
             <Route exact path="/faqs">

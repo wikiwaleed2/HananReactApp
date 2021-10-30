@@ -10,76 +10,67 @@ export const WinnersList = () => {
    const [questions, setQuestions] = useState([
       {
          id: 0,
-         title: 'Donation Related Questions',
+         title: 'September 6, 2021 (3 Winners)',
          description: '',
          childs: [
             {
                id: 0,
-               title: 'Questions 1',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing eli . In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. ',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
             {
                id: 1,
-               title: 'Questions 2',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing eli . In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. ',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
             {
                id: 2,
-               title: 'Questions 3',
-               description:
-                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit molestias eveniet libero voluptates quos, impedit blanditiis consequatur magni necessitatibus dolore soluta aut, harum tenetur voluptatibus possimus nam excepturi obcaecati quis!',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
          ],
       },
       {
          id: 1,
-         title: 'Draw Related Questions',
+         title: 'September 7, 2021 (3 Winners)',
          description: '',
          childs: [
             {
                id: 0,
-               title: 'Questions 4',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in.',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
             {
                id: 1,
-               title: 'Questions 5',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis.',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
             {
                id: 2,
-               title: 'Questions 6',
-               description:
-                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit molestias eveniet libero voluptates quos, impedit blanditiis consequatur magni necessitatibus dolore soluta aut, harum tenetur voluptatibus possimus nam excepturi obcaecati quis!',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
          ],
       },
       {
          id: 2,
-         title: 'Dream Coin Related Questions',
+         title: 'September 9, 2021 (3 Winners)',
          description: '',
          childs: [
             {
                id: 0,
-               title: 'Questions 7',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis.',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
             {
                id: 1,
-               title: 'Questions 8',
-               description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim lacus at felis sagittis, in sollicitudin augue iaculis. Mauris placerat consequat neque, sit amet placerat nisi elementum sed. Aenean sed facilisis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
             {
                id: 2,
-               title: 'Questions 9',
-               description:
-                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit molestias eveniet libero voluptates quos, impedit blanditiis consequatur magni necessitatibus dolore soluta aut, harum tenetur voluptatibus possimus nam excepturi obcaecati quis!',
+               title: 'Muhammad Zubair | Won A Trip to Maldives',
+               description: 'Finally I will be able to relax with my family somewhere nice without worrying about',
             },
          ],
       },
@@ -101,7 +92,7 @@ export const WinnersList = () => {
             </span>
          </div>
          <div className="question-container">
-            <Accordion items={questions} />
+            <Accordion isWinners={true} items={questions} />
          </div>
       </div>
    );

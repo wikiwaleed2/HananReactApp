@@ -5,7 +5,7 @@ import CouponsCardBg from '../../_assets/images/CouponsCardBg.png';
 import qrCode from '../../_assets/images/qrCode.png';
 import Logo from '../../_assets/images/Logo.png';
 
-export const CouponCard = () => {
+export const CouponCard = ({ isWinners }) => {
    return (
       <>
          <div className="coupons-card">
@@ -15,11 +15,16 @@ export const CouponCard = () => {
             </div>
             <div className="EL-number">EL-74837-43211</div>
             <div className="EL-coupon">coupons No.</div>
-            <div className="price">Price</div>
+            <div className="price">Prize</div>
             <div className="Trip-country">Maldives Trip</div>
-            <div className="Qr">
-               <img src={qrCode} alt="QR" style={{ width: '100%' }} />
-            </div>
+            {!isWinners ?
+               <div className="Qr">
+                  <img src={qrCode} alt="QR" style={{ width: '100%' }} />
+               </div>
+               :
+               null
+            }
+
             <div className="dottedLine"></div>
             <div className="purchase-date">Purchase On:</div>
             <div className="date">12:00 PM, 12 June 2021</div>
