@@ -15,8 +15,8 @@ import TabsImg from "../../_assets/images/tabsImg.png";
 import TabsImg2 from "../../_assets/images/tabsImg2.png";
 import Slider from 'react-slick';
 import { SilderComponent } from '../../_components/silder/silder';
-import {PriceSlider} from '../../_components/PriceSlider/PriceSlider';
-
+import { PriceSlider } from '../../_components/PriceSlider/PriceSlider';
+import { Link } from 'react-router-dom';
 
 function Price() {
     const [slideCounter, setSlideCounter] = useState('01');
@@ -32,17 +32,20 @@ function Price() {
 
     return (
         <>
-        <div className="priceMobileSec">
-            <div className="priceSec">
-                <div className="priceCont">
-                    <p>Price</p>
-                    <h3>AED 720.00</h3>
-                </div>
-                <div className="priceSecbtn">
-                    <button className="btn btn-default">Buy Now</button>
+            <div className="priceMobileSec">
+                <div className="priceSec">
+                    <div className="priceCont">
+                        <p>Price</p>
+                        <h3>AED 720.00</h3>
+                    </div>
+                    <div className="priceSecbtn">
+                        <Link to={{ pathname: `/dream-cart` }}>
+                            <button className="btn btn-default">Buy Now</button>
+                        </Link>
+
+                    </div>
                 </div>
             </div>
-        </div>
             <div className="container-fluid">
                 <div className="priceMain">
                     <div className="row">
@@ -124,7 +127,10 @@ function Price() {
                                 <div className="buySec">
                                     <p>Buy a water Bottle and make it yours!</p>
                                     <h1>AED 720.00</h1>
-                                    <button className="btn btn-default buyBtn">Buy Now</button>
+                                    <Link to={{ pathname: `/dream-cart` }}>
+                                        <button className="btn btn-default buyBtn">Buy Now</button>
+                                    </Link>
+
                                 </div>
                             </div>
                         </div>

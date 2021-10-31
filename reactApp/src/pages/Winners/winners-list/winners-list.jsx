@@ -76,7 +76,7 @@ export const WinnersList = () => {
       },
    ]);
    return (
-      <div>
+      <div id="winners-list">
          <SubHeader title="Winners" />
          <div className="d-flex align-items-center justify-content-center py-4">
             <div className="winner-input-container">

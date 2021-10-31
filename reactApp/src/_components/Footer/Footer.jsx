@@ -11,6 +11,7 @@ import twitterIcon from '../../_assets/images/twitter-icon.svg';
 import playstore from '../../_assets/images/playstore-icons.png';
 import facebookIcon from '../../_assets/images/facebook-icon.svg';
 import instaIcon from '../../_assets/images/instagram-icon.svg';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -39,17 +40,14 @@ function Footer() {
 
                                 <a href="https://www.twitter.com/" target="_blank">
                                     <img src={twitterIcon} alt="Twitter" />
-
                                 </a>
 
                                 <a href="https://www.facebook.com/" target="_blank">
                                     <img src={facebookIcon} alt="Facebook" />
-
                                 </a>
 
                                 <a href="https://www.instagram.com/" target="_blank">
                                     <img src={instaIcon} alt="Instagram" />
-
                                 </a>
 
                             </div>
@@ -58,11 +56,23 @@ function Footer() {
 
                             <ul className="links">
 
-                                <li><a href="">About Dream Makers</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/about-us` }}>
+                                        About Dream Makers
+                                    </Link>
+                                </li>
 
-                                <li><a href="">My Account</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/profile` }}>
+                                        My Account
+                                    </Link>
+                                </li>
 
-                                <li><a href="">Active Tickets</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/` }}>
+                                        Active Tickets
+                                    </Link>
+                                </li>
 
                             </ul>
 
@@ -74,23 +84,51 @@ function Footer() {
 
                             <ul className="links">
 
-                                <li><a href="">Contact Us</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/get-in-touch` }}>
+                                        Contact Us
+                                    </Link>
+                                </li>
 
-                                <li><a href="">FAQ</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/faqs` }}>
+                                        FAQ
+                                    </Link>
+                                </li>
 
-                                <li><a href="">How it Works</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/how-it-works` }}>
+                                        How it Works
+                                    </Link>
+                                </li>
 
-                                <li><a href="">Charities</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/` }}>
+                                        Charities
+                                    </Link>
+                                </li>
 
-                                <li><a href="">Campaign Draw Terms & Conditions</a></li>
+                                <li>
+                                    <Link to={{ pathname: `/` }}>
+                                        Campaign Draw Terms & Conditions
+                                    </Link>
+                                </li>
 
                             </ul>
 
                             <div className="mb"></div>
 
-                            <h5 className="footerStyle m-none"><a href="">User Agreement</a></h5>
+                            <h5 className="footerStyle m-none">
+                                <Link to={{ pathname: `/` }}>
+                                    User Agreement
+                                </Link>
+                            </h5>
 
-                            <h5 className="footerStyle m-none"><a href="">Privacy Policy</a></h5>
+                            <h5 className="footerStyle m-none">
+                                <Link to={{ pathname: `/` }}>
+                                    Privacy Policy
+                                </Link>
+                            </h5>
 
                         </div>
 
@@ -140,9 +178,17 @@ function Footer() {
 
                             <div className=" m-block mt" style={{ textAlign: 'left' }}>
 
-                                <h5 className="footerStyle m-block"><a href="">User Agreement</a></h5>
+                                <h5 className="footerStyle m-block">
+                                    <Link to={{ pathname: `/` }}>
+                                        User Agreement
+                                    </Link>
+                                </h5>
 
-                                <h5 className="footerStyle m-block"><a href="">Privacy Policy</a></h5>
+                                <h5 className="footerStyle m-block">
+                                    <Link to={{ pathname: `/` }}>
+                                        Privacy Policy
+                                    </Link>
+                                </h5>
 
                             </div>
 
@@ -167,4 +213,4 @@ function Footer() {
     )
 }
 
-export {Footer};
+export { Footer };

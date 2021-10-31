@@ -40,6 +40,7 @@ import { FeaturedCampaign } from '../_shared/featured-campaign/index.jsx';
 import { CampaignCard } from '../_shared/campaign-card/index.jsx';
 import { CounterMobile } from '../_shared/counter-mobile';
 import { SoldCampaign } from '../_shared/sold-campaign/index.jsx';
+import { Link } from 'react-router-dom';
 
 // import Message from '../components/message';
 // import MessageContainer from '../components/messagesContainer';
@@ -115,7 +116,7 @@ function Home() {
         console.log("video el", videosEl);
 
         for (let i = 0; i <= videosEl.length - 1; i++) {
-            if(!videosEl[i].paused){
+            if (!videosEl[i].paused) {
                 videosEl[i].removeAttribute('controls');
                 videosEl[i].pause();
             }
@@ -686,32 +687,9 @@ function Home() {
                                             <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
 
                                             <div className="btnStyle3">
-
-                                                <a href="#">Buy now</a>
-
-                                                <a href="#">learn more</a>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div className="images">
-
-                                        <div className="c-overlay"></div>
-
-                                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
-                                        {/* <img src={sliderImg} alt="" /> */}
-
-                                        <div className="carousel-cnt">
-
-                                            <h1>Maldives</h1>
-
-                                            <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
-
-                                            <div className="btnStyle3">
-
-                                                <a href="#">Buy now</a>
+                                                <Link to={{ pathname: `/dream-cart` }}>
+                                                    Buy now
+                                                </Link>
 
                                                 <a href="#">learn more</a>
 
@@ -735,7 +713,35 @@ function Home() {
 
                                             <div className="btnStyle3">
 
-                                                <a href="#">Buy now</a>
+                                                <Link to={{ pathname: `/dream-cart` }}>
+                                                    Buy now
+                                                </Link>
+
+                                                <a href="#">learn more</a>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div className="images">
+
+                                        <div className="c-overlay"></div>
+
+                                        <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
+                                        {/* <img src={sliderImg} alt="" /> */}
+
+                                        <div className="carousel-cnt">
+
+                                            <h1>Maldives</h1>
+
+                                            <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+
+                                            <div className="btnStyle3">
+
+                                                <Link to={{ pathname: `/dream-cart` }}>
+                                                    Buy now
+                                                </Link>
 
                                                 <a href="#">learn more</a>
 
@@ -894,7 +900,7 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <FeaturedCampaign videoSrc={false}/>
+                        <FeaturedCampaign videoSrc={false} />
 
                         <FeaturedCampaign videoSrc={false} />
 
@@ -1040,7 +1046,9 @@ function Home() {
 
                                 </div>
 
-                                <a href="#" className="buy-now">Buy Now</a>
+                                <Link className="buy-now" to={{ pathname: `/dream-cart` }}>
+                                    Buy now
+                                </Link>
 
                             </div>
 
@@ -1171,7 +1179,9 @@ function Home() {
 
                                 </div>
 
-                                <a href="#" className="buy-now">Buy Now</a>
+                                <Link className="buy-now" to={{ pathname: `/dream-cart` }}>
+                                    Buy now
+                                </Link>
 
                             </div>
 
@@ -1270,11 +1280,11 @@ function Home() {
                                         </div>
 
                                         <div>
-                                            <CampaignCard videoSrc={false}/>
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard videoSrc={false}/>
+                                            <CampaignCard videoSrc={false} />
                                         </div>
 
 
@@ -1302,7 +1312,9 @@ function Home() {
 
                                 </div>
 
-                                <a href="#" className="buy-now">Buy Now</a>
+                                <Link className="buy-now" to={{ pathname: `/dream-cart` }}>
+                                    Buy now
+                                </Link>
 
                             </div>
 

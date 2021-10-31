@@ -5,6 +5,7 @@ import bottle from '@/_assets/images/bottle.png';
 import playIcon from '@/_assets/images/play-solid.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { CounterMobile } from '@/_shared/counter-mobile/index.jsx';
+import { Link } from 'react-router-dom';
 
 function CampaignCard({ videoSrc }) {
 
@@ -104,7 +105,9 @@ function CampaignCard({ videoSrc }) {
 
                     <div className="btnStyle3">
 
-                        <a href="#">Prize Details</a>
+                        <Link to={{ pathname: `/prize-details` }}>
+                            Prize Details
+                        </Link>
 
                         <a href="#">Product Details</a>
 
@@ -136,7 +139,9 @@ function CampaignCard({ videoSrc }) {
 
                     </div>
 
-                    <a href="#" className="buy-now">Buy Now</a>
+                    <Link className="buy-now" to={{ pathname: `/dream-cart` }}>
+                        Buy now
+                    </Link>
 
                 </div>
 

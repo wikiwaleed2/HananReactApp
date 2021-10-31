@@ -5,9 +5,10 @@ import bottle from '../../_assets/images/bottle.png';
 import shareIcon from '../../_assets/images/social-share.png';
 import arrowIcon from '../../_assets/images/arrow-icon.svg';
 import { CampaignCard } from '@/_shared/campaign-card/index.jsx';
-import {CounterMobile} from '@/_shared/counter-mobile';
+import { CounterMobile } from '@/_shared/counter-mobile';
 import styled, { keyframes } from 'styled-components';
 import { fadeOutUp } from 'react-animations';
+import { Link } from 'react-router-dom';
 
 const fadeOutUpAnimation = keyframes`${fadeOutUp}`;
 const FadeOutUpDiv = styled.div`animation: 0.5s ${fadeOutUpAnimation};`;
@@ -169,7 +170,9 @@ function SilderComponent() {
 
                         </div>
 
-                        <a href="#" className="buy-now">Buy Now</a>
+                        <Link className="buy-now" to={{ pathname: `/dream-cart` }}>
+                            Buy now
+                        </Link>
 
                     </div>
 

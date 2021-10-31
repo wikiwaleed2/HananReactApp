@@ -12,11 +12,11 @@ import DreamIcon from '@/_assets/images/dream-icon.png';
 import LogoutIcon from '@/_assets/icons/logout.svg';
 
 const BUTTONS = [
-   { id: 1, image: DetailsIcon, label: 'Personal Details' },
-   { id: 2, image: CouponIcon, label: 'Active Coupons' },
-   { id: 3, image: ChangePasswordIcon, label: 'Change Password' },
-   { id: 4, image: DonationIcon, label: 'Your Donations' },
-   { id: 5, image: DreamIcon, label: 'Dream Coins' },
+   { id: 1, image: DetailsIcon, label: 'Personal Details', path: 'create-profile' },
+   { id: 2, image: CouponIcon, label: 'Active Coupons', path: 'active-coupons' },
+   { id: 3, image: ChangePasswordIcon, label: 'Change Password', path: 'change-password' },
+   { id: 4, image: DonationIcon, label: 'Your Donations', path: 'profile' },
+   { id: 5, image: DreamIcon, label: 'Dream Coins', path: 'earncoins' },
    { id: 6, image: LogoutIcon, label: 'Log out' },
 ];
 
@@ -44,6 +44,7 @@ export const ProfileCard = () => {
                   key={item.id}
                   leftIcon={item.image}
                   label={item.label}
+                  path={item.path}
                />
             ))}
          </div>

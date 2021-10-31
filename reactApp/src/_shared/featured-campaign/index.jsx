@@ -9,6 +9,7 @@ import couponIcon from '@/_assets/images/coupon-icon.svg';
 import playIcon from '@/_assets/images/play-solid.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { Counter } from '../../_shared/counter/index.jsx';
+import { Link } from 'react-router-dom';
 
 function FeaturedCampaign({ videoSrc }) {
 
@@ -537,8 +538,12 @@ function FeaturedCampaign({ videoSrc }) {
                                     <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
                                     <h1 className="headingStyle4">AED 720.00</h1>
                                     <div className="btnStyle2">
-                                        <a href="#">Buy Now</a>
-                                        <a href="#">Prize Details</a>
+                                        <Link to={{ pathname: `/dream-cart` }}>
+                                            Buy now
+                                        </Link>
+                                        <Link to={{ pathname: `/prize-details` }}>
+                                            Prize Details
+                                        </Link>
                                     </div>
                                 </div>
 

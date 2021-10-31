@@ -56,7 +56,7 @@ function App() {
                <Footer />
             </Route>
 
-            <Route exact path="/price">
+            <Route exact path="/prize-details">
                <Header />
                <Price />
                <Footer />
