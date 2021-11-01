@@ -7,6 +7,10 @@
       border-right: 2px solid #d3ddea;
       text-align: center;
       flex: 1;
+
+      @media only screen and (max-width: 767px) {
+         border-right: none;
+      }
    }
 
    .news-letter__left-heading {
@@ -14,12 +18,20 @@
       font-size: 2rem;
       text-align: center;
       color: rgba(57, 57, 57, 0.86);
+
+      @media only screen and (max-width: 767px) {
+         font-size: 1.3rem;
+      }
    }
 
    .input-container {
       width: 60%;
       margin: auto;
       position: relative;
+
+      @media only screen and (max-width: 767px) {
+         width: 90%;
+      }
    }
 
    .news-letter__input-label {
@@ -40,6 +52,12 @@
       border: 1px solid #707070;
       outline: none;
       padding-right: 15px;
+
+      @media only screen and (max-width: 767px) {
+         height: 42px;
+         border-radius: 9px;
+         border: 2px solid #707070;
+      }
    }
 
    .news-letter__input-button {
@@ -59,6 +77,10 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
+
+      @media only screen and (max-width: 767px) {
+         margin-top: 1rem;
+      }
    }
 
    .news-letter__right-paragraph {
@@ -67,5 +89,10 @@
       font-size: 24px;
       text-align: center;
       color: rgba(57, 57, 57, 0.86);
+
+      @media only screen and (max-width: 767px) {
+         font-size: 18px;
+         margin-top: 1.2rem;
+      }
    }
 }

@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import './GetInTouch.less';
 
 import styled from 'styled-components';
-import InstaImage from '@/_assets/images/insta-blue.png';
-import FacebookImage from '@/_assets/images/facebook-icon.svg';
-import TwitterImage from '@/_assets/images/twitter-blue.png';
-import LinkedInImage from '@/_assets/images/linkedin-blue.png';
 import { SubHeader } from '@/_components/SubHeader/SubHeader';
 import { TextField } from '@/_shared/TextField/TextField';
 import { Textarea } from '@/_shared/Textarea/Textarea';
+import SendMobileIcon from '@/_assets/images/send-icon-mobile.png';
 import { Paragraph } from '../../_shared/HeadingsOrParagraphs/HeadingsOrParagraphs';
 import { SocialIcon } from '../../_shared/SocialIcon/SocialIcon';
 import { SendButton } from '../../_shared/SendButton/SendButton';
@@ -22,10 +19,12 @@ export const GetInTouch = () => {
    return (
       <div>
          <SubHeader title="Get in Touch" />
-         <Paragraph className="py-3 text-center" fontWeight="500">
-            Want to get in touch? Submit your quires here and we will get back
-            to you as soon as possible
-         </Paragraph>
+         <div className="para-container">
+            <Paragraph className="py-3 text-center" fontWeight="500">
+               Want to get in touch? Submit your quires here and we will get
+               back to you as soon as possible
+            </Paragraph>
+         </div>
          <div className="get-container">
             <div className="row">
                <div className="col-6 d-lg-block d-md-block d-sm-none d-none">
@@ -75,11 +74,19 @@ export const GetInTouch = () => {
                      <TextField label="Phone Number" />
                      <TextField label="Email" />
                      <Textarea label="Message" rows="6" />
+                     <div className="btn-con text-center">
+                        <SendButton />
+                     </div>
                   </form>
-                  <div className="text-center">
-                     <SendButton />
-                  </div>
                </div>
+            </div>
+            <div className="social-icon__mobile-container">
+               <div className="img-mobile__container">
+                  <img src={SendMobileIcon} alt="send-icon" />
+               </div>
+            </div>
+            <div className="social-media">
+               <SocialIcon />
             </div>
          </div>
       </div>

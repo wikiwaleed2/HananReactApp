@@ -10,13 +10,22 @@ import {
 const CardContainer = styled.div`
    display: flex;
    align-items: flex-start;
-   height: 105px;
+   max-height: 150px;
    margin-top: 20px;
+
+   @media only screen and (max-width: 767px) {
+      margin-top: 20px;
+   }
 `;
 
 const ImageContainer = styled.div`
    width: 100px;
    height: 100px;
+
+   @media only screen and (max-width: 767px) {
+      width: 140px;
+      height: 140px;
+   }
 `;
 
 const ReadMoreBtn = styled.span`
@@ -24,6 +33,23 @@ const ReadMoreBtn = styled.span`
    font-weight: 500;
    font-size: 14px;
    color: #edb200;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 16px;
+   }
+`;
+
+const CardHeading = styled.h5`
+   font-weight: ${({ fontWeight }) => fontWeight || '500'};
+   text-align: left;
+   color: ${({ color }) => color || '#104a8e'};
+   margin: 0;
+   font-size: ${({ fontSize }) => `${fontSize}px`};
+   text-align: ${({ textAlign }) => textAlign || 'left'};
+
+   @media only screen and (max-width: 767px) {
+      font-size: 28px;
+   }
 `;
 
 export const DonationCard = ({ image = CardImage, title, subTitle }) => {
@@ -34,9 +60,9 @@ export const DonationCard = ({ image = CardImage, title, subTitle }) => {
          </ImageContainer>
          <div className="d-flex justify-content-between flex-column h-100">
             <div>
-               <H5Heading fontWeight="600" fontSize="22">
+               <CardHeading fontWeight="600" fontSize="22">
                   {title}
-               </H5Heading>
+               </CardHeading>
                <H6Heading>{subTitle}</H6Heading>
             </div>
             <ReadMoreBtn>Read more</ReadMoreBtn>

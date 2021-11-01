@@ -14,13 +14,14 @@ export const ChangePassword = () => {
       <div className="container-fluid">
          <div className="changepassword-page">
             <div className="row">
-               <div className="col-md-4">
+               <div className="col-md-4 d-md-block d-none">
                   <ProfileCard />
                </div>
                <div className="col-md-8">
-                  <Card>
+                  <Card className="d-md-block d-none">
                      <div className="doughnut-container">
                         <Doughnut
+                           title="AED"
                            value="7.20"
                            footerTitle="Your available balance"
                         />
@@ -31,30 +32,37 @@ export const ChangePassword = () => {
                         />
                      </div>
                   </Card>
-                  <div className="d-flex align-items-start mt-3">
+                  <div className="change-password__heading-container mt-3">
                      <H1Heading>Change Password</H1Heading>
                      <PButton label="update" />
                   </div>
                   <div className="mt-4 changepassword-container">
-                     <TextField
-                        label="Old Passowrd"
-                        showPasswordIcon
-                        type="password"
-                     />
-                     <TextField
-                        label="New Password"
-                        showPasswordIcon
-                        type="password"
-                     />
-                     <TextField
-                        label="Confirm Password"
-                        showPasswordIcon
-                        type="password"
-                     />
+                     <form>
+                        <TextField
+                           label="Old Passowrd"
+                           showPasswordIcon
+                           type="password"
+                        />
+                        <TextField
+                           label="New Password"
+                           showPasswordIcon
+                           type="password"
+                        />
+                        <TextField
+                           label="Confirm Password"
+                           showPasswordIcon
+                           type="password"
+                        />
+                        <div className="text-center d-md-none d-block">
+                           <PButton label="update" />
+                        </div>
+                     </form>
                   </div>
                </div>
             </div>
-            <NewsLetter />
+            <div className="d-md-block d-none">
+               <NewsLetter />
+            </div>
          </div>
       </div>
    );
