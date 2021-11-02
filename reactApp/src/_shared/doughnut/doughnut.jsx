@@ -18,6 +18,11 @@ const DoughnutContainer = styled.div`
    align-items: center;
    justify-content: center;
    flex-direction: column;
+
+   @media only screen and (max-width: 767px) {
+      height: 120px;
+      width: 120px;
+   }
 `;
 
 const Title = styled.h5`
@@ -27,6 +32,9 @@ const Title = styled.h5`
 
 const Value = styled.h2`
    font-weight: 400;
+   @media only screen and (max-width: 767px) {
+      font-size: 1.6rem;
+   }
 `;
 
 const Footer = styled.p`
@@ -34,13 +42,17 @@ const Footer = styled.p`
    color: #808080;
    font-size: 20px;
    margin-top: 5px;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 16px;
+   }
 `;
 
-export const Doughnut = ({ color, value, footerTitle }) => {
+export const Doughnut = ({ color, value, title, footerTitle }) => {
    return (
       <Container>
          <DoughnutContainer color={color}>
-            <Title>AED</Title>
+            {title && <Title>{title}</Title>}
             <Value>{value}</Value>
          </DoughnutContainer>
          <Footer>{footerTitle}</Footer>

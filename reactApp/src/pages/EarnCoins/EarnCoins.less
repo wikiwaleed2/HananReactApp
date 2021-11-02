@@ -1,5 +1,18 @@
 .earncoins-page {
    padding: 1rem 0;
+
+   @media only screen and (max-width: 767px) {
+      padding: 0;
+   }
+}
+
+.earncoins-heading-container {
+   display: flex;
+   align-items: center;
+
+   @media only screen and (max-width: 767px) {
+      display: none;
+   }
 }
 
 .copy-container {
@@ -14,6 +27,16 @@
    justify-content: space-between;
 
    padding: 0.6rem 1.5rem 0.6rem 3.5rem;
+
+   @media only screen and (max-width: 1024px) {
+      width: 60%;
+   }
+
+   @media only screen and (max-width: 767px) {
+      width: 65%;
+      border-radius: 22px;
+      padding: 0.2rem 1.5rem 0.2rem 3.5rem;
+   }
 }
 
 .copy-input {
@@ -25,6 +48,10 @@
 
    outline: none;
    border: none;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 22px;
+   }
 }
 
 .copy-input:focus,
@@ -37,6 +64,10 @@
    color: #edb200;
    font-weight: 500;
    font-size: 1.2rem;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 1.1rem;
+   }
 }
 
 .copy-btn:hover,
