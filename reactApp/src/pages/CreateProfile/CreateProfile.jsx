@@ -40,13 +40,13 @@ export const CreateProfile = () => {
                   </div>
                   <div className="mt-3">
                      <div className="row">
-                        <div className="col-md-7">
+                        <div className="col-md-7 col-12">
                            <TextField label="First Name" />
                            <TextField label="Last Name" />
                            <TextField label="Email" />
                            <CountryCodeField label="Country Code" />
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-5 col-12">
                            <SelectField label="Nationality" />
                            <SelectField label="Country of Residence" />
                            <SelectField label="City" />

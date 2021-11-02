@@ -34,6 +34,7 @@
 
    @media only screen and (max-width: 767px) {
       left: 10px;
+      font-size: 10px;
    }
 }
 
@@ -48,9 +49,24 @@
    border: 1px solid #707070;
    box-sizing: border-box;
 
+   @media only screen and (max-width: 1366px) {
+      font-size: 16px;
+      padding: 1.4rem 0.8rem 0.3rem 1.5rem;
+   }
+
    @media only screen and (max-width: 1024px) {
       font-size: 16px;
       padding: 0.9rem 1.2rem 0.3rem 1rem;
+   }
+
+   @media only screen and (max-width: 767px) {
+      font-size: 16px;
+      padding: 0.9rem 1.2rem 0.3rem 2.2rem;
+   }
+
+   @media only screen and (max-width: 475px) {
+      font-size: 14px;
+      padding: 1.1rem 1.2rem 0.3rem 0.9rem;
    }
 }
 
@@ -71,8 +87,19 @@ select.country-select::-ms-expand {
    top: 4px;
    font-size: 11px;
 
+   @media only screen and (max-width: 992px) {
+      left: 1px;
+      font-size: 10px;
+   }
+
    @media only screen and (max-width: 767px) {
-      font-size: 8px;
+      left: 27px;
+      font-size: 12px;
+   }
+
+   @media only screen and (max-width: 475px) {
+      left: 8px;
+      font-size: 9px;
    }
 }
 
@@ -80,8 +107,19 @@ select.country-select::-ms-expand {
    top: 4px;
    font-size: 11px;
 
+   @media only screen and (max-width: 992px) {
+      left: 1px;
+      font-size: 10px;
+   }
+
    @media only screen and (max-width: 767px) {
-      font-size: 8px;
+      left: 27px;
+      font-size: 12px;
+   }
+
+   @media only screen and (max-width: 475px) {
+      left: 8px;
+      font-size: 9px;
    }
 }
 
@@ -93,6 +131,14 @@ select.country-select::-ms-expand {
    @media only screen and (max-width: 1024px) {
       background-position: right 15px top 72%;
    }
+
+   @media only screen and (max-width: 767px) {
+      background-position: right 25px top 90%;
+   }
+
+   @media only screen and (max-width: 475px) {
+      background-position: right 5px top 90%;
+   }
 }
 
 .number-label-content {
@@ -101,6 +147,7 @@ select.country-select::-ms-expand {
    display: flex;
    align-items: center;
 }
+
 .number-label {
    color: #707070;
    font-size: 15px;
@@ -115,6 +162,7 @@ select.country-select::-ms-expand {
    -moz-transition: 0.2s ease all;
    -webkit-transition: 0.2s ease all;
 }
+
 .number-input {
    font-size: 1rem;
    display: block;
@@ -127,6 +175,14 @@ select.country-select::-ms-expand {
    border: 1px solid #707070;
    border-left: none;
    box-sizing: border-box;
+
+   @media only screen and (max-width: 1366px) {
+      padding: 1.6rem 1.2rem;
+   }
+
+   @media only screen and (max-width: 992px) {
+      padding: 1.4rem 1.2rem;
+   }
 
    @media only screen and (max-width: 767px) {
       border-radius: 12px;
