@@ -1,5 +1,5 @@
 import React from 'react';
-import './DreamCart.css';
+import './dreamCart.css';
 
 import Basket from '../../_assets/dreamCart/Basket.svg';
 import DownErrow from '../../_assets/dreamCart/DownErrow.svg';

@@ -298,9 +298,6 @@
 /* ------------------------------- Less Then 425 Px -------------------- */
 @media (max-width: 425px) {
    .U-marginX-25 {
-      margin: 0 15px !important;
-   }
-   .U-marginX-25 {
       margin: 0 45px !important;
    }
 }
@@ -335,11 +332,6 @@
    }
 }
 
-@media (max-width: 500px) {
-   .U-paddingLeftText {
-      padding-right: 3rem !important;
-   }
-}
 /* ------------------------------ Less Then 768Px ------------------------ */
 
 @media (max-width: 767px) {
@@ -347,9 +339,11 @@
       max-width: 100% !important;
       box-shadow: none !important;
    }
+
    .maldivs-trip {
       font-size: 25px;
    }
+
    .decrementBtn,
    .incrementBtn {
       padding: 0.4rem 1rem;
@@ -374,15 +368,10 @@
    .U-marginX-25 {
       margin: 0 15px !important;
    }
-}
-
-/* ======================= Grater Then 768px and Less Then 1555px ==================== */
-/* ------------------------- If Need BAck Button Then use This----------------------------- */
-/* @media (max-width: 1555px) and (min-width: 768px) {
-   .backArrowButton {
-      top: 19%;
+   .U-paddingLeftText {
+      padding-right: 3rem !important;
    }
-} */
+}
 
 @media (min-width: 768px) {
    .backArrowButton {

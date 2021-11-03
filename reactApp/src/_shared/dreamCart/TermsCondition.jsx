@@ -1,5 +1,6 @@
 import React from 'react';
 import './dreamCart.css';
+
 const TermsCondition = () => {
    return (
       <>

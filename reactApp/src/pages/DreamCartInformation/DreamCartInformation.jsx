@@ -6,6 +6,7 @@ import CheckoutBtns from '../../_shared/dreamCart/CheckoutBtns';
 import CreditCard from '../../_assets/dreamCart/CreditCard.png';
 import DreamCartSteper from '../../_shared/dreamCart/DreamCartSteper';
 import { NewsLetter } from '../../_shared/newsletter/newsletter';
+import { CountryCodeField } from '../../_shared/CountryCodeField/CountryCodeField';
 import './DreamCartInformation.css';
 const DreamCartInformation = () => {
    return (
@@ -58,7 +59,7 @@ const DreamCartInformation = () => {
                            </div>
                         </div>
                         <div className="col-md-12">
-                           <TextField label="Number" />
+                           <CountryCodeField label="Country Code" />
                         </div>
                         <div className="col-md-12">
                            <TextField label="Invitation Code" />
