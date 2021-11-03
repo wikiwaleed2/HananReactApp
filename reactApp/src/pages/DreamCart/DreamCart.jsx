@@ -13,13 +13,13 @@ const DreamCart = () => {
       <div>
          <DreamCartSteper />
          <Card />
-         <div className="container">
+         <div className="container containerMedium">
             <div className="row">
-               <div className="col-md-8">
+               <div className="col-md-8 reverseOrder">
                   <TermsCondition />
                   <DreamCartBanners />
                </div>
-               <div className="col-md-4">
+               <div className="col-md-4 U-marginX-25">
                   <CardBottom />
                </div>
                <div className="col-12">

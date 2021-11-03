@@ -13,7 +13,7 @@ const DreamCartInformation = () => {
          <DreamCartSteper />
          <div className="container-fluid">
             <div className="row">
-               <div className="col-md-5 py-3 px-5">
+               <div className="col-md-12 col-lg-5 py-3 px-3">
                   <div className="container px-5">
                      <div className="row">
                         <div className="col-md-12">
@@ -86,12 +86,13 @@ const DreamCartInformation = () => {
                               img={CreditCard}
                               color="#fff"
                               backgroundColor="#1663BE"
+                              border="1px solid #707070"
                            />
                         </div>
                      </div>
                   </div>
                </div>
-               <div className="col-md-7">
+               <div className="col-md-12 col-lg-7">
                   <Card />
                </div>
                <div className="col-12">
