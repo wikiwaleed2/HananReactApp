@@ -18,6 +18,12 @@
    transition: 0.2s ease all;
    -moz-transition: 0.2s ease all;
    -webkit-transition: 0.2s ease all;
+
+   @media only screen and (max-width: 767px) {
+      left: 10px;
+      top: 8px;
+      font-size: 11px;
+   }
 }
 
 .floating-select {
@@ -55,12 +61,24 @@ select.floating-select::-ms-expand {
    top: -10px;
    font-size: 15px;
    padding: 0 0.8rem;
+
+   @media only screen and (max-width: 767px) {
+      top: -8px;
+      font-size: 11px;
+      padding: 0 0.4rem;
+   }
 }
 
 .floating-select[value='']:focus ~ .floating-label {
    top: 13px;
    font-size: 15px;
    padding: 0 0.8rem;
+
+   @media only screen and (max-width: 767px) {
+      top: -8px;
+      font-size: 11px;
+      padding: 0 0.4rem;
+   }
 }
 
 .floating-select:not([multiple]):not([size]) {
