@@ -32,6 +32,7 @@ import Confirmation from '../pages/Confirmation/Confirmation';
 import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
 import { Winners } from '../pages/Winners/Winners';
 import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
+import { MobileProfile } from '../pages/MobileProfile/MobileProfile';
 
 function App() {
    const { pathname } = useLocation();
@@ -111,8 +112,13 @@ function App() {
             <Route exact path="/get-in-touch">
                <GetInTouch />
             </Route>
+
+            <Route exact path="/user-profile">
+               <MobileProfile />
+            </Route>
          </Switch>
-         <Footer />
+         {pathname !== '/user-profile' ||
+            (pathname !== '/change-password' && <Footer />)}
       </BrowserRouter>
       // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
       //     <Nav />

@@ -44,7 +44,7 @@ const Footer = styled.p`
    margin-top: 5px;
 
    @media only screen and (max-width: 767px) {
-      font-size: 16px;
+      font-size: 14px;
    }
 `;
 

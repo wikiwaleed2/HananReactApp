@@ -11,7 +11,7 @@ import ChangePasswordIcon from '@/_assets/icons/change-password.svg';
 import DreamIcon from '@/_assets/images/dream-icon.png';
 import LogoutIcon from '@/_assets/icons/logout.svg';
 
-const BUTTONS = [
+export const PROFILE_BUTTONS = [
    { id: 1, image: DetailsIcon, label: 'Personal Details' },
    { id: 2, image: CouponIcon, label: 'Active Coupons' },
    { id: 3, image: ChangePasswordIcon, label: 'Change Password' },
@@ -39,7 +39,7 @@ export const ProfileCard = () => {
          </div>
 
          <div className="btn-container">
-            {BUTTONS.map((item) => (
+            {PROFILE_BUTTONS.map((item) => (
                <ProfileCardButton
                   key={item.id}
                   leftIcon={item.image}
