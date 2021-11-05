@@ -7,6 +7,7 @@ import CreditCard from '../../_assets/dreamCart/CreditCard.png';
 import DreamCartSteper from '../../_shared/dreamCart/DreamCartSteper';
 import { NewsLetter } from '../../_shared/newsletter/newsletter';
 import { CountryCodeField } from '../../_shared/CountryCodeField/CountryCodeField';
+import OrderSummery from '../../_shared/dreamCart/OrderSummery';
 import './DreamCartInformation.css';
 const DreamCartInformation = () => {
    return (
@@ -14,6 +15,9 @@ const DreamCartInformation = () => {
          <DreamCartSteper />
          <div className="container-fluid">
             <div className="row">
+               <div className="col-12 p-0">
+                  <OrderSummery />
+               </div>
                <div className="col-md-12 col-lg-5 py-3 px-3">
                   <div className="container px-5">
                      <div className="row">
@@ -32,7 +36,7 @@ const DreamCartInformation = () => {
                         <div className="col-md-6">
                            <SelectField label="City" />
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-6 col-md-6">
                            <div className="d-flex align-items-center mb-2">
                               <div className="">
                                  <input
@@ -41,10 +45,12 @@ const DreamCartInformation = () => {
                                     className="radioButtonCustom"
                                  />
                               </div>
-                              <div className="ml-2 radioButttonFont">Male</div>
+                              <div className="ml-2 radioButttonFont font-16">
+                                 Male
+                              </div>
                            </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-6 col-md-6">
                            <div className="d-flex align-items-center mb-2">
                               <div className="">
                                  <input
@@ -53,7 +59,7 @@ const DreamCartInformation = () => {
                                     className="radioButtonCustom"
                                  />
                               </div>
-                              <div className="ml-2 radioButttonFont">
+                              <div className="ml-2 radioButttonFont font-16">
                                  Female
                               </div>
                            </div>
@@ -73,7 +79,7 @@ const DreamCartInformation = () => {
                                     className="radioButtonCustom"
                                  />
                               </div>
-                              <div className="ml-2 radioButttonFont">
+                              <div className="ml-2 radioButttonFont font-16">
                                  I accept the Policy and Terms{' '}
                                  <a href="#" className="textColor">
                                     Read
@@ -93,7 +99,7 @@ const DreamCartInformation = () => {
                      </div>
                   </div>
                </div>
-               <div className="col-md-12 col-lg-7">
+               <div className="col-md-12 col-lg-7 cardNoShowLess768">
                   <Card />
                </div>
                <div className="col-12">

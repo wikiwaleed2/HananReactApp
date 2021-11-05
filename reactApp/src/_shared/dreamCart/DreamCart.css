@@ -154,7 +154,7 @@
 .bannerCart-text {
    text-transform: uppercase;
    color: #104a8e;
-   font-size: 1rem;
+   font-size: 0.95rem;
 }
 
 /* ============================ Order Summery =============== */
@@ -250,7 +250,7 @@
    }
 
    .bannerCart-text {
-      font-size: 16px !important;
+      font-size: 14px !important;
    }
 
    .buttonRound {
@@ -280,18 +280,16 @@
    .U-paddingLeftText {
       font-size: 14px;
    }
-   .radioButttonFontSize {
-      font-size: 16px;
-   }
-   .termsAcceptFont {
-      font-size: 16px;
-   }
+
    .radioBtnSize {
       height: 15px;
       width: 15px;
    }
    .dreamCartTitle {
       font-size: 30px;
+   }
+   .paddingleft-sm {
+      padding-left: 2.3rem;
    }
 }
 
@@ -357,6 +355,15 @@
    }
    .cardNoShowLess768 {
       display: none;
+   }
+   .radioButttonFontSize {
+      font-size: 16px;
+   }
+   .termsAcceptFont {
+      font-size: 16px;
+   }
+   .font-16 {
+      font-size: 16px !important;
    }
 }
 

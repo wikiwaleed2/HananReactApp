@@ -3,7 +3,6 @@ import './dreamCart.css';
 
 import BackArrow from '../../_assets/dreamCart/BackArrow.svg';
 import DreamCartHeader from '../../_shared/dreamCart/DreamCartHeader';
-import OrderSummery from '../../_shared/dreamCart/OrderSummery';
 
 const DreamCartSteper = () => {
    return (
@@ -25,7 +24,6 @@ const DreamCartSteper = () => {
                <DreamCartHeader name="Conformation" />
             </div>
          </div>
-         <OrderSummery />
       </>
    );
 };

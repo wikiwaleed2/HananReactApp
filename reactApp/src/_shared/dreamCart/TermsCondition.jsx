@@ -5,7 +5,7 @@ const TermsCondition = () => {
    return (
       <>
          <form action="#">
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center paddingleft-sm">
                <div className="pt-2">
                   <input type="radio" checked className="radioBtnSize" />
                </div>
@@ -16,7 +16,7 @@ const TermsCondition = () => {
                   </a>
                </div>
             </div>
-            <div className="d-flex align-items-center mt-3">
+            <div className="d-flex align-items-center mt-3 paddingleft-sm">
                <div className="pt-2">
                   <input type="radio" checked className="radioBtnSize" />
                </div>
@@ -24,7 +24,7 @@ const TermsCondition = () => {
                   Checkout as Guest
                </div>
             </div>
-            <div className="d-flex align-items-start">
+            <div className="d-flex align-items-start paddingleft-sm">
                <div className="pt-1">
                   <input type="radio" className="radioBtnSize" />
                </div>

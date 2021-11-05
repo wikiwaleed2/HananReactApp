@@ -15,7 +15,7 @@ const Card = () => {
    };
    return (
       <>
-         <div className="container boxShadow mb-3 mt-1 containerMedium cardNoShowLess768">
+         <div className="container boxShadow mb-3 mt-1 containerMedium">
             <div className="row d-flex justify-content-between cardBox">
                <div className="col-7 col-sm-7 col-md-7 col-lg-5">
                   <div className="d-flex justify-content-between detamCartLeft">
