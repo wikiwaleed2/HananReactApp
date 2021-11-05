@@ -17,6 +17,10 @@
    transition: 0.2s ease all;
    -moz-transition: 0.2s ease all;
    -webkit-transition: 0.2s ease all;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 11px;
+   }
 }
 .did-floating-input {
    font-size: 1rem;
@@ -45,12 +49,24 @@
    top: -10px;
    font-size: 15px;
    padding: 0 0.8rem;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 11px;
+      padding: 0 0.5rem;
+      top: -8px;
+   }
 }
 
 .did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
    top: -10px;
    font-size: 15px;
    padding: 0 0.8rem;
+
+   @media only screen and (max-width: 767px) {
+      font-size: 11px;
+      padding: 0 0.5rem;
+      top: -8px;
+   }
 }
 
 .icon-position {

@@ -47,8 +47,14 @@ export const CreateProfile = () => {
                            <CountryCodeField label="Country Code" />
                         </div>
                         <div className="col-md-5 col-12">
-                           <SelectField label="Nationality" />
-                           <SelectField label="Country of Residence" />
+                           <div className="row">
+                              <div className="col-md-12 col-6">
+                                 <SelectField label="Nationality" />
+                              </div>
+                              <div className="col-md-12 col-6">
+                                 <SelectField label="Country of Residence" />
+                              </div>
+                           </div>
                            <SelectField label="City" />
                         </div>
                      </div>

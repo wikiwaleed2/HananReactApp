@@ -3,6 +3,7 @@ import './FrequentlyAskedQuestions.less';
 
 import { SubHeader } from '@/_components/SubHeader/SubHeader';
 import Accordion from '../../_components/Accordion';
+import { MobileAccordion } from '../../_components/MobileAccordion/MobileAccordion';
 
 export const FrequentlyAskedQuestions = () => {
    const [questions, setQuestions] = useState([
@@ -85,9 +86,17 @@ export const FrequentlyAskedQuestions = () => {
 
    return (
       <div>
-         <SubHeader title="Frequently Asked Questions" />
-         <div className="question-container">
-            <Accordion items={questions} />
+         <div className="d-md-block d-none">
+            <SubHeader title="Frequently Asked Questions" />
+            <div className="question-container">
+               <Accordion items={questions} />
+            </div>
+         </div>
+         <div className="d-md-none d-block">
+            <div className="question-container">
+               <h1 className="mobile-faq-header">Frequently Asked Question:</h1>
+               <MobileAccordion items={questions} />
+            </div>
          </div>
       </div>
    );
