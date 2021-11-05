@@ -18,6 +18,14 @@
    font-size: 1.1875rem;
    border-radius: 0.3rem;
 }
+@media (max-width: 400px) {
+   .EL-number {
+      font-size: 1rem;
+   }
+   .EL-coupon {
+      left: 15.5% !important;
+   }
+}
 .EL-coupon {
    position: absolute;
    right: 0;
@@ -27,6 +35,18 @@
    padding: 0.4rem 1rem;
    font-size: 0.625rem;
    font-weight: 100;
+}
+@media (max-width: 435px) {
+   .EL-coupon {
+      top: 19.5%;
+      left: 10%;
+   }
+}
+@media (max-width: 410px) {
+   .EL-coupon {
+      top: 19.5%;
+      left: 6.5%;
+   }
 }
 .price {
    position: absolute;
@@ -57,6 +77,12 @@
    padding: 0.4rem 1rem;
    font-weight: 700;
 }
+@media (max-width: 415px) {
+   .Qr {
+      left: 66%;
+      top: 46%;
+   }
+}
 .purchase-date {
    position: absolute;
    left: 0;
@@ -77,6 +103,11 @@
    padding: 0.4rem 1rem;
    font-size: 0.75rem;
    font-weight: 700;
+}
+@media (max-width: 400px) {
+   .date {
+      font-size: 0.69rem;
+   }
 }
 .coupon-name {
    position: absolute;
@@ -99,6 +130,11 @@
    padding: 0.4rem 1rem;
    font-size: 0.75rem;
    font-weight: 700;
+}
+@media (max-width: 400px) {
+   .name {
+      font-size: 0.69rem;
+   }
 }
 .dottedLine {
    position: absolute;

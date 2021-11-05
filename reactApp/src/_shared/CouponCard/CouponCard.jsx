@@ -14,7 +14,7 @@ export const CouponCard = () => {
                <img src={Logo} alt="" />
             </div>
             <div className="EL-number">EL-74837-43211</div>
-            <div className="EL-coupon">coupons No.</div>
+            <div className="EL-coupon">Coupons No.</div>
             <div className="price">Price</div>
             <div className="Trip-country">Maldives Trip</div>
             <div className="Qr">
