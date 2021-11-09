@@ -25,42 +25,42 @@ import './styles.less';
 accountService.refreshToken().finally(startApp);
 
 // GraphQL Initialization
-  const httpLink = new HttpLink({
-	uri: `${config.graphqlUrlHttp}`,
+const httpLink = new HttpLink({
+  uri: `${config.graphqlUrlHttp}`,
 });
- 
+
 const wsLink = new WebSocketLink({
-	uri: `${config.graphqlUrlWs}`,
-    options: {
-      reconnect: true,
-    },
+  uri: `${config.graphqlUrlWs}`,
+  options: {
+    reconnect: true,
+  },
 });
 
 const terminatingLink = split(
-    ({ query }) => {
-      const { kind, operation } = getMainDefinition(query);
-      return (
-        kind === 'OperationDefinition' && operation === 'subscription'
-      );
-    },
-    wsLink,
-    httpLink,
+  ({ query }) => {
+    const { kind, operation } = getMainDefinition(query);
+    return (
+      kind === 'OperationDefinition' && operation === 'subscription'
+    );
+  },
+  wsLink,
+  httpLink,
 );
-const link = ApolloLink.from([terminatingLink]);  
-const cache = new InMemoryCache();  
+const link = ApolloLink.from([terminatingLink]);
+const cache = new InMemoryCache();
 const client = new ApolloClient({
-    link,
-    cache,
+  link,
+  cache,
 });
 
 
-function startApp() { 
-    render(
-        <Router history={history}>
-            <ApolloProvider client={client}>
-                    <App />
-                </ApolloProvider> 
-        </Router>,
-        document.getElementById('app')
-    );
+function startApp() {
+  render(
+    <Router history={history}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </Router>,
+    document.getElementById('app')
+  );
 }

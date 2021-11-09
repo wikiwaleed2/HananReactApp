@@ -14,6 +14,7 @@ import playStoreIcon from '@/_assets/images/playstore-icons.png';
 import dubaiEco from '@/_assets/images/dubai_eco.png';
 import paymentOpt from '@/_assets/images/payment-opt.svg';
 import { Link } from "react-router-dom";
+import { history } from '@/_helpers/history';
 // import { getCookie } from '../../_services/cookies.service';
 
 function Header() {

@@ -30,6 +30,7 @@ import Testimonials from '../pages/testimonials/testimonials';
 import AboutUs from '../pages/about-us/about-us';
 import HowItWorks from '../pages/how-it-works/how-it-works';
 import { MobileProfile } from '../pages/MobileProfile/MobileProfile';
+import { Login } from '../account/Login';
 
 function App() {
     const { pathname } = useLocation();
@@ -45,133 +46,135 @@ function App() {
 
             {/* <BrowserRouter> */}
 
-                <Switch>
+            <Switch>
 
-                    <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
+                <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
 
-                    <Route exact path="/" component={Home} >
-                        <Header />
-                        <Home />
-                        <Footer />
-                    </Route>
+                <Route exact path="/" component={Home} >
+                    <Header />
+                    <Home />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/prize-details" component={Price}>
-                        <Header />
-                        <Price />
-                        <Footer />
-                    </Route>
+                <Route exact path="/prize-details" component={Price}>
+                    <Header />
+                    <Price />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/signup" component={Signup}>
+                {/* <Route exact path="/signup" component={Signup}>
                         <Signup />
-                    </Route>
+                    </Route> */}
 
-                    <Route exact path="/home" component={Home}>
-                        <Header />
-                        <Home />
-                        <Footer />
-                    </Route>
+                <Route exact path="/home" component={Home}>
+                    <Header />
+                    <Home />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/profile" component={Profile}>
-                        <Header />
-                        <Profile />
-                        <Footer />
-                    </Route>
+                <Route exact path="/profile" component={Profile}>
+                    <Header />
+                    <Profile />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/earncoins" component={Earncoins}>
-                        <Header />
-                        <Earncoins />
-                        <Footer />
-                    </Route>
+                <Route exact path="/earncoins" component={Earncoins}>
+                    <Header />
+                    <Earncoins />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/change-password" component={ChangePassword}>
-                        <Header />
-                        <ChangePassword />
-                        <Footer />
-                    </Route>
+                <Route exact path="/change-password" component={ChangePassword}>
+                    <Header />
+                    <ChangePassword />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/active-coupons" component={ActiveCoupons}>
-                        <Header />
-                        <ActiveCoupons />
-                        <Footer />
-                    </Route>
+                <Route exact path="/active-coupons" component={ActiveCoupons}>
+                    <Header />
+                    <ActiveCoupons />
+                    <Footer />
+                </Route>
 
-                    {/* <Route exact path="/checkout">
+                {/* <Route exact path="/checkout">
                <Header />
                <Checkout />
                <Footer />
             </Route> */}
 
-                    <Route exact path="/create-profile" component={CreateProfile}>
-                        <Header />
-                        <CreateProfile />
-                        <Footer />
-                    </Route>
+                <Route exact path="/create-profile" component={CreateProfile}>
+                    <Header />
+                    <CreateProfile />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/dream-cart" component={DreamCart}>
-                        <Header />
-                        <DreamCart />
-                        <Footer />
-                    </Route>
+                <Route exact path="/dream-cart" component={DreamCart}>
+                    <Header />
+                    <DreamCart />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/dream-cart-information" component={DreamCartInformation}>
-                        <Header />
-                        <DreamCartInformation />
-                        <Footer />
-                    </Route>
+                <Route exact path="/dream-cart-information" component={DreamCartInformation}>
+                    <Header />
+                    <DreamCartInformation />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/confirmation" component={Confirmation}>
-                        <Header />
-                        <Confirmation />
-                        <Footer />
-                    </Route>
+                <Route exact path="/confirmation" component={Confirmation}>
+                    <Header />
+                    <Confirmation />
+                    <Footer />
+                </Route>
 
-                    <Route exact path="/faqs" component={FrequentlyAskedQuestions}>
-                        <Header />
-                        <FrequentlyAskedQuestions />
-                    </Route>
+                <Route exact path="/faqs" component={FrequentlyAskedQuestions}>
+                    <Header />
+                    <FrequentlyAskedQuestions />
+                </Route>
 
-                    <Route exact path="/winners" component={Winners}>
-                        <Header />
-                        <Winners />
-                    </Route>
+                <Route exact path="/winners" component={Winners}>
+                    <Header />
+                    <Winners />
+                </Route>
 
-                    <Route exact path="/winners-list" component={WinnersList}>
-                        <Header />
-                        <WinnersList />
-                    </Route>
+                <Route exact path="/winners-list" component={WinnersList}>
+                    <Header />
+                    <WinnersList />
+                </Route>
 
-                    <Route exact path="/get-in-touch" component={GetInTouch}>
-                        <Header />
-                        <GetInTouch />
-                    </Route>
+                <Route exact path="/get-in-touch" component={GetInTouch}>
+                    <Header />
+                    <GetInTouch />
+                </Route>
 
-                    <Route exact path="/testimonials" component={Testimonials}>
-                        <Header />
-                        <Testimonials />
-                    </Route>
+                <Route exact path="/testimonials" component={Testimonials}>
+                    <Header />
+                    <Testimonials />
+                </Route>
 
-                    <Route exact path="/about-us" component={AboutUs}>
-                        <Header />
-                        <AboutUs />
-                    </Route>
+                <Route exact path="/about-us">
+                    <Header />
+                    <AboutUs />
+                </Route>
 
-                    <Route exact path="/how-it-works" component={HowItWorks}>
-                        <Header />
-                        <HowItWorks />
-                    </Route>
+                <Route exact path="/how-it-works">
+                    <Header />
+                    <HowItWorks />
+                </Route>
 
-                    {/* </Switch> */}
-                    <Route exact path="/user-profile" component={MobileProfile}>
-                        <Header />
-                        <MobileProfile />
-                    </Route>
+                <Route exact path="/user-profile" component={MobileProfile}>
+                    <Header />
+                    <MobileProfile />
+                </Route>
 
-                    {/* <PrivateRoute path="/profile" component={Profile} />  */}
-                    <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
-                    <Route path="/account" component={Account} />
-                    <Redirect from="*" to="/" />
-                </Switch>
-                {pathname !== '/user-profile' || (pathname !== '/change-password' && <Footer />)}
+                <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
+
+                {/* <Route path="/account" component={Account} /> */}
+
+                <Route path="/account/login" component={Login} />
+
+                <Redirect from="*" to="/" />
+            </Switch>
+            {pathname !== '/user-profile' || (pathname !== '/change-password' && <Footer />)}
             {/* </BrowserRouter> */}
         </div>
     );

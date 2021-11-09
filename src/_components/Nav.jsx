@@ -5,32 +5,32 @@ import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
 
 function Nav() {
-    const [user, setUser] = useState({});
+    // const [user, setUser] = useState({});
 
-    useEffect(() => {
-        const subscription = accountService.user.subscribe(x => setUser(x));
-        return subscription.unsubscribe;
-    }, []);
+    // useEffect(() => {
+    //     const subscription = accountService.user.subscribe(x => setUser(x));
+    //     return subscription.unsubscribe;
+    // }, []);
 
     // only show nav when logged in
-    if (!user) return null;
+    // if (!user) return null;
 
     return (
-        <div>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
-                <div className="navbar-nav">
-                    {/* <NavLink exact to="/" className="nav-item nav-link">Home</NavLink> */}
-                    {/* {user.role === Role.Admin &&
-                        <NavLink to="/admin/profile" className="nav-item nav-link">Profile</NavLink>
-                    } */}
-                    {user.role === Role.Admin &&
-                        <NavLink to="/admin" className="nav-item nav-link">Home</NavLink>
-                    }
-                    <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
-                </div>
-            </nav>
+        // <div>
+            // {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
+            //     <div className="navbar-nav">
+            //         <NavLink exact to="/" className="nav-item nav-link">Home</NavLink>
+            //         {user.role === Role.Admin &&
+            //             <NavLink to="/admin/profile" className="nav-item nav-link">Profile</NavLink>
+            //         }
+            //         {user.role === Role.Admin &&
+            //             <NavLink to="/admin" className="nav-item nav-link">Home</NavLink>
+            //         }
+            //         <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
+            //     </div>
+            // </nav> */}
             <Route path="/admin" component={AdminNav} />
-        </div>
+        // </div>
     );
 }
 
@@ -40,7 +40,9 @@ function AdminNav({ match }) {
     return (
         <nav className="admin-nav navbar navbar-expand navbar-light">
             <div className="navbar-nav">
-                <NavLink to={`${path}/users`} className="nav-item nav-link">Users</NavLink>
+                {/* <NavLink to={`${path}/users`} className="nav-item nav-link">Users</NavLink> */}
+                <NavLink to="/admin" className="nav-item nav-link">Home</NavLink>
+                <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
             </div>
         </nav>
     );

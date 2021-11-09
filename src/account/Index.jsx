@@ -11,6 +11,7 @@ import { ResetPassword } from './ResetPassword';
 
 function Account({ history, match }) {
     const { path } = match;
+    
 
     useEffect(() => {
         // redirect to home if already logged in

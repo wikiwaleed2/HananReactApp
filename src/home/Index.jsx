@@ -50,7 +50,6 @@ const FadeOutUpDiv = styled.div`animation: 0.5s ${fadeOutUpAnimation};`;
 
 
 function Home() {
-    // const user = accountService.userValue;
 
     const [slideCounter, setSlideCounter] = useState('01');
     const [isPlaying1, setIsPlaying1] = useState(false);
@@ -58,38 +57,18 @@ function Home() {
     const [isPlaying3, setIsPlaying3] = useState(false);
     const [isPlaying4, setIsPlaying4] = useState(false);
     const [isPlaying5, setIsPlaying5] = useState(false);
-    const [animateCounter, setAnimateCounter] = useState(true);
-    const [soldCount, setSoldCount] = useState(0);
-    const [soldCount1, setSoldCount1] = useState(0);
-    const [soldCount2, setSoldCount2] = useState(0);
-    const [soldCount3, setSoldCount3] = useState(0);
-    const [soldCount4, setSoldCount4] = useState(0);
-    const [soldCount5, setSoldCount5] = useState(0);
-    const [soldCount6, setSoldCount6] = useState(0);
     const [soldCount7, setSoldCount7] = useState(0);
-    const [soldCount8, setSoldCount8] = useState(0);
-    const [soldCount9, setSoldCount9] = useState(0);
-    const [soldCount10, setSoldCount10] = useState(0);
-    const [soldCount11, setSoldCount11] = useState(0);
-    const [soldCount12, setSoldCount12] = useState(0);
     const [soldCount13, setSoldCount13] = useState(0);
-    const [soldCount14, setSoldCount14] = useState(0);
-    const [soldCount15, setSoldCount15] = useState(0);
-    const [soldCount16, setSoldCount16] = useState(0);
-    const [soldCount17, setSoldCount17] = useState(0);
     const [soldCount18, setSoldCount18] = useState(0);
-    const [soldCount19, setSoldCount19] = useState(0);
-    const [soldCount20, setSoldCount20] = useState(0);
-    const [soldCount21, setSoldCount21] = useState(0);
-    const [soldCount22, setSoldCount22] = useState(0);
     const [randomPrice, setRandomPrice] = useState('720.00');
     const [showModal, setShowModal] = useState(false);
-    const [user, setUser] = useState({});
+    const [animateCounter, setAnimateCounter] = useState('');
+    // const [user, setUser] = useState({});
 
-    useEffect(() => {
-        const subscription = accountService.user.subscribe(x => setUser(x));
-        return subscription.unsubscribe;
-    }, []);
+    // useEffect(() => {
+    //     const subscription = accountService.user.subscribe(x => setUser(x));
+    //     return subscription.unsubscribe;
+    // }, []);
 
     useEffect(() => {
         let modal = getCookie("modal");
@@ -107,7 +86,6 @@ function Home() {
     }, [randomPrice]);
 
     let calculateSlideCounter = (currentSlide) => {
-        // console.log(e, slick, currentSlide);
         let counter = currentSlide + 1;
         setSlideCounter('0' + counter)
     }
@@ -119,7 +97,6 @@ function Home() {
         setIsPlaying4(false);
         setIsPlaying5(false);
         let videosEl = document.getElementsByClassName("testimony-vid-tag");
-        console.log("video el", videosEl);
 
         for (let i = 0; i <= videosEl.length - 1; i++) {
             if (!videosEl[i].paused) {
@@ -195,220 +172,18 @@ function Home() {
     }
 
     let startCount = (id, value) => {
-        let idNumber = id.split('-')[1];
         let el = document.getElementById(id);
-        let childEl = el.children[1].children[1];
         let counterNumber = id.split('-')[1];
 
-        if (counterNumber == 1) {
+        if (counterNumber == 7) {
             setAnimateCounter(value);
             if (!value) {
 
                 let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount1(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 2) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount2(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 3) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount3(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 4) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount4(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 5) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount5(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 6) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount6(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-
-        }
-        else if (counterNumber == 7) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
                 let counter = setInterval(() => {
                     current++;
 
                     setSoldCount7(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 8) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount8(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 9) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount9(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 10) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount10(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 11) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount11(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 12) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount12(current);
                     if (current === 20) {
                         setAnimateCounter(true);
                         clearInterval(counter);
@@ -422,83 +197,10 @@ function Home() {
             if (!value) {
 
                 let current = 1;
-                var startTime = new Date().getTime();
                 let counter = setInterval(() => {
                     current++;
 
                     setSoldCount13(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 14) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount14(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 15) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount15(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 16) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount16(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 17) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount17(current);
                     if (current === 20) {
                         setAnimateCounter(true);
                         clearInterval(counter);
@@ -512,7 +214,6 @@ function Home() {
             if (!value) {
 
                 let current = 1;
-                var startTime = new Date().getTime();
                 let counter = setInterval(() => {
                     current++;
 
@@ -525,98 +226,7 @@ function Home() {
                 }, 300);
             }
         }
-        else if (counterNumber == 19) {
-            setAnimateCounter(value);
-            if (!value) {
 
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount19(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 20) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount20(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 21) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount21(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-        else if (counterNumber == 22) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount22(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 300);
-            }
-        }
-
-
-        // if(new Date().getTime() - startTime > 2000){
-        //     // setSoldCount(20)
-        //     setAnimateCounter(true);
-        //     clearInterval(counter);
-        //     return;
-        // }
-
-
-        // console.log(current);
-        // return current;
-
-
-        // return current;
-        // }
-
-        // return () => {
-        //     clearInterval(counter);
-        // };
     }
 
 
@@ -632,6 +242,24 @@ function Home() {
         else if (id == 18) {
             setSoldCount18(0);
         }
+    }
+
+    function SampleNextArrow(props) {
+        const { className, style, onClick, src } = props;
+        return (
+            <div className={className} onClick={onClick}>
+                <img src={src ? src : arrowIcon} alt="" />
+            </div>
+        );
+    }
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick, src } = props;
+        return (
+            <div className={className} onClick={onClick}>
+                <img src={src ? src : arrowIcon} alt="" />
+            </div>
+        );
     }
 
     return (
@@ -678,13 +306,13 @@ function Home() {
                             <div className="header-carousel" id="main-carousel">
 
 
-                                <Slider afterChange={(current) => calculateSlideCounter(current)} {...settings}>
+                                <Slider {...settings} afterChange={(current) => calculateSlideCounter(current)}>
                                     <div className="images ">
 
                                         <div className="c-overlay"></div>
 
                                         <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
-                                        {/* <img src={sliderImg} alt="" /> */}
+
 
                                         <div className="carousel-cnt">
 
@@ -709,7 +337,7 @@ function Home() {
                                         <div className="c-overlay"></div>
 
                                         <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
-                                        {/* <img src={sliderImg} alt="" /> */}
+
 
                                         <div className="carousel-cnt">
 
@@ -735,7 +363,7 @@ function Home() {
                                         <div className="c-overlay"></div>
 
                                         <div className="slider-img" style={{ backgroundImage: `url(${sliderImg})` }}></div>
-                                        {/* <img src={sliderImg} alt="" /> */}
+
 
                                         <div className="carousel-cnt">
 
@@ -965,8 +593,8 @@ function Home() {
                                     slidesToScroll: 1,
                                     autoplay: false,
                                     // arrows: false,
-                                    nextArrow: <span className="arrow-next other-compaigns-arrow-next"><img src={arrowIcon} alt="" /></span>,
-                                    prevArrow: <span className="arrow-prev other-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></span>,
+                                    nextArrow: <SampleNextArrow />,
+                                    prevArrow: <SamplePrevArrow />,
                                     dots: false,
                                     responsive: [
                                         {
@@ -1099,8 +727,10 @@ function Home() {
                                     slidesToScroll: 1,
                                     autoplay: false,
                                     // arrows: false,
-                                    nextArrow: <span className="arrow-next lifestyle-compaigns-arrow-next"><img src={arrowIcon} alt="" /></span>,
-                                    prevArrow: <span className="arrow-prev lifestyle-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></span>,
+                                    nextArrow: <SampleNextArrow />,
+                                    prevArrow: <SamplePrevArrow />,
+                                    // nextArrow: <div className="arrow-next lifestyle-compaigns-arrow-next"><img src={arrowIcon} alt="" /></div>,
+                                    // prevArrow: <div className="arrow-prev lifestyle-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></div>,
                                     dots: false,
                                     responsive: [
                                         {
@@ -1232,8 +862,10 @@ function Home() {
                                     slidesToScroll: 1,
                                     autoplay: false,
                                     // arrows: false,
-                                    nextArrow: <span className="arrow-next trip-compaigns-arrow-next"><img src={arrowIcon} alt="" /></span>,
-                                    prevArrow: <span className="arrow-prev trip-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></span>,
+                                    nextArrow: <SampleNextArrow />,
+                                    prevArrow: <SamplePrevArrow />,
+                                    // nextArrow: <div className="arrow-next trip-compaigns-arrow-next"><img src={arrowIcon} alt="" /></div>,
+                                    // prevArrow: <div className="arrow-prev trip-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></div>,
                                     dots: false,
                                     responsive: [
                                         {
@@ -1355,8 +987,10 @@ function Home() {
                                     slidesToScroll: 1,
                                     autoplay: false,
                                     // arrows: false,
-                                    nextArrow: <span className="arrow-next sold-out-compaigns-arrow-next"><img src={arrowIcon} alt="" /></span>,
-                                    prevArrow: <span className="arrow-prev sold-out-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></span>,
+                                    nextArrow: <SampleNextArrow />,
+                                    prevArrow: <SamplePrevArrow />,
+                                    // nextArrow: <div className="arrow-next sold-out-compaigns-arrow-next"><img src={arrowIcon} alt="" /></div>,
+                                    // prevArrow: <div className="arrow-prev sold-out-compaigns-arrow-prev"><img src={arrowIcon} alt="" /></div>,
                                     dots: false,
                                     responsive: [
                                         {
@@ -1464,8 +1098,10 @@ function Home() {
                                     slidesToScroll: 1,
                                     autoplay: false,
                                     // arrows: true,
-                                    nextArrow: <span className="arrow-next testimonials-carousel-next"><img src={arrowIcon} alt="" /></span>,
-                                    prevArrow: <span className="arrow-prev testimonials-carousel-prev"><img src={arrowIcon} alt="" /></span>,
+                                    nextArrow: <SampleNextArrow />,
+                                    prevArrow: <SamplePrevArrow />,
+                                    // nextArrow: <div className="arrow-next testimonials-carousel-next"><img src={arrowIcon} alt="" /></div>,
+                                    // prevArrow: <div className="arrow-prev testimonials-carousel-prev"><img src={arrowIcon} alt="" /></div>,
                                     dots: false,
                                     responsive: [
                                         {
@@ -1494,8 +1130,10 @@ function Home() {
                                                 slidesToShow: 1,
                                                 slidesToScroll: 1,
                                                 // arrows: true,
-                                                nextArrow: <span className="arrow-next testimonials-carousel-next"><img src={chevronNextGold} alt="" /></span>,
-                                                prevArrow: <span className="arrow-prev testimonials-carousel-prev"><img src={chevronPrevGold} alt="" /></span>,
+                                                nextArrow: <SampleNextArrow src={chevronNextGold} />,
+                                                prevArrow: <SamplePrevArrow src={chevronPrevGold} />,
+                                                // nextArrow: <div className="arrow-next testimonials-carousel-next"><img src={chevronNextGold} alt="" /></div>,
+                                                // prevArrow: <div className="arrow-prev testimonials-carousel-prev"><img src={chevronPrevGold} alt="" /></div>,
                                                 dots: false,
                                             }
                                         }
@@ -1505,7 +1143,6 @@ function Home() {
                                 }
 
                                 return (
-
                                     <Slider {...settings} beforeChange={() => stopVideo()} >
 
 
@@ -1750,8 +1387,10 @@ function Home() {
                                     slidesToScroll: 1,
                                     autoplay: false,
                                     // arrows: false,
-                                    nextArrow: <span className="arrow-next charity-next"><img src={chevronNext} alt="" /></span>,
-                                    prevArrow: <span className="arrow-prev charity-prev"><img src={chevronPrev} alt="" /></span>,
+                                    nextArrow: <SampleNextArrow src={chevronNext} />,
+                                    prevArrow: <SamplePrevArrow src={chevronPrev} />,
+                                    // nextArrow: <div className="arrow-next charity-next"><img src={chevronNext} alt="" /></div>,
+                                    // prevArrow: <div className="arrow-prev charity-prev"><img src={chevronPrev} alt="" /></div>,
                                     dots: false,
                                     responsive: [
                                         {
@@ -1770,7 +1409,6 @@ function Home() {
                                 }
 
                                 return (
-
                                     <Slider {...settings}>
 
                                         <div>

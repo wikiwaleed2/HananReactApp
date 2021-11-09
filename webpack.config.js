@@ -1,5 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+require('dotenv').config({ path: './.env' });
 
 module.exports = {
     mode: 'development',
@@ -49,9 +51,15 @@ module.exports = {
             '@': path.resolve(__dirname, 'src/'),
         }
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: './src/index.html'
-    })],
+
+    plugins: [
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(process.env)
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        })
+    ],
     devServer: {
         historyApiFallback: true
     },
@@ -63,7 +71,9 @@ module.exports = {
             //graphqlUrlHttp:'http://localhost:5000/graphql',
             //graphqlUrlWs:'ws://localhost:5000/graphql',
 
-
+            awsBucketKey: '8lSTaH/oNh7T/uojcngx2RLxN/fHy4DD/lfmleq9',
+            awsAccessKey: 'AKIARVPMJKFUWHUZ2KA5',
+            awsRegion: 'ap-southeast-1',
             apiUrl: 'http://54.179.136.234:4000',
             graphqlUrlHttp: 'http://54.179.136.234:5000/graphql',
             graphqlUrlWs: 'ws://54.179.136.234:5000/graphql',

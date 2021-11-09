@@ -42,8 +42,6 @@ function AddEdit({ history, match }) {
     }
 
     function createCoupon(fields, setSubmitting) {
-        console.log("fields", fields);
-        console.log("setSubmitting", setSubmitting);
         couponsService.create(fields)
             .then(() => {
                 alertService.success('Coupon added successfully', { keepAfterRouteChange: true });
