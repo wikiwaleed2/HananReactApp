@@ -13,6 +13,7 @@ function CampaignCard({ videoSrc }) {
     const [isPlaying1, setIsPlaying1] = useState(false);
     const [soldCount1, setSoldCount1] = useState(0);
     const [randomPrice, setRandomPrice] = useState('720.00');
+    const [isLoader, setIsLoader] = useState(false);
 
     let startCount = (id, value) => {
         let idNumber = id.split('-')[1];
@@ -65,6 +66,17 @@ function CampaignCard({ videoSrc }) {
         }
 
 
+    }
+
+    let shareCampaign = () => {
+        setIsLoader(true);
+        let shareData = {
+            title: 'Maldives Trip',
+            text: 'Mesmerizing Maldives With Sun Island',
+            url: "http://54.179.136.234/prize-details"
+        }
+        const sharePromise = navigator.share(shareData);
+        setIsLoader(false);
     }
 
     return (
@@ -121,8 +133,12 @@ function CampaignCard({ videoSrc }) {
 
                 </div>
 
-                <div className="card-icon">
-                    <img src={shareIcon} />
+                <div className="card-icon" onClick={shareCampaign}>
+                    {!isLoader ?
+                        <img src={shareIcon} />
+                        :
+                        <span className="spinner-border spinner-border-sm"></span>
+                    }
                 </div>
 
             </div>

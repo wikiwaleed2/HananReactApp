@@ -46,7 +46,7 @@ function List({ match }) {
             <h1>QR Codes</h1>
             <p>All QR Codes from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add QR Codes</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>

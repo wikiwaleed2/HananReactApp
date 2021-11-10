@@ -8,9 +8,15 @@ import qouteIcon from '@/_assets/images/qoute-icon.svg';
 import samplePic from '@/_assets/images/sample-pic-3.jpg';
 
 const Accordion = ({ items, isWinners }) => {
+
+   let isArrange = false;
    const [activeItem, setActiveItem] = useState(0);
    const [activeChildItem, setActiveChildItem] = useState(0);
    const [isPlaying, setIsPlaying] = useState(false);
+
+   if (window.innerWidth < 992) {
+      isArrange = true;
+   }
 
    const activeItemHandler = (id) => {
       if (activeItem == id) {
@@ -78,20 +84,26 @@ const Accordion = ({ items, isWinners }) => {
                                        <div className="winners-experience">
 
                                           <div className="row">
-                                             <div className="col-md-8 col-sm-12">
-                                                <div className="feature-video">
+                                             {!isArrange ?
 
-                                                   {!isPlaying ?
-                                                      <button className="play-btn" onClick={() => playVideo(`trip-video-${item.id}`)} data-play-video={`#trip-video-${item.id}`}>
-                                                         <img src={playIcon} alt="video play button icon" className="play" />
-                                                      </button>
-                                                      :
-                                                      null}
-                                                   <video className="trip-vid" id={`trip-video-${item.id}`}>
-                                                      <source src={dummyVideo} type="video/mp4" />
-                                                   </video>
+                                                <div className="col-md-8 col-sm-12 m-none">
+                                                   <div className="feature-video">
+
+                                                      {!isPlaying ?
+                                                         <button className="play-btn" onClick={() => playVideo(`trip-video-${item.id}`)} data-play-video={`#trip-video-${item.id}`}>
+                                                            <img src={playIcon} alt="video play button icon" className="play" />
+                                                         </button>
+                                                         :
+                                                         null}
+                                                      <video className="trip-vid" id={`trip-video-${item.id}`}>
+                                                         <source src={dummyVideo} type="video/mp4" />
+                                                      </video>
+                                                   </div>
                                                 </div>
-                                             </div>
+
+                                                : null
+                                             }
+
                                              <div className="col-md-4 col-sm-12">
                                                 <div className="details">
                                                    <img src={samplePic} className="prof-img" alt="" />
@@ -106,6 +118,24 @@ const Accordion = ({ items, isWinners }) => {
                                                          <small>Safety Engineer in Dubai</small>
                                                       </div>
                                                    </div>
+
+                                                   {isArrange ?
+                                                      <div className="feature-video m-block">
+
+                                                         {!isPlaying ?
+                                                            <button className="play-btn" onClick={() => playVideo(`trip-video-${item.id}`)} data-play-video={`#trip-video-${item.id}`}>
+                                                               <img src={playIcon} alt="video play button icon" className="play" />
+                                                            </button>
+                                                            :
+                                                            null}
+                                                         <video className="trip-vid" id={`trip-video-${item.id}`}>
+                                                            <source src={dummyVideo} type="video/mp4" />
+                                                         </video>
+                                                      </div>
+                                                      :
+                                                      null
+                                                   }
+
 
                                                    <CouponCard isWinners={true} />
 

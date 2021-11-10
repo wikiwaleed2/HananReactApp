@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './campaigns.less';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -22,10 +23,10 @@ function AddEdit({ history, match }) {
         soldCoupons: 0,
         perEntryCoupons: 0,
         couponPrice: 0,
-        startDate: '2020-06-24 22:57:36',
-        drawDate: '2020-06-24 22:57:36',
+        startDate: '',
+        drawDate: '',
         createdDate: moment().format("YYYY-MM-DD HH:mm:ss"),
-        updatedDate: null
+        updatedDate: moment().format("YYYY-MM-DD HH:mm:ss")
     };
 
     const validationSchema = Yup.object().shape({
@@ -104,10 +105,10 @@ function AddEdit({ history, match }) {
                             "limit": 5,
                             "offset": 0,
                             "order": [["id", "ASC"], ["name", "DESC"]],
-                            "where": {"id": id }
+                            "where": { "id": id }
                         }
                         campaignsService.getById(obj).then(campaign => {
-                            console.log("campaign",campaign);
+                            console.log("campaign", campaign);
                             const fields = ['name', 'title', 'description', 'highlights', 'code', 'type', 'status', 'totalCoupons', 'soldCoupons', 'perEntryCoupons', 'couponPrice', 'startDate', 'drawDate'];
                             fields.forEach(field => setFieldValue(field, campaign.rows[0][field], false));
                         });
@@ -139,6 +140,91 @@ function AddEdit({ history, match }) {
                                 <label>Highlights</label>
                                 <Field name="highlights" type="text" className={'form-control' + (errors.highlights && touched.highlights ? ' is-invalid' : '')} />
                                 <ErrorMessage name="highlights" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Short Title Description</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop</label>
+                                <Field name="shortTitleDescriptionDesktop" type="text"  className={'form-control' + (errors.shortTitleDescriptionDesktop && touched.shortTitleDescriptionDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="shortTitleDescriptionDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile</label>
+                                <Field name="shortTitleDescriptionMobile" type="text"  className={'form-control' + (errors.shortTitleDescriptionMobile && touched.shortTitleDescriptionMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="shortTitleDescriptionMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Short Description</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop</label>
+                                <Field name="shortDescriptionDesktop" type="text"  className={'form-control' + (errors.shortDescriptionDesktop && touched.shortDescriptionDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="shortDescriptionDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile</label>
+                                <Field name="shortDescriptionMobile" type="text"  className={'form-control' + (errors.shortDescriptionMobile && touched.shortDescriptionMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="shortDescriptionMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Editor</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop</label>
+                                <Field name="editorDesktop" type="text"  className={'form-control' + (errors.editorDesktop && touched.editorDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="editorDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile</label>
+                                <Field name="editorMobile" type="text"  className={'form-control' + (errors.editorMobile && touched.editorMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="editorMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Prize Title</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop</label>
+                                <Field name="prizeTitleDesktop" type="text"  className={'form-control' + (errors.prizeTitleDesktop && touched.prizeTitleDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="prizeTitleDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile</label>
+                                <Field name="prizeTitleMobile" type="text"  className={'form-control' + (errors.prizeTitleMobile && touched.prizeTitleMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="prizeTitleMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Partner Name</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop</label>
+                                <Field name="partnerNameDesktop" type="text"  className={'form-control' + (errors.partnerNameDesktop && touched.partnerNameDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="partnerNameDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile</label>
+                                <Field name="partnerNameMobile" type="text"  className={'form-control' + (errors.partnerNameMobile && touched.partnerNameMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="partnerNameMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         <div className="form-row">
@@ -181,14 +267,99 @@ function AddEdit({ history, match }) {
                             </div>
                         </div>
                         <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Prize Image</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop Image</label>
+                                <Field name="prizeDesktopImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.prizeDesktopImage && touched.prizeDesktopImage ? ' is-invalid' : '')} />
+                                <ErrorMessage name="prizeDesktopImage" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile Image</label>
+                                <Field name="prizeMobileImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.prizeMobileImage && touched.prizeMobileImage ? ' is-invalid' : '')} />
+                                <ErrorMessage name="prizeMobileImage" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Product Image</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop Image</label>
+                                <Field name="productDesktopImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.productDesktopImage && touched.productDesktopImage ? ' is-invalid' : '')} />
+                                <ErrorMessage name="productDesktopImage" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile Image</label>
+                                <Field name="productMobileImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.productMobileImage && touched.productMobileImage ? ' is-invalid' : '')} />
+                                <ErrorMessage name="productMobileImage" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>USP Small Banner</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop Image</label>
+                                <Field name="uspSmallBannerDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspSmallBannerDesktop && touched.uspSmallBannerDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="uspSmallBannerDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile Image</label>
+                                <Field name="uspSmallBannerMobile" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspSmallBannerMobile && touched.uspSmallBannerMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="uspSmallBannerMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>USP Banner</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop Image</label>
+                                <Field name="uspBannerDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspBannerDesktop && touched.uspBannerDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="uspBannerDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile Image</label>
+                                <Field name="uspBannerMobile" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspBannerMobile && touched.uspBannerMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="uspBannerMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5 m-0">
+                                <label>Image Gallery</label>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-5">
+                                <label>Desktop Image</label>
+                                <Field name="imageGalleryDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.imageGalleryDesktop && touched.imageGalleryDesktop ? ' is-invalid' : '')} />
+                                <ErrorMessage name="imageGalleryDesktop" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Mobile Image</label>
+                                <Field name="imageGalleryMobile" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.imageGalleryMobile && touched.imageGalleryMobile ? ' is-invalid' : '')} />
+                                <ErrorMessage name="imageGalleryMobile" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Start Date</label>
-                                <Field name="startDate" type="text" className={'form-control' + (errors.startDate && touched.startDate ? ' is-invalid' : '')} />
+                                <Field name="startDate" type="datetime-local" className={'form-control' + (errors.startDate && touched.startDate ? ' is-invalid' : '')} />
                                 <ErrorMessage name="startDate" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Draw Date</label>
-                                <Field name="drawDate" type="text" className={'form-control' + (errors.drawDate && touched.drawDate ? ' is-invalid' : '')} />
+                                <Field name="drawDate" type="datetime-local" className={'form-control' + (errors.drawDate && touched.drawDate ? ' is-invalid' : '')} />
                                 <ErrorMessage name="drawDate" component="div" className="invalid-feedback" />
                             </div>
                         </div>

@@ -91,7 +91,7 @@
 
     .line {
         position: absolute;
-        height: 510px;
+        height: 52vh;
         border-left: 2px solid rgba(255, 255, 255, 0.3);
         left: 2.5%;
         top: 8%;
@@ -120,7 +120,7 @@
                 background-size: cover;
                 background-position: 100% 75%;
                 background-repeat: no-repeat;
-                height: 760px;
+                height: 78vh;
                 width: 100%;
             }
 
@@ -2109,8 +2109,9 @@
         background: #fff !important;
         border-radius: 50% !important;
         top: 35% !important;
+
         // display: none;
-        img{
+        img {
             width: 40px;
             height: 40px;
             transform: none !important;
@@ -2118,12 +2119,12 @@
 
     }
 
-    .testimonials-winners .slick-next{
+    .testimonials-winners .slick-next {
         right: -14% !important;
-        
+
     }
 
-    .testimonials-winners .slick-prev{
+    .testimonials-winners .slick-prev {
         left: -15.5% !important;
         z-index: 2 !important;
         display: flex !important;
@@ -2227,6 +2228,14 @@
 
         margin-left: 10px;
 
+    }
+
+    .explore .row {
+        margin: 0 !important;
+    }
+
+    .footer .flex {
+        padding: 30px 20px !important;
     }
 
 }
@@ -3046,7 +3055,7 @@
         font-size: 9px;
     }
 
-    .other{
+    .other {
         // .card{
         //     padding: 10px 0 0 0;
         // }
@@ -3304,7 +3313,7 @@
     margin: 0 20px 20px;
     position: absolute;
     z-index: 10;
-    top: 780px;
+    top: 81%;
     left: 0;
     right: 0;
     display: flex;
@@ -3855,7 +3864,7 @@
 
 @media screen and (max-width: 991px) {
 
-    body{
+    body {
         overflow-x: hidden !important;
     }
 
@@ -4226,32 +4235,33 @@
 
     .modal-content {
         background: #ffffff8a;
-        border-radius: 50px;
+        border-radius: 25px;
         border: none;
         padding: 25px 10px;
         width: 96vw;
         margin-top: 35px;
+        backdrop-filter: blur(48px);
+        -webkit-backdrop-filter: blur(48px);
 
         .modal-body {
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
 
             .header-box {
                 display: flex;
                 justify-content: space-between;
+                align-items: baseline;
                 margin-bottom: 25px;
 
                 .title {
                     font-size: 28px;
                     color: #104a8e;
-                    font-weight: 600;
+                    font-weight: 700;
                     margin: 0;
                 }
 
                 .cross {
-                    font-size: 33px;
+                    font-size: 2.5rem;
                     color: #104a8e;
                     font-weight: 600;
                     margin: 0;
@@ -4296,7 +4306,7 @@
                 }
 
                 .para-text {
-                    font-size: 20px;
+                    font-size: 16px;
                     font-weight: 700;
                     color: #104a8e;
                     line-height: 1;

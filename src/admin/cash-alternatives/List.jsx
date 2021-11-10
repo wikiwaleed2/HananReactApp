@@ -37,7 +37,7 @@ function List({ match }) {
             <h1>Cash Alternatives</h1>
             <p>All Cash Alternatives from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Cash Alternatives</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>

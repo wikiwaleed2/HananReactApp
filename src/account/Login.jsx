@@ -6,6 +6,7 @@ import { accountService, alertService } from '@/_services';
 import '@/pages/Signup/Signup.less';
 import '@/home/index.less';
 import Eye from '@/_assets/images/eye.svg';
+import eyeSlash from '@/_assets/images/eye-slash-solid.svg';
 import PhoneInput from 'react-phone-input-2'
 import Slider from "react-slick";
 import sliderImg from '@/_assets/images/sliderImg.png';
@@ -22,6 +23,7 @@ import { LoginForm } from '@/pages/Signup/loginForm';
 import { GoogleLoginButton } from '@/_shared/google-login-button/google-login-button';
 import { FacebookLoginButton } from '@/_shared/facebook-login-button/facebook-login-button';
 import PinInput from 'react-pin-input';
+import { Alert } from '@/_components';
 
 function Login({ history, location }) {
 
@@ -31,6 +33,7 @@ function Login({ history, location }) {
     const [isVerifyLogin, setIsVerifyLogin] = useState(false);
     const [isVerifyNumber, setIsVerifyNumber] = useState(false);
     const [OTPCode, setOTPCode] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const settings = {
         className: "center",
@@ -96,24 +99,24 @@ function Login({ history, location }) {
     function onSubmit({ email, password }, { setSubmitting }) {
         alertService.clear();
         accountService.login(email, password).then((resp) => {
-            console.log("login rsp", resp);
-
+            console.log("resp", resp);
             if (resp.role == 'Admin') {
                 const { from } = location.state || { from: { pathname: "/admin" } };
                 history.push(from);
             }
             else if (resp.role == 'User') {
-                console.log("user")
-
                 const { from } = location.state || { from: { pathname: "/" } };
                 history.push(from);
             }
 
-        })
-            .catch(error => {
-                setSubmitting(false);
-                alertService.error(error);
-            });
+        }).catch(error => {
+            setSubmitting(false);
+            alertService.error("Email or password is incorrect.");
+        });
+    }
+
+    let togglePassword = () => {
+
     }
 
     return (
@@ -126,6 +129,7 @@ function Login({ history, location }) {
                 </div>
                 <div className="container">
                     <div className="row">
+                    <Alert />
                         <div className="col-md-7 m-none">
                             {/* Signup Slider */}
                             <div className="signUpSlider">
@@ -184,25 +188,23 @@ function Login({ history, location }) {
                                     <div className="tab-content" id="pills-tabContent">
                                         <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                             <SignUpForm callback={(phoneNumber) => { }} />
-                                            {/*   */}
+
                                         </div>
                                         <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                            {/* <LoginForm callback={(data) => { }} /> */}
+
                                             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                                                 {({ errors, touched, isSubmitting }) => (
                                                     <Form>
                                                         <div className="formCont LoginCont">
                                                             <div className="subscription-form">
                                                                 <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                                                                {/* <input className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} type="email" name="email" /> */}
                                                                 <span>Email / Phone Number</span>
                                                                 <ErrorMessage name="email" component="div" className="invalid-feedback" />
                                                             </div>
                                                             <div className="subscription-form">
-                                                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                                                                {/* <input className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} name="password" type="password" /> */}
+                                                                <Field name="password" type={showPassword ? "text" : "password"} className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                                                 <span>Password</span>
-                                                                <img className="eyeImg" src={Eye} alt="Eye" />
+                                                                <img className="eyeImg" src={showPassword ? eyeSlash : Eye} alt="Eye" onClick={() => setShowPassword(!showPassword)} />
                                                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                                                             </div>
                                                             <div className="forgotBox">
@@ -323,7 +325,46 @@ function Login({ history, location }) {
                                 <div className="SignUpBox">
 
                                     <img src={keyIcon} alt="" className="key-icon" />
-                                    <LoginForm callback={(data) => { toggleScreen(data) }} />
+                                    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                                        {({ errors, touched, isSubmitting }) => (
+                                            <Form>
+                                                <div className="formCont LoginCont">
+                                                    <div className="subscription-form">
+                                                        <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                                        <span>Email / Phone Number</span>
+                                                        <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                                    </div>
+                                                    <div className="subscription-form">
+                                                        <Field name="password" type={showPassword ? "text" : "password"} className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                                        <span>Password</span>
+                                                        <img className="eyeImg" src={showPassword ? eyeSlash : Eye} alt="Eye" onClick={() => setShowPassword(!showPassword)} />
+                                                        <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                                    </div>
+                                                    <div className="forgotBox">
+                                                        <div className="remember-me">
+                                                            <input type="radio" name="fav_language" value="CSS" />
+                                                            <label>Remember Me</label>
+                                                        </div>
+                                                        <div>
+                                                            <a href="/">Forgot Password</a>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" disabled={isSubmitting} className="btn btn-default signupBtn LoginBtn" >
+                                                        {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                                                        Log In
+                                                    </button>
+                                                </div>
+
+                                                <div className="LoginWith">
+
+                                                    <GoogleLoginButton mblStyle='' />
+                                                    <FacebookLoginButton mblStyle='' />
+
+                                                </div>
+                                            </Form>
+                                        )}
+                                    </Formik>
+                                    {/* <LoginForm callback={(data) => { toggleScreen(data) }} /> */}
 
                                     <div className="login-text">
                                         <p>Not registered yet?

@@ -77,7 +77,7 @@ function AddEdit({ history, match }) {
     }
 
     function updatePicture(id, fields, setSubmitting) {
-        if(imageURL){
+        if (imageURL) {
             fields.url = imageURL;
         }
         picturesService.update(id, fields)
@@ -108,16 +108,6 @@ function AddEdit({ history, match }) {
 
     return (
         <>
-            <div>
-                <div className="form-row">
-                    <div className="form-group col-4">
-                        <label>Upload Picture</label>
-                        <input name="upload" type="file" className="form-control" onChange={(e) => uploadPicture(e)} />
-
-                    </div>
-
-                </div>
-            </div>
 
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 {({ errors, touched, isSubmitting, setFieldValue }) => {
@@ -175,6 +165,16 @@ function AddEdit({ history, match }) {
                                     <label>Status</label>
                                     <Field name="status" type="text" className={'form-control' + (errors.status && touched.status ? ' is-invalid' : '')} />
                                     <ErrorMessage name="status" component="div" className="invalid-feedback" />
+                                </div>
+                            </div>
+                            <div>
+                                <div className="form-row">
+                                    <div className="form-group col-4">
+                                        <label>Upload Picture</label>
+                                        <input name="upload" type="file" className="form-control" onChange={(e) => uploadPicture(e)} />
+                                        {isSubmit && <span className="spinner-border spinner-border-sm mr-1"></span> }
+                                    </div>
+
                                 </div>
                             </div>
                             <div className="form-group">

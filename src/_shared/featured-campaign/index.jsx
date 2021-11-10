@@ -15,34 +15,11 @@ function FeaturedCampaign({ videoSrc }) {
 
     const [animateCounter, setAnimateCounter] = useState(true);
     const [isPlaying1, setIsPlaying1] = useState(false);
-    const [soldCount, setSoldCount] = useState(0);
     const [soldCount1, setSoldCount1] = useState(0);
-    const [soldCount2, setSoldCount2] = useState(0);
-    const [soldCount3, setSoldCount3] = useState(0);
-    const [soldCount4, setSoldCount4] = useState(0);
-    const [soldCount5, setSoldCount5] = useState(0);
-    const [soldCount6, setSoldCount6] = useState(0);
-    const [soldCount7, setSoldCount7] = useState(0);
-    const [soldCount8, setSoldCount8] = useState(0);
-    const [soldCount9, setSoldCount9] = useState(0);
-    const [soldCount10, setSoldCount10] = useState(0);
-    const [soldCount11, setSoldCount11] = useState(0);
-    const [soldCount12, setSoldCount12] = useState(0);
-    const [soldCount13, setSoldCount13] = useState(0);
-    const [soldCount14, setSoldCount14] = useState(0);
-    const [soldCount15, setSoldCount15] = useState(0);
-    const [soldCount16, setSoldCount16] = useState(0);
-    const [soldCount17, setSoldCount17] = useState(0);
-    const [soldCount18, setSoldCount18] = useState(0);
-    const [soldCount19, setSoldCount19] = useState(0);
-    const [soldCount20, setSoldCount20] = useState(0);
-    const [soldCount21, setSoldCount21] = useState(0);
-    const [soldCount22, setSoldCount22] = useState(0);
+    const [isLoader, setIsLoader] = useState(false);
 
     let startCount = (id, value) => {
-        let idNumber = id.split('-')[1];
         let el = document.getElementById(id);
-        let childEl = el.children[1].children[1];
         let counterNumber = id.split('-')[1];
 
         if (counterNumber == 1) {
@@ -63,401 +40,8 @@ function FeaturedCampaign({ videoSrc }) {
                 }, 200);
             }
         }
-        else if (counterNumber == 2) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount2(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 3) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount3(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 4) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount4(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 5) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount5(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 6) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount6(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-
-        }
-        else if (counterNumber == 7) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount7(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 8) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount8(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 9) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount9(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 10) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount10(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 11) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount11(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 12) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount12(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 13) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount13(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 14) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount14(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 15) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount15(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 16) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount16(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 17) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount17(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 18) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount18(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 19) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount19(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 20) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount20(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 21) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount21(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
-        else if (counterNumber == 22) {
-            setAnimateCounter(value);
-            if (!value) {
-
-                let current = 1;
-                var startTime = new Date().getTime();
-                let counter = setInterval(() => {
-                    current++;
-
-                    setSoldCount22(current);
-                    if (current === 20) {
-                        setAnimateCounter(true);
-                        clearInterval(counter);
-                        return;
-                    }
-                }, 200);
-            }
-        }
 
     }
-
-    // let stopVideo = () => {
-    //     setIsPlaying1(false);
-    //     let videosEl = document.getElementsByClassName("feature-vid-tag");
-    //     console.log("video el", videosEl);
-
-    //     for (let i = 0; i <= videosEl.length - 1; i++) {
-    //         if(!videosEl[i].paused){
-    //             videosEl[i].removeAttribute('controls');
-    //             videosEl[i].pause();
-    //         }
-    //     }
-
-    // }
 
     let playVideo = (id) => {
         let number = id.split('-')[2];
@@ -466,17 +50,28 @@ function FeaturedCampaign({ videoSrc }) {
 
         if (number == 1) {
             if (video.paused) {
-                setIsPlaying1(true);
                 video.setAttribute('controls', '');
                 video.play();
+                setIsPlaying1(true);
             } else {
-                setIsPlaying1(false);
                 video.removeAttribute('controls');
                 video.pause();
+                setIsPlaying1(false);
             }
         }
 
 
+    }
+
+    let shareCampaign = () => {
+        setIsLoader(true);
+        let shareData = {
+            title: 'Maldives Trip',
+            text: 'Mesmerizing Maldives With Sun Island',
+            url: "http://54.179.136.234/prize-details"
+        }
+        const sharePromise = navigator.share(shareData);
+        setIsLoader(false);
     }
 
     return (
@@ -512,12 +107,14 @@ function FeaturedCampaign({ videoSrc }) {
                                     <img src={maldives} alt="" />
                                 }
 
+                                {!isPlaying1 ?
+                                    <div className="bottel-img">
+                                        <img src={bottle} alt="" />
+                                    </div>
+                                    :
+                                    null
+                                }
 
-                                <div className="bottel-img">
-
-                                    <img src={bottle} alt="" />
-
-                                </div>
 
                             </div>
 
@@ -550,8 +147,12 @@ function FeaturedCampaign({ videoSrc }) {
                                 <div className="bottom-box">
                                     <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
 
-                                    <div className="icon">
-                                        <img src={shareIcon} />
+                                    <div className="icon" onClick={shareCampaign}>
+                                        {!isLoader ?
+                                            <img src={shareIcon} />
+                                            :
+                                            <span className="spinner-border spinner-border-sm"></span>
+                                        }
                                     </div>
 
                                     <div className="details-banner">

@@ -37,7 +37,7 @@ function List({ match }) {
             <h1>Pictures</h1>
             <p>All Pictures from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Pictures</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>

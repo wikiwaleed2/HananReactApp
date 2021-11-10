@@ -32,11 +32,14 @@ function update(id, params) {
     return fetchWrapper.put(`${baseUrl}/${id}`, params)
         .then(campaign => {
             // update stored user if the logged in user updated their own record
-            if (campaign.id === campaignSubject.value.id) {
-                // publish updated user to subscribers
-                campaign = {...campaignSubject.value, ...campaign };
-                campaignSubject.next(campaign);
+            if (!!campaignSubject.value) {
+                if (campaign.id === campaignSubject.value.id) {
+                    // publish updated user to subscribers
+                    campaign = {...campaignSubject.value, ...campaign };
+                    campaignSubject.next(campaign);
+                }
             }
+
             return campaign;
         });
 }
@@ -46,8 +49,10 @@ function _delete(id) {
     return fetchWrapper.delete(`${baseUrl}/${id}`)
         .then(x => {
             // auto logout if the logged in user deleted their own record
-            if (id === campaignSubject.value.id) {
-                logout();
+            if (!!campaignSubject.value) {
+                if (id === campaignSubject.value.id) {
+                    logout();
+                }
             }
             return x;
         });

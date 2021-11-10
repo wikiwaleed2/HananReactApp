@@ -114,12 +114,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Start Date</label>
-                                <Field name="startDate" type="text" className={'form-control' + (errors.startDate && touched.startDate ? ' is-invalid' : '')} />
+                                <Field name="startDate" type="datetime-local" className={'form-control' + (errors.startDate && touched.startDate ? ' is-invalid' : '')} />
                                 <ErrorMessage name="startDate" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>End Date</label>
-                                <Field name="endDate" type="text" className={'form-control' + (errors.endDate && touched.endDate ? ' is-invalid' : '')} />
+                                <Field name="endDate" type="datetime-local" className={'form-control' + (errors.endDate && touched.endDate ? ' is-invalid' : '')} />
                                 <ErrorMessage name="endDate" component="div" className="invalid-feedback" />
                             </div>
                         </div>

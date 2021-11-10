@@ -41,7 +41,7 @@ function List({ match }) {
             <h1>Dream Coins</h1>
             <p>All Dream Coins from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Dream Coin</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>

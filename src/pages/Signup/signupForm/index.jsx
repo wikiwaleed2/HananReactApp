@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.less';
 import PhoneInput from 'react-phone-input-2';
 import Eye from '@/_assets/images/eye.svg';
+import eyeSlash from '@/_assets/images/eye-slash-solid.svg';
 
 function SignUpForm({ callback }) {
 
+    const [showPassword, setShowPassword] = useState(false);
 
     return (
         <div className="formCont">
@@ -49,14 +51,14 @@ function SignUpForm({ callback }) {
                 </div>
             </div>
             <div className="subscription-form">
-                <input className="form-control" type="password" />
+                <input className="form-control" type={showPassword ? "text" : "password"} />
                 <span>Password</span>
-                <img className="eyeImg" src={Eye} alt="Eye" />
+                <img className="eyeImg" src={showPassword ? eyeSlash : Eye} alt="Eye" onClick={() => setShowPassword(!showPassword)} />
             </div>
             <div className="subscription-form">
-                <input className="form-control" type="password" />
+                <input className="form-control" type={showPassword ? "text" : "password"} />
                 <span>Confirm Password</span>
-                <img className="eyeImg" src={Eye} alt="Eye" />
+                <img className="eyeImg" src={showPassword ? eyeSlash : Eye} alt="Eye" onClick={() => setShowPassword(!showPassword)} />
             </div>
             <div className="subscription-form">
                 <PhoneInput

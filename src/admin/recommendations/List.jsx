@@ -39,7 +39,7 @@ function List({ match }) {
             <h1>Recommendations</h1>
             <p>All Recommendations from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Recommendation</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>

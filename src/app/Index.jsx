@@ -87,7 +87,6 @@ function App() {
                 <Route exact path="/change-password" component={ChangePassword}>
                     <Header />
                     <ChangePassword />
-                    <Footer />
                 </Route>
 
                 <Route exact path="/active-coupons" component={ActiveCoupons}>
@@ -174,7 +173,7 @@ function App() {
 
                 <Redirect from="*" to="/" />
             </Switch>
-            {pathname !== '/user-profile' || (pathname !== '/change-password' && <Footer />)}
+            {/* {pathname !== '/user-profile' || (pathname !== '/change-password' && <Footer />)} */}
             {/* </BrowserRouter> */}
         </div>
     );

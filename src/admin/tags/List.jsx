@@ -36,7 +36,7 @@ function List({ match }) {
             <h1>Tags</h1>
             <p>All Tags from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Tag</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>

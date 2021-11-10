@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { campaignsService } from '@/_services/campaigns.service';
+import moment from 'moment';
 
 function List({ match }) {
     const { path } = match;
@@ -36,7 +37,7 @@ function List({ match }) {
             <h1>Campaigns</h1>
             <p>All Campaigns from secure (admin only) api end point:</p>
             <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add Campaign</Link>
-            <table className="table table-striped">
+            <table className="table table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -73,10 +74,10 @@ function List({ match }) {
                             <td>{campaign.soldCoupons}</td>
                             <td>{campaign.perEntryCoupons}</td>
                             <td>{campaign.couponPrice}</td>
-                            <td>{campaign.startDate}</td>
-                            <td>{campaign.drawDate}</td>
-                            <td>{campaign.createdDate}</td>
-                            <td>{campaign.updatedDate}</td>
+                            <td>{moment(campaign.startDate).format("llll")}</td>
+                            <td>{moment(campaign.drawDate).format("llll")}</td>
+                            <td>{moment(campaign.createdDate).format("llll")}</td>
+                            <td>{moment(campaign.updatedDate).format("llll")}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`${path}/edit/${campaign.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
                                 <button onClick={() => deleteCampaign(campaign.id)} className="btn btn-sm btn-danger" style={{ width: '60px' }} disabled={campaign.isDeleting}>
