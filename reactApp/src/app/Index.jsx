@@ -36,6 +36,7 @@ import { MobileProfile } from '../pages/MobileProfile/MobileProfile';
 
 function App() {
    const { pathname } = useLocation();
+   const [showFooter, setShowFooter] = useState(false);
    const [user, setUser] = useState({});
    const [token, setToken] = useState('');
 
@@ -43,6 +44,20 @@ function App() {
       let token = getCookie('token');
       setToken(token);
       const subscription = accountService.user.subscribe((x) => setUser(x));
+      if (window.innerWidth < 768) {
+         setShowFooter(false);
+      } else {
+         setShowFooter(true);
+      }
+
+      window.addEventListener('resize', () => {
+         if (window.innerWidth < 768) {
+            setShowFooter(false);
+         } else {
+            setShowFooter(true);
+         }
+      });
+
       return subscription.unsubscribe;
    }, []);
 
@@ -117,8 +132,16 @@ function App() {
                <MobileProfile />
             </Route>
          </Switch>
-         {pathname !== '/user-profile' ||
-            (pathname !== '/change-password' && <Footer />)}
+         {pathname === '/user-profile' ||
+         (pathname === '/change-password' && !showFooter) ||
+         (pathname === '/active-coupons' && !showFooter) ||
+         (pathname === '/create-profile' && !showFooter) ||
+         (pathname === '/confirmation' && !showFooter) ||
+         (pathname === '/dream-cart-information' && !showFooter) ? (
+            <></>
+         ) : (
+            <Footer />
+         )}
       </BrowserRouter>
       // <div className={'app-container bg-grey ' + (user && ' bg-light')}>
       //     <Nav />

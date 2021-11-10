@@ -34,7 +34,9 @@ const Confirmation = () => {
                />
             </div>
          </div>
-         <NewsLetter />
+         <div className="d-md-block d-none">
+            <NewsLetter />
+         </div>
       </>
    );
 };

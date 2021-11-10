@@ -18,7 +18,7 @@ const DreamCartInformation = () => {
                <div className="col-12 p-0">
                   <OrderSummery />
                </div>
-               <div className="col-md-12 col-lg-5 py-3 px-3">
+               <div className="col-md-12 col-lg-5 py-5 px-3">
                   <div className="container px-5">
                      <div className="row">
                         <div className="col-md-12">
@@ -99,10 +99,10 @@ const DreamCartInformation = () => {
                      </div>
                   </div>
                </div>
-               <div className="col-md-12 col-lg-7 cardNoShowLess768">
+               <div className="col-md-12 col-lg-7 py-4 cardNoShowLess768">
                   <Card />
                </div>
-               <div className="col-12">
+               <div className="col-12 d-md-block d-none">
                   <NewsLetter />
                </div>
             </div>

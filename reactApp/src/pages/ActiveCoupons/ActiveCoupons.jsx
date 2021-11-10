@@ -22,6 +22,7 @@ export const ActiveCoupons = () => {
                   <Card className="d-md-block d-none">
                      <div className="doughnut-container">
                         <Doughnut
+                           title="AED"
                            value="7.20"
                            footerTitle="Your available balance"
                         />
