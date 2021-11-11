@@ -7,7 +7,7 @@ import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { CounterMobile } from '@/_shared/counter-mobile/index.jsx';
 import { Link } from 'react-router-dom';
 
-function CampaignCard({ videoSrc }) {
+export function CampaignCard({ videoSrc, keyValue }) {
 
     // const [animateCounter, setAnimateCounter] = useState(true);
     const [isPlaying1, setIsPlaying1] = useState(false);
@@ -36,7 +36,7 @@ function CampaignCard({ videoSrc }) {
                         clearInterval(counter);
                         return;
                     }
-                }, 200);
+                }, 20/4000);
             }
         }
 
@@ -80,13 +80,13 @@ function CampaignCard({ videoSrc }) {
     }
 
     return (
-        <div className="card" id="card-4" key={soldCount1}>
+        <div className="card" id="card-4" key={keyValue}>
 
             <div className="card-head" onClick={() => startCount("card-4", false)}>
 
                 <h1 className="headingStyle5 font-fancy">win</h1>
 
-                <CounterMobile soldCount={soldCount1} keyvalue={randomPrice} />
+                <CounterMobile soldCount={soldCount1} keyValue={keyValue} />
 
             </div>
 
@@ -169,5 +169,5 @@ function CampaignCard({ videoSrc }) {
         </div>
     );
 }
-
-export { CampaignCard };
+export const MemoizedCampaignCard = React.memo(CampaignCard);
+// export { CampaignCard };

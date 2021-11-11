@@ -11,7 +11,7 @@ import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { Counter } from '../../_shared/counter/index.jsx';
 import { Link } from 'react-router-dom';
 
-function FeaturedCampaign({ videoSrc }) {
+function FeaturedCampaign({ videoSrc, keyValue }) {
 
     const [animateCounter, setAnimateCounter] = useState(true);
     const [isPlaying1, setIsPlaying1] = useState(false);
@@ -37,7 +37,7 @@ function FeaturedCampaign({ videoSrc }) {
                         clearInterval(counter);
                         return;
                     }
-                }, 200);
+                }, 20/4000);
             }
         }
 
@@ -76,7 +76,7 @@ function FeaturedCampaign({ videoSrc }) {
 
     return (
         <>
-            <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)}>
+            <div className="win-card m-none" id="card-1" onClick={() => startCount("card-1", false)} key={keyValue}>
 
                 <h1 className="headingStyle2 m-none font-fancy">WIN</h1>
 
@@ -183,7 +183,7 @@ function FeaturedCampaign({ videoSrc }) {
 
                     </div>
 
-                    <Counter soldCount={soldCount1} />
+                    <Counter soldCount={soldCount1} keyValue={keyValue} />
 
                     {/* <div className="sold-counter" id="counter-1">
                         <Wave fill='#eabe00'
