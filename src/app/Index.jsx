@@ -34,12 +34,25 @@ import { Login } from '../account/Login';
 
 function App() {
     const { pathname } = useLocation();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
     }, []);
+
+    function getQueryParam(param) {
+        var result =  window.location.search.match(
+            new RegExp("(\\?|&)" + param + "(\\[\\])?=([^&]*)")
+        );
+    
+        return result ? result[3] : false;
+    }
+    function handleGoogleAuth(){
+        var query = window.location.search;
+        alert(getQueryParam("code"));
+        alert(getQueryParam("scope"));
+    }
 
     return (
         <div className={'app-container' + (user && ' bg-light')}>
@@ -47,6 +60,8 @@ function App() {
             {/* <BrowserRouter> */}
 
             <Switch>
+
+                <Route  path="(\\?code=.*)?" render= {(props)=> { return handleGoogleAuth(props);} } />
 
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
 
