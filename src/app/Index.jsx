@@ -39,7 +39,7 @@ function App() {
     useEffect(() => {
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
-    }, []);
+    }, [user]);
 
     function getQueryParam(param) {
         var result =  window.location.search.match(
@@ -51,7 +51,7 @@ function App() {
     function handleGoogleAuth(){
         var query = window.location.search;
         alert(getQueryParam("code"));
-        alert(getQueryParam("scope"));
+        //alert(getQueryParam("scope"));
     }
 
     return (
@@ -61,10 +61,9 @@ function App() {
 
             <Switch>
 
-                <Route  path="(\\?code=.*)?" render= {(props)=> { return handleGoogleAuth(props);} } />
-
+                <Route exact path="/google/callback" render= {(props)=> { return handleGoogleAuth(props);} } />
+                
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
-
                 <Route exact path="/" component={Home} >
                     <Header />
                     <Home />
@@ -185,6 +184,7 @@ function App() {
                 {/* <Route path="/account" component={Account} /> */}
 
                 <Route path="/account/login" component={Login} />
+
 
                 <Redirect from="*" to="/" />
             </Switch>
