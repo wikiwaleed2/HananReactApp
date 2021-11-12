@@ -38,4 +38,4 @@ function LoginGoogle() {
   );
 }
 
-export default LoginGoogle;
+export { LoginGoogle };

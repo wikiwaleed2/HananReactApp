@@ -24,6 +24,7 @@ import { GoogleLoginButton } from '@/_shared/google-login-button/google-login-bu
 import { FacebookLoginButton } from '@/_shared/facebook-login-button/facebook-login-button';
 import PinInput from 'react-pin-input';
 import { Alert } from '@/_components';
+import {LoginGoogle} from '@/account/LoginGoogle';
 
 function Login({ history, location }) {
 
@@ -226,6 +227,7 @@ function Login({ history, location }) {
 
                                                             <GoogleLoginButton mblStyle='' />
                                                             <FacebookLoginButton mblStyle='' />
+                                                            <LoginGoogle />
 
                                                         </div>
                                                     </Form>
