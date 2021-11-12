@@ -49,7 +49,7 @@ const fadeOutUpAnimation = keyframes`${fadeOutUp}`;
 const FadeOutUpDiv = styled.div`animation: 0.5s ${fadeOutUpAnimation};`;
 
 
-function Home() {
+export function Home() {
 
     const [slideCounter, setSlideCounter] = useState('01');
     const [isPlaying1, setIsPlaying1] = useState(false);
@@ -189,7 +189,7 @@ function Home() {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 20/4000);
             }
         }
         else if (counterNumber == 13) {
@@ -206,7 +206,7 @@ function Home() {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 20/4000);
             }
         }
         else if (counterNumber == 18) {
@@ -223,7 +223,7 @@ function Home() {
                         clearInterval(counter);
                         return;
                     }
-                }, 300);
+                }, 20/4000);
             }
         }
 
@@ -534,11 +534,11 @@ function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <FeaturedCampaign videoSrc={false} />
+                        <FeaturedCampaign videoSrc={false} keyvalue={randomPrice} />
 
-                        <FeaturedCampaign videoSrc={false} />
+                        <FeaturedCampaign videoSrc={false} keyvalue={randomPrice} />
 
-                        <FeaturedCampaign videoSrc={true} />
+                        <FeaturedCampaign videoSrc={true} keyvalue={randomPrice} />
 
                         {/* <!-- For Mobile --> */}
 
@@ -639,20 +639,20 @@ function Home() {
                                     <Slider {...settings} afterChange={() => showPrice("7")}>
 
                                         <div>
-                                            <CampaignCard videoSrc={false} />
+                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
 
                                         </div>
 
                                         <div>
-                                            <CampaignCard videoSrc={false} />
+                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard videoSrc={false} />
+                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
                                         </div>
 
                                         <div>
-                                            <CampaignCard videoSrc={false} />
+                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
                                         </div>
 
 
@@ -1605,4 +1605,5 @@ function Home() {
     );
 }
 
-export { Home };
+export const MemoizedHome = React.memo(Home);
+// export { Home };

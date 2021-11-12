@@ -2,17 +2,17 @@ import React from 'react';
 import './index.less';
 import Wave from 'react-wavify';
 
-function Counter({ soldCount }) {
+export function Counter({ soldCount, keyValue }) {
 
     return (
 
-        <div className="sold-counter" id="counter-1" key={soldCount}>
+        <div className="sold-counter" id="counter-1" key={keyValue}>
             <Wave fill='#eabe00'
                 id=""
                 // paused={animateCounter}
                 options={{
                     height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
-                    speed: 0.4,
+                    speed: 0.5,
                     points: 1
                 }}
             />
@@ -21,7 +21,7 @@ function Counter({ soldCount }) {
                 // paused={animateCounter}
                 options={{
                     height: soldCount === 0 ? 140 : 140 - (140 * (soldCount / 60)),
-                    speed: 0.4,
+                    speed: 0.5,
                     points: 2
                 }}
             />
@@ -36,5 +36,5 @@ function Counter({ soldCount }) {
 
     );
 }
-
-export { Counter };
+export const MemoizedCounter = React.memo(Counter);
+// export { Counter };

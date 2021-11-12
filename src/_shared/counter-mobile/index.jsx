@@ -3,7 +3,7 @@ import React from 'react';
 import './index.less';
 import Wave from 'react-wavify';
 
-function CounterMobile({ soldCount, keyvalue }) {
+export function CounterMobile({ soldCount, keyvalue }) {
 
     return (
 
@@ -27,7 +27,7 @@ function CounterMobile({ soldCount, keyvalue }) {
                 }}
             />
 
-            <h5 className="sold-cnt">{soldCount}</h5>
+            <h5 className="sold-cnt" key={keyvalue}>{soldCount}</h5>
 
             <p>SOLD <br />
                 OUT OF
@@ -38,5 +38,5 @@ function CounterMobile({ soldCount, keyvalue }) {
 
     );
 }
-
-export { CounterMobile };
+export const MemoizedCounterMobile = React.memo(CounterMobile);
+// export { CounterMobile };
