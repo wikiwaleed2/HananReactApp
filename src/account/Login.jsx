@@ -225,9 +225,8 @@ function Login({ history, location }) {
 
                                                         <div className="LoginWith">
 
-                                                            <GoogleLoginButton mblStyle='' />
+                                                            <LoginGoogle mblStyle='' />
                                                             <FacebookLoginButton mblStyle='' />
-                                                            <LoginGoogle />
 
                                                         </div>
                                                     </Form>

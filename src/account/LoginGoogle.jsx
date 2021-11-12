@@ -1,13 +1,14 @@
 import React from 'react';
+import { useGoogleLogin } from 'react-google-login';
+import Google from '@/_assets/images/google.png';
 
-import { GoogleLogin } from 'react-google-login';
 // refresh token
 // import { refreshTokenSetup } from '../utils/refreshToken';
 
 const clientId =
   '1029775309973-gfl61vqsdvnki7fc5l4261einf0rd67n.apps.googleusercontent.com';
 
-function LoginGoogle() {
+function LoginGoogle({mblStyle}) {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
@@ -23,19 +24,26 @@ function LoginGoogle() {
     );
   };
 
+  const { signIn } = useGoogleLogin({
+    onSuccess,
+    onFailure,
+    clientId,
+    isSignedIn: true,
+    accessType: 'offline',
+    // responseType: 'code',
+    // prompt: 'consent',
+  });
+
   return (
-    <div>
-      <GoogleLogin
-        clientId={clientId}
-        buttonText="Login"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-        style={{ marginTop: '100px' }}
-        isSignedIn={true}
-      />
-    </div>
+    <div className={ `google-btn ${mblStyle}` } onClick={signIn}>
+            <span>
+                <img src={Google} />
+            </span>
+            <p>Log In with Google</p>
+        </div>
+
+    
   );
 }
 
-export { LoginGoogle };
+export {LoginGoogle};
