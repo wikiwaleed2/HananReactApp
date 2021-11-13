@@ -41,6 +41,19 @@ function App() {
         return subscription.unsubscribe;
     }, []);
 
+    function getQueryParam(param) {
+        var result =  window.location.search.match(
+            new RegExp("(\\?|&)" + param + "(\\[\\])?=([^&]*)")
+        );
+    
+        return result ? result[3] : false;
+    }
+    function handleGoogleAuth(){
+        var query = window.location.search;
+        alert(getQueryParam("code"));
+        //alert(getQueryParam("scope"));
+    }
+
     return (
         <div className={'app-container' + (user && ' bg-light')}>
 
@@ -48,8 +61,9 @@ function App() {
 
             <Switch>
 
+                <Route exact path="/google/callback" render= {(props)=> { return handleGoogleAuth(props);} } />
+                
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
-
                 <Route exact path="/" component={Home} >
                     <Header />
                     <Home />
@@ -170,6 +184,7 @@ function App() {
                 {/* <Route path="/account" component={Account} /> */}
 
                 <Route path="/account/login" component={Login} />
+
 
                 <Redirect from="*" to="/" />
             </Switch>
