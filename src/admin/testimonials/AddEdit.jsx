@@ -152,6 +152,21 @@ function AddEdit({ history, match }) {
                                 <ErrorMessage name="pictureId" component="div" className="invalid-feedback" />
                             </div>
                         </div>
+                        <div className="form-row">
+                            <div className="form-group col-4">
+                                <label>Active?</label>
+                                <Field name="active" as="select" className={'form-control' + (errors.active && touched.active ? ' is-invalid' : '')} >
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </Field>
+                                <ErrorMessage name="active" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-4">
+                                <label>Sort</label>
+                                <Field name="sort" type="number" className={'form-control' + (errors.sort && touched.sort ? ' is-invalid' : '')} />
+                                <ErrorMessage name="sort" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
                         <div className="form-group">
                             <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
