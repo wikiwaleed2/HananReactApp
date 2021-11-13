@@ -34,12 +34,12 @@ import { Login } from '../account/Login';
 
 function App() {
     const { pathname } = useLocation();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         const subscription = accountService.user.subscribe(x => setUser(x));
         return subscription.unsubscribe;
-    }, [user]);
+    }, []);
 
     function getQueryParam(param) {
         var result =  window.location.search.match(

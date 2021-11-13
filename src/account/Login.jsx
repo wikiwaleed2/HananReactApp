@@ -225,7 +225,7 @@ function Login({ history, location }) {
 
                                                         <div className="LoginWith">
 
-                                                            <LoginGoogle mblStyle='' />
+                                                            <LoginGoogle mblStyle='' history={history} location={location} />
                                                             <FacebookLoginButton mblStyle='' />
 
                                                         </div>

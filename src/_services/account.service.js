@@ -8,6 +8,7 @@ const baseUrl = `${config.apiUrl}/accounts`;
 
 export const accountService = {
     login,
+    loginUsingGoogle,
     logout,
     refreshToken,
     register,
@@ -26,6 +27,16 @@ export const accountService = {
 
 function login(email, password) {
     return fetchWrapper.post(`${baseUrl}/authenticate`, { email, password })
+        .then(user => {
+            // publish user to subscribers and start timer to refresh token
+            userSubject.next(user);
+            startRefreshTokenTimer();
+            return user;
+        });
+}
+
+function loginUsingGoogle(email, firstName, lastName, imageUrl) {
+    return fetchWrapper.post(`${baseUrl}/authenticate-using-google`, { email, firstName, lastName, imageUrl })
         .then(user => {
             // publish user to subscribers and start timer to refresh token
             userSubject.next(user);

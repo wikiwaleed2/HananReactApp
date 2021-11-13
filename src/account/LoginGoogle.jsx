@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import Google from '@/_assets/images/google.png';
+import { accountService, alertService } from '@/_services';
 
 // refresh token
 // import { refreshTokenSetup } from '../utils/refreshToken';
@@ -8,20 +9,32 @@ import Google from '@/_assets/images/google.png';
 const clientId =
   '1029775309973-gfl61vqsdvnki7fc5l4261einf0rd67n.apps.googleusercontent.com';
 
-function LoginGoogle({mblStyle}) {
+function LoginGoogle({mblStyle, history, location }) {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
-    alert(
-      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-    );
     // refreshTokenSetup(res);
+    const userDetails = { email:res.profileObj.email, firstName:res.profileObj.givenName, lastName:res.profileObj.familyName, imageUrl:res.profileObj.imageUrl }
+    alertService.clear();
+    accountService.loginUsingGoogle(userDetails.email, userDetails.firstName, userDetails.lastName, userDetails.imageUrl).then((resp) => {
+        console.log("resp", resp);
+        if (resp.role == 'Admin') {
+            const { from } = location.state || { from: { pathname: "/admin" } };
+            history.push(from);
+        }
+        else if (resp.role == 'User') {
+            const { from } = location.state || { from: { pathname: "/" } };
+            history.push(from);
+        }
+
+    }).catch(error => {
+        //setSubmitting(false);
+        alertService.error("Email or password is incorrect.");
+    });
   };
 
   const onFailure = (res) => {
     console.log('Login failed: res:', res);
-    alert(
-      `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
-    );
+    alertService.error("Failed to login. 😢");
   };
 
   const { signIn } = useGoogleLogin({
