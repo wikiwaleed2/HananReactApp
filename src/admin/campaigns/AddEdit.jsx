@@ -52,6 +52,8 @@ function AddEdit({ history, match }) {
             .required('Per Entry Coupons is required'),
         couponPrice: Yup.number()
             .required('Coupon Price is required'),
+        category: Yup.array()
+            .required('Category is required'),
         startDate: Yup.string()
             .required('Start Date is required'),
         drawDate: Yup.string()
@@ -72,15 +74,14 @@ function AddEdit({ history, match }) {
     function createCampaign(fields, setSubmitting) {
         console.log("fields", fields);
         console.log("setSubmitting", setSubmitting);
-        campaignsService.create(fields)
-            .then(() => {
-                alertService.success('Campaign added successfully', { keepAfterRouteChange: true });
-                history.push('.');
-            })
-            .catch(error => {
-                setSubmitting(false);
-                alertService.error(error);
-            });
+        
+        campaignsService.create(fields).then(() => {
+            alertService.success('Campaign added successfully', { keepAfterRouteChange: true });
+            history.push('.');
+        }).catch(error => {
+            setSubmitting(false);
+            alertService.error(error);
+        });
     }
 
     function updateCampaign(id, fields, setSubmitting) {
@@ -109,7 +110,7 @@ function AddEdit({ history, match }) {
                         }
                         campaignsService.getById(obj).then(campaign => {
                             console.log("campaign", campaign);
-                            const fields = ['name', 'title', 'description', 'highlights', 'code', 'type', 'status', 'totalCoupons', 'soldCoupons', 'perEntryCoupons', 'couponPrice', 'startDate', 'drawDate'];
+                            const fields = ['name', 'title', 'description', 'highlights', 'code', 'type', 'status', 'totalCoupons', "category", 'soldCoupons', 'perEntryCoupons', 'couponPrice', 'startDate', 'drawDate'];
                             fields.forEach(field => setFieldValue(field, campaign.rows[0][field], false));
                         });
                     }
@@ -150,12 +151,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop</label>
-                                <Field name="shortTitleDescriptionDesktop" type="text"  className={'form-control' + (errors.shortTitleDescriptionDesktop && touched.shortTitleDescriptionDesktop ? ' is-invalid' : '')} />
+                                <Field name="shortTitleDescriptionDesktop" type="text" className={'form-control' + (errors.shortTitleDescriptionDesktop && touched.shortTitleDescriptionDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="shortTitleDescriptionDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile</label>
-                                <Field name="shortTitleDescriptionMobile" type="text"  className={'form-control' + (errors.shortTitleDescriptionMobile && touched.shortTitleDescriptionMobile ? ' is-invalid' : '')} />
+                                <Field name="shortTitleDescriptionMobile" type="text" className={'form-control' + (errors.shortTitleDescriptionMobile && touched.shortTitleDescriptionMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="shortTitleDescriptionMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -167,12 +168,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop</label>
-                                <Field name="shortDescriptionDesktop" type="text"  className={'form-control' + (errors.shortDescriptionDesktop && touched.shortDescriptionDesktop ? ' is-invalid' : '')} />
+                                <Field name="shortDescriptionDesktop" type="text" className={'form-control' + (errors.shortDescriptionDesktop && touched.shortDescriptionDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="shortDescriptionDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile</label>
-                                <Field name="shortDescriptionMobile" type="text"  className={'form-control' + (errors.shortDescriptionMobile && touched.shortDescriptionMobile ? ' is-invalid' : '')} />
+                                <Field name="shortDescriptionMobile" type="text" className={'form-control' + (errors.shortDescriptionMobile && touched.shortDescriptionMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="shortDescriptionMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -184,12 +185,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop</label>
-                                <Field name="editorDesktop" type="text"  className={'form-control' + (errors.editorDesktop && touched.editorDesktop ? ' is-invalid' : '')} />
+                                <Field name="editorDesktop" type="text" className={'form-control' + (errors.editorDesktop && touched.editorDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="editorDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile</label>
-                                <Field name="editorMobile" type="text"  className={'form-control' + (errors.editorMobile && touched.editorMobile ? ' is-invalid' : '')} />
+                                <Field name="editorMobile" type="text" className={'form-control' + (errors.editorMobile && touched.editorMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="editorMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -201,12 +202,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop</label>
-                                <Field name="prizeTitleDesktop" type="text"  className={'form-control' + (errors.prizeTitleDesktop && touched.prizeTitleDesktop ? ' is-invalid' : '')} />
+                                <Field name="prizeTitleDesktop" type="text" className={'form-control' + (errors.prizeTitleDesktop && touched.prizeTitleDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="prizeTitleDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile</label>
-                                <Field name="prizeTitleMobile" type="text"  className={'form-control' + (errors.prizeTitleMobile && touched.prizeTitleMobile ? ' is-invalid' : '')} />
+                                <Field name="prizeTitleMobile" type="text" className={'form-control' + (errors.prizeTitleMobile && touched.prizeTitleMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="prizeTitleMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -218,12 +219,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop</label>
-                                <Field name="partnerNameDesktop" type="text"  className={'form-control' + (errors.partnerNameDesktop && touched.partnerNameDesktop ? ' is-invalid' : '')} />
+                                <Field name="partnerNameDesktop" type="text" className={'form-control' + (errors.partnerNameDesktop && touched.partnerNameDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="partnerNameDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile</label>
-                                <Field name="partnerNameMobile" type="text"  className={'form-control' + (errors.partnerNameMobile && touched.partnerNameMobile ? ' is-invalid' : '')} />
+                                <Field name="partnerNameMobile" type="text" className={'form-control' + (errors.partnerNameMobile && touched.partnerNameMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="partnerNameMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -242,6 +243,34 @@ function AddEdit({ history, match }) {
                                 <label>Status</label>
                                 <Field name="status" type="text" className={'form-control' + (errors.status && touched.status ? ' is-invalid' : '')} />
                                 <ErrorMessage name="status" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-4">
+                                <label>Active?</label>
+                                <Field name="active" as="select" className={'form-control' + (errors.active && touched.active ? ' is-invalid' : '')} >
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </Field>
+                                <ErrorMessage name="active" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-4">
+                                <label>Sort</label>
+                                <Field name="sort" type="number" className={'form-control' + (errors.sort && touched.sort ? ' is-invalid' : '')} />
+                                <ErrorMessage name="sort" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-6">
+                                <label>Where to Show?</label>
+                                <Field name="category" component="select" multiple={true} className={'form-control' + (errors.category && touched.category ? ' is-invalid' : '')} >
+                                    <option value="featured">Featured</option>
+                                    <option value="explore">Explore</option>
+                                    <option value="lifestyle">Lifestyle</option>
+                                    <option value="trip">Trip</option>
+                                    <option value="other">Other</option>
+                                </Field>
+                                <ErrorMessage name="category" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         <div className="form-row">

@@ -129,6 +129,21 @@ function AddEdit({ history, match }) {
                             </div>
                         </div>
                         <div className="form-row">
+                        <div className="form-group col-4">
+                                <label>Active?</label>
+                                <Field name="active" as="select" className={'form-control' + (errors.active && touched.active ? ' is-invalid' : '')} >
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </Field>
+                                <ErrorMessage name="active" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group col-5">
+                                <label>Image</label>
+                                <Field name="image" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.image && touched.image ? ' is-invalid' : '')} />
+                                <ErrorMessage name="image" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Start Date</label>
                                 <Field name="startDate" type="datetime-local" className={'form-control' + (errors.startDate && touched.startDate ? ' is-invalid' : '')} />
