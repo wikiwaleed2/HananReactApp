@@ -23,7 +23,7 @@ function post(url, body) {
         credentials: 'include',
         body: JSON.stringify(body)
     };
-    return fetch(url, requestOptions).then(handleResponse).catch(handleResponse);
+    return fetch(url, requestOptions).then(handleResponse).catch(console.log("post catch"));
 }
 
 function put(url, body) {
