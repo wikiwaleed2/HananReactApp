@@ -69,11 +69,7 @@ module.exports = {
 
             //apiUrl: 'http://localhost:4000',
             //graphqlUrlHttp:'http://localhost:5000/graphql',
-            //graphqlUrlWs:'ws://localhost:5000/graphql',
-
-            awsBucketKey: '8lSTaH/oNh7T/uojcngx2RLxN/fHy4DD/lfmleq9',
-            awsAccessKey: 'AKIARVPMJKFUWHUZ2KA5',
-            awsRegion: 'ap-southeast-1',
+            //graphqlUrlWs:'ws://localhost:5000/graphql',',
             apiUrl: 'http://54.179.136.234:4000',
             graphqlUrlHttp: 'http://54.179.136.234:5000/graphql',
             graphqlUrlWs: 'ws://54.179.136.234:5000/graphql',
