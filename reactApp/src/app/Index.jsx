@@ -137,7 +137,8 @@ function App() {
          (pathname === '/active-coupons' && !showFooter) ||
          (pathname === '/create-profile' && !showFooter) ||
          (pathname === '/confirmation' && !showFooter) ||
-         (pathname === '/dream-cart-information' && !showFooter) ? (
+         (pathname === '/dream-cart-information' && !showFooter) ||
+         (pathname === '/dream-cart' && !showFooter) ? (
             <></>
          ) : (
             <Footer />

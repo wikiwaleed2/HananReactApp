@@ -188,8 +188,18 @@
       font-size: 12px;
    }
 
+   .cart-btn {
+      width: 18px;
+      height: auto;
+   }
+
+   .bottle-img {
+      width: 42px;
+      height: 94px;
+   }
+
    .fontSizeNote {
-      font-size: 12px;
+      font-size: 9px;
    }
 
    .DreamCart-Y-line {
@@ -197,15 +207,15 @@
    }
 
    .count-DreamCart {
-      font-size: 25px;
+      font-size: 12px;
    }
 
    .maldivs-trip {
-      font-size: 18px !important;
+      font-size: 14px !important;
    }
 
    .Product-deatils-DreamCart > p {
-      font-size: 14px;
+      font-size: 10px;
    }
 
    .detamCartLeft {
@@ -213,15 +223,15 @@
       justify-content: flex-start !important;
    }
    .PurchaseEntries {
-      font-size: 12px !important;
+      font-size: 10px !important;
    }
 
    .decrementBtn {
-      padding: 0.3rem 0.5rem !important;
+      padding: 0.2rem !important;
    }
 
    .incrementBtn {
-      padding: 0.3rem 0.5rem !important;
+      padding: 0.2rem !important;
    }
 
    .dreamXCart-counter {
@@ -339,7 +349,7 @@
    }
 
    .maldivs-trip {
-      font-size: 25px;
+      font-size: 14px;
    }
 
    .decrementBtn,
@@ -351,7 +361,7 @@
       flex-direction: column-reverse !important;
    }
    .fontSizeNote {
-      font-size: 14px;
+      font-size: 9px;
    }
    .cardNoShowLess768 {
       display: none;

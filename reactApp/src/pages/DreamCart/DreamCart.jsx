@@ -22,7 +22,7 @@ const DreamCart = () => {
                <div className="col-md-4 U-marginX-25">
                   <CardBottom />
                </div>
-               <div className="col-12">
+               <div className="col-12 d-md-block d-none">
                   <NewsLetter />
                </div>
             </div>
