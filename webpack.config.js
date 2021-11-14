@@ -67,12 +67,21 @@ module.exports = {
         // global app config object
         config: JSON.stringify({
 
-            //apiUrl: 'http://localhost:4000',
-            //graphqlUrlHttp:'http://localhost:5000/graphql',
-            //graphqlUrlWs:'ws://localhost:5000/graphql',',
-            apiUrl: 'http://54.179.136.234:4000',
-            graphqlUrlHttp: 'http://54.179.136.234:5000/graphql',
-            graphqlUrlWs: 'ws://54.179.136.234:5000/graphql',
+            // //---------------Local----------------------//,
+            // apiUrl: 'http://localhost:4080',
+            // graphqlUrlHttp: 'http://localhost:6000/graphql',
+            // graphqlUrlWs: 'ws://localhost:6000/graphql',
+
+            // //---------------HTTP----------------------//
+            // apiUrl: 'https://api.dreammakers.ae:4080',
+            // graphqlUrlHttp: 'https://api.dreammakers.ae:6000/graphql',
+            // graphqlUrlWs: 'wss://api.dreammakers.ae:6000/graphql',
+
+
+            //---------------HTTPS SSL----------------------//
+            apiUrl: 'https://api.dreammakers.ae:4000',
+            graphqlUrlHttp: 'https://api.dreammakers.ae:5000/graphql',
+            graphqlUrlWs: 'wss://api.dreammakers.ae:5000/graphql',
         })
     }
 }
