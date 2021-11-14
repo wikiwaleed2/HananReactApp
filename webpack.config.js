@@ -66,11 +66,27 @@ module.exports = {
     externals: {
         // global app config object
         config: JSON.stringify({
+			
+			// //---------------Local----------------------//
+            // awsBucketKey: '8lSTaH/oNh7T/uojcngx2RLxN/fHy4DD/lfmleq9',
+            // awsAccessKey: 'AKIARVPMJKFUWHUZ2KA5',
+            // awsRegion: 'ap-southeast-1',
+            // apiUrl: 'http://localhost:4080',
+            // graphqlUrlHttp: 'http://localhost:6000/graphql',
+            // graphqlUrlWs: 'ws://localhost:6000/graphql',
+			
+			
+			
+			// //---------------HTTP----------------------//
+            // awsBucketKey: '8lSTaH/oNh7T/uojcngx2RLxN/fHy4DD/lfmleq9',
+            // awsAccessKey: 'AKIARVPMJKFUWHUZ2KA5',
+            // awsRegion: 'ap-southeast-1',
+            // apiUrl: 'https://api.dreammakers.ae:4080',
+            // graphqlUrlHttp: 'https://api.dreammakers.ae:6000/graphql',
+            // graphqlUrlWs: 'wss://api.dreammakers.ae:6000/graphql',
 
-            //apiUrl: 'http://localhost:4000',
-            //graphqlUrlHttp:'http://localhost:5000/graphql',
-            //graphqlUrlWs:'ws://localhost:5000/graphql',
 
+			//---------------HTTPS SSL----------------------//
             awsBucketKey: '8lSTaH/oNh7T/uojcngx2RLxN/fHy4DD/lfmleq9',
             awsAccessKey: 'AKIARVPMJKFUWHUZ2KA5',
             awsRegion: 'ap-southeast-1',
