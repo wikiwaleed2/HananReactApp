@@ -74,9 +74,9 @@ module.exports = {
             awsBucketKey: '8lSTaH/oNh7T/uojcngx2RLxN/fHy4DD/lfmleq9',
             awsAccessKey: 'AKIARVPMJKFUWHUZ2KA5',
             awsRegion: 'ap-southeast-1',
-            apiUrl: 'https://dmapi.walztech.com:4000',
-            graphqlUrlHttp: 'http://dmapi.walztech.com:5000/graphql',
-            graphqlUrlWs: 'ws://dmapi.walztech.com:5000/graphql',
+            apiUrl: 'https://api.dreammakers.ae:4000',
+            graphqlUrlHttp: 'https://api.dreammakers.ae:5000/graphql',
+            graphqlUrlWs: 'wss://api.dreammakers.ae:5000/graphql',
         })
     }
 }
