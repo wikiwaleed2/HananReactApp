@@ -2,7 +2,7 @@
    background-color: #fff;
    position: absolute;
    left: 1.5%;
-   top: 15%;
+   top: 12%;
    border-radius: 1rem;
 }
 .dreamCartTitle {
@@ -30,12 +30,23 @@
    display: flex;
    justify-content: center;
    align-items: center;
+
+   @media screen and (max-width: 768px) {
+      height: 16px;
+      width: 16px;
+   }
 }
+
 .dreamCartProcess__circle__dot {
    height: 12px;
    width: 12px;
    background-color: #104a8e;
    border-radius: 50%;
+
+   @media screen and (max-width: 768px) {
+      height: 8px;
+      width: 8px;
+   }
 }
 
 .dreamCartHeading {
@@ -50,6 +61,7 @@
    background-color: #edb200;
    width: 70px;
    height: 4px;
+   border-radius: 10px;
 }
 /* =========================== Card DreamCart =========================== */
 .boxShadow {
@@ -176,6 +188,11 @@
    padding-left: 1rem;
 }
 
+.buttonRound {
+   padding-bottom: 2.5rem;
+   padding-top: 1rem;
+}
+
 /* ============================= ResponsiveNess ============================= */
 
 /* --------------------- Less Then 576 Px --------------------- */
@@ -203,7 +220,7 @@
    }
 
    .DreamCart-Y-line {
-      width: 50px;
+      width: 40px;
    }
 
    .count-DreamCart {
@@ -267,6 +284,7 @@
       border-radius: 50px;
       color: #000 !important;
       background-color: #fff !important;
+      padding: 0.5rem 0;
    }
 
    .marginTop-Sm {
@@ -296,7 +314,7 @@
       width: 15px;
    }
    .dreamCartTitle {
-      font-size: 30px;
+      font-size: 16px;
    }
    .paddingleft-sm {
       padding-left: 2.3rem;
@@ -373,14 +391,14 @@
       font-size: 16px;
    }
    .font-16 {
-      font-size: 16px !important;
+      font-size: 12px !important;
    }
 }
 
 /* =================== Less Then 500px =============== */
 @media (max-width: 500px) {
    .FloarRight-Responsive {
-      font-size: 14px;
+      font-size: 11px;
    }
    .U-marginX-25 {
       margin: 0 15px !important;
