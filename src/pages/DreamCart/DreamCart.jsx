@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Card from '../../_shared/dreamCart/Card';
 import CardBottom from '../../_shared/dreamCart/CardBottom';
@@ -9,6 +9,8 @@ import { NewsLetter } from '../../_shared/newsletter/newsletter';
 
 // import "./dreamCart.css";
 const DreamCart = () => {
+   const [checkoutAsGuest, setCheckoutAsGuest] = useState('guest');
+
    return (
       <div>
          <DreamCartSteper />
@@ -16,13 +18,20 @@ const DreamCart = () => {
          <div className="container containerMedium">
             <div className="row">
                <div className="col-md-8 reverseOrder">
-                  <TermsCondition />
+                  <TermsCondition
+                     checkoutAsGuest={checkoutAsGuest}
+                     onRadioChange={(value) => {
+                        setCheckoutAsGuest(value);
+                     }}
+                  />
                   <DreamCartBanners />
                </div>
                <div className="col-md-4 U-marginX-25">
-                  <CardBottom />
+                  <CardBottom
+                     checkoutAsGuest={checkoutAsGuest === 'notGuest'}
+                  />
                </div>
-               <div className="col-12">
+               <div className="col-12 d-md-block d-none">
                   <NewsLetter />
                </div>
             </div>

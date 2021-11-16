@@ -57,8 +57,6 @@ function App() {
     return (
         <div className={'app-container' + (user && ' bg-light')}>
 
-            {/* <BrowserRouter> */}
-
             <Switch>
 
                 <Route exact path="/google/callback" render= {(props)=> { return handleGoogleAuth(props);} } />
@@ -106,19 +104,11 @@ function App() {
                 <Route exact path="/active-coupons" component={ActiveCoupons}>
                     <Header />
                     <ActiveCoupons />
-                    <Footer />
                 </Route>
-
-                {/* <Route exact path="/checkout">
-               <Header />
-               <Checkout />
-               <Footer />
-            </Route> */}
 
                 <Route exact path="/create-profile" component={CreateProfile}>
                     <Header />
                     <CreateProfile />
-                    <Footer />
                 </Route>
 
                 <Route exact path="/dream-cart" component={DreamCart}>
@@ -130,13 +120,11 @@ function App() {
                 <Route exact path="/dream-cart-information" component={DreamCartInformation}>
                     <Header />
                     <DreamCartInformation />
-                    <Footer />
                 </Route>
 
                 <Route exact path="/confirmation" component={Confirmation}>
                     <Header />
                     <Confirmation />
-                    <Footer />
                 </Route>
 
                 <Route exact path="/faqs" component={FrequentlyAskedQuestions}>
@@ -185,11 +173,8 @@ function App() {
 
                 <Route path="/account/login" component={Login} />
 
-
                 <Redirect from="*" to="/" />
             </Switch>
-            {/* {pathname !== '/user-profile' || (pathname !== '/change-password' && <Footer />)} */}
-            {/* </BrowserRouter> */}
         </div>
     );
 }

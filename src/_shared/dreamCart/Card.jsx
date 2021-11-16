@@ -5,6 +5,7 @@ import Bottle from '../../_assets/dreamCart/Picture1.png';
 import Delete from '../../_assets/dreamCart/delete.png';
 import Minus from '../../_assets/dreamCart/minus.png';
 import Plus from '../../_assets/dreamCart/plus.png';
+
 const Card = () => {
    const [count, setCount] = useState(0);
    const incrementHandler = () => {
@@ -21,41 +22,49 @@ const Card = () => {
                   <div className="d-flex justify-content-between detamCartLeft">
                      <div className="count-DreamCart">1.</div>
                      <div className="Product-DreamCart ">
-                        <img src={Bottle} alt="" />
+                        <img src={Bottle} alt="bottle" className="bottle-img" />
                      </div>
                      <div className="Product-deatils-DreamCart">
                         <div className="maldivs-trip">Maldives Trip</div>
                         <p>Enter to win</p>
-                        <p>
-                           you will rdceived <b>720 dream coins</b> for this
+                        <p className="dream-paragraph">
+                           you will received <b>720 dream coins</b> for this
                            purchase
                         </p>
-                        <p>
+                        <p className="dream-paragraph">
                            In partnership with <b>ABC Tours</b>
                         </p>
                         <p className="d-flex align-items-center">
                            <img src={Delete} alt="delete" />
-                           <span className="ml-1">Remove</span>
+                           <span className="ml-1 dream-paragraph">Remove</span>
                         </p>
                      </div>
                   </div>
                </div>
                <div className="col-5 col-sm-5 col-md-4">
                   <div className="AlignRight">
-                     <div className="maldivs-trip text-center">AED 720</div>
+                     <div className="maldivs-trip text-center ">AED 720</div>
                      <div className="productCount-dreamCart mt-4 mb-2">
                         <button
                            className="decrementBtn"
                            onClick={decrementHandler}
                         >
-                           <img src={Minus} alt="Decrement" />
+                           <img
+                              src={Minus}
+                              alt="Decrement"
+                              className="cart-btn"
+                           />
                         </button>
                         <div className="dreamXCart-counter">{count}</div>
                         <button
                            className="incrementBtn"
                            onClick={incrementHandler}
                         >
-                           <img src={Plus} alt="increment" />
+                           <img
+                              src={Plus}
+                              alt="increment"
+                              className="cart-btn"
+                           />
                         </button>
                      </div>
                      <p className="text-center PurchaseEntries">

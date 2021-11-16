@@ -11,8 +11,6 @@ const CheckoutBtns = (props) => {
                backgroundColor: props.backgroundColor,
                color: props.color,
                border: props.border,
-               paddingBottom: '2.5rem',
-               paddingTop: '1rem',
             }}
          >
             {props.img && (

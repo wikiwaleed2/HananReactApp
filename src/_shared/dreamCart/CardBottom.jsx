@@ -6,8 +6,7 @@ import GooglePlay from '@/_assets/dreamCart/GooglePlay.png';
 import CreditCard from '@/_assets/dreamCart/CreditCard.png';
 import CheckoutBilling from '@/_assets/dreamCart/CheckoutBilling.svg';
 
-const CardBottom = () => {
-   const [Buttons, setButtons] = useState(false);
+const CardBottom = ({ checkoutAsGuest }) => {
    const [HideCheckout, setHideCheckout] = useState(true);
    const [imageShow, setImageShow] = useState(false);
 
@@ -21,13 +20,12 @@ const CardBottom = () => {
    }, []);
 
    const showButtons = () => {
-      setButtons(!Buttons);
       setHideCheckout(!HideCheckout);
    };
 
    return (
       <div className="marginTop-Sm">
-         {Buttons ? (
+         {checkoutAsGuest ? (
             <div className="container-fluid px-0 ">
                <div className="row">
                   <div
@@ -51,8 +49,7 @@ const CardBottom = () => {
                   </div>
                </div>
             </div>
-         ) : null}
-         {HideCheckout ? (
+         ) : (
             <CheckoutBtns
                img={imageShow ? CheckoutBilling : CreditCard}
                text="Countinue for Checkout"
@@ -61,7 +58,7 @@ const CardBottom = () => {
                border="1px solid #707070"
                toggler={showButtons}
             />
-         ) : null}
+         )}
 
          <CheckoutBtns
             img={GooglePlay}

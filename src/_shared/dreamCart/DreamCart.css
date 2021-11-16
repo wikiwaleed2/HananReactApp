@@ -2,7 +2,7 @@
    background-color: #fff;
    position: absolute;
    left: 1.5%;
-   top: 15%;
+   top: 12%;
    border-radius: 1rem;
 }
 .dreamCartTitle {
@@ -30,12 +30,23 @@
    display: flex;
    justify-content: center;
    align-items: center;
+
+   @media screen and (max-width: 768px) {
+      height: 16px;
+      width: 16px;
+   }
 }
+
 .dreamCartProcess__circle__dot {
    height: 12px;
    width: 12px;
    background-color: #104a8e;
    border-radius: 50%;
+
+   @media screen and (max-width: 768px) {
+      height: 8px;
+      width: 8px;
+   }
 }
 
 .dreamCartHeading {
@@ -50,6 +61,7 @@
    background-color: #edb200;
    width: 70px;
    height: 4px;
+   border-radius: 10px;
 }
 /* =========================== Card DreamCart =========================== */
 .boxShadow {
@@ -176,6 +188,11 @@
    padding-left: 1rem;
 }
 
+.buttonRound {
+   padding-bottom: 2.5rem;
+   padding-top: 1rem;
+}
+
 /* ============================= ResponsiveNess ============================= */
 
 /* --------------------- Less Then 576 Px --------------------- */
@@ -188,24 +205,34 @@
       font-size: 12px;
    }
 
+   .cart-btn {
+      width: 18px;
+      height: auto;
+   }
+
+   .bottle-img {
+      width: 42px;
+      height: 94px;
+   }
+
    .fontSizeNote {
-      font-size: 12px;
+      font-size: 9px;
    }
 
    .DreamCart-Y-line {
-      width: 50px;
+      width: 40px;
    }
 
    .count-DreamCart {
-      font-size: 25px;
+      font-size: 12px;
    }
 
    .maldivs-trip {
-      font-size: 18px !important;
+      font-size: 14px !important;
    }
 
    .Product-deatils-DreamCart > p {
-      font-size: 14px;
+      font-size: 10px;
    }
 
    .detamCartLeft {
@@ -213,15 +240,15 @@
       justify-content: flex-start !important;
    }
    .PurchaseEntries {
-      font-size: 12px !important;
+      font-size: 10px !important;
    }
 
    .decrementBtn {
-      padding: 0.3rem 0.5rem !important;
+      padding: 0.2rem !important;
    }
 
    .incrementBtn {
-      padding: 0.3rem 0.5rem !important;
+      padding: 0.2rem !important;
    }
 
    .dreamXCart-counter {
@@ -257,6 +284,7 @@
       border-radius: 50px;
       color: #000 !important;
       background-color: #fff !important;
+      padding: 0.5rem 0;
    }
 
    .marginTop-Sm {
@@ -286,7 +314,7 @@
       width: 15px;
    }
    .dreamCartTitle {
-      font-size: 30px;
+      font-size: 16px;
    }
    .paddingleft-sm {
       padding-left: 2.3rem;
@@ -339,7 +367,7 @@
    }
 
    .maldivs-trip {
-      font-size: 25px;
+      font-size: 14px;
    }
 
    .decrementBtn,
@@ -351,7 +379,7 @@
       flex-direction: column-reverse !important;
    }
    .fontSizeNote {
-      font-size: 14px;
+      font-size: 9px;
    }
    .cardNoShowLess768 {
       display: none;
@@ -363,14 +391,14 @@
       font-size: 16px;
    }
    .font-16 {
-      font-size: 16px !important;
+      font-size: 12px !important;
    }
 }
 
 /* =================== Less Then 500px =============== */
 @media (max-width: 500px) {
    .FloarRight-Responsive {
-      font-size: 14px;
+      font-size: 11px;
    }
    .U-marginX-25 {
       margin: 0 15px !important;
