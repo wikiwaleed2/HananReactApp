@@ -6,7 +6,6 @@ import { alertService } from '@/_services';
 import { picturesService } from '@/_services/pictures.service';
 import moment from 'moment';
 import S3 from 'react-aws-s3';
-import config from 'config';
 
 function AddEdit({ history, match }) {
 

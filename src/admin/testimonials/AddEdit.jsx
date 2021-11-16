@@ -110,6 +110,13 @@ function AddEdit({ history, match }) {
                         </div>
                         <div className="form-row">
                             <div className="form-group col-12">
+                                <label>Profession</label>
+                                <Field name="profession" type="text" className={'form-control' + (errors.profession && touched.profession ? ' is-invalid' : '')} />
+                                <ErrorMessage name="profession" component="div" className="invalid-feedback" />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-12">
                                 <label>Company</label>
                                 <Field name="company" type="text" className={'form-control' + (errors.company && touched.company ? ' is-invalid' : '')} />
                                 <ErrorMessage name="company" component="div" className="invalid-feedback" />
