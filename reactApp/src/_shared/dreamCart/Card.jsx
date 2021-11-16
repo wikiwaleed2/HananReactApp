@@ -107,7 +107,7 @@ const Card = () => {
                   </div>
                </div>
                <div className="horizonatl-line pb-2 order4"></div>
-               <div className="col-10 col-sm-5 col-md-5 inputContainer order3">
+               <div className="col-12 col-sm-5 col-md-5 inputContainer order3">
                   <input
                      type="text"
                      className="form-control"
