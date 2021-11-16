@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './dreamCart.css';
+import './dreamCart.less';
 
 import Bottle from '../../_assets/dreamCart/Picture1.png';
 import Delete from '../../_assets/dreamCart/delete.png';

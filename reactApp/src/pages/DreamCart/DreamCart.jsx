@@ -7,7 +7,7 @@ import DreamCartBanners from '../../_shared/dreamCart/DreamCartBanners';
 import DreamCartSteper from '../../_shared/dreamCart/DreamCartSteper';
 import { NewsLetter } from '../../_shared/newsletter/newsletter';
 
-// import "./dreamCart.css";
+// import "./dreamCart.less";
 const DreamCart = () => {
    const [checkoutAsGuest, setCheckoutAsGuest] = useState('guest');
 

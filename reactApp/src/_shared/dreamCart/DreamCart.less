@@ -2,7 +2,7 @@
    background-color: #fff;
    position: absolute;
    left: 1.5%;
-   top: 12%;
+   top: 15%;
    border-radius: 1rem;
 }
 .dreamCartTitle {
@@ -179,6 +179,29 @@
    padding: 1.2rem;
    margin-bottom: 3rem;
 }
+.card-display-on-hover {
+   // display: none;
+   background-color: #fff;
+   max-height: 0;
+   transition: max-height 0.15s ease-out;
+   overflow: hidden;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   z-index: 99;
+   border: 1px solid rgb(228, 228, 228);
+}
+.show-card-hover {
+   position: relative;
+   &:hover {
+      .card-display-on-hover {
+         max-height: 700px;
+         transition: max-height 0.25s ease-in;
+         // display: block;
+      }
+   }
+}
+
 .OrderSummery {
    display: flex;
    align-items: center;
@@ -415,4 +438,30 @@
    .OrderSummer-container {
       display: none;
    }
+}
+
+// ======================= Hover Effect==============//
+#child0 {
+   height: 0;
+   overflow: hidden;
+   background-color: #dedede;
+   -moz-transition: height 1s ease;
+   -webkit-transition: height 1s ease;
+   -o-transition: height 1s ease;
+   transition: height 1s ease;
+}
+#parent0:hover #child0 {
+   height: auto;
+}
+#child40 {
+   height: 40px;
+   overflow: hidden;
+   background-color: #dedede;
+   -moz-transition: height 1s ease;
+   -webkit-transition: height 1s ease;
+   -o-transition: height 1s ease;
+   transition: height 1s ease;
+}
+#parent40:hover #child40 {
+   height: auto;
 }

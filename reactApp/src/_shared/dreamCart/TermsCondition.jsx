@@ -1,5 +1,5 @@
 import React from 'react';
-import './dreamCart.css';
+import './dreamCart.less';
 
 const TermsCondition = ({ checkoutAsGuest, onRadioChange }) => {
    return (

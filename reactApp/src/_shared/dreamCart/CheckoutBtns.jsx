@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './dreamCart.css';
+import './dreamCart.less';
 
 const CheckoutBtns = (props) => {
    return (
