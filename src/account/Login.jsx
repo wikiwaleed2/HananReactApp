@@ -218,8 +218,8 @@ function Login({ history, location }) {
                                                                 </div>
                                                             </div>
                                                             <button type="submit" disabled={isSubmitting} className="btn btn-default signupBtn LoginBtn" >
-                                                                {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                                                Log In
+                                                                {isSubmitting ? <span className="spinner-border spinner-border-sm mr-1"></span> : 'Log In'}
+                                                                
                                                             </button>
                                                         </div>
 
