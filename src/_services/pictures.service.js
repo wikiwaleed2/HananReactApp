@@ -9,6 +9,7 @@ export const picturesService = {
     getById,
     create,
     update,
+    createBulk,
     delete: _delete,
     picture: picturesSubject.asObservable(),
     get campaignValue() { return picturesSubject.value }
@@ -24,6 +25,10 @@ function getById(obj) {
 
 function create(params) {
     return fetchWrapper.post(`${baseUrl}/create`, params);
+}
+
+function createBulk(params) {
+    return fetchWrapper.post(`${baseUrl}/bulk-create`, params);
 }
 
 function update(id, params) {

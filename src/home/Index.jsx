@@ -41,6 +41,7 @@ import { CampaignCard } from '../_shared/campaign-card/index.jsx';
 import { CounterMobile } from '../_shared/counter-mobile';
 import { SoldCampaign } from '../_shared/sold-campaign/index.jsx';
 import { Link } from 'react-router-dom';
+import { campaignsService } from '@/_services/campaigns.service';
 
 // import Message from '../components/message';
 // import MessageContainer from '../components/messagesContainer';
@@ -63,6 +64,7 @@ export function Home() {
     const [randomPrice, setRandomPrice] = useState('720.00');
     const [showModal, setShowModal] = useState(false);
     const [animateCounter, setAnimateCounter] = useState('');
+    const [campaigns, setCampaigns] = useState([])
     // const [user, setUser] = useState({});
 
     // useEffect(() => {
@@ -71,6 +73,19 @@ export function Home() {
     // }, []);
 
     useEffect(() => {
+
+        let obj = {
+            "limit": 3,
+            "offset": 0,
+            "order": [["id", "DESC"]],
+            "where": { "id": { "$gt": 0 } }
+        }
+        campaignsService.getAll(obj).then((x) => {
+            console.log(x);
+            // setTotalCount(x.count)
+            setCampaigns(x.rows)
+        });
+
         let modal = getCookie("modal");
         if (!modal) {
             setCookie("modal", true, 7);
@@ -189,7 +204,7 @@ export function Home() {
                         clearInterval(counter);
                         return;
                     }
-                }, 20/4000);
+                }, 20 / 4000);
             }
         }
         else if (counterNumber == 13) {
@@ -206,7 +221,7 @@ export function Home() {
                         clearInterval(counter);
                         return;
                     }
-                }, 20/4000);
+                }, 20 / 4000);
             }
         }
         else if (counterNumber == 18) {
@@ -223,7 +238,7 @@ export function Home() {
                         clearInterval(counter);
                         return;
                     }
-                }, 20/4000);
+                }, 20 / 4000);
             }
         }
 
@@ -534,11 +549,24 @@ export function Home() {
 
                         {/* <!-- For Desktop --> */}
 
-                        <FeaturedCampaign videoSrc={false} keyvalue={randomPrice} />
+                        {campaigns.length > 0 ?
 
-                        <FeaturedCampaign videoSrc={false} keyvalue={randomPrice} />
+                            campaigns.map((c) => {
+                               return(
+                                   <FeaturedCampaign videoSrc={false} item={c} keyvalue={randomPrice} />
+                               ) 
+                            })
 
-                        <FeaturedCampaign videoSrc={true} keyvalue={randomPrice} />
+                            :
+
+                            null
+                        }
+
+
+
+                        {/* <FeaturedCampaign videoSrc={false} keyvalue={randomPrice} />
+
+                        <FeaturedCampaign videoSrc={true} keyvalue={randomPrice} /> */}
 
                         {/* <!-- For Mobile --> */}
 

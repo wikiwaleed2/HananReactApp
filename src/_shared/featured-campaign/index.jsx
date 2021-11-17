@@ -10,8 +10,9 @@ import playIcon from '@/_assets/images/play-solid.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { Counter } from '../../_shared/counter/index.jsx';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
-function FeaturedCampaign({ videoSrc, keyValue }) {
+function FeaturedCampaign({ videoSrc, item, keyValue }) {
 
     const [animateCounter, setAnimateCounter] = useState(true);
     const [isPlaying1, setIsPlaying1] = useState(false);
@@ -125,15 +126,15 @@ function FeaturedCampaign({ videoSrc, keyValue }) {
                             <div className="img-cnt">
 
                                 <div className="title-box">
-                                    <h1 className="headingStyle3">Maldives Trip</h1>
+                                    <h1 className="headingStyle3">{item.title}</h1>
                                     <p className="paraStyle1">
-                                        Mesmerizing Maldives With Sun Island
+                                        {item.description}
                                     </p>
                                 </div>
 
                                 <div className="price-box">
-                                    <p className="paraStyle2">Buy a water Bottle and make it yours!</p>
-                                    <h1 className="headingStyle4">AED 720.00</h1>
+                                    <p className="paraStyle2">{item.shortTitleDescriptionDesktop}</p>
+                                    <h1 className="headingStyle4">AED {(item.couponPrice).toFixed(2)}</h1>
                                     <div className="btnStyle2">
                                         <Link to={{ pathname: `/dream-cart` }}>
                                             Buy now
@@ -145,7 +146,7 @@ function FeaturedCampaign({ videoSrc, keyValue }) {
                                 </div>
 
                                 <div className="bottom-box">
-                                    <p className="paraStyle3">Max draw date: December 02, 2021 or <br />when the campaign is sold out. Which ever is earlier.</p>
+                                    <p className="paraStyle3">Max draw date: {moment(item.drawDate).format("MMMM DD, YYYY")} or <br />when the campaign is sold out. Which ever is earlier.</p>
 
                                     <div className="icon" onClick={shareCampaign}>
                                         {!isLoader ?
@@ -160,7 +161,7 @@ function FeaturedCampaign({ videoSrc, keyValue }) {
                                         <div className="misc-box">
                                             <span>
                                                 <img src={couponIcon} alt="" />
-                                                <small>2 tickets<br />per entry</small>
+                                                <small>{item.perEntryCoupons} tickets<br />per entry</small>
                                             </span>
                                             <span>
                                                 <img src={cashAlt} alt="" />
@@ -168,11 +169,11 @@ function FeaturedCampaign({ videoSrc, keyValue }) {
                                             </span>
                                             <span>
                                                 <img src={calendar} alt="" />
-                                                <small>Aug 13, 7:05 PM</small>
+                                                <small>{moment(item.startDate).format("MMM DD, HH:MM A")}</small>
                                             </span>
                                         </div>
 
-                                        <p className="paraStyle3">In partnership with DFRE</p>
+                                        <p className="paraStyle3">In partnership with {item.charityPartnerId}</p>
 
                                     </div>
                                 </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './campaigns.less';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -6,15 +6,45 @@ import * as Yup from 'yup';
 import { alertService } from '@/_services';
 import { campaignsService } from '@/_services/campaigns.service';
 import moment from 'moment';
+import { charityPartnersService } from '@/_services/charity-partners.service';
+import _ from 'lodash';
+import { picturesService } from '@/_services/pictures.service';
+import S3 from 'react-aws-s3';
 
 function AddEdit({ history, match }) {
     const { id } = match.params;
     const isAddMode = !id;
+    // const [imageURL, setImageURL] = useState('')
+    const [charityPartners, setCharityPartners] = useState([]);
+    const [campaignId, setCampaignId] = useState(0);
+    const [bulkPictures, setBulkPictures] = useState([])
+
+    useEffect(() => {
+        let obj = {
+            "limit": 5,
+            "offset": 0,
+            "order": [["id", "ASC"], ["name", "DESC"]],
+            "where": { "id": { "$gt": 0 } }
+        }
+        charityPartnersService.getAll(obj).then((x) => {
+            setCharityPartners(x.rows)
+        });
+    }, [])
 
     const initialValues = {
         name: '',
         title: '',
         description: '',
+        shortTitleDescriptionDesktop: '',
+        shortTitleDescriptionMobile: '',
+        shortDescriptionDesktop: '',
+        shortDescriptionMobile: '',
+        prizeTitleDesktop: '',
+        prizeTitleMobile: '',
+        whereToShow: '',
+        sort: '',
+        active: '',
+        charityPartnerId: '',
         highlights: '',
         code: '',
         type: '',
@@ -36,6 +66,26 @@ function AddEdit({ history, match }) {
             .required('Title is required'),
         description: Yup.string()
             .required('Description is required'),
+        shortTitleDescriptionDesktop: Yup.string()
+            .required('This field is required'),
+        shortTitleDescriptionMobile: Yup.string()
+            .required('This field is required'),
+        shortDescriptionDesktop: Yup.string()
+            .required('This field is required'),
+        shortDescriptionMobile: Yup.string()
+            .required('This field is required'),
+        prizeTitleDesktop: Yup.string()
+            .required('This field is required'),
+        prizeTitleMobile: Yup.string()
+            .required('This field is required'),
+        whereToShow: Yup.array()
+            .required('This field is required'),
+        sort: Yup.string()
+            .required('This field is required'),
+        charityPartnerId: Yup.string()
+            .required('This field is required'),
+        active: Yup.boolean()
+            .required('This field is required'),
         highlights: Yup.string()
             .required('Highlights is required'),
         code: Yup.string()
@@ -52,8 +102,6 @@ function AddEdit({ history, match }) {
             .required('Per Entry Coupons is required'),
         couponPrice: Yup.number()
             .required('Coupon Price is required'),
-        category: Yup.array()
-            .required('Category is required'),
         startDate: Yup.string()
             .required('Start Date is required'),
         drawDate: Yup.string()
@@ -66,6 +114,7 @@ function AddEdit({ history, match }) {
         setStatus();
         if (isAddMode) {
             createCampaign(fields, setSubmitting);
+
         } else {
             updateCampaign(id, fields, setSubmitting);
         }
@@ -74,10 +123,16 @@ function AddEdit({ history, match }) {
     function createCampaign(fields, setSubmitting) {
         console.log("fields", fields);
         console.log("setSubmitting", setSubmitting);
-        
-        campaignsService.create(fields).then(() => {
+        fields.whereToShow = (fields.whereToShow).toString();
+
+        campaignsService.create(fields).then((resp) => {
+            console.log("adding campaign", resp);
             alertService.success('Campaign added successfully', { keepAfterRouteChange: true });
-            history.push('.');
+            setCampaignId(resp.id);
+            fields.id = resp.id;
+            createBulkPictures(fields);
+
+            // history.push('.');
         }).catch(error => {
             setSubmitting(false);
             alertService.error(error);
@@ -85,6 +140,7 @@ function AddEdit({ history, match }) {
     }
 
     function updateCampaign(id, fields, setSubmitting) {
+        fields.whereToShow = (fields.whereToShow).toString();
         campaignsService.update(id, fields)
             .then(() => {
                 alertService.success('Update successful', { keepAfterRouteChange: true });
@@ -94,6 +150,101 @@ function AddEdit({ history, match }) {
                 setSubmitting(false);
                 alertService.error(error);
             });
+    }
+
+    // For Images
+
+    const configObj = {
+        bucketName: 'dreammakersbucket',
+        dirName: 'pictures',
+        region: process.env.REACT_APP_AWS_REGION,
+        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_AWS_BUCKET_KEY
+    }
+
+
+    function createBulkPictures(fields) {
+
+
+        console.log("fields create pic", fields);
+        console.log("bulkPictures before", bulkPictures);
+
+
+        // let _updated = _.forEach(bulkPictures, (p) => {
+        let _updated = bulkPictures;
+
+        for (let i = 0; i <= _updated.length - 1; i++) {
+            _updated[i].title = fields.title;
+            _updated[i].name = fields.name;
+            _updated[i].description = fields.description;
+            _updated[i].campaignId = fields.id;
+        }
+
+        setBulkPictures(_updated);
+        // });
+
+        console.log("updated", _updated);
+        console.log("updated bulkPictures", bulkPictures);
+
+        picturesService.createBulk(_updated)
+            .then(() => {
+                alertService.success('Pictures added successfully', { keepAfterRouteChange: true });
+                history.push('.');
+            })
+            .catch(error => {
+                setSubmitting(false);
+                alertService.error(error);
+            });
+    }
+
+    // function updatePicture(id, fields, setSubmitting) {
+    //     if (imageURL) {
+    //         fields.url = imageURL;
+    //     }
+    //     picturesService.update(id, fields)
+    //         .then(() => {
+    //             alertService.success('Update successful', { keepAfterRouteChange: true });
+    //             history.push('..');
+    //         })
+    //         .catch(error => {
+    //             setSubmitting(false);
+    //             alertService.error(error);
+    //         });
+    // }
+
+    let uploadPicture = (e, type) => {
+        // setIsSubmit(true);
+        const reactS3Client = new S3(configObj);
+        console.log("event uplaod==>", e);
+        reactS3Client.uploadFile(e.target.files[0], e.target.files[0].name).then((data) => {
+            // setIsSubmit(false);
+            // setImageURL(data.location);
+            // let _pictures = [];
+            let imgObj = {
+                name: '',
+                title: '',
+                description: '',
+                alt: '',
+                url: data.location,
+                type: type,
+                status: 'active',
+                campaignId: campaignId,
+                createdDate: moment().format("YYYY-MM-DD HH:mm:ss"),
+                updatedDate: moment().format("YYYY-MM-DD HH:mm:ss")
+            }
+
+            // _pictures.push(imgObj);
+            
+            let _arr = bulkPictures;
+            _arr.push(imgObj);
+            setBulkPictures(_arr);
+            // console.log("_pictures", _pictures);
+            console.log("bulk pictures push=>", bulkPictures);
+
+        }).catch(error => {
+            // setIsSubmit(false);
+            console.log(error);
+        });
     }
 
     return (
@@ -110,7 +261,7 @@ function AddEdit({ history, match }) {
                         }
                         campaignsService.getById(obj).then(campaign => {
                             console.log("campaign", campaign);
-                            const fields = ['name', 'title', 'description', 'highlights', 'code', 'type', 'status', 'totalCoupons', "category", 'soldCoupons', 'perEntryCoupons', 'couponPrice', 'startDate', 'drawDate'];
+                            const fields = ['name', 'title', 'description', 'shortTitleDescriptionDesktop', 'shortTitleDescriptionMobile', 'shortDescriptionDesktop', 'shortDescriptionMobile', 'prizeTitleDesktop', 'prizeTitleMobile', 'whereToShow', 'sort', 'active', 'charityPartnerId', 'highlights', 'code', 'type', 'status', 'totalCoupons', 'soldCoupons', 'perEntryCoupons', 'couponPrice', 'startDate', 'drawDate'];
                             fields.forEach(field => setFieldValue(field, campaign.rows[0][field], false));
                         });
                     }
@@ -177,7 +328,7 @@ function AddEdit({ history, match }) {
                                 <ErrorMessage name="shortDescriptionMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
-                        <div className="form-row">
+                        {/* <div className="form-row">
                             <div className="form-group col-5 m-0">
                                 <label>Editor</label>
                             </div>
@@ -193,7 +344,7 @@ function AddEdit({ history, match }) {
                                 <Field name="editorMobile" type="text" className={'form-control' + (errors.editorMobile && touched.editorMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="editorMobile" component="div" className="invalid-feedback" />
                             </div>
-                        </div>
+                        </div> */}
                         <div className="form-row">
                             <div className="form-group col-5 m-0">
                                 <label>Prize Title</label>
@@ -214,18 +365,19 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5 m-0">
                                 <label>Partner Name</label>
-                            </div>
-                        </div>
-                        <div className="form-row">
-                            <div className="form-group col-5">
-                                <label>Desktop</label>
-                                <Field name="partnerNameDesktop" type="text" className={'form-control' + (errors.partnerNameDesktop && touched.partnerNameDesktop ? ' is-invalid' : '')} />
-                                <ErrorMessage name="partnerNameDesktop" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col-5">
-                                <label>Mobile</label>
-                                <Field name="partnerNameMobile" type="text" className={'form-control' + (errors.partnerNameMobile && touched.partnerNameMobile ? ' is-invalid' : '')} />
-                                <ErrorMessage name="partnerNameMobile" component="div" className="invalid-feedback" />
+                                <Field name="charityPartnerId" component="select" className={'form-control' + (errors.charityPartnerId && touched.charityPartnerId ? ' is-invalid' : '')} >
+                                    <option>Select Charity Partner</option>
+                                    {charityPartners.length > 0 ?
+                                        charityPartners.map((c) => {
+                                            return (
+                                                <option value={c.id} key={c.id}>{c.name}</option>
+                                            )
+                                        })
+
+                                        :
+                                        null
+                                    }
+                                </Field>
                             </div>
                         </div>
                         <div className="form-row">
@@ -256,21 +408,24 @@ function AddEdit({ history, match }) {
                             </div>
                             <div className="form-group col-4">
                                 <label>Sort</label>
-                                <Field name="sort" type="number" className={'form-control' + (errors.sort && touched.sort ? ' is-invalid' : '')} />
+                                <Field name="sort" component="select" className={'form-control' + (errors.sort && touched.sort ? ' is-invalid' : '')} >
+                                    <option value="ASC">ASC</option>
+                                    <option value="DESC">DESC</option>
+                                </Field>
                                 <ErrorMessage name="sort" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         <div className="form-row">
                             <div className="form-group col-6">
-                                <label>Where to Show?</label>
-                                <Field name="category" component="select" multiple={true} className={'form-control' + (errors.category && touched.category ? ' is-invalid' : '')} >
+                                <label>Category</label>
+                                <Field name="whereToShow" component="select" multiple={true} className={'form-control' + (errors.whereToShow && touched.whereToShow ? ' is-invalid' : '')} >
                                     <option value="featured">Featured</option>
                                     <option value="explore">Explore</option>
                                     <option value="lifestyle">Lifestyle</option>
                                     <option value="trip">Trip</option>
                                     <option value="other">Other</option>
                                 </Field>
-                                <ErrorMessage name="category" component="div" className="invalid-feedback" />
+                                <ErrorMessage name="whereToShow" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         <div className="form-row">
@@ -303,12 +458,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop Image</label>
-                                <Field name="prizeDesktopImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.prizeDesktopImage && touched.prizeDesktopImage ? ' is-invalid' : '')} />
+                                <Field name="prizeDesktopImage" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'prizeDesktop')} className={'form-control' + (errors.prizeDesktopImage && touched.prizeDesktopImage ? ' is-invalid' : '')} />
                                 <ErrorMessage name="prizeDesktopImage" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile Image</label>
-                                <Field name="prizeMobileImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.prizeMobileImage && touched.prizeMobileImage ? ' is-invalid' : '')} />
+                                <Field name="prizeMobileImage" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'prizeMobile')} className={'form-control' + (errors.prizeMobileImage && touched.prizeMobileImage ? ' is-invalid' : '')} />
                                 <ErrorMessage name="prizeMobileImage" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -320,12 +475,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop Image</label>
-                                <Field name="productDesktopImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.productDesktopImage && touched.productDesktopImage ? ' is-invalid' : '')} />
+                                <Field name="productDesktopImage" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'productDesktop')} className={'form-control' + (errors.productDesktopImage && touched.productDesktopImage ? ' is-invalid' : '')} />
                                 <ErrorMessage name="productDesktopImage" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile Image</label>
-                                <Field name="productMobileImage" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.productMobileImage && touched.productMobileImage ? ' is-invalid' : '')} />
+                                <Field name="productMobileImage" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'productMobile')} className={'form-control' + (errors.productMobileImage && touched.productMobileImage ? ' is-invalid' : '')} />
                                 <ErrorMessage name="productMobileImage" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -337,12 +492,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop Image</label>
-                                <Field name="uspSmallBannerDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspSmallBannerDesktop && touched.uspSmallBannerDesktop ? ' is-invalid' : '')} />
+                                <Field name="uspSmallBannerDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'uspSmallDesktop')} className={'form-control' + (errors.uspSmallBannerDesktop && touched.uspSmallBannerDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="uspSmallBannerDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile Image</label>
-                                <Field name="uspSmallBannerMobile" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspSmallBannerMobile && touched.uspSmallBannerMobile ? ' is-invalid' : '')} />
+                                <Field name="uspSmallBannerMobile" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'uspSmallMobile')} className={'form-control' + (errors.uspSmallBannerMobile && touched.uspSmallBannerMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="uspSmallBannerMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -354,12 +509,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop Image</label>
-                                <Field name="uspBannerDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspBannerDesktop && touched.uspBannerDesktop ? ' is-invalid' : '')} />
+                                <Field name="uspBannerDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'uspDesktop')} className={'form-control' + (errors.uspBannerDesktop && touched.uspBannerDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="uspBannerDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile Image</label>
-                                <Field name="uspBannerMobile" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.uspBannerMobile && touched.uspBannerMobile ? ' is-invalid' : '')} />
+                                <Field name="uspBannerMobile" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'uspMobile')} className={'form-control' + (errors.uspBannerMobile && touched.uspBannerMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="uspBannerMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
@@ -371,12 +526,12 @@ function AddEdit({ history, match }) {
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Desktop Image</label>
-                                <Field name="imageGalleryDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.imageGalleryDesktop && touched.imageGalleryDesktop ? ' is-invalid' : '')} />
+                                <Field name="imageGalleryDesktop" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'galleryDesktop')} className={'form-control' + (errors.imageGalleryDesktop && touched.imageGalleryDesktop ? ' is-invalid' : '')} />
                                 <ErrorMessage name="imageGalleryDesktop" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Mobile Image</label>
-                                <Field name="imageGalleryMobile" type="file" accept=".jpeg,.png,.mp4,.flv" className={'form-control' + (errors.imageGalleryMobile && touched.imageGalleryMobile ? ' is-invalid' : '')} />
+                                <Field name="imageGalleryMobile" type="file" accept=".jpeg,.png,.mp4,.flv" onChange={(e) => uploadPicture(e, 'galleryMobile')} className={'form-control' + (errors.imageGalleryMobile && touched.imageGalleryMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="imageGalleryMobile" component="div" className="invalid-feedback" />
                             </div>
                         </div>
