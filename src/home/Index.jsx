@@ -552,9 +552,12 @@ export function Home() {
                         {campaigns.length > 0 ?
 
                             campaigns.map((c) => {
-                               return(
-                                   <FeaturedCampaign videoSrc={false} item={c} keyvalue={randomPrice} />
-                               ) 
+                                if (c.whereToShow == 'explore') {
+                                    return (
+                                        <FeaturedCampaign videoSrc={false} item={c} keyvalue={randomPrice} />
+                                    )
+                                }
+
                             })
 
                             :
@@ -571,17 +574,23 @@ export function Home() {
                         {/* <!-- For Mobile --> */}
 
                         <div className="row m-block">
-                            <div className="col-sm-12">
-                                <CampaignCard videoSrc={false} />
-                            </div>
+                            {campaigns.length > 0 ?
 
-                            <div className="col-sm-12">
-                                <CampaignCard videoSrc={false} />
-                            </div>
+                                campaigns.map((c) => {
+                                    if (c.whereToShow == 'explore') {
+                                        return (
+                                            <div className="col-sm-12">
+                                                <CampaignCard videoSrc={false} item={c} />
+                                            </div>
+                                        )
+                                    }
 
-                            <div className="col-sm-12">
-                                <CampaignCard videoSrc={true} />
-                            </div>
+                                })
+
+                                :
+
+                                null
+                            }
 
                         </div>
 

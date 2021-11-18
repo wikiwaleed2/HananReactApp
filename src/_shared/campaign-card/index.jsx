@@ -6,14 +6,33 @@ import playIcon from '@/_assets/images/play-solid.svg';
 import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { CounterMobile } from '@/_shared/counter-mobile/index.jsx';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { sharedService } from '@/_services/shared.service';
+import { constantSrv } from '@/_services/constant.service';
+import _ from 'lodash';
 
-export function CampaignCard({ videoSrc, keyValue }) {
+export function CampaignCard({ videoSrc, keyValue, item }) {
 
     // const [animateCounter, setAnimateCounter] = useState(true);
     const [isPlaying1, setIsPlaying1] = useState(false);
     const [soldCount1, setSoldCount1] = useState(0);
     const [randomPrice, setRandomPrice] = useState('720.00');
     const [isLoader, setIsLoader] = useState(false);
+    const [isVideo, setIsVideo] = useState(false);
+
+    useEffect(() => {
+        if (!!item?.pictures) {
+
+            _.forEach(item?.pictures, (p) => {
+                if (p.type == constantSrv.EMediaCategory.prizeDesktop) {
+                    let extension = sharedService.getExtension(p.url);
+                    if (extension == "video") {
+                        setIsVideo(true);
+                    }
+                }
+            });
+        }
+    }, [])
 
     let startCount = (id, value) => {
         let idNumber = id.split('-')[1];
@@ -36,7 +55,7 @@ export function CampaignCard({ videoSrc, keyValue }) {
                         clearInterval(counter);
                         return;
                     }
-                }, 20/4000);
+                }, 20 / 4000);
             }
         }
 
@@ -48,24 +67,16 @@ export function CampaignCard({ videoSrc, keyValue }) {
     }, [])
 
     let playVideo = (id) => {
-        let number = id.split('-')[2];
         let video = document.getElementById(id);
-        // stopVideo();
-        console.log(video);
-        console.log(number);
-        if (number == 1) {
-            if (!!video.paused) {
-                setIsPlaying1(true);
-                video.setAttribute('controls', '');
-                video.play();
-            } else {
-                setIsPlaying1(false);
-                video.removeAttribute('controls');
-                video.pause();
-            }
+        if (video.paused) {
+            video.setAttribute('controls', '');
+            video.play();
+            setIsPlaying1(true);
+        } else {
+            video.removeAttribute('controls');
+            video.pause();
+            setIsPlaying1(false);
         }
-
-
     }
 
     let shareCampaign = () => {
@@ -73,10 +84,22 @@ export function CampaignCard({ videoSrc, keyValue }) {
         let shareData = {
             title: 'Maldives Trip',
             text: 'Mesmerizing Maldives With Sun Island',
-            url: "http://54.179.136.234/prize-details"
+            url: "https://dreammakers.ae/prize-details"
         }
         const sharePromise = navigator.share(shareData);
         setIsLoader(false);
+    }
+
+    let renderMedia = (media, type) => {
+        if (!!item?.pictures) {
+            let mediaUrl;
+            _.forEach(item.pictures, (p) => {
+                if (media == p.type) {
+                    mediaUrl = p.url;
+                }
+            });
+            return mediaUrl;
+        }
     }
 
     return (
@@ -90,56 +113,72 @@ export function CampaignCard({ videoSrc, keyValue }) {
 
             </div>
 
-            <div className="card-img" style={videoSrc ? { backgroundImage: 'none' } : {}}>
+            <div className="card-img" style={isVideo ? { backgroundImage: 'none' } : { backgroundImage: `${renderMedia(constantSrv.EMediaCategory.prizeDesktop, 'img')} !important` }}>
 
-                {videoSrc ?
+                {isVideo ?
                     <div className="feature-video">
 
-                        <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo("feature-video-1")} data-play-video="#feature-video-1">
-                            <img src={playIcon} alt="video play button icon" className="play" />
-                        </button>
+                        {!isPlaying1 ?
+                            <button className="testimonialVideoPlayBtn custom-video-play-btn" onClick={() => playVideo(`feature-mvideo-${item.id}`)} data-play-video={`#feature-mvideo-${item.id}`}>
+                                <img src={playIcon} alt="video play button icon" className="play" />
+                            </button>
+                            :
+                            null
+                        }
 
-                        <video id="feature-video-1" className="testimony-vid-tag mbl-video">
-                            <source src={dummyVideo} type="video/mp4" />
+                        <video id={`feature-mvideo-${item.id}`} className="testimony-vid-tag mbl-video">
+                            <source src={renderMedia(constantSrv.EMediaCategory.prizeDesktop, 'video')} type="video/mp4" />
                         </video>
 
                     </div>
                     :
-                    null}
+                    null
+                }
 
-                <div className="campaigns-card-overlay"></div>
+                {!isPlaying1 ?
 
-                <div className="card-cnt">
+                    <>
 
-                    <h1>Maldives Trip</h1>
+                        <div className="campaigns-card-overlay"></div>
 
-                    <p>WIN FREE MALDIVES HOLIDAY TRIP</p>
+                        <div className="card-cnt">
 
-                    <div className="btnStyle3">
+                            <h1>{item?.title}</h1>
 
-                        <Link to={{ pathname: `/prize-details` }}>
-                            Prize Details
-                        </Link>
+                            <p>{item?.description}</p>
 
-                        <a href="#">Product Details</a>
+                            <div className="btnStyle3">
 
-                    </div>
+                                <Link to={{ pathname: `/prize-details` }}>
+                                    Prize Details
+                                </Link>
 
-                </div>
+                                <a href="#">Product Details</a>
 
-                <div className="btl-img">
+                            </div>
 
-                    <img src={bottle} alt="" />
+                        </div>
 
-                </div>
+                        <div className="btl-img">
 
-                <div className="card-icon" onClick={shareCampaign}>
-                    {!isLoader ?
-                        <img src={shareIcon} />
-                        :
-                        <span className="spinner-border spinner-border-sm"></span>
-                    }
-                </div>
+                            <img src={item ? renderMedia(constantSrv.EMediaCategory.productDesktop, 'img') : bottle} alt="" />
+
+                        </div>
+
+                        <div className="card-icon" onClick={shareCampaign}>
+                            {!isLoader ?
+                                <img src={shareIcon} />
+                                :
+                                <span className="spinner-border spinner-border-sm"></span>
+                            }
+                        </div>
+
+                    </>
+
+                    :
+
+                    null
+                }
 
             </div>
 
@@ -149,9 +188,9 @@ export function CampaignCard({ videoSrc, keyValue }) {
 
                     <div>
 
-                        <p>Buy a water Bottle</p>
+                        <p>{item?.shortTitleDescriptionDesktop}</p>
 
-                        <h3>AED {randomPrice}</h3>
+                        <h3>AED {item?.couponPrice ? (item?.couponPrice).toFixed(2) : 0.00}</h3>
 
                     </div>
 
@@ -161,7 +200,7 @@ export function CampaignCard({ videoSrc, keyValue }) {
 
                 </div>
 
-                <p className="small-text">Max draw date: December 02, 2021 or when the campaign
+                <p className="small-text">Max draw date: {moment(item?.drawDate).format("MMMM DD, YYYY")} or when the campaign
                     is sold out. Which ever is earlier.</p>
 
             </div>

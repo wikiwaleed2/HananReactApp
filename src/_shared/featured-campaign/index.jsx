@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
 import shareIcon from '@/_assets/images/social-share.png';
 import maldives from '@/_assets/images/four-seasons-landaa-giraavaru.png';
@@ -11,13 +11,31 @@ import dummyVideo from '@/_assets/images/dummy-video.mp4';
 import { Counter } from '../../_shared/counter/index.jsx';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { sharedService } from '@/_services/shared.service';
+import { constantSrv } from '@/_services/constant.service';
+import _ from 'lodash';
 
-function FeaturedCampaign({ videoSrc, item, keyValue }) {
+export function FeaturedCampaign({ videoSrc, item, keyValue }) {
 
     const [animateCounter, setAnimateCounter] = useState(true);
     const [isPlaying1, setIsPlaying1] = useState(false);
     const [soldCount1, setSoldCount1] = useState(0);
     const [isLoader, setIsLoader] = useState(false);
+    const [isVideo, setIsVideo] = useState(false);
+
+    useEffect(() => {
+        console.log("item==>", item);
+        _.forEach(item.pictures, (p) => {
+            if (p.type == constantSrv.EMediaCategory.prizeDesktop) {
+                let extension = sharedService.getExtension(p.url);
+                console.log("extension", extension);
+                if (extension == "video") {
+                    // alert()
+                    setIsVideo(true);
+                }
+            }
+        });
+    }, [])
 
     let startCount = (id, value) => {
         let el = document.getElementById(id);
@@ -38,7 +56,7 @@ function FeaturedCampaign({ videoSrc, item, keyValue }) {
                         clearInterval(counter);
                         return;
                     }
-                }, 20/4000);
+                }, 20 / 4000);
             }
         }
 
@@ -69,10 +87,22 @@ function FeaturedCampaign({ videoSrc, item, keyValue }) {
         let shareData = {
             title: 'Maldives Trip',
             text: 'Mesmerizing Maldives With Sun Island',
-            url: "http://54.179.136.234/prize-details"
+            url: "https://dreammakers.ae/prize-details"
         }
         const sharePromise = navigator.share(shareData);
         setIsLoader(false);
+    }
+
+    let renderMedia = (media, type) => {
+        if (!!item.pictures) {
+            let mediaUrl;
+            _.forEach(item.pictures, (p) => {
+                if (media == p.type) {
+                    mediaUrl = p.url;
+                }
+            });
+            return mediaUrl;
+        }
     }
 
     return (
@@ -89,7 +119,7 @@ function FeaturedCampaign({ videoSrc, item, keyValue }) {
 
                             <div className="image">
 
-                                {videoSrc ?
+                                {isVideo ?
                                     <div className="feature-video">
 
                                         {!isPlaying1 ?
@@ -100,17 +130,17 @@ function FeaturedCampaign({ videoSrc, item, keyValue }) {
                                             null}
 
                                         <video id="feature-video-1" className="feature-vid-tag">
-                                            <source src={dummyVideo} type="video/mp4" />
+                                            <source src={renderMedia(constantSrv.EMediaCategory.prizeDesktop, 'video')} type="video/mp4" />
                                         </video>
 
                                     </div>
                                     :
-                                    <img src={maldives} alt="" />
+                                    <img src={renderMedia(constantSrv.EMediaCategory.prizeDesktop, 'img')} alt="" />
                                 }
 
                                 {!isPlaying1 ?
                                     <div className="bottel-img">
-                                        <img src={bottle} alt="" />
+                                        <img src={renderMedia(constantSrv.EMediaCategory.productDesktop, 'img')} alt="" />
                                     </div>
                                     :
                                     null
@@ -235,4 +265,5 @@ function FeaturedCampaign({ videoSrc, item, keyValue }) {
 
 }
 
-export { FeaturedCampaign };
+export const MemoizedFeaturedCampaign = React.memo(FeaturedCampaign);
+// export { FeaturedCampaign };

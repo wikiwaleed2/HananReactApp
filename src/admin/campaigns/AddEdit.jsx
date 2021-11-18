@@ -132,7 +132,7 @@ function AddEdit({ history, match }) {
             fields.id = resp.id;
             createBulkPictures(fields);
 
-            // history.push('.');
+            history.push('.');
         }).catch(error => {
             setSubmitting(false);
             alertService.error(error);
@@ -141,9 +141,14 @@ function AddEdit({ history, match }) {
 
     function updateCampaign(id, fields, setSubmitting) {
         fields.whereToShow = (fields.whereToShow).toString();
+
         campaignsService.update(id, fields)
             .then(() => {
                 alertService.success('Update successful', { keepAfterRouteChange: true });
+                setCampaignId(id);
+                fields.id = id;
+                createBulkPictures(fields);
+
                 history.push('..');
             })
             .catch(error => {
@@ -162,9 +167,7 @@ function AddEdit({ history, match }) {
         secretAccessKey: process.env.REACT_APP_AWS_BUCKET_KEY
     }
 
-
     function createBulkPictures(fields) {
-
 
         console.log("fields create pic", fields);
         console.log("bulkPictures before", bulkPictures);
@@ -234,7 +237,7 @@ function AddEdit({ history, match }) {
             }
 
             // _pictures.push(imgObj);
-            
+
             let _arr = bulkPictures;
             _arr.push(imgObj);
             setBulkPictures(_arr);
@@ -310,6 +313,7 @@ function AddEdit({ history, match }) {
                                 <Field name="shortTitleDescriptionMobile" type="text" className={'form-control' + (errors.shortTitleDescriptionMobile && touched.shortTitleDescriptionMobile ? ' is-invalid' : '')} />
                                 <ErrorMessage name="shortTitleDescriptionMobile" component="div" className="invalid-feedback" />
                             </div>
+                            
                         </div>
                         <div className="form-row">
                             <div className="form-group col-5 m-0">
