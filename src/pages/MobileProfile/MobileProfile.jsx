@@ -14,14 +14,14 @@ import { Doughnut } from '@/_shared/doughnut/doughnut';
 import { PROFILE_BUTTONS } from '@/_shared/profile-card/profile-card';
 import { ProfileCardButton } from '@/_shared/ProfileCardButton/ProfileCardButton';
 
-const TESTIMONIAL_BUTTONS = [
+export const TESTIMONIAL_BUTTONS = [
    { id: 1, image: DreamIcon, label: 'About Dream Makers' },
    { id: 2, image: TestimonialIcon, label: 'Testimonials' },
    { id: 3, image: WinnersIcon, label: 'Winners' },
    { id: 4, image: HowItWorksIcon, label: 'How it Works' },
 ];
 
-function MobileProfile() {
+export const MobileProfile = () => {
    return (
       <div className="py-4 px-4">
          <div className="text-center">
@@ -97,5 +97,3 @@ function MobileProfile() {
       </div>
    );
 };
-
-export { MobileProfile };

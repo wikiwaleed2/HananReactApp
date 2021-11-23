@@ -552,7 +552,7 @@ export function Home() {
                         {campaigns.length > 0 ?
 
                             campaigns.map((c) => {
-                                if (c.whereToShow == 'explore') {
+                                if (c.whereToShow.includes('explore') || c.whereToShow.contains('featured')) {
                                     return (
                                         <FeaturedCampaign videoSrc={false} item={c} keyvalue={randomPrice} />
                                     )
@@ -577,7 +577,7 @@ export function Home() {
                             {campaigns.length > 0 ?
 
                                 campaigns.map((c) => {
-                                    if (c.whereToShow == 'explore') {
+                                    if (c.whereToShow.includes('explore') || c.whereToShow.contains('featured')) {
                                         return (
                                             <div className="col-sm-12">
                                                 <CampaignCard videoSrc={false} item={c} />
@@ -586,7 +586,6 @@ export function Home() {
                                     }
 
                                 })
-
                                 :
 
                                 null
@@ -625,7 +624,7 @@ export function Home() {
                             {(() => {
 
                                 let settings = {
-                                    infinite: true,
+                                    infinite: false,
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
                                     autoplay: false,
@@ -675,22 +674,23 @@ export function Home() {
                                 return (
                                     <Slider {...settings} afterChange={() => showPrice("7")}>
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
+                                        {campaigns.length > 0 ?
 
-                                        </div>
+                                            campaigns.map((c) => {
+                                                if (c.whereToShow.includes('other')) {
+                                                    return (
+                                                        <div>
+                                                            <CampaignCard videoSrc={false} item={c} keyValue={randomPrice} />
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
-                                        </div>
+                                                        </div>
+                                                    )
+                                                }
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
-                                        </div>
+                                            })
+                                            :
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} keyValue={randomPrice} />
-                                        </div>
+                                            null
+                                        }
 
 
                                     </Slider>
@@ -759,7 +759,7 @@ export function Home() {
                             {(() => {
 
                                 let settings = {
-                                    infinite: true,
+                                    infinite: false,
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
                                     autoplay: false,
@@ -811,21 +811,22 @@ export function Home() {
                                 return (
                                     <Slider {...settings} afterChange={() => showPrice("13")}>
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                        {campaigns.length > 0 ?
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                            campaigns.map((c) => {
+                                                if (c.whereToShow.includes('lifestyle')) {
+                                                    return (
+                                                        <div>
+                                                            <CampaignCard videoSrc={false} item={c} />
+                                                        </div>
+                                                    )
+                                                }
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                            })
+                                            :
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                            null
+                                        }
 
 
                                     </Slider>
@@ -894,7 +895,7 @@ export function Home() {
                             {(() => {
 
                                 let settings = {
-                                    infinite: true,
+                                    infinite: false,
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
                                     autoplay: false,
@@ -946,21 +947,22 @@ export function Home() {
                                 return (
                                     <Slider {...settings} afterChange={() => showPrice("18")}>
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                        {campaigns.length > 0 ?
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                            campaigns.map((c) => {
+                                                if (c.whereToShow.includes('trip')) {
+                                                    return (
+                                                        <div>
+                                                            <CampaignCard videoSrc={false} item={c} />
+                                                        </div>
+                                                    )
+                                                }
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                            })
+                                            :
 
-                                        <div>
-                                            <CampaignCard videoSrc={false} />
-                                        </div>
+                                            null
+                                        }
 
 
                                     </Slider>
@@ -1019,7 +1021,7 @@ export function Home() {
                             {(() => {
 
                                 let settings = {
-                                    infinite: true,
+                                    infinite: false,
                                     slidesToShow: 4,
                                     slidesToScroll: 1,
                                     autoplay: false,
@@ -1071,26 +1073,22 @@ export function Home() {
                                 return (
                                     <Slider {...settings}>
 
+                                        {campaigns.length > 0 ?
 
-                                        <div>
-                                            <SoldCampaign />
-                                        </div>
+                                            campaigns.map((c) => {
+                                                if (c.whereToShow.includes('trip')) {
+                                                    return (
+                                                        <div>
+                                                            <SoldCampaign videoSrc={false} item={c} />
+                                                        </div>
+                                                    )
+                                                }
 
-                                        <div>
-                                            <SoldCampaign />
-                                        </div>
+                                            })
+                                            :
 
-                                        <div>
-                                            <SoldCampaign />
-                                        </div>
-
-                                        <div>
-                                            <SoldCampaign />
-                                        </div>
-
-                                        <div>
-                                            <SoldCampaign />
-                                        </div>
+                                            null
+                                        }
 
                                     </Slider>
 

@@ -140,10 +140,10 @@ const DreamCartInformation = () => {
                      </div>
                   </div>
                </div>
-               <div className="col-md-12 col-lg-7 cardNoShowLess768">
+               <div className="col-md-12 col-lg-7 py-4 cardNoShowLess768">
                   <Card />
                </div>
-               <div className="col-12">
+               <div className="col-12 d-md-block d-none">
                   <NewsLetter />
                </div>
             </div>
