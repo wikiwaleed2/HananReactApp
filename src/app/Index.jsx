@@ -23,6 +23,7 @@ import DreamCart from '../pages/DreamCart/DreamCart';
 import DreamCartInformation from '../pages/DreamCartInformation/DreamCartInformation';
 import Confirmation from '../pages/Confirmation/Confirmation';
 import { FrequentlyAskedQuestions } from '../pages/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
+import { QrCodeScanner } from '../pages/qrcode/QrCodeScanner';
 import { WinnersList } from '../pages/winners/winners-list/winners-list';
 import { GetInTouch } from '../pages/GetInTouch/GetInTouch';
 import Winners from '../pages/winners/winners';
@@ -165,6 +166,11 @@ function App() {
                 <Route exact path="/user-profile" component={MobileProfile}>
                     <Header />
                     <MobileProfile />
+                </Route>
+
+                <Route exact path="/scan-qr-code">
+                    <Header />
+                    <QrCodeScanner />
                 </Route>
 
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
